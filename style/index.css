@@ -1,0 +1,95 @@
+/*COLOCANDO COR DE FUNDO NO CABEÇALHO*/
+header {
+background-color: #293142;
+font-family: "Ubuntu", sans-serif;
+color: #ffffff;
+border-color: #576270;
+border-width: 1px;
+border-style: solid;
+
+}
+nav a{
+color: #ffffff;
+text-decoration: none;
+margin: 0 10px ;
+font-family: "Ubuntu", sans-serif;
+font-size: 16px;
+
+
+}
+
+nav{
+    text-align: center;
+    background-color: #02153D;
+    height: 50px;
+    width: auto;
+    align-items: center;
+    display: flex;
+     justify-content: center;
+}
+
+
+.logo img{
+    height:60px;
+    width: 60px;
+
+}
+
+/*configurando caixa de pesquisa*/
+.caixa-pesquisa input{
+padding: 3px;
+border: 1px solid #576270;
+border-radius: 5px; /*arredondamento das bordas do campo de pesquisa*/
+font-family: "Ubuntu", sans-serif; /*fonte do campo de pesquisa*/
+width: 300px; /*altura do campo de pesquisa*/
+color: #576270;
+}
+/*configurando a div de pesquisa*/
+.caixa-pesquisa{
+display: flex; /*exibe os ele,emtos em linhas*/
+justify-content: center; /*alinhamento horizontal dos elementos*/
+margin-top: 15px; /*margem superior da caixa de pesquisa*/
+margin-bottom: 15px; /*margem inferior da caixa de pesquisa*/
+
+}
+/*alinhar as divs do cabeçalho*/
+.topo {
+display: flex; /*exibe os elementos em linha*/
+align-items: center; /*alinhamento vertical dos elementos*/
+justify-content: space-between; /*distribuição dos elementos com espaço entre eles*/
+padding: 10px; /*distância entre as bordas do cabeçalho*/
+
+}
+/*configurando os icones*/
+.icones a img{
+height: 25px;
+width: 25px;
+margin-right: 20px;
+
+}
+
+/*configurando o texto do icone de usuário*/
+
+.icones a small{
+    font-size: 10px;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+}
+.icones a{
+text-decoration: none;
+
+}
+
+/*configurando a div icones*/
+.icones{
+display: flex;
+align-items: center;
+gap: 25px;
+
+}
+
+
+
+
+
