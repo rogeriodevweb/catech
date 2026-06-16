@@ -1,117 +1,333 @@
-/*COLOCANDO COR DE FUNDO NO CABEÇALHO*/
-header {
-background-color: #293142;
-font-family: "Ubuntu", sans-serif;
-color: #ffffff;
-border-color: #576270;
-border-width: 1px;
-border-style: solid;
+    /*COLOCANDO COR DE FUNDO NO CABEÇALHO*/
+    header {
+        background-color: #293142;
+        font-family: "Ubuntu", sans-serif;
+        color: #ffffff;
+        border-color: #576270;
+        border-width: 1px;
+        border-style: solid;
 
-}
-nav a{
-color: #ffffff;
-text-decoration: none;
-margin: 0 45px ;
-font-family: "Ubuntu", sans-serif;
-font-size: 30px;
+    }
 
-
-}
-
-nav{
-    text-align: center;
-    background-color: #02153D;
-    height: 50px;
-    width: auto;
-    align-items: center;
-    display: flex;
-     justify-content: center;
-border-color: #5f5e61;
-border-width: 1px;
-border-style: solid;
-}
+    nav a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 45px;
+        font-family: "Ubuntu", sans-serif;
+        font-size: 30px;
 
 
-.logo img{
-    height:100px;
-    width: 100px;
-margin-left: 70px;
-}
+    }
 
-/*configurando caixa de pesquisa*/
-.caixa-pesquisa input{
-padding: 7px;
-border: 1px solid #576270;
-border-radius: 5px; /*arredondamento das bordas do campo de pesquisa*/
-font-family: "Ubuntu", sans-serif; /*fonte do campo de pesquisa*/
-width: 400px; /*altura do campo de pesquisa*/
-color: #576270;
-}
-/*configurando a div de pesquisa*/
-.caixa-pesquisa{
-display: flex; /*exibe os elememtos em linhas*/
-justify-content: center; /*alinhamento horizontal dos elementos*/
-margin-top: 30px; /*margem superior da caixa de pesquisa*/
-margin-bottom: 30px; /*margem inferior da caixa de pesquisa*/
+    nav {
+        text-align: center;
+        background-color: #02153D;
+        height: 50px;
+        width: auto;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        border-color: #5f5e61;
+        border-width: 1px;
+        border-style: solid;
+    }
 
-}
-/*alinhar as divs do cabeçalho*/
-.topo {
-display: flex; /*exibe os elementos em linha*/
-align-items: center; /*alinhamento vertical dos elementos*/
-justify-content: space-between; /*distribuição dos elementos com espaço entre eles*/
-padding: 10px; /*distância entre as bordas do cabeçalho*/
 
-}
-/*configurando os icones*/
-.icones a img{
-height: 30px;
-width: 30px;
-margin-right: 20px;
-grid-row: 1 / 3; /*agrupa as duas linhas da grade para alinhar os icones verticalmente*/
+    .logo img {
+        height: 100px;
+        width: 100px;
+        margin-left: 70px;
+    }
 
-}
+    /*configurando caixa de pesquisa*/
+    .caixa-pesquisa input {
+        padding: 7px;
+        border: 1px solid #576270;
+        border-radius: 5px;
+        /*arredondamento das bordas do campo de pesquisa*/
+        font-family: "Ubuntu", sans-serif;
+        /*fonte do campo de pesquisa*/
+        width: 400px;
+        /*altura do campo de pesquisa*/
+        color: #576270;
+    }
 
-/*configurando o texto do icone de usuário*/
+    /*configurando a div de pesquisa*/
+    .caixa-pesquisa {
+        display: flex;
+        /*exibe os elememtos em linhas*/
+        justify-content: center;
+        /*alinhamento horizontal dos elementos*/
+        margin-top: 30px;
+        /*margem superior da caixa de pesquisa*/
+        margin-bottom: 30px;
+        /*margem inferior da caixa de pesquisa*/
 
-.icones a small{
-    font-size: 15px;
-    display: block;
-    color: #ffffff;
-    text-decoration: none;
-    grid-column: 2;
-    grid-row: 1;
-    margin: 0;
-}
-.icones a{
-text-decoration: none;
-display: grid;
-grid-template-columns: 35px auto;
-grid-template-rows: auto auto;
-grid-column: 2;
-grid-row: 2;
-margin: 0;
+    }
 
-margin: 30px;
-}
+    /*alinhar as divs do cabeçalho*/
+    .topo {
+        display: flex;
+        /*exibe os elementos em linha*/
+        align-items: center;
+        /*alinhamento vertical dos elementos*/
+        justify-content: space-between;
+        /*distribuição dos elementos com espaço entre eles*/
+        padding: 10px;
+        /*distância entre as bordas do cabeçalho*/
 
-/*configurando a div icones*/
-.icones{
-display: flex; /*exibe os elementos em linha*/
-align-items: center; /*alinhamento verticl dos elementos*/
-gap: 30px; /*diatância dos elementos*/
+    }
 
-}
-/* conifgurando a area do banner*/
-.imagens-banner img{
-max-width: 1889px; /*largura do banner*/
+    /*configurando os icones*/
+    .icones a img {
+        height: 30px;
+        width: 30px;
+        margin-right: 20px;
+        grid-row: 1 / 3;
+        /*agrupa as duas linhas da grade para alinhar os icones verticalmente*/
 
-}
+    }
 
-.banner{
-display: flex;
-justify-content: space-between;
-align-items: center;
+    /*configurando o texto do icone de usuário*/
 
-}
+    .icones a small {
+        font-size: 15px;
+        display: block;
+        color: #ffffff;
+        text-decoration: none;
+        grid-column: 2;
+        grid-row: 1;
+        margin: 0;
+    }
+
+    .icones a {
+        text-decoration: none;
+        display: grid;
+        grid-template-columns: 35px auto;
+        grid-template-rows: auto auto;
+        grid-column: 2;
+        grid-row: 2;
+        margin: 0;
+
+        margin: 30px;
+    }
+
+    /*configurando a div icones*/
+    .icones {
+        display: flex;
+        /*exibe os elementos em linha*/
+        align-items: center;
+        /*alinhamento vertical dos elementos*/
+        gap: 30px;
+        /*distância dos elementos*/
+
+    }
+
+    /* conifgurando a area do banner*/
+    .imagens-banner img {
+        max-width: 100%;
+        /*largura do banner*/
+
+    }
+
+    .banner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .imagens-banner {
+        width: 100%;
+        /*LARGURA DA DIV DO BANNER */
+        position: relative;
+        /*POSIÇÃO RELATIVA PARA POSICIONAR OS BOTÕES DO BANNER */
+    }
+
+    .btn-comprar {
+        position: absolute;
+        /*POSIÇÃO ABSOLUTA PARA POSICIONAR O BOTÃO COMPRAR EM RELAÇÃO AO BANNER*/
+        top: 110%;
+        /*POSIÇÃO DO BOTÃO COMPRAR EM RELAÇÃO AO BANNER*/
+        left: 80%;
+        /*POSIÇÃO DO BOTÃO COMPRAR EM RELAÇÃO AO BANNER*/
+        color: #FFFFFF;
+        /*COR DO TEXTO DO BOTÃO COMPRAR*/
+        border-radius: 10px;
+        /*ARREDONDAMENTO DAS BORDAS DO BOTÃO COMPRAR*/
+        font-family: poppins, sans-serif;
+        /*FONTE DO BOTÃO COMPRAR*/
+        font-size: 50px;
+        /*TAMANHO DA FONTE DO BOTÃO COMPRAR*/
+        padding: 5px 20px;
+        /*DISTÂNCIA ENTRE O TEXTO DO BOTÃO COMPRAR E AS BORDAS DO BOTÃO COMPRAR*/
+        border: none;
+        /*REMOVE A BORDA DO BOTÃO COMPRAR*/
+    }
+
+    .btn-anterior {
+        position: absolute;
+        top: 50%;
+        left: 2%;
+        background-color: #FFFFFF;
+        color: #A21D54;
+        border-radius: 50%;
+        border: none;
+        padding: 10px;
+    }
+
+    .btn-proximo {
+        position: absolute;
+        top: 50%;
+        left: 93%;
+        background-color: #FFFFFF;
+        color: #A21D54;
+        border-radius: 50%;
+        border: none;
+        padding: 10px;
+
+    }
+
+    .btn-comprar:hover {
+        background-color: #f1f1f1;
+        color: #A21D54;
+    }
+
+    .btn-anterior:hover,
+    .btn-proximo:hover {
+        background-color: #A21D54;
+        /*COR DE FUNDO DOS BOTÕES ANTERIOR E PRÓXIMO AO PASSAR O MOUSE POR CIMA*/
+        color: #FFFFFF;
+        /*COR DO TEXTO DOS BOTÕES ANTERIOR E PRÓXIMO AO PASSAR O MOUSE POR CIMA*/
+    }
+
+    /*Configurando area de ofertas*/
+    .Ofertas {
+        padding: 20px;
+        /*DISTANCIA ENTRE O CONTEUDO DA DIV DE OFERTAS E AS BORDAS DA DIV */
+
+
+    }
+
+    /*configurando os textos das ofertas*/
+    .titulo-ofertas {
+        font-family: Ubuntu;
+        /*Fonte dos título de ofertas*/
+        display: grid;
+        /*exibe os elementos em grade*/
+        grid-template-columns: 2 80% 20%;
+        /*define o tamanho das colunas*/
+        grid-template-rows: 2 50% 50%;
+        /*define o tamanho das linhas*/
+    }
+
+    .titulo-ofertas h2 {
+        color: #576270;
+        /*cor do titulo de ofertas*/
+        font-size: 24px;
+        /*tamanho da fonte do titulo de ofertas*/
+        grid-column: 1;
+        /*alinhamento do titulo de ofertas*/
+        grid-row: 1;
+        /*alinhamento do titulo de ofertas*/
+        margin: 0;
+        /*remove a margem do titulo de ofertas*/
+
+    }
+
+    .titulo-ofertas p {
+        color: rgb(155, 24, 231);
+        /*cor do subtitulo das ofertas*/
+        font-size: 14px;
+        /*tamanho da fonte*/
+        grid-column: 1;
+        /*ocupa a pr*/
+        grid-row: 2;
+        /**/
+        margin: 0;
+
+    }
+
+    .titulo-ofertas a {
+        text-decoration: none;
+        /*remove o sublinhado do link de ver mais ofertas*/
+        color: rgb(245, 28, 136);
+        /*cor do link de ver mais ofertas*/
+        font-size: 14px;
+        /*cor do link de ver mais ofertas*/
+        grid-column: 2;
+        /*alinhamento do link de ver mais ofertas*/
+        grid-row: 2;
+        /*alinhamento do link de ver mais ofertas*/
+        align-self: center;
+        /*alinhamento vertical do link de ver mais ofertas*/
+        padding-left: 85%;
+        /*alinhamento do link de ver mais ofertas*/
+    }
+
+    .lista-produtos {
+        display: flex;
+        /*exibe os elementos em linha*/
+        justify-content: space-between;
+        /*alinhamento horizontal dos produtos*/
+        font-family: Ubuntu;
+        /*fonte da lista de produtos*/
+        margin-top: 20px;
+        /*distancia entre a lista de produtos e o titulo de ofertas*/
+    }
+
+    .card-produtos {
+        max-width: 200px;
+        width: 23%;
+        /*definindo o tamanho do card de produtos*/
+
+        background: #f1f1f1;
+        /*cor de fundo do card de produtos*/
+        border: 1px solid #ccc;
+        /*cor da borda do card de produtos*/
+        border-radius: 10%;
+        /*arredondamento das bordas do card de produtos*/
+        padding: 10px;
+        /*distancia entre o conteudo do card e as bordas do card*/
+        text-align: center;
+        /*alinhamento do texto no centro do card*/
+
+
+    }
+
+    .card-produtos img {
+        width: 100%;
+        /*ajusta a imagem para preencher a largura do card*/
+        height: auto;
+        /*ajusta a imagem para preencher a largura do card mantendo a proporção*/
+        margin-bottom: 10px;
+        /*distancia entre a imagem e o texto do produto*/
+        border-radius: 10%;
+        /*arredondamento das bordas da imagem do produto*/
+       
+    }
+    .imagem-botao{
+      position: relative;/*posição relativa para posicionar o ícone de favorito em relação ao card de produtos*/
+    }
+    .favorito{
+        position:absolute;/*posição absoluta para posicionar o ícone de favorito em relação ao card de produtos*/
+        border: none;/*remove a borda do ícone de favorito*/
+        border-radius: 50%;/*arredondamento das bordas do ícone de favorito*/
+        background-color: #ffffff;/*cor de fundo do ícone de favorito*/
+        top: 10px;/*posição do ícone de favorito em relação ao card de produtos*/
+        right: 10px;/*posição do ícone de favorito em relação ao card de produtos*/
+        padding: 10px;/*distancia entre o ícone de favorito e as bordas do ícone de favorito*/
+
+
+
+
+    }
+
+
+
+
+
+
+
+
 
