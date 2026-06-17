@@ -2,7 +2,7 @@
     header {
         background-color: #293142;
         font-family: "Ubuntu", sans-serif;
-        color: #ffffff;
+        color: #cfcfcf;
         border-color: #576270;
         border-width: 1px;
         border-style: solid;
@@ -144,58 +144,40 @@
         /*POSIÇÃO RELATIVA PARA POSICIONAR OS BOTÕES DO BANNER */
     }
 
-    .btn-comprar {
-        position: absolute;
-        /*POSIÇÃO ABSOLUTA PARA POSICIONAR O BOTÃO COMPRAR EM RELAÇÃO AO BANNER*/
-        top: 110%;
-        /*POSIÇÃO DO BOTÃO COMPRAR EM RELAÇÃO AO BANNER*/
-        left: 80%;
-        /*POSIÇÃO DO BOTÃO COMPRAR EM RELAÇÃO AO BANNER*/
-        color: #FFFFFF;
-        /*COR DO TEXTO DO BOTÃO COMPRAR*/
-        border-radius: 10px;
-        /*ARREDONDAMENTO DAS BORDAS DO BOTÃO COMPRAR*/
-        font-family: poppins, sans-serif;
-        /*FONTE DO BOTÃO COMPRAR*/
-        font-size: 50px;
-        /*TAMANHO DA FONTE DO BOTÃO COMPRAR*/
-        padding: 5px 20px;
-        /*DISTÂNCIA ENTRE O TEXTO DO BOTÃO COMPRAR E AS BORDAS DO BOTÃO COMPRAR*/
-        border: none;
-        /*REMOVE A BORDA DO BOTÃO COMPRAR*/
-    }
-
     .btn-anterior {
         position: absolute;
-        top: 50%;
+        top: 40%;
         left: 2%;
         background-color: #FFFFFF;
-        color: #A21D54;
+        color: #576270;
         border-radius: 50%;
         border: none;
         padding: 10px;
+
+        
     }
 
     .btn-proximo {
         position: absolute;
-        top: 50%;
+        top: 40%;
         left: 93%;
         background-color: #FFFFFF;
-        color: #A21D54;
+        color: #576270;
         border-radius: 50%;
         border: none;
         padding: 10px;
 
     }
+.btn-anterior img,.btn-proximo img{
+    width: 30px;
+    height: 30px;
+}
 
-    .btn-comprar:hover {
-        background-color: #f1f1f1;
-        color: #A21D54;
-    }
 
+    
     .btn-anterior:hover,
     .btn-proximo:hover {
-        background-color: #A21D54;
+        background-color: #576270;
         /*COR DE FUNDO DOS BOTÕES ANTERIOR E PRÓXIMO AO PASSAR O MOUSE POR CIMA*/
         color: #FFFFFF;
         /*COR DO TEXTO DOS BOTÕES ANTERIOR E PRÓXIMO AO PASSAR O MOUSE POR CIMA*/
@@ -251,7 +233,7 @@
     .titulo-ofertas a {
         text-decoration: none;
         /*remove o sublinhado do link de ver mais ofertas*/
-        color: rgb(245, 28, 136);
+        color: #576270;
         /*cor do link de ver mais ofertas*/
         font-size: 14px;
         /*cor do link de ver mais ofertas*/
@@ -277,17 +259,16 @@
     }
 
     .card-produtos {
-        max-width: 200px;
-        width: 23%;
+        max-width: 250px;
+        width: 70%;
         /*definindo o tamanho do card de produtos*/
-
-        background: #f1f1f1;
+        background: #00063d;
         /*cor de fundo do card de produtos*/
-        border: 1px solid #ccc;
+        border: 3px solid #00063d;
         /*cor da borda do card de produtos*/
-        border-radius: 10%;
+        border-radius: 8%;
         /*arredondamento das bordas do card de produtos*/
-        padding: 10px;
+        padding: 5px;
         /*distancia entre o conteudo do card e as bordas do card*/
         text-align: center;
         /*alinhamento do texto no centro do card*/
@@ -302,7 +283,7 @@
         /*ajusta a imagem para preencher a largura do card mantendo a proporção*/
         margin-bottom: 10px;
         /*distancia entre a imagem e o texto do produto*/
-        border-radius: 10%;
+        border-radius: 8%;
         /*arredondamento das bordas da imagem do produto*/
        
     }
@@ -322,6 +303,108 @@
 
 
     }
+    /*configurando o nome do produto*/
+    .card-produtos h3 {
+        font-size: 16px;
+        /*tamanho da fonte do nome do produto*/
+        font-family: Ubuntu; /*fonte do nome do produto*/
+        color: #ffffff;/*cor do nome do produto*/
+        
+    }
+    /*configurando o preço do produto*/
+
+/*configurando o botão de adicionar ao carrinho*/
+    .card-produtos button{
+        background-color: transparent;/*cor de fundo do botão de adicionar ao carrinho*/
+        border-radius: 50px;/*arredondamento das bordas do botão de adicionar ao carrinho*/
+        border: none;/*remove a borda do botão de adicionar ao carrinho*/
+        width: 40px;/*ajusta o botão para preencher a largura do card de produtos*/
+        height: 50px;/*ajusta a altura do botão de adicionar ao carrinho*/
+       margin-left: 50%;/*alinhamento do botão de adicionar ao carrinho*/
+    }
+
+.btn-adicionar img{
+    width: 30px;/*ajusta a imagem para preencher a largura do botão de adicionar ao carrinho*/
+    padding-top: 5px;/*distancia entre a imagem e as bordas do botão de adicionar ao carrinho*/
+}
+
+.precos{
+    display: grid;
+    grid-template-columns: 2; /*duas colunas*/
+    grid-template-rows: 1;/*uma linha*/
+    align-items: center;/*alinhamento vertical do preço antigo*/
+
+
+
+}
+.p-antigo{
+    grid-column: 1;/*alinhamento do preço antigo*/
+    grid-row: 1;/*alinhamento do preço antigo*/
+    text-decoration: line-through;/*risca o preço antigo*/
+    font-size: 15px;/*tamanho da fonte do preço antigo*/
+    color: #fa1414;/*cor do preço antigo*/
+    
+}
+.p-promocional{
+    grid-column: 2;/*alinhamento do preço atual*/
+    grid-row: 1;/*alinhamento do preço atual*/
+    font-weight: bold;/*negrito do preço atual*/
+    color: #ffffff;/*cor do preço atual*/
+    font-size: 20px;
+    text-align: left;/*alinhamento do preço atual*/
+    
+
+}
+
+ .btn-card{
+    display:flex; /*exibe os elementos em linha*/
+    align-items: center; /*alinhamento vertical dos elementos do botão de adicionar ao carrinho*/
+    gap: 20px; /*distancia entre a imagem e o nome do produto no botão de adicionar ao carrinho*/
+}
+.btn-card img{
+
+width: 24px;/*ajusta a imagem para preencher a largura do botão de adicionar ao carrinho*/
+
+}
+
+.btn-card h5{
+font-size: 14px;/*tamanho da fonte do nome do produto*/
+color: #ffffff;/*cor do nome do produto*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
