@@ -188,7 +188,6 @@
         padding: 20px;
         /*DISTANCIA ENTRE O CONTEUDO DA DIV DE OFERTAS E AS BORDAS DA DIV */
 
-
     }
 
     /*configurando os textos das ofertas*/
@@ -201,6 +200,7 @@
         /*define o tamanho das colunas*/
         grid-template-rows: 2 50% 50%;
         /*define o tamanho das linhas*/
+
     }
 
     .titulo-ofertas h2 {
@@ -245,6 +245,7 @@
         /*alinhamento vertical do link de ver mais ofertas*/
         padding-left: 85%;
         /*alinhamento do link de ver mais ofertas*/
+
     }
 
     .lista-produtos {
@@ -256,6 +257,7 @@
         /*fonte da lista de produtos*/
         margin-top: 20px;
         /*distancia entre a lista de produtos e o titulo de ofertas*/
+
     }
 
     .card-produtos {
@@ -273,7 +275,6 @@
         text-align: center;
         /*alinhamento do texto no centro do card*/
 
-
     }
 
     .card-produtos img {
@@ -289,6 +290,7 @@
     }
     .imagem-botao{
       position: relative;/*posição relativa para posicionar o ícone de favorito em relação ao card de produtos*/
+
     }
     .favorito{
         position:absolute;/*posição absoluta para posicionar o ícone de favorito em relação ao card de produtos*/
@@ -321,11 +323,13 @@
         width: 40px;/*ajusta o botão para preencher a largura do card de produtos*/
         height: 50px;/*ajusta a altura do botão de adicionar ao carrinho*/
        margin-left: 50%;/*alinhamento do botão de adicionar ao carrinho*/
+
     }
 
 .btn-adicionar img{
     width: 30px;/*ajusta a imagem para preencher a largura do botão de adicionar ao carrinho*/
     padding-top: 5px;/*distancia entre a imagem e as bordas do botão de adicionar ao carrinho*/
+
 }
 
 .precos{
@@ -333,8 +337,6 @@
     grid-template-columns: 2; /*duas colunas*/
     grid-template-rows: 1;/*uma linha*/
     align-items: center;/*alinhamento vertical do preço antigo*/
-
-
 
 }
 .p-antigo{
@@ -353,61 +355,109 @@
     font-size: 20px;
     text-align: left;/*alinhamento do preço atual*/
     
-
 }
 
  .btn-card{
     display:flex; /*exibe os elementos em linha*/
     align-items: center; /*alinhamento vertical dos elementos do botão de adicionar ao carrinho*/
     gap: 20px; /*distancia entre a imagem e o nome do produto no botão de adicionar ao carrinho*/
+
 }
 .btn-card img{
 
-width: 24px;/*ajusta a imagem para preencher a largura do botão de adicionar ao carrinho*/
+    width: 24px;/*ajusta a imagem para preencher a largura do botão de adicionar ao carrinho*/
 
 }
 
 .btn-card h5{
-font-size: 14px;/*tamanho da fonte do nome do produto*/
-color: #ffffff;/*cor do nome do produto*/
+    font-size: 14px;/*tamanho da fonte do nome do produto*/
+    color: #ffffff;/*cor do nome do produto*/
+
+}
+
+footer{
+    background-color: #293142;/*cor de fundo do rodapé*/
+    color: #ffffff;/*cor do texto do rodapé*/
+    font-family: Ubuntu;/*fonte do texto do rodapé*/
+    padding: 10px;/*distancia entre o conteúdo do rodapé e as bordas do rodapé*/
+
+}
+
+.superior{
+display: flex; /*exibe os elementos em linha*/
+gap: 10px; /*distancia entre os elementos do rodapé*/
+justify-content: space-between; /*define tamanho igual entre as divs*/
+flex-wrap: wrap; /*permite que as divs do rodapé se ajustem em telas menores*/
+
+}
+
+.coluna1,.coluna2,.coluna3,.coluna4{
+    flex: 1; /*cada coluna ocupa um espaço na página*/
+    
+}
+
+.superior h2{
+    font-size: 30px; /*tamanho da fonte dos títulos das colunas do rodapé*/
+    font-weight: bold; /*negrito dos títulos das colunas do rodapé*/
+
+}
+
+.coluna3 img{
+    width: 120px; /*ajusta a imagem do logo da empresa no rodapé*/
+    height: auto; /*ajusta a altura da imagem do logo da empresa no rodapé mantendo a proporção*/
+    margin-top: 20px; /*distancia entre a imagem do logo da empresa e os títulos das colunas do rodapé*/
+    padding-left: 90px;
+
 }
 
 
+.superior p{
+font-size: 20px; /*tamanho da fonte do copyright no rodapé*/
+
+}
+
+.superior a{
+    text-decoration: none; /*remove o sublinhado dos links do rodapé*/
+    color: #ffffff; /*cor dos links do rodapé*/
+    font-size: 20px; /*tamanho da fonte dos links do rodapé*/
+
+}
+
+.superior ul{
+    text-decoration: none; /*remove o sublinhado dos itens da lista do rodapé*/
+    list-style: none; /*remove os marcadores da lista do rodapé*/
+    padding: 0; /*remove a margem da lista do rodapé*/
 
 
 
 
 
+}
+.coluna1{
+padding-top: 55px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
+ padding-left: 60px;
+ width: 30px; /*Definir tamanho dos icones*/
+}
 
+.coluna2{
+padding-top: 50px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
+}
 
+.coluna3{
+padding-top: 30px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
+width: 25px; /*ajusta a largura da coluna do logo da empresa no rodapé*/
 
+}
 
+.coluna4{
+padding-top: 70px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
+padding-right: 50px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.coluna4 a{
+    display: flex; /*exibe os elementos em linha*/
+    align-items: center; /*alinhamento vertical dos elementos do link de endereço no rodapé*/
+}
 
 
 
