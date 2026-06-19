@@ -16,7 +16,6 @@
         font-family: "Ubuntu", sans-serif;
         font-size: 30px;
 
-
     }
 
     nav {
@@ -31,7 +30,6 @@
         border-width: 1px;
         border-style: solid;
     }
-
 
     .logo img {
         height: 100px;
@@ -108,7 +106,6 @@
         grid-column: 2;
         grid-row: 2;
         margin: 0;
-
         margin: 30px;
     }
 
@@ -173,8 +170,6 @@
     height: 30px;
 }
 
-
-    
     .btn-anterior:hover,
     .btn-proximo:hover {
         background-color: #576270;
@@ -261,16 +256,16 @@
     }
 
     .card-produtos {
-        max-width: 250px;
+        max-width: 270px;
         width: 70%;
         /*definindo o tamanho do card de produtos*/
-        background: #00063d;
+        background: #9d9ea5;
         /*cor de fundo do card de produtos*/
-        border: 3px solid #00063d;
+        border: 7px solid #9d9ea5;
         /*cor da borda do card de produtos*/
-        border-radius: 8%;
+        border-radius: 3%;
         /*arredondamento das bordas do card de produtos*/
-        padding: 5px;
+        padding: 0%;
         /*distancia entre o conteudo do card e as bordas do card*/
         text-align: center;
         /*alinhamento do texto no centro do card*/
@@ -300,9 +295,6 @@
         top: 10px;/*posição do ícone de favorito em relação ao card de produtos*/
         right: 10px;/*posição do ícone de favorito em relação ao card de produtos*/
         padding: 10px;/*distancia entre o ícone de favorito e as bordas do ícone de favorito*/
-
-
-
 
     }
     /*configurando o nome do produto*/
@@ -380,7 +372,7 @@ footer{
     color: #ffffff;/*cor do texto do rodapé*/
     font-family: Ubuntu;/*fonte do texto do rodapé*/
     padding: 10px;/*distancia entre o conteúdo do rodapé e as bordas do rodapé*/
-
+   
 }
 
 .superior{
@@ -393,7 +385,7 @@ flex-wrap: wrap; /*permite que as divs do rodapé se ajustem em telas menores*/
 
 .coluna1,.coluna2,.coluna3,.coluna4{
     flex: 1; /*cada coluna ocupa um espaço na página*/
-    
+  
 }
 
 .superior h2{
@@ -404,12 +396,11 @@ flex-wrap: wrap; /*permite que as divs do rodapé se ajustem em telas menores*/
 
 .coluna3 img{
     width: 120px; /*ajusta a imagem do logo da empresa no rodapé*/
-    height: auto; /*ajusta a altura da imagem do logo da empresa no rodapé mantendo a proporção*/
+    
     margin-top: 20px; /*distancia entre a imagem do logo da empresa e os títulos das colunas do rodapé*/
     padding-left: 90px;
 
 }
-
 
 .superior p{
 font-size: 20px; /*tamanho da fonte do copyright no rodapé*/
@@ -428,30 +419,99 @@ font-size: 20px; /*tamanho da fonte do copyright no rodapé*/
     list-style: none; /*remove os marcadores da lista do rodapé*/
     padding: 0; /*remove a margem da lista do rodapé*/
 
+}
+.coluna1{
+padding-top: 30px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
+ padding-left: 80px; /*distancia entre a lista do rodapé e as bordas da coluna 1 do rodapé*/
+ width: 50%; /*Definir tamanho dos icones*/
+ position: relative; /*posição relativa para posicionar os ícones das redes sociais em relação à coluna 1 do rodapé*/
+ 
+}
 
 
+.coluna1 h2{
+    margin-bottom: 40px; /* Espaço entre o h2 e a div */
+   
+}
+.redes-sociais a {
+    margin-right: 15px; /* Espaço entre os ícones das redes sociais */
 
 
 }
-.coluna1{
-padding-top: 55px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
- padding-left: 60px;
- width: 30px; /*Definir tamanho dos icones*/
+.coluna1 .redes-sociais{
+    margin-bottom: 40px; /* Espaço entre o h2 e a div */
+   
+}
+.coluna1 p{
+font-size: 15px; /*tamanho da fonte do texto de contato no rodapé*/
+margin-top: 50px; /* ou um valor menor */
 }
 
 .coluna2{
-padding-top: 50px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
+padding-top: 22px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
+padding-left: 50px; /*distancia entre a lista do rodapé e as bordas da coluna 2 do rodapé*/
+
+}
+
+
+
+.coluna2 li{
+    margin-bottom: 10px; /*distancia entre os itens da lista do rodapé*/
+   display: flex; /*exibe os elementos em linha*/
+   gap: 20px; /*distancia entre os elementos do link de endereço no rodapé*/
+   align-items: center; /*alinhamento vertical dos elementos do link de endereço no rodapé*/
+   text-align: center; /*alinhamento horizontal dos elementos do link de endereço no rodapé*/
+  
 }
 
 .coluna3{
-padding-top: 30px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
+padding-top: 20px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
 width: 25px; /*ajusta a largura da coluna do logo da empresa no rodapé*/
-
+padding-left: 50px; /*distancia entre a lista do rodapé e as bordas da coluna 3 do rodapé*/
+position: relative; /*posição relativa para posicionar a linha divisória em relação à coluna 3 do rodapé*/
 }
 
+.coluna3 img{
+margin-top: 20px; /*distancia entre a imagem da logo da empresa e os títulos das colunas do rodapé*/
+width: 50%; /*ajusta a imagem da logo da empresa no rodapé*/
+}
+
+
+
 .coluna4{
-padding-top: 70px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
-padding-right: 50px;
+padding-top: 55px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
+padding-right: 50px; /*distancia entre a lista do rodapé e as bordas da coluna 4 do rodapé*/
+padding-left: 50px; /*distancia entre a lista do rodapé e as bordas da coluna 4 do rodapé*/
+position: relative; /*posição relativa para posicionar a linha divisória em relação à coluna 4 do rodapé*/
+}
+/* LINHAS DIVISÓRIAS CORRIGIDAS */
+.coluna1::after,
+.coluna2::before,
+.coluna3::before,
+.coluna4::before {
+    content: "";
+    position: absolute;
+    top: 0; /* antes estava 50px */
+    bottom: 0; /* faz a linha acompanhar toda altura */
+    width: 1px;
+    background: #ffffff40;
+}
+
+/* POSIÇÕES DAS LINHAS */
+.coluna1::after {
+    right: 0;
+}
+
+.coluna2::before {
+    right: 0;
+}
+
+.coluna3::before {
+    left: 0;
+}
+
+.coluna4::before {
+    left: 0;
 }
 
 .coluna4 a{
@@ -459,8 +519,18 @@ padding-right: 50px;
     align-items: center; /*alinhamento vertical dos elementos do link de endereço no rodapé*/
 }
 
+/*configurar para que os elementos da pagina preencham toda a tela*/
 
+*{
+margin: 0; /*remove a margem padrão dos elementos*/
+padding: 0; /*remove o padding padrão dos elementos*/
+box-sizing: border-box; /*inclui a borda e o padding no tamanho total dos elementos*/
 
+}
 
+/*definir que a pagina nao precisa de barra horizontal*/
+body{
+    overflow-x: hidden; /*remove a barra de rolagem horizontal da página*/
+    width: 100%; /*define a largura da página para 100% da tela*/
 
-
+}

@@ -1,0 +1,147 @@
+    
+    /*preencher toda a tela*/
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+
+    body {
+       overflow-x: hidden;/*impede o scroll horizontal da página*/
+       width: 100%; /*garante que a largura do corpo ocupe toda a tela*/
+    }
+     /*configurando o cabeçalho*/
+
+
+
+
+
+
+
+
+
+
+
+    
+    /*COLOCANDO COR DE FUNDO NO CABEÇALHO*/
+    header {
+        background-color: #293142;
+        font-family: Ubuntu;
+        color: #cfcfcf;
+        border-color: #576270;
+        border-width: 1px;
+        border-style: solid;
+
+    }
+
+    nav a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 45px;
+        font-family: Ubuntu;
+        font-size: 30px;
+
+    }
+
+    nav {
+        text-align: center;
+        background-color: #02153D;
+        height: 50px;
+        width: auto;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        border-color: #5f5e61;
+        border-width: 1px;
+        border-style: solid;
+    }
+
+    .logo img {
+        height: 100px;
+        width: 100px;
+        margin-left: 70px;
+    }
+
+    /*configurando caixa de pesquisa*/
+    .caixa-pesquisa input {
+        padding: 7px;
+        border: 1px solid #576270;
+        border-radius: 5px;
+        /*arredondamento das bordas do campo de pesquisa*/
+        font-family: Ubuntu;
+        /*fonte do campo de pesquisa*/
+        width: 400px;
+        /*altura do campo de pesquisa*/
+        color: #576270;
+    }
+
+    /*configurando a div de pesquisa*/
+    .caixa-pesquisa {
+        display: flex;
+        /*exibe os elememtos em linhas*/
+        justify-content: center;
+        /*alinhamento horizontal dos elementos*/
+        margin-top: 30px;
+        /*margem superior da caixa de pesquisa*/
+        margin-bottom: 30px;
+        /*margem inferior da caixa de pesquisa*/
+
+    }
+
+    /*alinhar as divs do cabeçalho*/
+    .topo {
+        display: flex;
+        /*exibe os elementos em linha*/
+        align-items: center;
+        /*alinhamento vertical dos elementos*/
+        justify-content: space-between;
+        /*distribuição dos elementos com espaço entre eles*/
+        padding: 10px;
+        /*distância entre as bordas do cabeçalho*/
+
+    }
+
+    /*configurando os icones*/
+    .icones a img {
+        height: 30px;
+        width: 30px;
+        margin-right: 20px;
+        grid-row: 1 / 3;
+        /*agrupa as duas linhas da grade para alinhar os icones verticalmente*/
+
+    }
+
+    /*configurando o texto do icone de usuário*/
+
+    .icones a small {
+        font-size: 15px;
+        display: block;
+        color: #ffffff;
+        text-decoration: none;
+        grid-column: 2;
+        grid-row: 1;
+        margin: 0;
+    }
+
+    .icones a {
+        text-decoration: none;
+        display: grid;
+        grid-template-columns: 35px auto;
+        grid-template-rows: auto auto;
+        grid-column: 2;
+        grid-row: 2;
+        margin: 0;
+        margin: 30px;
+    }
+
+    /*configurando a div icones*/
+    .icones {
+        display: flex;
+        /*exibe os elementos em linha*/
+        align-items: center;
+        /*alinhamento vertical dos elementos*/
+        gap: 30px;
+        /*distância dos elementos*/
+
+    }
