@@ -8,6 +8,10 @@
         border-style: solid;
 
     }
+    body{
+background-color: #00063D;
+
+    }
 
     nav a {
         color: #ffffff;
@@ -131,7 +135,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        
     }
 
     .imagens-banner {
@@ -179,200 +183,164 @@
     }
 
     /*Configurando area de ofertas*/
-    .Ofertas {
-        padding: 20px;
-        /*DISTANCIA ENTRE O CONTEUDO DA DIV DE OFERTAS E AS BORDAS DA DIV */
-
-    }
-
-    /*configurando os textos das ofertas*/
-    .titulo-ofertas {
-        font-family: Ubuntu;
-        /*Fonte dos título de ofertas*/
-        display: grid;
-        /*exibe os elementos em grade*/
-        grid-template-columns: 2 80% 20%;
-        /*define o tamanho das colunas*/
-        grid-template-rows: 2 50% 50%;
-        /*define o tamanho das linhas*/
-
-    }
-
-    .titulo-ofertas h2 {
-        color: #576270;
-        /*cor do titulo de ofertas*/
-        font-size: 24px;
-        /*tamanho da fonte do titulo de ofertas*/
-        grid-column: 1;
-        /*alinhamento do titulo de ofertas*/
-        grid-row: 1;
-        /*alinhamento do titulo de ofertas*/
-        margin: 0;
-        /*remove a margem do titulo de ofertas*/
-
-    }
-
-    .titulo-ofertas p {
-        color: rgb(155, 24, 231);
-        /*cor do subtitulo das ofertas*/
-        font-size: 14px;
-        /*tamanho da fonte*/
-        grid-column: 1;
-        /*ocupa a pr*/
-        grid-row: 2;
-        /**/
-        margin: 0;
-
-    }
-
-    .titulo-ofertas a {
-        text-decoration: none;
-        /*remove o sublinhado do link de ver mais ofertas*/
-        color: #576270;
-        /*cor do link de ver mais ofertas*/
-        font-size: 14px;
-        /*cor do link de ver mais ofertas*/
-        grid-column: 2;
-        /*alinhamento do link de ver mais ofertas*/
-        grid-row: 2;
-        /*alinhamento do link de ver mais ofertas*/
-        align-self: center;
-        /*alinhamento vertical do link de ver mais ofertas*/
-        padding-left: 85%;
-        /*alinhamento do link de ver mais ofertas*/
-
-    }
-
-    .lista-produtos {
-        display: flex;
-        /*exibe os elementos em linha*/
-        justify-content: space-between;
-        /*alinhamento horizontal dos produtos*/
-        font-family: Ubuntu;
-        /*fonte da lista de produtos*/
-        margin-top: 20px;
-        /*distancia entre a lista de produtos e o titulo de ofertas*/
-
-    }
-
-    .card-produtos {
-        max-width: 270px;
-        width: 70%;
-        /*definindo o tamanho do card de produtos*/
-        background: #9d9ea5;
-        /*cor de fundo do card de produtos*/
-        border: 7px solid #9d9ea5;
-        /*cor da borda do card de produtos*/
-        border-radius: 3%;
-        /*arredondamento das bordas do card de produtos*/
-        padding: 0%;
-        /*distancia entre o conteudo do card e as bordas do card*/
-        text-align: center;
-        /*alinhamento do texto no centro do card*/
-
-    }
-
-    .card-produtos img {
-        width: 100%;
-        /*ajusta a imagem para preencher a largura do card*/
-        height: auto;
-        /*ajusta a imagem para preencher a largura do card mantendo a proporção*/
-        margin-bottom: 10px;
-        /*distancia entre a imagem e o texto do produto*/
-        border-radius: 8%;
-        /*arredondamento das bordas da imagem do produto*/
-       
-    }
-    .imagem-botao{
-      position: relative;/*posição relativa para posicionar o ícone de favorito em relação ao card de produtos*/
-
-    }
-    .favorito{
-        position:absolute;/*posição absoluta para posicionar o ícone de favorito em relação ao card de produtos*/
-        border: none;/*remove a borda do ícone de favorito*/
-        border-radius: 50%;/*arredondamento das bordas do ícone de favorito*/
-        background-color: #ffffff;/*cor de fundo do ícone de favorito*/
-        top: 10px;/*posição do ícone de favorito em relação ao card de produtos*/
-        right: 10px;/*posição do ícone de favorito em relação ao card de produtos*/
-        padding: 10px;/*distancia entre o ícone de favorito e as bordas do ícone de favorito*/
-
-    }
-    /*configurando o nome do produto*/
-    .card-produtos h3 {
-        font-size: 16px;
-        /*tamanho da fonte do nome do produto*/
-        font-family: Ubuntu; /*fonte do nome do produto*/
-        color: #ffffff;/*cor do nome do produto*/
-        
-    }
-    /*configurando o preço do produto*/
-
-/*configurando o botão de adicionar ao carrinho*/
-    .card-produtos button{
-        background-color: transparent;/*cor de fundo do botão de adicionar ao carrinho*/
-        border-radius: 50px;/*arredondamento das bordas do botão de adicionar ao carrinho*/
-        border: none;/*remove a borda do botão de adicionar ao carrinho*/
-        width: 40px;/*ajusta o botão para preencher a largura do card de produtos*/
-        height: 50px;/*ajusta a altura do botão de adicionar ao carrinho*/
-       margin-left: 50%;/*alinhamento do botão de adicionar ao carrinho*/
-
-    }
-
-.btn-adicionar img{
-    width: 30px;/*ajusta a imagem para preencher a largura do botão de adicionar ao carrinho*/
-    padding-top: 5px;/*distancia entre a imagem e as bordas do botão de adicionar ao carrinho*/
-
+/* LISTA DE PRODUTOS */
+.lista-produtos {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    font-family: Ubuntu, sans-serif;
 }
 
-.precos{
-    display: grid;
-    grid-template-columns: 2; /*duas colunas*/
-    grid-template-rows: 1;/*uma linha*/
-    align-items: center;/*alinhamento vertical do preço antigo*/
+/* CARD */
+.card-produtos {
+    margin-left: 20px;
+    font-family: Ubuntu;
+    width: 280px;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 18px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #7c3aed30;
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
+    transition: all 0.3s ease;
+}
 
-}
-.p-antigo{
-    grid-column: 1;/*alinhamento do preço antigo*/
-    grid-row: 1;/*alinhamento do preço antigo*/
-    text-decoration: line-through;/*risca o preço antigo*/
-    font-size: 15px;/*tamanho da fonte do preço antigo*/
-    color: #fa1414;/*cor do preço antigo*/
-    
-}
-.p-promocional{
-    grid-column: 2;/*alinhamento do preço atual*/
-    grid-row: 1;/*alinhamento do preço atual*/
-    font-weight: bold;/*negrito do preço atual*/
-    color: #ffffff;/*cor do preço atual*/
-    font-size: 20px;
-    text-align: left;/*alinhamento do preço atual*/
+.card-produtos:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.25);
     
 }
 
- .btn-card{
-    display:flex; /*exibe os elementos em linha*/
-    align-items: center; /*alinhamento vertical dos elementos do botão de adicionar ao carrinho*/
-    gap: 20px; /*distancia entre a imagem e o nome do produto no botão de adicionar ao carrinho*/
-
-}
-.btn-card img{
-
-    width: 24px;/*ajusta a imagem para preencher a largura do botão de adicionar ao carrinho*/
-
+/* ÁREA DA IMAGEM */
+.imagem-botao {
+    position: relative;
+    background: #f8f8ff;
+    border-radius: 18px;
+    padding: 15px;
+    
 }
 
-.btn-card h5{
-    font-size: 14px;/*tamanho da fonte do nome do produto*/
-    color: #ffffff;/*cor do nome do produto*/
-
+.imagem-botao img {
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    border-radius: 15px;
+    transition: 0.3s;
 }
 
+.card-produtos:hover .imagem-botao img {
+    transform: scale(1.05);
+}
+
+/* BOTÃO FAVORITO */
+.favorito {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 45px;
+    height: 45px;
+    background: #ffffff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.favorito img {
+    width: 22px;
+    height: 22px;
+    margin: 0;
+}
+
+/* NOME DO PRODUTO */
+.card-produtos h3 {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #1f2937;
+    font-weight: 600;
+    line-height: 28px;
+
+    display: -webkit-box;
+    line-clamp: 3;
+    box-orient: vertical;
+
+    overflow: hidden;
+}
+
+/* PREÇOS */
+.precos {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.p-antigo {
+    margin: 0;
+    font-size: 16px;
+    color: #ef4444;
+    text-decoration: line-through;
+}
+
+.p-promocional {
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+    color: #6d28d9;
+}
+
+/* AVALIAÇÃO */
+.btn-card {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.btn-card img {
+    width: 24px;
+    height: 24px;
+}
+
+.btn-card h5 {
+    margin: 0;
+    font-size: 18px;
+    color: #6d28d9;
+}
+
+/* BOTÃO DO CARRINHO */
+.btn-adicionar {
+    margin-left: auto;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(90deg, #9333ea, #6d28d9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-adicionar:hover {
+    transform: scale(1.1);
+}
+
+.btn-adicionar img {
+    width: 24px;
+    height: 24px;
+}
 footer{
     background-color: #293142;/*cor de fundo do rodapé*/
     color: #ffffff;/*cor do texto do rodapé*/
     font-family: Ubuntu;/*fonte do texto do rodapé*/
     padding: 10px;/*distancia entre o conteúdo do rodapé e as bordas do rodapé*/
-   
+    
 }
 
 .superior{
@@ -385,7 +353,7 @@ flex-wrap: wrap; /*permite que as divs do rodapé se ajustem em telas menores*/
 
 .coluna1,.coluna2,.coluna3,.coluna4{
     flex: 1; /*cada coluna ocupa um espaço na página*/
-  
+    
 }
 
 .superior h2{
@@ -447,16 +415,18 @@ font-size: 15px; /*tamanho da fonte do texto de contato no rodapé*/
 margin-top: 50px; /* ou um valor menor */
 }
 
-.coluna2{
+.coluna2 {
 padding-top: 22px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
 padding-left: 50px; /*distancia entre a lista do rodapé e as bordas da coluna 2 do rodapé*/
 
 }
 
-
+.coluna2 h2 {
+    margin-bottom: 30px;
+}
 
 .coluna2 li{
-    margin-bottom: 10px; /*distancia entre os itens da lista do rodapé*/
+    margin-bottom: 20px; /*distancia entre os itens da lista do rodapé*/
    display: flex; /*exibe os elementos em linha*/
    gap: 20px; /*distancia entre os elementos do link de endereço no rodapé*/
    align-items: center; /*alinhamento vertical dos elementos do link de endereço no rodapé*/
@@ -477,13 +447,19 @@ width: 50%; /*ajusta a imagem da logo da empresa no rodapé*/
 }
 
 
-
 .coluna4{
 padding-top: 55px; /*distancia entre a lista do rodapé e os títulos das colunas do rodapé*/
 padding-right: 50px; /*distancia entre a lista do rodapé e as bordas da coluna 4 do rodapé*/
 padding-left: 50px; /*distancia entre a lista do rodapé e as bordas da coluna 4 do rodapé*/
 position: relative; /*posição relativa para posicionar a linha divisória em relação à coluna 4 do rodapé*/
+
 }
+
+.coluna4 a {
+    display: flex;
+    margin-top: 40px; /* ajuste o valor */
+}
+
 /* LINHAS DIVISÓRIAS CORRIGIDAS */
 .coluna1::after,
 .coluna2::before,
@@ -491,19 +467,19 @@ position: relative; /*posição relativa para posicionar a linha divisória em r
 .coluna4::before {
     content: "";
     position: absolute;
-    top: 0; /* antes estava 50px */
-    bottom: 0; /* faz a linha acompanhar toda altura */
+    top: 40px; /* antes estava 50px */
+    bottom: 40px; /* faz a linha acompanhar toda altura */
     width: 1px;
-    background: #ffffff40;
+    background: #ffffff;
 }
 
 /* POSIÇÕES DAS LINHAS */
 .coluna1::after {
-    right: 0;
+    right: 0; /* ajusta a posição da linha divisória entre a coluna 1 e a coluna 2 */
 }
 
 .coluna2::before {
-    right: 0;
+    right: 0; /* ajusta a posição da linha divisória entre a coluna 1 e a coluna 2 */
 }
 
 .coluna3::before {
@@ -517,6 +493,20 @@ position: relative; /*posição relativa para posicionar a linha divisória em r
 .coluna4 a{
     display: flex; /*exibe os elementos em linha*/
     align-items: center; /*alinhamento vertical dos elementos do link de endereço no rodapé*/
+}
+
+.titulo-ofertas{
+    color: #fdfdfd;
+    font-family: Ubuntu;
+    padding-left: 50px;
+}
+
+.titulo-ofertas a{
+    color: #fdfdfd;
+    text-decoration: none;
+    margin-left: 1700px;
+    font-family: Ubuntu;
+    padding-left: 50px;
 }
 
 /*configurar para que os elementos da pagina preencham toda a tela*/

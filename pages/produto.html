@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produto</title>
-<!--conexão com o css-->
-<link rel="stylesheet" href="/style/produto.css">
-<!--imagem da logo pro navegador-->
-<link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+    <!--conexão com o css-->
+    <link rel="stylesheet" href="/style/produto.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <!--imagem da logo pro navegador-->
+    <link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+
 
 </head>
 
 <body>
-     <!--Cabeçalho/Menu-->
+    <!--Cabeçalho/Menu-->
     <header>
         <div class="topo">
             <!--logo-->
@@ -41,14 +46,58 @@
             <a href="#">Configurações</a>
         </nav>
     </header>
-<!--area dos dados do produto-->
-<div class="area-detalhes">
-    <div class="area-imagens">
-    
-</div>
+    <!--AREA DOS DADOS DO PRODUTO-->
+    <div class="area-detalhes">
+        <div class="area-imagens">
+            <div class="img-principal" id="img-principal">
+                <img id="imagem-maior">
+            </div>
+            <div class="img-lateral" id="img-lateral">
+                <!--não criamos tag img aqui porque não temos como
+                saber a quantidade de imagens que o lojista vai
+                cadastrar-->
 
+            </div>
 
+        </div>
+        <div class="area-textos">
+            <h1 id="nome-produto"></h1>
+            <div class="avaliacoes-produto">
+                <img id="estrela-avaliacao">
+                <span id="valor-avaliacao"></span>
+            </div>
+            <!--preco antigo-->
+            <p id="preco-antigo"></p>
+            <!--area do preco promocional-->
+            <div class="preco-promocional">
+                    <p id="preco-promocional"></p>
+                    <span id="desconto"></span>
+                <div class="quantidade">
+                    <button id="diminuir"></button>
+                    <span id="numero-quanidade"></span>
+                    <button id="aumentar"></button>
+                </div>
+                <span id="sku"></span>
+                <div class="btn-add-carrinho">
+                    <button id="btn-add-carrinho"></button>   
+                </div>
+                <div class="btn-compar">
+                    <button id="btn-comprar"></button>
+                </div>
+                <div class="area-frete">
+                    <p>Calcular o frete</p>
+                    <input id="frete">
+                    <button id="btn-calcular-frete">Calcular</button>
+                </div>
 
+            </div>
 
+        </div>
+
+    </div>
+
+    <!--FAZENDO A CONEXÃO COM O JAVASCRIPT-->
+    <script src="/js/produto.js"></script>
 </body>
+
 </html>

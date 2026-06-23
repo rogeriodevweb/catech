@@ -1,6 +1,5 @@
-    
     /*preencher toda a tela*/
-    *{
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -8,22 +7,13 @@
     }
 
     body {
-       overflow-x: hidden;/*impede o scroll horizontal da página*/
-       width: 100%; /*garante que a largura do corpo ocupe toda a tela*/
+        overflow-x: hidden;
+        /*impede o scroll horizontal da página*/
+        width: 100%;
+        /*garante que a largura do corpo ocupe toda a tela*/
+        background-color: #00063D;
     }
-     /*configurando o cabeçalho*/
 
-
-
-
-
-
-
-
-
-
-
-    
     /*COLOCANDO COR DE FUNDO NO CABEÇALHO*/
     header {
         background-color: #293142;
@@ -144,4 +134,74 @@
         gap: 30px;
         /*distância dos elementos*/
 
+    }
+
+    /* detalhes do produto */
+    .area-detalhes {
+        max-width: 1900px;
+        margin: 5px auto;
+        padding: 20px;
+
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+    }
+
+    /* BLOCO DAS IMAGENS */
+    .area-imagens {
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+        /*colocar a img principal abaixo da img de miniatura*/
+        justify-content: center;
+        /* centraliza verticalmente */
+        align-items: center;
+        /* centraliza horizontalmente */
+    }
+
+    /* MINIATURAS */
+    .img-lateral {
+        display: flex;
+        flex-direction: row;
+        /*colocar as imagens de miniaturas lado a lado*/
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .img-lateral img {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: 0.2s;
+        border: 1px solid #e0e0e0;
+    }
+
+    .img-lateral img:hover {
+        transform: scale(1.05);
+    }
+
+    /* IMAGEM PRINCIPAL */
+    .img-principal {
+        width: 750px;
+    }
+
+    #imagem-maior {
+        width: 100%;
+        max-width: 750px;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        border: 1px solid #e0e0e0;
+    }
+
+    #imagem-maior:hover {
+        transform: scale(1.03);
+    }
+
+    /* TEXTO DO PRODUTO */
+    .area-textos {
+        flex: 1;
     }
