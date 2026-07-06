@@ -84,7 +84,7 @@ background-color: #00063D;
     .icones a img {
         height: 30px;
         width: 30px;
-        margin-right: 20px;
+        margin-right: 10px;
         grid-row: 1 / 3;
         /*agrupa as duas linhas da grade para alinhar os icones verticalmente*/
 
@@ -93,22 +93,21 @@ background-color: #00063D;
     /*configurando o texto do icone de usuário*/
 
     .icones a small {
+       
         font-size: 15px;
         display: block;
         color: #ffffff;
         text-decoration: none;
-        grid-column: 2;
-        grid-row: 1;
+    
         margin: 0;
     }
 
     .icones a {
         text-decoration: none;
-        display: grid;
-        grid-template-columns: 35px auto;
-        grid-template-rows: auto auto;
-        grid-column: 2;
-        grid-row: 2;
+        display: flex;
+       flex-direction: row;
+       align-items: center;
+       text-align: center;
         margin: 0;
         margin: 30px;
     }
@@ -117,10 +116,11 @@ background-color: #00063D;
     .icones {
         display: flex;
         /*exibe os elementos em linha*/
-        align-items: center;
+       
         /*alinhamento vertical dos elementos*/
         gap: 30px;
         /*distância dos elementos*/
+        margin: 0;
 
     }
 
@@ -336,6 +336,7 @@ background-color: #00063D;
     height: 24px;
 }
 footer{
+    margin-top: 25px;
     background-color: #293142;/*cor de fundo do rodapé*/
     color: #ffffff;/*cor do texto do rodapé*/
     font-family: Ubuntu;/*fonte do texto do rodapé*/
@@ -496,6 +497,7 @@ position: relative; /*posição relativa para posicionar a linha divisória em r
 }
 
 .titulo-ofertas{
+    margin-top: 20px;
     color: #fdfdfd;
     font-family: Ubuntu;
     padding-left: 50px;

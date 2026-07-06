@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CA Tech</title>
+    <link rel="stylesheet" href="/style/carrinho.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+        <!--imagem da logo pro navegador-->
+<link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+
+</head>
+
+<body>
+
+<div class="carrinho">
+
+    <h1>🛒 Meu Carrinho</h1>
+
+    <div class="lista-produtos">
+
+        <div class="produto">
+
+            <img src="../img/sem-imagem.png" alt="Produto">
+
+            <div class="info">
+
+                <h2>Produto Exemplo</h2>
+
+                <p>Preço: <strong>R$ 79,90</strong></p>
+
+            </div>
+
+            <div class="quantidade">
+
+                <button class="menos">−</button>
+
+                <span>1</span>
+
+                <button class="mais">+</button>
+
+            </div>
+
+            <div class="subtotal">
+
+                R$ 79,90
+
+            </div>
+
+            <button class="remover">
+
+                🗑
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="cupom">
+
+        <input
+        type="text"
+        placeholder="Digite o cupom de desconto">
+
+        <button>
+
+            Aplicar
+
+        </button>
+
+    </div>
+
+    <div class="resumo">
+
+        <h2>Resumo do Pedido</h2>
+
+        <div class="linha">
+
+            <span>Subtotal</span>
+
+            <span>R$ 79,90</span>
+
+        </div>
+
+        <div class="linha">
+
+            <span>Frete</span>
+
+            <span>R$ 20,00</span>
+
+        </div>
+
+        <div class="linha">
+
+            <span>Desconto</span>
+
+            <span>R$ 0,00</span>
+
+        </div>
+
+        <hr>
+
+        <div class="linha total">
+
+            <span>Total</span>
+
+            <span>R$ 99,90</span>
+
+        </div>
+
+    </div>
+
+    <div class="acoes">
+
+        <button class="continuar">
+
+            Continuar Comprando
+
+        </button>
+
+        <button class="finalizar">
+
+            Finalizar Compra
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="../js/carrinho.js"></script>
+
+</body>
+
+</html>

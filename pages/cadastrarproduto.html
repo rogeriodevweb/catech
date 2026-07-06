@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastrar Produto</title>
+
+    <link rel="stylesheet" href="../style/cadastrarproduto.css">
+     <title>CA Tech</title>
+    <link rel="stylesheet" href="style/cadastrarproduto.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+        <!--imagem da logo pro navegador-->
+<link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <!-- Seu menu lateral -->
+
+    </div>
+
+    <!-- Conteúdo -->
+    <div class="conteudo">
+
+        <div class="cadastraproduto">
+
+            <div class="topo-cadastraproduto">
+
+                <div>
+                    <h1>Cadastrar Produto</h1>
+                    <p>Preencha as informações abaixo para adicionar um novo produto.</p>
+                </div>
+
+                <button class="btn-voltar">
+                    ← Voltar
+                </button>
+
+            </div>
+
+            <form id="formProduto">
+
+                <div class="campo">
+
+                    <label>Nome do Produto</label>
+
+                    <input
+                        type="text"
+                        placeholder="Digite o nome do produto">
+
+                </div>
+
+                <div class="linha">
+
+                    <div class="campo">
+
+                        <label>Categoria</label>
+
+                        <select>
+
+                            <option>Selecione uma categoria</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>Marca</label>
+
+                        <input
+                            type="text"
+                            placeholder="Ex.: Nike">
+
+                    </div>
+
+                </div>
+
+                <div class="linha">
+
+                    <div class="campo">
+
+                        <label>Preço</label>
+
+                        <input
+                            type="number"
+                            placeholder="0,00">
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>Preço Promocional</label>
+
+                        <input
+                            type="number"
+                            placeholder="0,00">
+
+                    </div>
+
+                </div>
+
+                <div class="linha">
+
+                    <div class="campo">
+
+                        <label>Estoque</label>
+
+                        <input
+                            type="number"
+                            placeholder="0">
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>SKU</label>
+
+                        <input
+                            type="text"
+                            placeholder="Código do produto">
+
+                    </div>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Descrição</label>
+
+                    <textarea
+                        rows="6"
+                        placeholder="Descreva o produto"></textarea>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Imagem Principal</label>
+
+                    <input type="file">
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Galeria de Imagens</label>
+
+                    <input
+                        type="file"
+                        multiple>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Status</label>
+
+                    <select>
+
+                        <option>Ativo</option>
+                        <option>Inativo</option>
+
+                    </select>
+
+                </div>
+
+                <div class="botoes">
+
+                    <button
+                        type="button"
+                        class="btn-cancelar">
+
+                        Cancelar
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn-salvar">
+
+                        Salvar Produto
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="../js/cadastrarproduto.js"></script>
+
+</body>
+
+</html>

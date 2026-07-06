@@ -1,0 +1,760 @@
+/*====================================
+=            RESET GERAL             =
+====================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Ubuntu";
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+/*====================================
+=        LAYOUT PRINCIPAL            =
+====================================*/
+
+.configuracoes{
+    display:flex;
+    min-height:100vh;
+}
+
+/*====================================
+=         MENU LATERAL               =
+====================================*/
+
+.menu-config{
+    width:280px;
+    background:#101827;
+    border-right:1px solid #1f2937;
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    padding:30px 20px;
+    overflow-y:auto;
+    box-shadow:4px 0 15px rgba(0,0,0,.25);
+}
+
+.logo-config{
+    margin-bottom:35px;
+    text-align:center;
+}
+
+.logo-config h2{
+    font-size:28px;
+    font-weight:700;
+    color:#fff;
+}
+
+.menu-config ul{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.menu-config li{
+
+    display:flex;
+    align-items:center;
+
+    padding:15px 18px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    color:#cbd5e1;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.menu-config li:hover{
+
+    background:#1e293b;
+
+    color:#fff;
+
+    transform:translateX(5px);
+
+}
+
+.menu-config li.ativo{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-weight:600;
+
+}
+
+/*====================================
+=           CONTEÚDO                 =
+====================================*/
+
+.conteudo-config{
+
+    margin-left:280px;
+
+    width:calc(100% - 280px);
+
+    padding:40px;
+
+}
+
+.aba{
+
+    display:none;
+
+}
+
+.aba.ativa{
+
+    display:block;
+
+    animation:fade .35s ease;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.aba h1{
+
+    font-size:32px;
+
+    margin-bottom:30px;
+
+    font-weight:700;
+
+}
+
+/*====================================
+=             CARDS                  =
+====================================*/
+
+.card{
+
+    background:#101827;
+
+    border:1px solid #1f2937;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+}
+
+/*====================================
+=        FOTO DO PERFIL              =
+====================================*/
+
+.foto-perfil{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:10px;
+
+}
+
+.foto-perfil img{
+
+    width:160px;
+
+    height:160px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid #2563eb;
+
+    box-shadow:0 0 25px rgba(37,99,235,.35);
+
+    transition:.3s;
+
+}
+
+.foto-perfil img:hover{
+
+    transform:scale(1.03);
+
+}
+
+/*====================================
+=            CAMPOS                  =
+====================================*/
+
+.campo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.campo label{
+
+    font-size:15px;
+
+    color:#cbd5e1;
+
+    font-weight:500;
+
+}
+
+.campo input,
+.campo select{
+
+    width:100%;
+
+    background:#0f172a;
+
+    color:#fff;
+
+    border:1px solid #334155;
+
+    border-radius:10px;
+
+    padding:14px 16px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.campo input:focus,
+.campo select:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.20);
+
+}
+
+input[readonly]{
+
+    background:#1b2433;
+
+    color:#94a3b8;
+
+    cursor:not-allowed;
+
+}
+
+/*====================================
+=      CHECKBOX / RADIO              =
+====================================*/
+
+.card label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+}
+
+.card input[type="checkbox"],
+.card input[type="radio"]{
+
+    width:18px;
+
+    height:18px;
+
+    accent-color:#2563eb;
+
+}
+/*====================================
+=             BOTÕES                 =
+====================================*/
+
+.btn-azul,
+.btn-vermelho,
+.btn-cinza{
+
+    min-width:220px;
+    width:max-content;
+    height:48px;
+
+    padding:0 25px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all .3s ease;
+
+}
+
+.btn-azul{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+.btn-azul:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(37,99,235,.35);
+
+}
+
+.btn-vermelho{
+
+    background:#ef4444;
+
+    color:#fff;
+
+}
+
+.btn-vermelho:hover{
+
+    background:#dc2626;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(239,68,68,.35);
+
+}
+
+.btn-cinza{
+
+    background:#334155;
+
+    color:#fff;
+
+}
+
+.btn-cinza:hover{
+
+    background:#475569;
+
+    transform:translateY(-2px);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/*====================================
+=         ÁREA DE BOTÕES             =
+====================================*/
+
+.card button{
+
+    margin-top:5px;
+
+}
+
+/*====================================
+=        TEXTO DOS CARDS             =
+====================================*/
+
+.card p{
+
+    color:#94a3b8;
+
+    line-height:1.6;
+
+    font-size:15px;
+
+}
+
+/*====================================
+=          SCROLL PERSONALIZADO      =
+====================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0f172a;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#334155;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#475569;
+
+}
+
+/*====================================
+=         SELEÇÃO DE TEXTO           =
+====================================*/
+
+::selection{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+/*====================================
+=      ANIMAÇÕES DOS INPUTS          =
+====================================*/
+
+input,
+select,
+button{
+
+    font-family:"Ubuntu",sans-serif;
+
+}
+
+input:hover,
+select:hover{
+
+    border-color:#475569;
+
+}
+
+/*====================================
+=      SOMBRA NOS CARDS              =
+====================================*/
+
+.card:hover{
+
+    border-color:#334155;
+
+    transition:.3s;
+
+}
+
+/*====================================
+=       MENU LATERAL SCROLL          =
+====================================*/
+
+.menu-config::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.menu-config::-webkit-scrollbar-thumb{
+
+    background:#334155;
+
+    border-radius:20px;
+
+}
+
+/*====================================
+=        RESPONSIVO TABLET           =
+====================================*/
+
+@media(max-width:900px){
+
+    .configuracoes{
+
+        flex-direction:column;
+
+    }
+
+    .menu-config{
+
+        position:relative;
+
+        width:100%;
+
+        height:auto;
+
+        border-right:none;
+
+        border-bottom:1px solid #1f2937;
+
+        box-shadow:none;
+
+    }
+
+    .menu-config ul{
+
+        flex-direction:row;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .menu-config li{
+
+        margin:4px;
+
+    }
+
+    .conteudo-config{
+
+        margin-left:0;
+
+        width:100%;
+
+        padding:25px;
+
+    }
+
+}
+
+/*====================================
+=      RESPONSIVO CELULAR            =
+====================================*/
+
+@media(max-width:600px){
+
+    .logo-config h2{
+
+        font-size:22px;
+
+    }
+
+    .menu-config{
+
+        padding:20px 15px;
+
+    }
+
+    .menu-config li{
+
+        width:100%;
+
+        justify-content:center;
+
+        font-size:14px;
+
+        padding:12px;
+
+    }
+
+    .conteudo-config{
+
+        padding:20px;
+
+    }
+
+    .aba h1{
+
+        font-size:26px;
+
+        text-align:center;
+
+    }
+
+    .card{
+
+        padding:20px;
+
+        gap:18px;
+
+    }
+
+    .foto-perfil img{
+
+        width:120px;
+
+        height:120px;
+
+    }
+
+    .btn-azul,
+    .btn-vermelho,
+    .btn-cinza{
+
+        width:100%;
+
+        min-width:100%;
+
+    }
+
+}
+
+/*====================================
+=        TRANSIÇÕES GERAIS           =
+====================================*/
+
+*{
+
+    transition:background .25s,
+               color .25s,
+               border-color .25s;
+
+}
+/*====================================
+=        ÍCONE DO TOPO               =
+====================================*/
+
+.icone-config{
+
+    width:70px;
+    height:70px;
+
+    margin:0 auto 15px;
+
+    background:#2563eb;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:32px;
+
+    color:#fff;
+
+    box-shadow:0 10px 25px rgba(37,99,235,.35);
+
+}
+
+/*====================================
+=           NAVEGAÇÃO                =
+====================================*/
+
+.menu-config nav{
+
+    flex:1;
+
+}
+
+/*====================================
+=          ÍCONES DO MENU            =
+====================================*/
+
+.icone{
+
+    width:24px;
+
+    text-align:center;
+
+    font-size:18px;
+
+}
+
+/*====================================
+=        OPÇÃO PERIGOSA              =
+====================================*/
+
+.menu-config li.perigo{
+
+    color:#f87171;
+
+}
+
+.menu-config li.perigo:hover{
+
+    background:#7f1d1d;
+
+    color:#fff;
+
+}
+
+/*====================================
+=          RODAPÉ MENU               =
+====================================*/
+
+.rodape-menu{
+
+    margin-top:25px;
+
+    padding-top:20px;
+
+    border-top:1px solid #1f2937;
+
+    text-align:center;
+
+}
+
+.rodape-menu small{
+
+    color:#64748b;
+
+    font-size:13px;
+
+}

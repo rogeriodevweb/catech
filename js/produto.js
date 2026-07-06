@@ -1,88 +1,279 @@
-// criando variaveis
-/*Não pode ter:
-    -acento
-    -espaço
-    -símbolo
-    -não pode começar com numero
--não pode ser escrito com a primeira letra maiúscula
-*/
+const produto = {
 
-//variavel que alteram de valor
-    let preco_promocional= 59.90;
-    let preco= 69.90;
-    let desconto= "-14.31%";
-    let quantidade= 64;
-    let favorito=false;
+nome:
+"Kit Eletrica Chave Teste Digital + Caneta Detectora Tensão",
+estoque: 8,
+descricao: `
+<h3>Descrição do Produto</h3>
 
-//variavel que sao constantes/nao alteram de valor
-const nomeProduto= "Alicate Crimpagem De Conectores De Passagem Rj45,rj12, Rj11";
+<p>
+O <strong>Kit Elétrica Chave Teste Digital + Caneta Detectora de Tensão</strong> é ideal para eletricistas, técnicos e profissionais que realizam instalações, manutenções e reparos em sistemas elétricos. Desenvolvido para oferecer praticidade, rapidez e segurança, o kit permite identificar a presença de tensão elétrica de forma eficiente.
+</p>
 
-const cores=["LARANJA"];
-const avaliacoes= 4.3;
-const img_miniaturas=
-[
-    "/assets/chave-teste-1.png",
-    "/assets/chave-teste-2.png",
-    "/assets/chave-teste-3.png",
-    "/assets/chave-teste-4.png",
-    "/assets/chave-teste-5.png"
-    ];
-const img_principal="/assets/chave-teste-1.png";
-const descricao="O Kit Detector de Tensão OIVIDA é uma ferramenta compacta e prática para profissionais e iniciantes em elétrica.Detecta tensões de 90 a 1000V, com display digital, alerta sonoro (bip) e indicador luminoso, facilitando a identificação de energia mesmo em locais escuros. Conta ainda com lanterna embutida e design leve de fácil transporte, sendo ideal para uso no dia a dia.Acompanha pilha inclusa, pronto para uso imediato.";
-let frete;
+<p>
+A <strong>Chave Teste Digital</strong> possui visor de fácil leitura para auxiliar na verificação de tensão em tomadas, interruptores, fios e outros componentes elétricos. Já a <strong>Caneta Detectora de Tensão</strong> realiza a detecção sem contato direto, proporcionando mais segurança durante o trabalho.
+</p>
 
-//botoes e arquivos
-    let btn_add_carrinho;
-    let btn_comprar;
-    let btn_add_quantidade;
-    let btn_remover_quantidade;
-    let btn_calcular_frete;
+<h4>Características</h4>
 
-// PREENCHENDO AS IMAGENS NO HTML
-// CODIGO PARA PREENCHER
+<ul>
+    <li>✔ Chave teste digital de fácil utilização.</li>
+    <li>✔ Caneta detectora de tensão sem contato.</li>
+    <li>✔ Ideal para instalações e manutenções elétricas.</li>
+    <li>✔ Compacto, leve e fácil de transportar.</li>
+    <li>✔ Indicado para uso profissional e doméstico.</li>
+</ul>
 
-//CRIANDO UMA VARIAVEL PARA RECONHECER O ID DA IMAGEM LATERAL
-const lateral = document.getElementById("img-lateral");
+<h4>Conteúdo da Embalagem</h4>
+
+<ul>
+    <li>01 Chave Teste Digital</li>
+    <li>01 Caneta Detectora de Tensão</li>
+</ul>
+
+<p>
+<strong>Importante:</strong> Utilize os equipamentos conforme as recomendações de segurança e sempre desligue a rede elétrica quando necessário antes de realizar qualquer manutenção.
+</p>
+`,
+imagemPrincipal:
+"/assets/chave-teste-1.png",
 
 
+imagens:[
 
-// LENDO A QUANTIDADE DE IMAGENS CADASTRADAS E CRIANDO AS TAG IMG
+"/assets/chave-teste-1.png",
+"/assets/chave-teste-2.png",
+"/assets/chave-teste-3.png",
+"/assets/chave-teste-4.png",
+"/assets/chave-teste-5.png"
+],
 
-/* ForEach: percorre uma lista de itens ate o final
-- ele percorre o primeiro, se ver que tem outro, ele lê o outro 
-- quando chega no ultimo ele para de ler e finaliza a execuçao
-- img_miniatura é chamado porque e ele que contem a lista de imagens
-- depois o forEach e chamado para ler a lista
-- e dentro do forEach passamos o tipo de documentolido (imagem)
- */
-img_miniaturas.forEach(imagem => {
-    // CRIANDO UMA VÁRIAVEL QUE CRIE A TAG IMG NA DIV DO HTML
+
+
+avaliacaoImagem:
+"/assets/avaliacoes.png",
+
+
+avaliacao:
+"(178 avaliações)",
+
+
+
+precoAntigo:
+"R$ 46,90",
+
+
+preco:
+"R$ 22,90",
+
+
+desconto:
+"48,83% OFF",
+
+
+
+sku:
+"SKU: CZ270F",
+
+
+
+botaoCarrinho:
+"Adicionar ao carrinho",
+
+
+
+botaoComprar:
+"Comprar agora"
+
+
+
+}
+
+
+
+
+
+
+// NOME
+
+document.querySelector("#nome-produto").innerHTML =
+produto.nome;
+
+
+
+// IMAGEM PRINCIPAL
+
+document.querySelector("#imagem-maior").src =
+produto.imagemPrincipal;
+
+document.querySelector("#descricao-produto").innerHTML =
+produto.descricao;
+
+
+// MINIATURAS
+
+const lateral = document.querySelector("#img-lateral");
+
+
+produto.imagens.forEach((imagem)=>{
+
+
+    const caixa = document.createElement("div");
+
+    caixa.classList.add("miniatura-box");
+
+
+
     const img = document.createElement("img");
- 
-    // criando o código que mostra as imagens no site
-    img.src = imagem;//ele joga o caminho da imagem na tag img
-    img.classList.add("img-lateral");//jogar a tag criada na div
- 
-    /*criando o código que substitui a imagem
-     principal pela miniatura clicada*/
-    img.addEventListener("click", () => {
-        document.getElementById("imagem-maior").src =
-            imagem;
-    });//ver se a pessoa clicou na imagem
-    lateral.appendChild(img);//mostra a imagem adicionada
- 
-});//fechar o ForEach
- 
-// preencher a imagem principal
-document.getElementById("imagem-maior").src = img_principal;
 
-//-----------------preencher dados do produto---------------------
-document.getElementById("nome-produto").textContent = nomeProduto;
-document.getElementById("valor-avaliacao").textContent = avaliacoes;
-document.getElementById("preco-antigo").textContent = preco_antigo;
-document.getElementById("preco-promocional").textContent = preco_promocional;
-document.getElementById("valor-avaliacao").textContent = avaliacoes;
-document.getElementById("desconto").textContent = desconto;
+    img.src = imagem;
+
+
+
+    img.onclick = ()=>{
+
+        imagemPrincipal.src = imagem;
+
+    }
+
+
+
+    caixa.appendChild(img);
+
+
+    lateral.appendChild(caixa);
+
+const imagemPrincipal = document.querySelector("#imagem-maior");
+
+});
+
+
+
+
+// AVALIAÇÃO
+
+
+document.querySelector("#estrela-avaliacao").src =
+produto.avaliacaoImagem;
+
+
+document.querySelector("#valor-avaliacao").innerHTML =
+produto.avaliacao;
+
+
+
+// PREÇOS
+
+
+document.querySelector("#preco-antigo").innerHTML =
+produto.precoAntigo;
+
+
+document.querySelector("#preco-promocional").innerHTML =
+produto.preco;
+
+
+document.querySelector("#desconto").innerHTML =
+produto.desconto;
+
+
+
+// SKU
+
+document.querySelector("#sku").innerHTML =
+produto.sku;
+
+
+
+
+// BOTÕES
+
+document.querySelector("#btn-add-carrinho").innerHTML =
+produto.botaoCarrinho;
+
+
+
+document.querySelector("#btn-comprar").innerHTML =
+produto.botaoComprar;
+
+
+
+
+// QUANTIDADE
+// ÍCONES DOS BOTÕES DE QUANTIDADE
+
+document.querySelector("#aumentar").innerHTML =
+'<img src="/assets/botao-adicionar.png" alt="Adicionar">';
+
+document.querySelector("#diminuir").innerHTML =
+'<img src="/assets/remover.png" alt="Remover">';
+
+
+
+// QUANTIDADE
+
+let quantidade = 1;
+
+const numero = document.querySelector("#numero-quantidade");
+
+numero.textContent = quantidade;
+
+// BOTÃO AUMENTAR
+document.querySelector("#aumentar").onclick = () => {
+
+    if (quantidade < produto.estoque) {
+
+        quantidade++;
+        numero.textContent = quantidade;
+
+    } else {
+
+        alert("Você atingiu o limite disponível em estoque.");
+
+    }
+
+    const botao = document.querySelector("#aumentar");
+
+    botao.classList.add("click");
+
+    setTimeout(() => {
+        botao.classList.remove("click");
+    }, 250);
+
+};
+
+// BOTÃO DIMINUIR
+document.querySelector("#diminuir").onclick = () => {
+
+    if (quantidade > 1) {
+        quantidade--;
+    }
+
+    numero.textContent = quantidade;
+
+    const botao = document.querySelector("#diminuir");
+
+    botao.classList.add("click");
+
+    setTimeout(() => {
+        botao.classList.remove("click");
+    }, 250);
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

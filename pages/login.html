@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login</title>
+
+<link rel="stylesheet" href="/style/login.css">
+
+<!-- Fonte Ubuntu -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<!--imagem da logo pro navegador-->
+<link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+
+        <img src="/assets/cadastro.png" alt="Login">
+
+    </div>
+
+    <div class="right">
+
+        <form id="loginForm">
+
+            <h1>LOGIN</h1>
+
+            <div class="input-box">
+
+                <label>Nome de usuário</label>
+
+                <input
+                type="email"
+                id="email"
+                placeholder="Email/Nome de usuário"
+                required>
+
+            </div>
+
+            <div class="input-box">
+
+                <label>Senha</label>
+
+                <input
+                type="Senha"
+                id="senha"
+                placeholder="Senha"
+                required>
+
+            </div>
+
+            <div class="options">
+
+                <label>
+
+                    <input type="checkbox" id="remember">
+
+                    Lembre me
+
+                </label>
+
+                <a href="#">Esqueceu a Senha?</a>
+
+            </div>
+
+            <button type="submit">
+                Entrar
+            </button>
+
+            <p class="register">
+
+                Não Tem Uma Conta?
+
+                <a href="#">Inscrever-se</a>
+
+            </p>
+
+            <span>Login com</span>
+
+            <div class="social">
+
+                <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fab fa-google"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fab fa-apple"></i>
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="/js/login.js"></script>
+
+</body>
+</html>

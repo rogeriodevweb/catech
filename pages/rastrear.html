@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rastrear Entrega | CA Tech</title>
+
+    <link rel="stylesheet" href="/style/rastrear.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+        <!--imagem da logo pro navegador-->
+<link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+
+</head>
+
+<body>
+
+<div class="rastrear">
+
+    <div class="topo">
+
+        <button class="btn-voltar">
+            ← Voltar
+        </button>
+
+        <div>
+
+            <h1>📦 Rastrear Entrega</h1>
+
+            <p>Acompanhe o andamento do seu pedido.</p>
+
+        </div>
+
+    </div>
+
+    <div class="pesquisa">
+
+        <input
+            type="text"
+            id="codigo"
+            placeholder="Digite o código de rastreamento">
+
+        <button id="btnRastrear">
+            Rastrear
+        </button>
+
+    </div>
+
+    <div class="status">
+
+        <h2>Status da Entrega</h2>
+
+        <div class="timeline">
+
+            <div class="item ativo">
+                <div class="bolinha"></div>
+                <div>
+                    <h3>Pedido Confirmado</h3>
+                    <p>Seu pedido foi recebido.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="bolinha"></div>
+                <div>
+                    <h3>Em Preparação</h3>
+                    <p>Separando os produtos.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="bolinha"></div>
+                <div>
+                    <h3>Enviado</h3>
+                    <p>Pedido enviado para a transportadora.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="bolinha"></div>
+                <div>
+                    <h3>Saiu para Entrega</h3>
+                    <p>O entregador está a caminho.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="bolinha"></div>
+                <div>
+                    <h3>Entregue</h3>
+                    <p>Pedido entregue ao destinatário.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/rastrear.js"></script>
+
+</body>
+
+</html>

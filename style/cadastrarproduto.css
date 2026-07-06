@@ -1,0 +1,188 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+     font-family: "Ubuntu", sans-serif;
+}
+
+
+    
+body{
+    background:#0f172a;
+    display:flex;
+    color:#fff;
+}
+
+/* Conteúdo */
+
+.conteudo{
+    margin-left:260px;
+    width:calc(100% - 260px);
+    padding:30px;
+}
+
+/* Caixa principal */
+
+.cadastraproduto{
+    width:100%;
+    background:#101827;
+    border:1px solid #1f2937;
+    border-radius:15px;
+    padding:30px;
+}
+
+/* Topo */
+
+.topo-cadastraproduto{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.topo-cadastraproduto h1{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.topo-cadastraproduto p{
+    color:#94a3b8;
+}
+
+/* Campos */
+
+.campo{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+    flex:1;
+}
+
+.campo label{
+    margin-bottom:8px;
+    color:#cbd5e1;
+}
+
+.campo input,
+.campo select,
+.campo textarea{
+
+    background:#0f172a;
+    border:1px solid #334155;
+    border-radius:10px;
+    padding:14px;
+    color:#fff;
+    outline:none;
+    transition:.3s;
+
+}
+
+.campo textarea{
+    resize:vertical;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus{
+
+    border-color:#2563eb;
+
+}
+
+/* Linhas */
+
+.linha{
+    display:flex;
+    gap:20px;
+}
+
+/* Botões */
+
+.botoes{
+
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+    margin-top:30px;
+
+}
+
+.btn-voltar,
+.btn-cancelar{
+
+    background:transparent;
+    border:1px solid #475569;
+    color:#fff;
+    padding:14px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.btn-voltar:hover,
+.btn-cancelar:hover{
+
+    background:#334155;
+
+}
+
+.btn-salvar{
+
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:14px 28px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.btn-salvar:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* Upload */
+
+input[type=file]{
+
+    cursor:pointer;
+
+}
+
+/* Responsivo */
+
+@media(max-width:900px){
+
+    .linha{
+
+        flex-direction:column;
+
+    }
+
+    .topo-cadastraproduto{
+
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+
+    }
+
+    .botoes{
+
+        flex-direction:column;
+
+    }
+
+    .btn-voltar,
+    .btn-cancelar,
+    .btn-salvar{
+
+        width:100%;
+
+    }
+
+}
