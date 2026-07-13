@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <a href="/pages/index.html" class="btn-voltar">
+            ← Voltar
+        </a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meus Pedidos | CA Tech</title>
+
+    <link rel="stylesheet" href="/style/pedidos.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+               <!--imagem da logo pro navegador-->
+<link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+</head>
+
+<body>
+
+<header class="topo">
+
+    <h1>📦 Meus Pedidos</h1>
+
+    <p>Acompanhe todos os seus pedidos.</p>
+
+</header>
+
+<section class="pesquisa">
+
+    <input type="text" id="pesquisaPedido" placeholder="Pesquisar pedido...">
+
+</section>
+
+<section class="filtros">
+
+    <button class="ativo" data-status="todos">Todos</button>
+
+    <button data-status="pendente">Pendente</button>
+
+    <button data-status="enviado">Enviado</button>
+
+    <button data-status="entregue">Entregue</button>
+
+    <button data-status="cancelado">Cancelado</button>
+
+</section>
+
+<section class="pedidos">
+
+    <!-- Pedido -->
+
+    <div class="pedido" data-status="entregue">
+
+        <img src="/assets/chave-teste-1.png">
+
+        <div class="info">
+
+            <h3>Kit Elétrica Chave Teste Digital</h3>
+
+            <p>Pedido #1001</p>
+
+            <p>09/07/2026</p>
+
+            <p>Quantidade: 1</p>
+
+            <strong>R$ 22,90</strong>
+
+        </div>
+
+        <div class="lado-direito">
+
+            <span class="status entregue">
+
+                Entregue
+
+            </span>
+
+            <button>Ver detalhes</button>
+
+            <button class="comprar">Comprar novamente</button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="pedido" data-status="enviado">
+
+        <img src="/assets/chave-teste-1.png">
+
+        <div class="info">
+
+            <h3>SSD Kingston NV2 1TB</h3>
+
+            <p>Pedido #1002</p>
+
+            <p>08/07/2026</p>
+
+            <p>Quantidade: 1</p>
+
+            <strong>R$ 349,90</strong>
+
+        </div>
+
+        <div class="lado-direito">
+
+            <span class="status enviado">
+
+                Enviado
+
+            </span>
+
+            <button>Ver rastreio</button>
+
+            <button class="comprar">Comprar novamente</button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="pedido" data-status="pendente">
+
+        <img src="/assets/chave-teste-1.png">
+
+        <div class="info">
+
+            <h3>Mouse Gamer RGB</h3>
+
+            <p>Pedido #1003</p>
+
+            <p>07/07/2026</p>
+
+            <p>Quantidade: 2</p>
+
+            <strong>R$ 189,90</strong>
+
+        </div>
+
+        <div class="lado-direito">
+
+            <span class="status pendente">
+
+                Pendente
+
+            </span>
+
+            <button>Finalizar pagamento</button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="pedido" data-status="cancelado">
+
+        <img src="/assets/chave-teste-1.png">
+
+        <div class="info">
+
+            <h3>Teclado Mecânico RGB</h3>
+
+            <p>Pedido #1004</p>
+
+            <p>05/07/2026</p>
+
+            <p>Quantidade: 1</p>
+
+            <strong>R$ 279,90</strong>
+
+        </div>
+
+        <div class="lado-direito">
+
+            <span class="status cancelado">
+
+                Cancelado
+
+            </span>
+
+            <button class="comprar">Comprar novamente</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="/js/pedidos.js"></script>
+
+</body>
+
+</html>

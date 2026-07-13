@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto</title>
-    <!--conexão com o css-->
-    <link rel="stylesheet" href="/style/configuracoesc.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-    <!--imagem da logo pro navegador-->
-    <link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+    <title>CA Tech</title>
 
+    <link rel="stylesheet" href="/style/configuracoesc.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
 
 </head>
 
@@ -21,17 +19,12 @@
 <div class="configuracoes">
 
     <!-- MENU LATERAL -->
-
     <aside class="menu-config">
 
         <div class="logo-config">
-
             <div class="icone-config">⚙</div>
-
             <h2>Configurações</h2>
-
             <span>CA Tech</span>
-
         </div>
 
         <nav>
@@ -63,15 +56,6 @@
                     <span>Segurança</span>
                 </li>
 
-                <li data-aba="compras">
-                    <span class="icone">📦</span>
-                    <span>Compras</span>
-                </li>
-
-                <li data-aba="entrega">
-                    <span class="icone">🚚</span>
-                    <span>Entrega</span>
-                </li>
 
                 <li data-aba="suporte">
                     <span class="icone">❓</span>
@@ -88,9 +72,7 @@
         </nav>
 
         <div class="rodape-menu">
-
             <small>CA Tech v1.0</small>
-
         </div>
 
     </aside>
@@ -105,97 +87,558 @@
 
             <div class="card">
 
-                <p>
-                    Aqui ficarão as informações do cliente.
-                </p>
+    <h2>Informações Pessoais</h2>
 
-            </div>
+    <div class="form-grid">
+
+        <div class="campo">
+            <label>Nome Completo</label>
+            <input type="text" placeholder="Digite seu nome">
+        </div>
+
+        <div class="campo">
+            <label>E-mail</label>
+            <input type="email" placeholder="Digite seu e-mail">
+        </div>
+
+        <div class="campo">
+            <label>CPF</label>
+            <input type="text" placeholder="000.000.000-00">
+        </div>
+
+        <div class="campo">
+            <label>Telefone</label>
+            <input type="text" placeholder="(11) 99999-9999">
+        </div>
+
+        <div class="campo">
+            <label>Data de Nascimento</label>
+            <input type="date">
+        </div>
+
+        <div class="campo">
+            <label>Gênero</label>
+
+            <select>
+                <option>Selecione</option>
+                <option>Masculino</option>
+                <option>Feminino</option>
+                <option>Prefiro não informar</option>
+            </select>
+
+        </div>
+
+    </div>
+
+    <button class="btn-azul">
+        Salvar Alterações
+    </button>
+
+</div>
 
         </section>
 
         <section id="notificacoes" class="aba">
 
-            <h1>Notificações</h1>
+    <h1>🔔 Notificações</h1>
 
-            <div class="card">
+    <div class="card">
 
-                <p>Configurações de notificações.</p>
+        <h2>Preferências de Notificações</h2>
 
+        <div class="notificacao-item">
+            <div>
+                <h3>Promoções e Ofertas</h3>
+                <p>Receba ofertas exclusivas e cupons de desconto.</p>
             </div>
+            <input type="checkbox" checked>
+        </div>
 
-        </section>
+        <div class="notificacao-item">
+            <div>
+                <h3>Status dos Pedidos</h3>
+                <p>Receba atualizações sobre seus pedidos e entregas.</p>
+            </div>
+            <input type="checkbox" checked>
+        </div>
+
+        <div class="notificacao-item">
+            <div>
+                <h3>Novidades da Loja</h3>
+                <p>Seja informado sobre novos produtos e lançamentos.</p>
+            </div>
+            <input type="checkbox">
+        </div>
+
+        <div class="notificacao-item">
+            <div>
+                <h3>E-mails Informativos</h3>
+                <p>Receba notícias e novidades por e-mail.</p>
+            </div>
+            <input type="checkbox" checked>
+        </div>
+
+        <button class="btn-azul">
+            Salvar Preferências
+        </button>
+
+    </div>
+
+</section>
 
         <section id="preferencias" class="aba">
 
-            <h1>Preferências</h1>
+    <h1>⚙ Preferências</h1>
 
-            <div class="card">
+    <div class="card">
 
-                <p>Preferências do sistema.</p>
+        <h2>Configurações da Conta</h2>
 
+        <div class="campo">
+
+            <label>Idioma</label>
+
+            <select>
+                <option selected>Português (Brasil)</option>
+                <option>English</option>
+                <option>Español</option>
+            </select>
+
+        </div>
+
+      <div class="campo">
+
+    <label>Canal Preferido para Receber Avisos</label>
+
+    <select>
+        <option selected>E-mail</option>
+        <option>SMS</option>
+        <option>WhatsApp</option>
+        <option>Notificações no Site</option>
+    </select>
+
+</div>
+
+<div class="campo">
+
+    <label>Frequência das Notificações</label>
+
+    <select>
+        <option selected>Imediatamente</option>
+        <option>Uma vez por dia</option>
+        <option>Uma vez por semana</option>
+        <option>Somente quando houver pedidos</option>
+    </select>
+
+</div>
+
+        <div class="notificacao-item">
+            <div>
+                <h3>Salvar produtos visualizados</h3>
+                <p>Permite acessar rapidamente os produtos vistos recentemente.</p>
             </div>
 
-        </section>
+            <input type="checkbox" checked>
+        </div>
+
+        <div class="notificacao-item">
+            <div>
+                <h3>Receber recomendações personalizadas</h3>
+                <p>Mostrar produtos de acordo com seus interesses.</p>
+            </div>
+
+            <input type="checkbox" checked>
+        </div>
+
+        <button class="btn-azul">
+            Salvar Preferências
+        </button>
+
+    </div>
+
+</section>
 
         <section id="aparencia" class="aba">
 
-            <h1>Aparência</h1>
+    <h1>🎨 Aparência</h1>
 
-            <div class="card">
+    <div class="card">
 
-                <p>Configuração de tema.</p>
+        <h2>Personalização da Interface</h2>
 
+        <div class="campo">
+
+            <label>Tema</label>
+
+            <select>
+                <option selected>Escuro</option>
+                <option>Claro</option>
+                <option>Seguir o sistema</option>
+            </select>
+
+        </div>
+
+        <div class="campo">
+
+            <label>Tamanho da Fonte</label>
+
+            <select>
+                <option>Pequena</option>
+                <option selected>Média</option>
+                <option>Grande</option>
+            </select>
+
+        </div>
+
+        <div class="notificacao-item">
+            <div>
+                <h3>Animações da Interface</h3>
+                <p>Ativar efeitos de transição e animações do sistema.</p>
             </div>
 
-        </section>
+            <input type="checkbox" checked>
+        </div>
+
+        <div class="notificacao-item">
+            <div>
+                <h3>Modo Compacto</h3>
+                <p>Reduz o espaçamento entre os elementos da interface.</p>
+            </div>
+
+            <input type="checkbox">
+        </div>
+
+        <div class="notificacao-item">
+            <div>
+                <h3>Mostrar Ícones nos Menus</h3>
+                <p>Exibe ícones ao lado das opções do sistema.</p>
+            </div>
+
+            <input type="checkbox" checked>
+        </div>
+
+        <button class="btn-azul">
+            Salvar Aparência
+        </button>
+
+    </div>
+
+</section>
 
         <section id="seguranca" class="aba">
 
-            <h1>Segurança</h1>
+    <h1>🔒 Segurança</h1>
 
-            <div class="card">
+    <div class="card">
 
-                <p>Segurança da conta.</p>
+        <h2>Proteção da Conta</h2>
+
+        <div class="campo">
+
+            <label>Senha Atual</label>
+            <input type="password" placeholder="Digite sua senha atual">
+
+        </div>
+
+        <div class="campo">
+
+            <label>Nova Senha</label>
+            <input type="password" placeholder="Mínimo de 8 caracteres">
+
+        </div>
+
+        <div class="campo">
+
+            <label>Confirmar Nova Senha</label>
+            <input type="password" placeholder="Digite novamente a nova senha">
+
+        </div>
+
+        <hr>
+
+        <div class="notificacao-item">
+
+            <div>
+
+                <h3>Autenticação em Dois Fatores (2FA)</h3>
+
+                <p>
+                    Adicione uma camada extra de segurança solicitando um código de verificação ao fazer login.
+                </p>
 
             </div>
 
-        </section>
+            <input type="checkbox">
 
-        <section id="compras" class="aba">
+        </div>
 
-            <h1>Compras</h1>
+        <div class="notificacao-item">
 
-            <div class="card">
+            <div>
 
-                <p>Histórico e favoritos.</p>
+                <h3>Receber alerta de novos acessos</h3>
+
+                <p>
+                    Envie um e-mail sempre que sua conta for acessada por um novo dispositivo.
+                </p>
+
+            </div>
+
+            <input type="checkbox" checked>
+
+        </div>
+
+        <div class="notificacao-item">
+
+            <div>
+
+                <h3>Encerrar sessões em outros dispositivos</h3>
+
+                <p>
+                    Desconecte automaticamente todos os dispositivos conectados à sua conta.
+                </p>
 
             </div>
 
-        </section>
+            <button class="btn-cinza">
+                Encerrar Sessões
+            </button>
 
-        <section id="entrega" class="aba">
+        </div>
 
-            <h1>Entrega</h1>
+        <hr>
 
-            <div class="card">
+        <div class="card-aviso">
 
-                <p>Endereços de entrega.</p>
+            <h3>⚠ Recomendações de Segurança</h3>
+
+            <ul>
+
+                <li>Utilize uma senha com pelo menos <strong>8 caracteres</strong>.</li>
+
+                <li>Combine letras maiúsculas, minúsculas, números e símbolos.</li>
+
+                <li>Não compartilhe sua senha com terceiros.</li>
+
+                <li>Altere sua senha periodicamente.</li>
+
+                <li>Ative a autenticação em dois fatores para maior proteção.</li>
+
+            </ul>
+
+        </div>
+
+        <button class="btn-azul">
+            Salvar Alterações
+        </button>
+
+    </div>
+
+</section>
+
+        <!-- PEDIDOS -->
+
+       <section id="pedidos" class="aba">
+
+    <h1>📦 Meus Pedidos</h1>
+
+    <div class="card">
+
+        <h2>Histórico de Pedidos</h2>
+
+        <p class="subtitulo">
+            Acompanhe o status dos seus pedidos e visualize os detalhes da entrega.
+        </p>
+
+        <div class="sem-pedidos">
+
+            <div class="icone-vazio">📦</div>
+
+            <h3>Nenhum pedido encontrado</h3>
+
+            <p>
+                Você ainda não realizou nenhuma compra.
+                Quando fizer um pedido, ele aparecerá aqui.
+            </p>
+
+            <button class="btn-azul">
+                Ir às Compras
+            </button>
+
+        </div>
+
+        <!-- EXEMPLO DE PEDIDO (deixe comentado) -->
+
+        <!--
+        <div class="pedido">
+
+            <img src="/assets/notebook.png" alt="Notebook">
+
+            <div class="pedido-info">
+
+                <h3>Notebook Gamer RTX 4060</h3>
+
+                <p><strong>Pedido:</strong> #2548</p>
+
+                <p><strong>Data:</strong> 10/07/2026</p>
+
+                <p><strong>Valor:</strong> R$ 5.499,90</p>
+
+                <span class="status-pedido preparando">
+                    🟡 Em preparação
+                </span>
+
+                <div class="acoes-pedido">
+
+                    <button class="btn-azul">
+                        Ver Detalhes
+                    </button>
+
+                    <button class="btn-cinza">
+                        Comprar Novamente
+                    </button>
+
+                </div>
 
             </div>
+
+        </div>
+        -->
+
+    </div>
+
+</section>
+
+            <!--
+            EXEMPLO DE COMO FICARÁ QUANDO HOUVER PEDIDOS
+
+            <div class="card card-pedido">
+
+                <div class="info-pedido">
+
+                    <h2>🖥 Notebook Gamer RTX 4060</h2>
+
+                    <p><strong>Pedido:</strong> #2548</p>
+
+                    <p><strong>Valor:</strong> R$ 5.499,90</p>
+
+                    <p><strong>Status:</strong> 🟡 Em preparação</p>
+
+                    <button class="btn-azul">
+                        Ver detalhes
+                    </button>
+
+                </div>
+
+            </div>
+
+            -->
 
         </section>
 
         <section id="suporte" class="aba">
 
-            <h1>Suporte</h1>
+    <h1>❓ Suporte</h1>
 
-            <div class="card">
+    <div class="card">
 
-                <p>Central de ajuda.</p>
+        <h2>Central de Atendimento</h2>
+
+        <p class="subtitulo">
+            Precisa de ajuda? Escolha uma das opções abaixo.
+        </p>
+
+        <div class="notificacao-item">
+
+            <div>
+
+                <h3>💬 Chat Online</h3>
+
+                <p>Converse com nossa equipe em tempo real.</p>
 
             </div>
 
-        </section>
+            <button class="btn-azul">
+                Iniciar Chat
+            </button>
+
+        </div>
+
+        <div class="notificacao-item">
+
+            <div>
+
+                <h3>📧 Enviar E-mail</h3>
+
+                <p>Envie sua dúvida e responderemos o mais rápido possível.</p>
+
+            </div>
+
+            <button class="btn-azul">
+                Enviar
+            </button>
+
+        </div>
+
+        <div class="notificacao-item">
+
+            <div>
+
+                <h3>📞 Atendimento Telefônico</h3>
+
+                <p>Segunda a Sexta, das 08:00 às 18:00.</p>
+
+            </div>
+
+            <button class="btn-azul">
+                Ver Número
+            </button>
+
+        </div>
+
+        <div class="notificacao-item">
+
+            <div>
+
+                <h3>❔ Perguntas Frequentes (FAQ)</h3>
+
+                <p>Consulte as respostas para as dúvidas mais comuns.</p>
+
+            </div>
+
+            <button class="btn-azul">
+                Acessar FAQ
+            </button>
+
+        </div>
+
+        <hr>
+
+        <h2>Enviar uma Mensagem</h2>
+
+        <div class="campo">
+
+            <label>Assunto</label>
+
+            <input type="text" placeholder="Ex.: Problema com meu pedido">
+
+        </div>
+
+        <div class="campo">
+
+            <label>Mensagem</label>
+
+            <textarea placeholder="Descreva sua dúvida ou problema..." rows="6"></textarea>
+
+        </div>
+
+        <button class="btn-azul">
+            Enviar Mensagem
+        </button>
+
+    </div>
+
+</section>
 
         <section id="conta" class="aba">
 
@@ -222,5 +665,4 @@
 <script src="/js/configuracoesc.js"></script>
 
 </body>
-
 </html>

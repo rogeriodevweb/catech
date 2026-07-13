@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meus Cupons | CA Tech</title>
+
+    <link rel="stylesheet" href="/style/cupom.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+            <!--imagem da logo pro navegador-->
+<link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+
+</head>
+
+<body>
+
+    <!-- TÍTULO -->
+
+    <header class="topo">
+
+        <h1>🎟 Meus Cupons</h1>
+
+        <p>Utilize seus cupons para economizar nas compras.</p>
+
+    </header>
+
+
+
+    <!-- PESQUISA -->
+
+    <section class="pesquisa">
+
+        <input type="text" id="pesquisarCupom" placeholder="Pesquisar cupom...">
+
+    </section>
+
+
+
+    <!-- FILTROS -->
+
+    <section class="filtros">
+
+        <button class="ativo" data-status="todos">Todos</button>
+
+        <button data-status="disponivel">Disponíveis</button>
+
+        <button data-status="utilizado">Utilizados</button>
+
+        <button data-status="expirado">Expirados</button>
+
+    </section>
+
+
+
+    <!-- LISTA DE CUPONS -->
+
+    <section class="lista-cupons">
+
+
+
+        <!-- CUPOM 1 -->
+
+        <div class="cupom" data-status="disponivel">
+
+            <div class="desconto">
+
+                <h2>10%</h2>
+
+                <span>OFF</span>
+
+            </div>
+
+            <div class="informacoes">
+
+                <h3>TECNO10</h3>
+
+                <p>10% de desconto em produtos de informática.</p>
+
+                <small>Válido até 30/08/2026</small>
+
+            </div>
+
+            <div class="acoes">
+
+                <span class="status disponivel">
+
+                    Disponível
+
+                </span>
+
+                <button class="copiar" data-codigo="TECNO10">
+
+                    Copiar Código
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CUPOM 2 -->
+
+        <div class="cupom" data-status="disponivel">
+
+            <div class="desconto">
+
+                <h2>R$50</h2>
+
+                <span>OFF</span>
+
+            </div>
+
+            <div class="informacoes">
+
+                <h3>SSD50</h3>
+
+                <p>R$50 de desconto acima de R$500.</p>
+
+                <small>Válido até 15/09/2026</small>
+
+            </div>
+
+            <div class="acoes">
+
+                <span class="status disponivel">
+
+                    Disponível
+
+                </span>
+
+                <button class="copiar" data-codigo="SSD50">
+
+                    Copiar Código
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CUPOM 3 -->
+
+        <div class="cupom" data-status="utilizado">
+
+            <div class="desconto">
+
+                <h2>Frete</h2>
+
+                <span>Grátis</span>
+
+            </div>
+
+            <div class="informacoes">
+
+                <h3>FRETEGRATIS</h3>
+
+                <p>Frete grátis para todo o Brasil.</p>
+
+                <small>Utilizado em 05/07/2026</small>
+
+            </div>
+
+            <div class="acoes">
+
+                <span class="status utilizado">
+
+                    Utilizado
+
+                </span>
+
+                <button disabled>
+
+                    Utilizado
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CUPOM 4 -->
+
+        <div class="cupom" data-status="expirado">
+
+            <div class="desconto">
+
+                <h2>20%</h2>
+
+                <span>OFF</span>
+
+            </div>
+
+            <div class="informacoes">
+
+                <h3>NOTE20</h3>
+
+                <p>20% de desconto em notebooks.</p>
+
+                <small>Expirado em 01/06/2026</small>
+
+            </div>
+
+            <div class="acoes">
+
+                <span class="status expirado">
+
+                    Expirado
+
+                </span>
+
+                <button disabled>
+
+                    Expirado
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CUPOM 5 -->
+
+        <div class="cupom" data-status="disponivel">
+
+            <div class="desconto">
+
+                <h2>15%</h2>
+
+                <span>OFF</span>
+
+            </div>
+
+            <div class="informacoes">
+
+                <h3>GAMER15</h3>
+
+                <p>15% de desconto em periféricos gamer.</p>
+
+                <small>Válido até 10/10/2026</small>
+
+            </div>
+
+            <div class="acoes">
+
+                <span class="status disponivel">
+
+                    Disponível
+
+                </span>
+
+                <button class="copiar" data-codigo="GAMER15">
+
+                    Copiar Código
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <script src="/js/cupom.js"></script>
+
+</body>
+
+</html>

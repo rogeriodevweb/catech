@@ -1,14 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log("Dashboard carregado!");
+    const menu = document.querySelectorAll(".menu-item");
+    const abas = document.querySelectorAll(".aba");
 
-    const btnLoja = document.querySelector(".btn-loja");
+    menu.forEach(item => {
+        item.addEventListener("click", () => {
 
-    btnLoja.addEventListener("click", () => {
+            menu.forEach(i => i.classList.remove("ativo"));
+            abas.forEach(a => a.classList.remove("ativo"));
 
-        // Altere para a página inicial da sua loja
-        window.location.href = "../index.html";
+            item.classList.add("ativo");
 
+            const aba = document.getElementById(item.dataset.aba);
+
+            if (aba) {
+                aba.classList.add("ativo");
+            }
+
+        });
     });
 
 });

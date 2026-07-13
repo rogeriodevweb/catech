@@ -526,3 +526,248 @@ body{
     width: 100%; /*define a largura da página para 100% da tela*/
 
 }
+/*=====================================
+=         ATALHOS RÁPIDOS
+======================================*/
+
+.atalhos{
+
+    max-width:1400px;
+
+    margin:35px auto;
+
+    padding:0 20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.atalho{
+    font-family:ubuntu;
+
+    text-decoration:none;
+
+    flex:1;
+
+    min-width:170px;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:25px 20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    border:1px solid #e5e7eb;
+
+}
+
+.atalho:hover{
+    font-family:ubuntu;
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+
+    border-color:#2563eb;
+
+}
+
+.atalho-icone{
+    font-family:ubuntu;
+
+    width:78px;
+
+    height:78px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+    margin-bottom:18px;
+
+    transition:.35s;
+
+}
+
+.atalho:hover .atalho-icone{
+
+    transform:scale(1.12) rotate(6deg);
+
+}
+
+.atalho span{
+
+    font-size:16px;
+
+    font-weight:700;
+
+    color:#1e293b;
+
+    transition:.3s;
+
+}
+
+.atalho:hover span{
+
+    color:#2563eb;
+
+}
+
+/*==========================
+=      RESPONSIVO
+===========================*/
+
+@media(max-width:992px){
+
+    .atalhos{
+
+        justify-content:center;
+        font-family:ubuntu;
+    }
+
+    .atalho{
+
+        min-width:160px;
+
+        flex:0 0 calc(33.33% - 15px);
+
+        font-family:ubuntu;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .atalho{
+
+        flex:0 0 calc(50% - 10px);
+
+        font-family:ubuntu;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .atalhos{
+
+    max-width:1400px;
+
+    margin:35px auto;
+
+    padding:0 20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:35px;
+
+    flex-wrap:wrap;
+
+    font-family:ubuntu;
+
+}
+
+    .atalho{
+
+        flex:0 0 100%;
+
+        padding:22px;
+
+        font-family:ubuntu;
+    }
+
+    .atalho-icone{
+
+        width:68px;
+        height:68px;
+        font-size:30px;
+        font-family:ubuntu;
+    }
+
+}
+
+/*==========================
+=       FAVORITOS
+==========================*/
+
+.favorito{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    width:40px;
+
+    height:40px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+    color:#9ca3af;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:.3s;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+
+}
+
+.favorito:hover{
+
+    transform:scale(1.12);
+
+}
+
+.favorito.ativo{
+
+    color:#ef4444;
+
+}

@@ -1,0 +1,431 @@
+/*====================================
+=            RESET GERAL             =
+====================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Ubuntu",sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+}
+
+/*====================================
+=              TOPO                  =
+====================================*/
+
+.topo{
+
+    max-width:1300px;
+
+    margin:40px auto 20px;
+
+    padding:0 20px;
+
+}
+
+.topo h1{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.topo p{
+
+    color:#94a3b8;
+
+}
+
+/*====================================
+=            PESQUISA                =
+====================================*/
+
+.pesquisa{
+
+    max-width:1300px;
+
+    margin:20px auto;
+
+    padding:0 20px;
+
+}
+
+.pesquisa input{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:#111827;
+
+    color:#fff;
+
+    border:1px solid #334155;
+
+    font-size:15px;
+
+}
+
+.pesquisa input:focus{
+
+    border-color:#2563eb;
+
+}
+
+/*====================================
+=             FILTROS                =
+====================================*/
+
+.filtros{
+
+    max-width:1300px;
+
+    margin:30px auto;
+
+    padding:0 20px;
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.filtros button{
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#1e293b;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.filtros button:hover{
+
+    background:#2563eb;
+
+}
+
+.filtros button.ativo{
+
+    background:#2563eb;
+
+}
+
+/*====================================
+=          LISTA CUPONS              =
+====================================*/
+
+.lista-cupons{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:0 20px 60px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+/*====================================
+=          CARD CUPOM                =
+====================================*/
+
+.cupom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+    background:#111827;
+
+    border:1px solid #1f2937;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    transition:.3s;
+
+}
+
+.cupom:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+/*====================================
+=         ÁREA DESCONTO              =
+====================================*/
+
+.desconto{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+.desconto h2{
+
+    font-size:40px;
+
+}
+
+.desconto span{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+/*====================================
+=          INFORMAÇÕES               =
+====================================*/
+
+.informacoes{
+
+    flex:1;
+
+}
+
+.informacoes h3{
+
+    font-size:26px;
+
+    margin-bottom:12px;
+
+}
+
+.informacoes p{
+
+    color:#cbd5e1;
+
+    margin-bottom:10px;
+
+}
+
+.informacoes small{
+
+    color:#94a3b8;
+
+}
+
+/*====================================
+=             AÇÕES                  =
+====================================*/
+
+.acoes{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    gap:18px;
+
+}
+
+/*====================================
+=            STATUS                  =
+====================================*/
+
+.status{
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+}
+
+.disponivel{
+
+    background:#14532d;
+
+    color:#4ade80;
+
+}
+
+.utilizado{
+
+    background:#78350f;
+
+    color:#facc15;
+
+}
+
+.expirado{
+
+    background:#7f1d1d;
+
+    color:#f87171;
+
+}
+
+/*====================================
+=            BOTÕES                  =
+====================================*/
+
+.acoes button{
+
+    width:170px;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+.acoes button:hover{
+
+    background:#1d4ed8;
+
+}
+
+.acoes button:disabled{
+
+    background:#475569;
+
+    cursor:not-allowed;
+
+}
+
+/*====================================
+=          SEM CUPONS                =
+====================================*/
+
+.sem-cupons{
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    padding:40px;
+
+}
+
+/*====================================
+=          RESPONSIVO                =
+====================================*/
+
+@media(max-width:900px){
+
+    .cupom{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .acoes{
+
+        width:100%;
+
+        align-items:center;
+
+    }
+
+    .acoes button{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .topo h1{
+
+        font-size:28px;
+
+    }
+
+    .desconto{
+
+        width:120px;
+
+        height:120px;
+
+    }
+
+    .desconto h2{
+
+        font-size:32px;
+
+    }
+
+    .informacoes h3{
+
+        font-size:22px;
+
+    }
+
+}
