@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pagamento</title>
+
+<link rel="stylesheet" href="../STYLE/pagamento.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Finalizar Compra</h1>
+
+    <div class="pagamento">
+
+        <div class="esquerda">
+
+            <div class="card">
+
+                <h2>Endereço de Entrega</h2>
+
+                <p>João Silva</p>
+                <p>Rua Exemplo, 100</p>
+                <p>Araguaína - TO</p>
+                <p>CEP: 77800-000</p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Forma de Pagamento</h2>
+
+                <label>
+                    <input type="radio" name="pagamento" checked>
+                    Cartão de Crédito
+                </label>
+
+                <label>
+                    <input type="radio" name="pagamento">
+                    PIX
+                </label>
+
+                <label>
+                    <input type="radio" name="pagamento">
+                    Boleto Bancário
+                </label>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Cupom de Desconto</h2>
+
+                <div class="cupom">
+
+                    <input type="text" placeholder="Digite seu cupom">
+
+                    <button>Aplicar</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="direita">
+
+            <div class="card">
+
+                <h2>Resumo do Pedido</h2>
+
+                <div class="linha">
+                    <span>Produto</span>
+                    <span>R$ 399,90</span>
+                </div>
+
+                <div class="linha">
+                    <span>Frete</span>
+                    <span>R$ 25,00</span>
+                </div>
+
+                <div class="linha">
+                    <span>Desconto</span>
+                    <span>- R$ 20,00</span>
+                </div>
+
+                <hr>
+
+                <div class="linha total">
+                    <span>Total</span>
+                    <span>R$ 404,90</span>
+                </div>
+
+                <button id="finalizar">
+                    Finalizar Compra
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../JS/pagamento.js"></script>
+
+</body>
+</html>

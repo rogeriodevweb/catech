@@ -261,6 +261,33 @@ FOREIGN KEY (endereco_idEndereco) references endereco (idEndereco)
 );
 
 
+-- Comando de modelagem do BD
+-- INSERIR, EDITAR, EXCLUIR, LISTAR
+
+-- LISTAGEM DE TABELAS
+SHOW TABLES;
+
+-- INSERT - INSERIR DADOS NA TABELA
+INSERT INTO Endereco
+(rua, cep, bairro, numero, complemento, tipo)
+values("Rodoviário",777817089,"Rodoviário",1230,"Ao lado do senac","Comercial");
+
+-- LISTAR DADOS DA TABELA
+SELECT * FROM Endereco;
+
+insert into Lojista
+(nome, cpf, email, senha, telefone)
+values ("João", 09012209022, "Joao@gmail.com", "123abc", 63992129510);
+
+
+
+
+
+
+-- cadastrar os dados da loja
+INSERT INTO LOJA
+(nome, whatsapp, telefone, email, endereco_idEndereco, lojista_idLojista)
+values("CA Tech", "63992057108", "63992057108", "piuutrapp@gmail.com", 1,1);
 
 
 
