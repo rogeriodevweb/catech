@@ -157,3 +157,27 @@ button:active{
 }
 
 }
+
+.btn-voltar{
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    display:inline-block;
+    padding:10px 18px;
+
+    background:#1e293b;
+    color:#fff;
+    text-decoration:none;
+
+    border:1px solid #334155;
+    border-radius:8px;
+
+    font-size:15px;
+    transition:.3s;
+}
+
+.btn-voltar:hover{
+    background:#2563eb;
+    border-color:#2563eb;
+}

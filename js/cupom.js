@@ -126,3 +126,12 @@ botoesCopiar.forEach(botao => {
     });
 
 });
+const btnVoltar = document.getElementById("btnVoltar");
+
+btnVoltar.addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    history.back();
+
+});

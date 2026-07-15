@@ -356,6 +356,7 @@ body{
 
 }
 
+
 /*====================================
 =          SEM CUPONS                =
 ====================================*/
@@ -428,4 +429,36 @@ body{
 
     }
 
+}
+.btn-voltar{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:12px 20px;
+
+    background:#1e293b;
+    color:#fff;
+    text-decoration:none;
+
+    border:1px solid #334155;
+    border-radius:8px;
+
+    font-size:15px;
+    font-weight:500;
+
+    cursor:pointer;
+    transition:.3s;
+
+    margin-bottom:25px;
+}
+
+.btn-voltar:hover{
+    background:#2563eb;
+    border-color:#2563eb;
+    transform:translateY(-2px);
+}
+
+.btn-voltar:active{
+    transform:scale(.98);
 }
