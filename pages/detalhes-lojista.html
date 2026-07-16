@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detalhes do Lojista</title>
+
+    <link rel="stylesheet" href="../style/detalhes-lojista.css">
+
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!--==========================
+        BOTÃO VOLTAR
+        ===========================-->
+
+        <a href="javascript:history.back()" class="btn-voltar">
+            ← Voltar
+        </a>
+
+        <!--==========================
+        CARD DA LOJA
+        ===========================-->
+
+        <section class="card-loja">
+
+            <div class="banner-loja">
+
+                <img id="banner-loja" src="assets/lojista.png" alt="Banner da Loja">
+
+            </div>
+
+            <div class="perfil-loja">
+
+                <img id="logo-loja" src="../assets/logo-loja.png" alt="Logo da Loja">
+
+                <div class="dados-loja">
+
+                    <h1 id="nome-loja"></h1>
+
+                    <span id="avaliacao-loja"></span>
+
+                    <div class="selos">
+
+                        <span class="selo">✔ Loja Oficial</span>
+
+                        <span class="selo">✔ Compra Segura</span>
+
+                        <span class="selo">✔ Responde rapidamente</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!--==========================
+        SOBRE
+        ===========================-->
+
+        <section class="card">
+
+            <h2>Sobre a Loja</h2>
+
+            <p id="descricao-loja"></p>
+
+        </section>
+
+        <!--==========================
+        INFORMAÇÕES
+        ===========================-->
+
+        <section class="card">
+
+            <h2>Informações</h2>
+
+            <div class="grid-informacoes">
+
+                <div class="informacao">
+
+                    <span class="icone">📍</span>
+
+                    <div>
+
+                        <h3>Cidade</h3>
+
+                        <p id="cidade-loja"></p>
+
+                    </div>
+
+                </div>
+
+                <div class="informacao">
+
+                    <span class="icone">📞</span>
+
+                    <div>
+
+                        <h3>Telefone</h3>
+
+                        <p id="telefone-loja"></p>
+
+                    </div>
+
+                </div>
+
+                <div class="informacao">
+
+                    <span class="icone">✉️</span>
+
+                    <div>
+
+                        <h3>E-mail</h3>
+
+                        <p id="email-loja"></p>
+
+                    </div>
+
+                </div>
+
+                <div class="informacao">
+
+                    <span class="icone">🌐</span>
+
+                    <div>
+
+                        <h3>Site</h3>
+
+                        <p id="site-loja"></p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!--==========================
+        ESTATÍSTICAS
+        ===========================-->
+
+        <section class="card">
+
+            <h2>Estatísticas</h2>
+
+            <div class="estatisticas">
+
+                <div class="estatistica">
+
+                    <h3 id="produtos-loja"></h3>
+
+                    <span>Produtos</span>
+
+                </div>
+
+                <div class="estatistica">
+
+                    <h3 id="pedidos-loja"></h3>
+
+                    <span>Pedidos</span>
+
+                </div>
+
+                <div class="estatistica">
+
+                    <h3 id="clientes-loja"></h3>
+
+                    <span>Clientes</span>
+
+                </div>
+
+                <div class="estatistica">
+
+                    <h3 id="tempo-resposta"></h3>
+
+                    <span>Tempo de resposta</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        
+
+        <!--==========================
+        BOTÕES
+        ===========================-->
+
+        <section class="acoes">
+
+            <button id="btn-produtos">
+                Ver Produtos
+            </button>
+
+            <button id="btn-contato">
+                Entrar em Contato
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="../js/detalhes-lojista.js"></script>
+
+</body>
+
+</html>

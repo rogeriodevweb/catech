@@ -1,0 +1,305 @@
+/*======================================
+=            RESET GERAL              =
+======================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Ubuntu",sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/*======================================
+=            CONTAINER                =
+======================================*/
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+}
+
+/*======================================
+=            BOTÃO VOLTAR             =
+======================================*/
+
+.btn-voltar{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:25px;
+    background:#2563eb;
+    color:#fff;
+    padding:12px 22px;
+    border-radius:8px;
+    transition:.3s;
+    font-weight:600;
+}
+
+.btn-voltar:hover{
+    background:#1d4ed8;
+}
+
+/*======================================
+=            CARD DA LOJA             =
+======================================*/
+
+.card-loja{
+    background:#101827;
+    border-radius:15px;
+    overflow:hidden;
+    margin-bottom:30px;
+    border:1px solid #1f2937;
+}
+
+.banner-loja{
+    height:250px;
+    overflow:hidden;
+}
+
+#banner-loja{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.perfil-loja{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    padding:30px;
+}
+
+#logo-loja{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    border:5px solid #2563eb;
+    object-fit:cover;
+    background:#fff;
+}
+
+.dados-loja h1{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+#avaliacao-loja{
+    display:block;
+    color:#facc15;
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.selos{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.selo{
+    background:#1e293b;
+    color:#22c55e;
+    padding:10px 18px;
+    border-radius:30px;
+    font-size:14px;
+    border:1px solid #334155;
+}
+
+/*======================================
+=            CARDS                    =
+======================================*/
+
+.card{
+    background:#101827;
+    border:1px solid #1f2937;
+    border-radius:15px;
+    padding:30px;
+    margin-bottom:25px;
+}
+
+.card h2{
+    font-size:28px;
+    margin-bottom:25px;
+    color:#2563eb;
+}
+
+.card p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+/*======================================
+=          INFORMAÇÕES                =
+======================================*/
+
+.grid-informacoes{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.informacao{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    background:#0f172a;
+    padding:20px;
+    border-radius:12px;
+    border:1px solid #1f2937;
+}
+
+.icone{
+    font-size:35px;
+}
+
+.informacao h3{
+    margin-bottom:5px;
+}
+
+.informacao p{
+    color:#94a3b8;
+}
+
+/*======================================
+=          ESTATÍSTICAS               =
+======================================*/
+
+.estatisticas{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.estatistica{
+    background:#0f172a;
+    border:1px solid #1f2937;
+    border-radius:15px;
+    text-align:center;
+    padding:30px 20px;
+    transition:.3s;
+}
+
+.estatistica:hover{
+    transform:translateY(-5px);
+    border-color:#2563eb;
+}
+
+.estatistica h3{
+    font-size:34px;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.estatistica span{
+    color:#94a3b8;
+}
+
+
+
+/*======================================
+=            BOTÕES                   =
+======================================*/
+
+.acoes{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:40px;
+}
+
+.acoes button{
+    border:none;
+    cursor:pointer;
+    padding:16px 35px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+#btn-produtos{
+    background:#2563eb;
+    color:#fff;
+}
+
+#btn-produtos:hover{
+    background:#1d4ed8;
+    transform:translateY(-3px);
+}
+
+#btn-contato{
+    background:#22c55e;
+    color:#fff;
+}
+
+#btn-contato:hover{
+    background:#16a34a;
+    transform:translateY(-3px);
+}
+
+/*======================================
+=          RESPONSIVIDADE             =
+======================================*/
+
+@media(max-width:900px){
+
+    .perfil-loja{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .grid-informacoes{
+        grid-template-columns:1fr;
+    }
+
+    .estatisticas{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .estatisticas{
+        grid-template-columns:1fr;
+    }
+
+    .acoes{
+        flex-direction:column;
+    }
+
+    .acoes button{
+        width:100%;
+    }
+
+    #logo-loja{
+        width:110px;
+        height:110px;
+    }
+
+    .dados-loja h1{
+        font-size:28px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+}
