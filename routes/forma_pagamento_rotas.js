@@ -10,7 +10,7 @@ const express = require("express");
 // Importando o módulo express para criar rotas e lidar com requisições HTTP.
 const router = express.Router();
 // Criando um objeto router para definir as rotas relacionadas às formas de pagamento.
-const Formaspagamentocontroller = require("../controller/formas_pagamento_controller.js");
+const Formaspagamentocontroller = require("../controller/forma_pagamento_controller.js");
 
 router.post("/", Formaspagamentocontroller.cadastrar);
 

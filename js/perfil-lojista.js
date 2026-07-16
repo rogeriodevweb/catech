@@ -1,40 +1,139 @@
-const dadosLoja = {
+//==========================================
+// AGUARDA CARREGAR A PÁGINA
+//==========================================
 
-    loja:"CA Tech",
+document.addEventListener("DOMContentLoaded", () => {
 
-    responsavel:"",
+    //==========================================
+    // BOTÕES
+    //==========================================
 
-    email:"",
+    const btnSalvar = document.querySelector(".salvar");
+    const btnCancelar = document.querySelector(".cancelar");
+    const btnDesativar = document.querySelector(".desativar");
 
-    telefone:"",
+    //==========================================
+    // SALVAR ALTERAÇÕES
+    //==========================================
 
-    cnpj:"",
+    btnSalvar.addEventListener("click", () => {
 
-    endereco:"",
+        const senha = document.getElementById("novaSenha").value;
+        const confirmar = document.getElementById("confirmarSenha").value;
 
-    site:"",
+        if (senha !== confirmar) {
 
-    instagram:"",
+            alert("As senhas não coincidem.");
+            return;
 
-    facebook:"",
+        }
 
-    pix:""
+        alert("Informações salvas com sucesso!");
 
-};
+    });
 
-document.getElementById("loja").value = dadosLoja.loja;
-document.getElementById("responsavel").value = dadosLoja.responsavel;
-document.getElementById("email").value = dadosLoja.email;
-document.getElementById("telefone").value = dadosLoja.telefone;
-document.getElementById("cnpj").value = dadosLoja.cnpj;
-document.getElementById("endereco").value = dadosLoja.endereco;
-document.getElementById("site").value = dadosLoja.site;
-document.getElementById("instagram").value = dadosLoja.instagram;
-document.getElementById("facebook").value = dadosLoja.facebook;
-document.getElementById("pix").value = dadosLoja.pix;
+    //==========================================
+    // CANCELAR
+    //==========================================
 
-document.getElementById("salvar").addEventListener("click",()=>{
+    btnCancelar.addEventListener("click", () => {
 
-    alert("Perfil atualizado com sucesso!");
+        const confirmar = confirm("Deseja limpar todos os campos?");
+
+        if (!confirmar) return;
+
+        document.querySelector("form")?.reset();
+
+        if (!document.querySelector("form")) {
+
+            document.querySelectorAll("input").forEach(input => {
+
+                if (
+                    input.type !== "button" &&
+                    input.type !== "submit" &&
+                    input.type !== "file" &&
+                    !input.readOnly
+                ) {
+
+                    input.value = "";
+
+                }
+
+            });
+
+            document.querySelectorAll("textarea").forEach(textarea => {
+
+                textarea.value = "";
+
+            });
+
+            document.querySelectorAll("select").forEach(select => {
+
+                select.selectedIndex = 0;
+
+            });
+
+        }
+
+    });
+
+    //==========================================
+    // DESATIVAR CONTA
+    //==========================================
+
+    btnDesativar.addEventListener("click", () => {
+
+        const resposta = confirm("Tem certeza que deseja desativar sua conta?");
+
+        if (resposta) {
+
+            alert("Conta desativada.");
+
+        }
+
+    });
+
+    //==========================================
+    // INPUT FILE
+    //==========================================
+
+    const arquivos = document.querySelectorAll("input[type=file]");
+
+    arquivos.forEach(input => {
+
+        input.addEventListener("change", () => {
+
+            if (input.files.length > 0) {
+
+                console.log(input.files[0].name);
+
+            }
+
+        });
+
+    });
+
+    //==========================================
+    // ALTERAR SENHA
+    //==========================================
+
+    const senha = document.getElementById("novaSenha");
+    const confirmar = document.getElementById("confirmarSenha");
+
+    confirmar.addEventListener("keyup", () => {
+
+        if (senha.value === "") return;
+
+        if (senha.value === confirmar.value) {
+
+            confirmar.style.borderColor = "#22c55e";
+
+        } else {
+
+            confirmar.style.borderColor = "#ef4444";
+
+        }
+
+    });
 
 });

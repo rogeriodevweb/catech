@@ -12,14 +12,14 @@ const router = express.Router();
 // Criando um objeto router para definir as rotas relacionadas aos fretes.
 const fretecontroller = require("../controller/frete_controller.js");
 
-router.post("/", Fretecontroller.cadastrar);
+router.post("/", fretecontroller.cadastrar);
 
-router.get("/", Fretecontroller.listar);
+router.get("/", fretecontroller.listar);
 
-router.get("/:id", Fretecontroller.buscarPorId);
+router.get("/:id", fretecontroller.buscarPorId);
 
-router.put("/:id", Fretecontroller.atualizar);
+router.put("/:id", fretecontroller.atualizar);
 
-router.delete("/:id", Fretecontroller.excluir);
+router.delete("/:id", fretecontroller.excluir);
 
 module.exports = router;

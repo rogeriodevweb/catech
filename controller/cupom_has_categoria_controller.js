@@ -2,7 +2,7 @@
 // IMPORTA O MODEL
 //==========================================
 
-const cupomHasCategoriaModel = require("../model/cupom_has_categoria_model");
+const cupomHasCategoriaModel = require("../model/cupom_has_categorias_model.js");
 
 //==========================================
 // CADASTRAR RELACIONAMENTO

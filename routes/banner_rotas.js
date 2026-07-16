@@ -12,14 +12,14 @@ const router = express.Router();
 // Criando um objeto router para definir as rotas relacionadas aos banners.
 const bannercontroller = require("../controller/banner_controller.js");
 
-router.post("/", BannerController.cadastrar);
+router.post("/", bannercontroller.cadastrar);
 
-router.get("/", BannerController.listar);
+router.get("/", bannercontroller.listar);
 
-router.get("/:id", BannerController.buscarPorId);
+router.get("/:id", bannercontroller.buscarPorId);
 
-router.put("/:id", BannerController.atualizar);
+router.put("/:id", bannercontroller.atualizar);
 
-router.delete("/:id", BannerController.excluir);
+router.delete("/:id", bannercontroller.excluir);
 
 module.exports = router;

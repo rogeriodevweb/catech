@@ -14,12 +14,12 @@ const Avaliacaoprodutocontroller = require("../controller/avaliacao_produto_cont
 
 router.post("/", Avaliacaoprodutocontroller.cadastrar);
 
-router.get("/", AvaliacaoProdutoController.listar);
+router.get("/", Avaliacaoprodutocontroller.listar);
 
-router.get("/:id", AvaliacaoProdutoController.buscarPorId);
+router.get("/:id", Avaliacaoprodutocontroller.buscarPorId);
 
-router.put("/:id", AvaliacaoProdutoController.atualizar);
+router.put("/:id", Avaliacaoprodutocontroller.atualizar);
 
-router.delete("/:id", AvaliacaoProdutoController.excluir);
+router.delete("/:id", Avaliacaoprodutocontroller.excluir);
 
 module.exports = router;

@@ -10,7 +10,7 @@ const express = require("express");
 // Importando o módulo express para criar rotas e lidar com requisições HTTP.
 const router = express.Router();
 // Criando um objeto router para definir as rotas relacionadas aos endereços.
-const Enderecocontrollercontroller = require("../controller/endereco_controller.js");
+const Enderecocontroller = require("../controller/endereco_controller.js");
 
 router.post("/", Enderecocontroller.cadastrar);
 

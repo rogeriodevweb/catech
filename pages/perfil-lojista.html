@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
     <meta charset="UTF-8">
@@ -7,105 +8,745 @@
 
     <title>Perfil do Lojista</title>
 
-    <link rel="stylesheet" href="../STYLE/perfil-lojista.css">
+    <link rel="stylesheet" href="../style/perfil-lojista.css">
 
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="perfil-card">
+        <!--==========================================
+        TÍTULO
+        ===========================================-->
 
-        <h1>Perfil do Lojista</h1>
-        <p class="subtitulo">
-            Gerencie as informações da sua loja.
-        </p>
+        <div class="topo">
 
-        <div class="foto-area">
+            <h1>Perfil do Lojista</h1>
 
-            <div class="foto">
-                👤
+            <p>Gerencie todas as informações da sua loja.</p>
+
+        </div>
+
+        <!--==========================================
+        DADOS DO RESPONSÁVEL
+        ===========================================-->
+
+        <div class="card">
+
+            <h2>👤 Dados do Responsável</h2>
+
+            <div class="grid">
+
+                <div class="campo">
+                    <label>Nome Completo</label>
+                    <input type="text" id="nome">
+                </div>
+
+                <div class="campo">
+                    <label>CPF</label>
+                    <input type="text" id="cpf">
+                </div>
+
+                <div class="campo">
+                    <label>RG</label>
+                    <input type="text" id="rg">
+                </div>
+
+                <div class="campo">
+                    <label>Data de Nascimento</label>
+                    <input type="date" id="dataNascimento">
+                </div>
+
+                <div class="campo">
+
+                    <label>Sexo</label>
+
+                    <select id="sexo">
+
+                        <option>Selecione</option>
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                        <option>Outro</option>
+
+                    </select>
+
+                </div>
+
+                <div class="campo">
+                    <label>E-mail</label>
+                    <input type="email" id="email">
+                </div>
+
+                <div class="campo">
+                    <label>Telefone</label>
+                    <input type="text" id="telefone">
+                </div>
+
+                <div class="campo">
+                    <label>Celular</label>
+                    <input type="text" id="celular">
+                </div>
+
+                <div class="campo">
+                    <label>Cargo na Empresa</label>
+                    <input type="text" id="cargo">
+                </div>
+
             </div>
 
-            <button id="trocarFoto">
-                Alterar Foto
+        </div>
+                <!--==========================================
+        DADOS DA LOJA
+        ===========================================-->
+
+        <div class="card">
+
+            <h2>🏪 Dados da Loja</h2>
+
+            <div class="grid">
+
+                <div class="campo">
+                    <label>Nome da Loja</label>
+                    <input type="text" id="nomeLoja">
+                </div>
+
+                <div class="campo">
+                    <label>Nome Fantasia</label>
+                    <input type="text" id="nomeFantasia">
+                </div>
+
+                <div class="campo">
+                    <label>Razão Social</label>
+                    <input type="text" id="razaoSocial">
+                </div>
+
+                <div class="campo">
+                    <label>CNPJ</label>
+                    <input type="text" id="cnpj">
+                </div>
+
+                <div class="campo">
+                    <label>Inscrição Estadual</label>
+                    <input type="text" id="inscricaoEstadual">
+                </div>
+
+                <div class="campo">
+                    <label>Inscrição Municipal</label>
+                    <input type="text" id="inscricaoMunicipal">
+                </div>
+
+                <div class="campo">
+                    <label>Categoria da Loja</label>
+
+                    <select id="categoriaLoja">
+                        <option>Selecione</option>
+                        <option>Informática</option>
+                        <option>Eletrônicos</option>
+                        <option>Games</option>
+                        <option>Celulares</option>
+                        <option>Acessórios</option>
+                        <option>Assistência Técnica</option>
+                        <option>Outros</option>
+                    </select>
+
+                </div>
+
+                <div class="campo">
+                    <label>Ano de Fundação</label>
+                    <input type="number" id="anoFundacao">
+                </div>
+
+            </div>
+
+            <div class="campo">
+
+                <label>Descrição da Loja</label>
+
+                <textarea
+                    id="descricaoLoja"
+                    rows="5"
+                    placeholder="Conte um pouco sobre sua loja...">
+                </textarea>
+
+            </div>
+
+        </div>
+
+        <!--==========================================
+        ENDEREÇO COMERCIAL
+        ===========================================-->
+
+        <div class="card">
+
+            <h2>📍 Endereço Comercial</h2>
+
+            <div class="grid">
+
+                <div class="campo">
+                    <label>CEP</label>
+                    <input type="text" id="cep">
+                </div>
+
+                <div class="campo">
+                    <label>Rua</label>
+                    <input type="text" id="rua">
+                </div>
+
+                <div class="campo">
+                    <label>Número</label>
+                    <input type="text" id="numero">
+                </div>
+
+                <div class="campo">
+                    <label>Complemento</label>
+                    <input type="text" id="complemento">
+                </div>
+
+                <div class="campo">
+                    <label>Bairro</label>
+                    <input type="text" id="bairro">
+                </div>
+
+                <div class="campo">
+                    <label>Cidade</label>
+                    <input type="text" id="cidade">
+                </div>
+
+                <div class="campo">
+
+                    <label>Estado</label>
+
+                    <select id="estado">
+
+                        <option>Selecione</option>
+                        <option>AC</option>
+                        <option>AL</option>
+                        <option>AP</option>
+                        <option>AM</option>
+                        <option>BA</option>
+                        <option>CE</option>
+                        <option>DF</option>
+                        <option>ES</option>
+                        <option>GO</option>
+                        <option>MA</option>
+                        <option>MT</option>
+                        <option>MS</option>
+                        <option>MG</option>
+                        <option>PA</option>
+                        <option>PB</option>
+                        <option>PR</option>
+                        <option>PE</option>
+                        <option>PI</option>
+                        <option>RJ</option>
+                        <option>RN</option>
+                        <option>RS</option>
+                        <option>RO</option>
+                        <option>RR</option>
+                        <option>SC</option>
+                        <option>SP</option>
+                        <option>SE</option>
+                        <option>TO</option>
+
+                    </select>
+
+                </div>
+
+                <div class="campo">
+                    <label>País</label>
+                    <input type="text" id="pais" value="Brasil">
+                </div>
+
+            </div>
+
+        </div>
+                <!--==========================================
+        CONTATO COMERCIAL
+        ===========================================-->
+
+        <div class="card">
+
+            <h2>📞 Contato Comercial</h2>
+
+            <div class="grid">
+
+                <div class="campo">
+                    <label>E-mail Comercial</label>
+                    <input type="email" id="emailComercial">
+                </div>
+
+                <div class="campo">
+                    <label>Telefone Comercial</label>
+                    <input type="text" id="telefoneComercial">
+                </div>
+
+                <div class="campo">
+                    <label>WhatsApp</label>
+                    <input type="text" id="whatsapp">
+                </div>
+
+                <div class="campo">
+                    <label>Site</label>
+                    <input type="url" id="site">
+                </div>
+
+                <div class="campo">
+                    <label>Horário de Atendimento</label>
+                    <input type="text" id="horarioAtendimento" placeholder="08:00 às 18:00">
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--==========================================
+        DADOS BANCÁRIOS
+        ===========================================-->
+
+        <div class="card">
+
+            <h2>💳 Dados Bancários</h2>
+
+            <div class="grid">
+
+                <div class="campo">
+
+                    <label>Banco</label>
+
+                    <select id="banco">
+
+                        <option>Selecione</option>
+                        <option>Banco do Brasil</option>
+                        <option>Caixa Econômica Federal</option>
+                        <option>Bradesco</option>
+                        <option>Itaú</option>
+                        <option>Santander</option>
+                        <option>Inter</option>
+                        <option>Nubank</option>
+                        <option>Mercado Pago</option>
+                        <option>PagBank</option>
+                        <option>Outro</option>
+
+                    </select>
+
+                </div>
+
+                <div class="campo">
+                    <label>Agência</label>
+                    <input type="text" id="agencia">
+                </div>
+
+                <div class="campo">
+                    <label>Conta</label>
+                    <input type="text" id="conta">
+                </div>
+
+                <div class="campo">
+
+                    <label>Tipo da Conta</label>
+
+                    <select id="tipoConta">
+
+                        <option>Selecione</option>
+                        <option>Corrente</option>
+                        <option>Poupança</option>
+                        <option>Conta Digital</option>
+
+                    </select>
+
+                </div>
+
+                <div class="campo">
+                    <label>Nome do Titular</label>
+                    <input type="text" id="titular">
+                </div>
+
+                <div class="campo">
+                    <label>CPF/CNPJ do Titular</label>
+                    <input type="text" id="cpfTitular">
+                </div>
+
+                <div class="campo">
+                    <label>Chave Pix</label>
+                    <input type="text" id="pix">
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--==========================================
+        REDES SOCIAIS
+        ===========================================-->
+
+        <div class="card">
+
+            <h2>🌐 Redes Sociais</h2>
+
+            <div class="grid">
+
+                <div class="campo">
+                    <label>Instagram</label>
+                    <input type="url" id="instagram">
+                </div>
+
+                <div class="campo">
+                    <label>Facebook</label>
+                    <input type="url" id="facebook">
+                </div>
+
+                <div class="campo">
+                    <label>TikTok</label>
+                    <input type="url" id="tiktok">
+                </div>
+
+                <div class="campo">
+                    <label>YouTube</label>
+                    <input type="url" id="youtube">
+                </div>
+
+                <div class="campo">
+                    <label>LinkedIn</label>
+                    <input type="url" id="linkedin">
+                </div>
+
+                <div class="campo">
+                    <label>X (Twitter)</label>
+                    <input type="url" id="twitter">
+                </div>
+
+            </div>
+
+        </div>
+                <!--==========================================
+        INFORMAÇÕES DE ENTREGA
+        ===========================================-->
+
+        <div class="card">
+
+            <h2>🚚 Informações de Entrega</h2>
+
+            <div class="grid">
+
+                <div class="campo">
+
+                    <label>Trabalha com Entrega Própria?</label>
+
+                    <select id="entregaPropria">
+
+                        <option>Selecione</option>
+                        <option>Sim</option>
+                        <option>Não</option>
+
+                    </select>
+
+                </div>
+
+                <div class="campo">
+                    <label>Prazo Médio de Envio</label>
+                    <input type="text" id="prazoEnvio" placeholder="Ex.: 1 a 3 dias úteis">
+                </div>
+
+                <div class="campo">
+                    <label>Valor Mínimo para Frete Grátis</label>
+                    <input type="number" id="freteGratis" placeholder="R$ 0,00">
+                </div>
+
+                <div class="campo">
+                    <label>Raio de Entrega (km)</label>
+                    <input type="number" id="raioEntrega">
+                </div>
+
+                <div class="campo">
+                    <label>Horário das Entregas</label>
+                    <input type="text" id="horarioEntrega" placeholder="08:00 às 18:00">
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--==========================================
+        CONFIGURAÇÕES DA LOJA
+        ===========================================-->
+
+        <div class="card">
+
+            <h2>⚙️ Configurações da Loja</h2>
+
+            <div class="grid">
+
+                <div class="campo">
+
+                    <label>Loja Ativa</label>
+
+                    <select id="lojaAtiva">
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Receber Notificações</label>
+
+                    <select id="notificacoes">
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Permitir Avaliações</label>
+
+                    <select id="avaliacoes">
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Exibir Telefone</label>
+
+                    <select id="mostrarTelefone">
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Exibir Endereço</label>
+
+                    <select id="mostrarEndereco">
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Exibir WhatsApp</label>
+
+                    <select id="mostrarWhatsapp">
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Aceita Devoluções</label>
+
+                    <select id="devolucao">
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Dias para Devolução</label>
+
+                    <input type="number" id="diasDevolucao">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--==========================================
+        DOCUMENTOS
+        ===========================================-->
+
+        <div class="card">
+
+            <h2>📄 Documentos</h2>
+
+            <div class="grid">
+
+                <div class="campo">
+                    <label>Foto do CPF</label>
+                    <input type="file" id="fotoCpf">
+                </div>
+
+                <div class="campo">
+                    <label>Foto do RG</label>
+                    <input type="file" id="fotoRg">
+                </div>
+
+                <div class="campo">
+                    <label>Comprovante de Residência</label>
+                    <input type="file" id="comprovante">
+                </div>
+
+                <div class="campo">
+                    <label>Cartão CNPJ</label>
+                    <input type="file" id="cartaoCnpj">
+                </div>
+
+                <div class="campo">
+                    <label>Logo da Loja</label>
+                    <input type="file" id="logoLoja">
+                </div>
+
+                <div class="campo">
+                    <label>Banner da Loja</label>
+                    <input type="file" id="bannerLoja">
+                </div>
+
+            </div>
+
+        </div>
+                <!--==========================================
+        SEGURANÇA
+        ===========================================-->
+
+        <div class="card">
+
+            <h2>🔐 Segurança</h2>
+
+            <div class="grid">
+
+                <div class="campo">
+                    <label>Nova Senha</label>
+                    <input type="password" id="novaSenha">
+                </div>
+
+                <div class="campo">
+                    <label>Confirmar Senha</label>
+                    <input type="password" id="confirmarSenha">
+                </div>
+
+                <div class="campo">
+
+                    <label>Autenticação em Dois Fatores</label>
+
+                    <select id="autenticacao">
+
+                        <option>Desativada</option>
+                        <option>Ativada</option>
+
+                    </select>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Pergunta de Segurança</label>
+
+                    <select id="perguntaSeguranca">
+
+                        <option>Selecione uma pergunta</option>
+                        <option>Nome do primeiro animal de estimação</option>
+                        <option>Nome da sua mãe</option>
+                        <option>Cidade onde nasceu</option>
+                        <option>Nome do melhor amigo de infância</option>
+                        <option>Comida favorita</option>
+
+                    </select>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Resposta</label>
+
+                    <input type="text" id="respostaSeguranca">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--==========================================
+        ESTATÍSTICAS
+        ===========================================-->
+
+        <div class="card">
+
+            <h2>📊 Estatísticas da Loja</h2>
+
+            <div class="grid">
+
+                <div class="campo">
+                    <label>Produtos Cadastrados</label>
+                    <input type="text" value="0" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Pedidos Realizados</label>
+                    <input type="text" value="0" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Pedidos Concluídos</label>
+                    <input type="text" value="0" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Avaliação da Loja</label>
+                    <input type="text" value="⭐ 0.0" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Número de Clientes</label>
+                    <input type="text" value="0" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Data de Cadastro</label>
+                    <input type="text" value="--/--/----" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Último Acesso</label>
+                    <input type="text" value="--/--/---- --:--" readonly>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--==========================================
+        BOTÕES
+        ===========================================-->
+
+        <div class="acoes">
+
+            <button class="btn salvar">
+                💾 Salvar Alterações
             </button>
 
-        </div>
+            <button class="btn cancelar">
+                ❌ Cancelar
+            </button>
 
-        <div class="formulario">
+            <button class="btn senha">
+                🔐 Alterar Senha
+            </button>
 
-            <div class="campo">
-                <label>Nome da Loja</label>
-                <input type="text" id="loja">
-            </div>
-
-            <div class="campo">
-                <label>Responsável</label>
-                <input type="text" id="responsavel">
-            </div>
-
-            <div class="campo">
-                <label>E-mail</label>
-                <input type="email" id="email">
-            </div>
-
-            <div class="campo">
-                <label>Telefone</label>
-                <input type="text" id="telefone">
-            </div>
-
-            <div class="campo">
-                <label>CNPJ</label>
-                <input type="text" id="cnpj">
-            </div>
-
-            <div class="campo">
-                <label>Endereço</label>
-                <input type="text" id="endereco">
-            </div>
-
-            <div class="campo">
-                <label>Site</label>
-                <input type="text" id="site">
-            </div>
-
-            <div class="campo">
-                <label>Instagram</label>
-                <input type="text" id="instagram">
-            </div>
-
-            <div class="campo">
-                <label>Facebook</label>
-                <input type="text" id="facebook">
-            </div>
-
-            <div class="campo">
-                <label>Chave PIX</label>
-                <input type="text" id="pix">
-            </div>
-
-        </div>
-
-        <div class="rodape">
-
-            <span>
-                Data de Cadastro:
-                <strong>09/07/2026</strong>
-            </span>
-
-            <button id="salvar">
-                Salvar Alterações
+            <button class="btn desativar">
+                ⚠️ Desativar Conta
             </button>
 
         </div>
 
     </div>
 
-</div>
-
-<script src="../JS/perfil-lojista.js"></script>
+    <script src="../js/perfil-lojista.js"></script>
 
 </body>
+
 </html>

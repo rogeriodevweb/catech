@@ -12,14 +12,14 @@ const router = express.Router();
 // Criando um objeto router para definir as rotas relacionadas aos cupons.
 const Cupomcontroller = require("../controller/cupom_controller.js");
 
-router.post("/", CupomController.cadastrar);
+router.post("/", Cupomcontroller.cadastrar);
 
-router.get("/", CupomController.listar);
+router.get("/", Cupomcontroller.listar);
 
-router.get("/:id", CupomController.buscarPorId);
+router.get("/:id", Cupomcontroller.buscarPorId);
 
-router.put("/:id", CupomController.atualizar);
+router.put("/:id", Cupomcontroller.atualizar);
 
-router.delete("/:id", CupomController.excluir);
+router.delete("/:id", Cupomcontroller.excluir);
 
 module.exports = router;

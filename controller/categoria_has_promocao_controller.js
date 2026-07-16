@@ -2,7 +2,7 @@
 // IMPORTA O MODEL
 //==========================================
 
-const categoriaHasPromocaoModel = require("../model/categoria_has_promocao_model");
+const categoriaHasPromocaoModel = require("../model/categorias_has_promocao_model.js");
 
 //==========================================
 // CADASTRAR RELACIONAMENTO

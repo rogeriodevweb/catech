@@ -4,18 +4,18 @@ const conexao = require("../conexao/conexao.js");
 // Cadastrar Forma de Pagamento
 // =========================
 
-function cadastrar(formas_pagamento, callback) {
+function cadastrar(forma_pagamento, callback) {
 
-    const sql = `INSERT INTO Formas_Pagamento
+    const sql = `INSERT INTO Forma_Pagamento
         ( nome,link,ativo )
         VALUES (?, ?, ?)`;
 
     conexao.query(
         sql,
         [
-            formas_pagamento.nome,
-            formas_pagamento.link,
-            formas_pagamento.ativo
+            forma_pagamento.nome,
+            forma_pagamento.link,
+            forma_pagamento.ativo
         ],
         callback
     );
@@ -29,7 +29,7 @@ function cadastrar(formas_pagamento, callback) {
 function listar(callback) {
 
     const sql = `
-        SELECT * FROM formas_pagamento
+        SELECT * FROM Forma_Pagamento
     `;
 
     conexao.query(sql, callback);
@@ -44,8 +44,8 @@ function buscarPorId(id, callback) {
 
     const sql = `
         SELECT *
-        FROM Formas_Pagamento
-        WHERE idFormas_Pagamento = ?
+        FROM Forma_Pagamento
+        WHERE idForma_Pagamento = ?
     `;
 
     conexao.query(sql, [id], callback);
@@ -56,25 +56,25 @@ function buscarPorId(id, callback) {
 // Atualizar Forma de Pagamento
 // =========================
 
-function atualizar(id, formas_pagamento, callback) {
+function atualizar(id, forma_pagamento, callback) {
 
     const sql = `
-        UPDATE Formas_Pagamento
+        UPDATE Forma_Pagamento
         SET
 
             nome = ?,
             link = ?,
             ativo = ?
 
-        WHERE idFormas_Pagamento = ?
+        WHERE idForma_Pagamento = ?
     `;
 
     conexao.query(
         sql,
         [
-            formas_pagamento.nome,
-            formas_pagamento.link,
-            formas_pagamento.ativo,
+            forma_pagamento.nome,
+            forma_pagamento.link,
+            forma_pagamento.ativo,
             id
         ],
         callback
@@ -89,8 +89,8 @@ function atualizar(id, formas_pagamento, callback) {
 function excluir(id, callback) {
 
     const sql = `
-        DELETE FROM Formas_Pagamento
-        WHERE idFormas_Pagamento = ?
+        DELETE FROM Forma_Pagamento
+        WHERE idForma_Pagamento = ?
     `;
 
     conexao.query(sql, [id], callback);
