@@ -1,14 +1,22 @@
 const conexao = require("../conexao/conexao.js");
 
 // =========================
-// Cadastrar Promocao
+// Cadastrar Promoção
 // =========================
 
 function cadastrar(promocao, callback) {
 
-    const sql = `INSERT INTO Promocao
-        (data_inicio,data_final,valor_promocional,nome,banner_idBanner)
-        VALUES (?, ?, ?, ?, ?)`;
+    const sql = `
+        INSERT INTO Promocao
+        (
+            data_inicio,
+            data_final,
+            valor_promocional,
+            nome,
+            banner_idBanner
+        )
+        VALUES (?, ?, ?, ?, ?)
+    `;
 
     conexao.query(
         sql,
@@ -25,13 +33,14 @@ function cadastrar(promocao, callback) {
 }
 
 // =========================
-// Listar promocao
+// Listar Promoções
 // =========================
 
 function listar(callback) {
 
     const sql = `
-        SELECT * FROM Promocao
+        SELECT *
+        FROM Promocao
     `;
 
     conexao.query(sql, callback);
@@ -55,7 +64,7 @@ function buscarPorId(id, callback) {
 }
 
 // =========================
-// Atualizar Promocao
+// Atualizar Promoção
 // =========================
 
 function atualizar(id, promocao, callback) {
@@ -63,7 +72,6 @@ function atualizar(id, promocao, callback) {
     const sql = `
         UPDATE Promocao
         SET
-
             data_inicio = ?,
             data_final = ?,
             valor_promocional = ?,
@@ -88,7 +96,7 @@ function atualizar(id, promocao, callback) {
 }
 
 // =========================
-// Excluir Promocao
+// Excluir Promoção
 // =========================
 
 function excluir(id, callback) {

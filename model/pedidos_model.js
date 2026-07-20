@@ -6,11 +6,22 @@ const conexao = require("../conexao/conexao.js");
 
 function cadastrar(pedidos, callback) {
 
-    const sql = `INSERT INTO Pedidos
-        ( data_pedido,nota_fiscal,data_entrega,status_entrega,
-         status_pagamento,codigo,cliente_idCliente,Loja_idLoja,endereco_idEndereco,
-         formas_pagamento_idFormas_pagamento)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const sql = `
+        INSERT INTO Pedidos
+        (
+            data_pedido,
+            nota_fiscal,
+            data_entrega,
+            status_entrega,
+            status_pagamento,
+            codigo,
+            cliente_idCliente,
+            Loja_idLoja,
+            endereco_idEndereco,
+            formas_pagamento_idFormas_pagamento
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
 
     conexao.query(
         sql,
@@ -38,7 +49,8 @@ function cadastrar(pedidos, callback) {
 function listar(callback) {
 
     const sql = `
-        SELECT * FROM Pedidos
+        SELECT *
+        FROM Pedidos
     `;
 
     conexao.query(sql, callback);
@@ -70,7 +82,6 @@ function atualizar(id, pedidos, callback) {
     const sql = `
         UPDATE Pedidos
         SET
-
             data_pedido = ?,
             nota_fiscal = ?,
             data_entrega = ?,
@@ -81,9 +92,6 @@ function atualizar(id, pedidos, callback) {
             Loja_idLoja = ?,
             endereco_idEndereco = ?,
             formas_pagamento_idFormas_pagamento = ?
-            data_nascimento = ?,
-            Loja_idLoja = ?
-
         WHERE idPedidos = ?
     `;
 
@@ -99,7 +107,8 @@ function atualizar(id, pedidos, callback) {
             pedidos.cliente_idCliente,
             pedidos.Loja_idLoja,
             pedidos.endereco_idEndereco,
-            pedidos.formas_pagamento_idFormas_pagamento
+            pedidos.formas_pagamento_idFormas_pagamento,
+            id
         ],
         callback
     );

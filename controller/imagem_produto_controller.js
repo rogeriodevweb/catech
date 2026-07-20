@@ -1,7 +1,3 @@
-//==========================================
-// IMPORTA O MODEL
-//==========================================
-
 const imagemProdutoModel = require("../model/imagem_produto_model");
 
 //==========================================
@@ -11,8 +7,6 @@ const imagemProdutoModel = require("../model/imagem_produto_model");
 function cadastrar(req, res) {
 
     const imagem = req.body;
-
-    // Validação dos campos obrigatórios
 
     if (
         !imagem.arquivo ||
@@ -30,6 +24,8 @@ function cadastrar(req, res) {
 
         if (erro) {
 
+            console.log(erro);
+
             return res.status(500).json({
                 sucesso: false,
                 mensagem: "Erro ao cadastrar imagem."
@@ -37,7 +33,7 @@ function cadastrar(req, res) {
 
         }
 
-        return res.status(201).json({
+        res.status(201).json({
 
             sucesso: true,
             mensagem: "Imagem cadastrada com sucesso!",
@@ -50,7 +46,7 @@ function cadastrar(req, res) {
 }
 
 //==========================================
-// LISTAR IMAGENS
+// LISTAR
 //==========================================
 
 function listar(req, res) {
@@ -58,6 +54,8 @@ function listar(req, res) {
     imagemProdutoModel.listar((erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -73,7 +71,7 @@ function listar(req, res) {
 }
 
 //==========================================
-// BUSCAR IMAGEM POR ID
+// BUSCAR POR ID
 //==========================================
 
 function buscarPorId(req, res) {
@@ -83,6 +81,8 @@ function buscarPorId(req, res) {
     imagemProdutoModel.buscarPorId(id, (erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -107,7 +107,7 @@ function buscarPorId(req, res) {
 }
 
 //==========================================
-// ATUALIZAR IMAGEM
+// ATUALIZAR
 //==========================================
 
 function atualizar(req, res) {
@@ -115,9 +115,11 @@ function atualizar(req, res) {
     const id = req.params.id;
     const imagem = req.body;
 
-    imagemProdutoModel.atualizar(id, imagem, (erro, resultado) => {
+    imagemProdutoModel.atualizar(id, imagem, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -127,8 +129,10 @@ function atualizar(req, res) {
         }
 
         res.json({
+
             sucesso: true,
             mensagem: "Imagem atualizada com sucesso."
+
         });
 
     });
@@ -136,16 +140,18 @@ function atualizar(req, res) {
 }
 
 //==========================================
-// EXCLUIR IMAGEM
+// EXCLUIR
 //==========================================
 
 function excluir(req, res) {
 
     const id = req.params.id;
 
-    imagemProdutoModel.excluir(id, (erro, resultado) => {
+    imagemProdutoModel.excluir(id, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -155,17 +161,15 @@ function excluir(req, res) {
         }
 
         res.json({
+
             sucesso: true,
             mensagem: "Imagem excluída com sucesso."
+
         });
 
     });
 
 }
-
-//==========================================
-// EXPORTAÇÃO
-//==========================================
 
 module.exports = {
 

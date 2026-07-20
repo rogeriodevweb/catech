@@ -1,28 +1,35 @@
 /* ======================================
-   CONFIGURAÇÕES CLIENTE - CA TECH
+   NOTIFICAÇÕES CLIENTE - CA TECH
+   notificacoes.css
 ====================================== */
 
 
 /* Reset */
 
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Ubuntu", sans-serif;
+
 }
 
+
+
+/* Corpo */
 
 body {
 
     background: #0f172a;
-    color: #ffffff;
+    color: white;
     min-height: 100vh;
 
 }
 
 
-/* Container principal */
+
+/* Container */
 
 .container {
 
@@ -35,47 +42,86 @@ body {
 
 
 
+
+
 /* Cabeçalho */
 
 .cabecalho {
 
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 
 }
+
+
+
+.voltar {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: #94a3b8;
+
+    margin-bottom: 20px;
+
+    transition: .3s;
+
+}
+
+
+
+.voltar:hover {
+
+    color: #2563eb;
+
+}
+
 
 
 .cabecalho h1 {
 
     font-size: 32px;
+
     margin-bottom: 8px;
 
 }
 
 
+
 .cabecalho p {
 
     color: #94a3b8;
+
     font-size: 16px;
 
 }
 
 
 
-/* Lista dos cards */
 
-.lista-config {
+
+
+/* Lista de notificações */
+
+.lista-notificacoes {
 
     display: flex;
+
     flex-direction: column;
+
     gap: 18px;
 
 }
 
 
 
-/* Card de configuração */
 
-.config-card {
+
+
+
+/* Cards */
+
+.notificacao-card {
 
     background: #101827;
 
@@ -91,31 +137,26 @@ body {
 
     gap: 20px;
 
-    text-decoration: none;
-
-    color: white;
-
-    transition: 0.3s;
+    transition: .3s;
 
 }
 
 
 
-/* Hover */
-
-.config-card:hover {
+.notificacao-card:hover {
 
     border-color: #2563eb;
 
     transform: translateY(-3px);
 
-    background: #162033;
-
 }
 
 
 
-/* Ícones */
+
+
+
+/* Ícone */
 
 .icone {
 
@@ -129,15 +170,18 @@ body {
 
     display: flex;
 
-    align-items: center;
-
     justify-content: center;
+
+    align-items: center;
 
     font-size: 26px;
 
     flex-shrink: 0;
 
 }
+
+
+
 
 
 
@@ -150,11 +194,12 @@ body {
 }
 
 
+
 .informacao h2 {
 
-    font-size: 20px;
+    font-size: 19px;
 
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 
 }
 
@@ -170,27 +215,96 @@ body {
 
 
 
-/* Seta */
 
-.config-card span {
 
-    font-size: 32px;
 
-    color: #64748b;
 
-    transition: 0.3s;
+/* Switch */
+
+.switch {
+
+    position: relative;
+
+    width: 52px;
+
+    height: 28px;
+
+    flex-shrink: 0;
+
+}
+
+
+
+.switch input {
+
+    display: none;
 
 }
 
 
 
-.config-card:hover span {
+.switch span {
 
-    color: #2563eb;
+    position: absolute;
 
-    transform: translateX(5px);
+    inset: 0;
+
+    background: #334155;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: .3s;
 
 }
+
+
+
+.switch span::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 22px;
+
+    height: 22px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    top: 3px;
+
+    left: 4px;
+
+    transition: .3s;
+
+}
+
+
+
+
+
+.switch input:checked + span {
+
+    background: #2563eb;
+
+}
+
+
+
+
+
+.switch input:checked + span::before {
+
+    transform: translateX(22px);
+
+}
+
+
+
 
 
 
@@ -218,7 +332,7 @@ body {
 
 
 
-    .config-card {
+    .notificacao-card {
 
         padding: 18px;
 
@@ -240,45 +354,17 @@ body {
 
     .informacao h2 {
 
-        font-size: 17px;
+        font-size: 16px;
 
     }
 
 
 
-}
+    .informacao p {
 
-.btn-voltar-home {
+        font-size: 13px;
 
-    display: inline-flex;
+    }
 
-    align-items: center;
-
-    gap: 8px;
-
-    margin-top: 20px;
-
-    padding: 12px 20px;
-
-    background: #2563eb;
-
-    color: white;
-
-    text-decoration: none;
-
-    border-radius: 10px;
-
-    font-weight: bold;
-
-    transition: .3s;
-
-}
-
-
-.btn-voltar-home:hover {
-
-    background: #1d4ed8;
-
-    transform: translateY(-2px);
 
 }

@@ -5,18 +5,17 @@
 const pedidosHasProdutoModel = require("../model/pedidos_has_produto_model");
 
 //==========================================
-// CADASTRAR RELACIONAMENTO
+// CADASTRAR
 //==========================================
 
 function cadastrar(req, res) {
 
     const relacionamento = req.body;
 
-    // Validação dos campos obrigatórios
-
     if (
         !relacionamento.pedidos_idPedidos ||
-        !relacionamento.produto_idProduto
+        !relacionamento.produtos_idProdutos ||
+        !relacionamento.quantidade
     ) {
 
         return res.status(400).json({
@@ -30,6 +29,8 @@ function cadastrar(req, res) {
 
         if (erro) {
 
+            console.log(erro);
+
             return res.status(500).json({
                 sucesso: false,
                 mensagem: "Erro ao cadastrar relacionamento."
@@ -37,10 +38,11 @@ function cadastrar(req, res) {
 
         }
 
-        return res.status(201).json({
+        res.status(201).json({
 
             sucesso: true,
-            mensagem: "Relacionamento cadastrado com sucesso!"
+            mensagem: "Relacionamento cadastrado com sucesso!",
+            id: resultado.insertId
 
         });
 
@@ -49,7 +51,7 @@ function cadastrar(req, res) {
 }
 
 //==========================================
-// LISTAR RELACIONAMENTOS
+// LISTAR
 //==========================================
 
 function listar(req, res) {
@@ -57,6 +59,8 @@ function listar(req, res) {
     pedidosHasProdutoModel.listar((erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -72,17 +76,18 @@ function listar(req, res) {
 }
 
 //==========================================
-// BUSCAR RELACIONAMENTO
+// BUSCAR POR ID
 //==========================================
 
 function buscarPorId(req, res) {
 
-    const pedido = req.params.pedido;
-    const produto = req.params.produto;
+    const id = req.params.id;
 
-    pedidosHasProdutoModel.buscarPorId(pedido, produto, (erro, resultado) => {
+    pedidosHasProdutoModel.buscarPorId(id, (erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -107,18 +112,19 @@ function buscarPorId(req, res) {
 }
 
 //==========================================
-// ATUALIZAR RELACIONAMENTO
+// ATUALIZAR
 //==========================================
 
 function atualizar(req, res) {
 
-    const pedido = req.params.pedido;
-    const produto = req.params.produto;
+    const id = req.params.id;
     const relacionamento = req.body;
 
-    pedidosHasProdutoModel.atualizar(pedido, produto, relacionamento, (erro) => {
+    pedidosHasProdutoModel.atualizar(id, relacionamento, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -128,8 +134,10 @@ function atualizar(req, res) {
         }
 
         res.json({
+
             sucesso: true,
             mensagem: "Relacionamento atualizado com sucesso."
+
         });
 
     });
@@ -137,17 +145,18 @@ function atualizar(req, res) {
 }
 
 //==========================================
-// EXCLUIR RELACIONAMENTO
+// EXCLUIR
 //==========================================
 
 function excluir(req, res) {
 
-    const pedido = req.params.pedido;
-    const produto = req.params.produto;
+    const id = req.params.id;
 
-    pedidosHasProdutoModel.excluir(pedido, produto, (erro) => {
+    pedidosHasProdutoModel.excluir(id, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -157,8 +166,10 @@ function excluir(req, res) {
         }
 
         res.json({
+
             sucesso: true,
             mensagem: "Relacionamento excluído com sucesso."
+
         });
 
     });

@@ -12,8 +12,6 @@ function cadastrar(req, res) {
 
     const promocao = req.body;
 
-    // Validação dos campos obrigatórios
-
     if (
         !promocao.data_inicio ||
         !promocao.data_final ||
@@ -33,6 +31,8 @@ function cadastrar(req, res) {
 
         if (erro) {
 
+            console.log(erro);
+
             return res.status(500).json({
                 sucesso: false,
                 mensagem: "Erro ao cadastrar promoção."
@@ -40,7 +40,7 @@ function cadastrar(req, res) {
 
         }
 
-        return res.status(201).json({
+        res.status(201).json({
 
             sucesso: true,
             mensagem: "Promoção cadastrada com sucesso!",
@@ -61,6 +61,8 @@ function listar(req, res) {
     promocaoModel.listar((erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -86,6 +88,8 @@ function buscarPorId(req, res) {
     promocaoModel.buscarPorId(id, (erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -118,9 +122,11 @@ function atualizar(req, res) {
     const id = req.params.id;
     const promocao = req.body;
 
-    promocaoModel.atualizar(id, promocao, (erro, resultado) => {
+    promocaoModel.atualizar(id, promocao, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -146,9 +152,11 @@ function excluir(req, res) {
 
     const id = req.params.id;
 
-    promocaoModel.excluir(id, (erro, resultado) => {
+    promocaoModel.excluir(id, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,

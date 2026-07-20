@@ -4,30 +4,34 @@ const conexao = require("../conexao/conexao.js");
 // Cadastrar Marca
 // =========================
 
-function cadastrar(pedidos, callback) {
+function cadastrar(marca, callback) {
 
-    const sql = `INSERT INTO Pedidos
-        ( nome,logo_marca)
-        VALUES (?, ?)`;
+    const sql = `
+        INSERT INTO Marca
+        (nome, logo_marca)
+        VALUES (?, ?)
+    `;
 
     conexao.query(
         sql,
         [
-            pedidos.nome,
-            pedidos.logo_marca
+            marca.nome,
+            marca.logo_marca
         ],
         callback
     );
 
 }
+
 // =========================
-// Listar marca
+// Listar Marcas
 // =========================
 
 function listar(callback) {
 
     const sql = `
-        SELECT * FROM Marca
+        SELECT *
+        FROM Marca
     `;
 
     conexao.query(sql, callback);
@@ -42,7 +46,7 @@ function buscarPorId(id, callback) {
 
     const sql = `
         SELECT *
-        FROM marca
+        FROM Marca
         WHERE idMarca = ?
     `;
 
@@ -51,7 +55,7 @@ function buscarPorId(id, callback) {
 }
 
 // =========================
-// Atualizar marca
+// Atualizar Marca
 // =========================
 
 function atualizar(id, marca, callback) {
@@ -59,7 +63,6 @@ function atualizar(id, marca, callback) {
     const sql = `
         UPDATE Marca
         SET
-
             nome = ?,
             logo_marca = ?
         WHERE idMarca = ?
@@ -78,65 +81,7 @@ function atualizar(id, marca, callback) {
 }
 
 // =========================
-// Listar marca
-// =========================
-
-function listar(callback) {
-
-    const sql = `
-        SELECT * FROM Marca
-    `;
-
-    conexao.query(sql, callback);
-
-}
-
-// =========================
-// Buscar por ID
-// =========================
-
-function buscarPorId(id, callback) {
-
-    const sql = `
-        SELECT *
-        FROM marca
-        WHERE idMarca = ?
-    `;
-
-    conexao.query(sql, [id], callback);
-
-}
-
-// =========================
-// Atualizar marca
-// =========================
-
-function atualizar(id, marca, callback) {
-
-    const sql = `
-        UPDATE Marca
-        SET
-
-            nome = ?,
-            logo_marca = ?
-        WHERE idMarca = ?
-    `;
-
-    conexao.query(
-        sql,
-        [
-            marca.nome,
-            marca.logo_marca,
-            id
-        ],
-        callback
-    );
-
-}
-
-
-// =========================
-// Excluir marca
+// Excluir Marca
 // =========================
 
 function excluir(id, callback) {

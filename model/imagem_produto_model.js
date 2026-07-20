@@ -6,15 +6,17 @@ const conexao = require("../conexao/conexao.js");
 
 function cadastrar(imagem_produto, callback) {
 
-    const sql = `INSERT INTO imagem_produto
-        ( arquivo, produto_idproduto )
-        VALUES (?, ?)`;
+    const sql = `
+        INSERT INTO imagem_produto
+        (arquivo, produto_idProduto)
+        VALUES (?, ?)
+    `;
 
     conexao.query(
         sql,
         [
             imagem_produto.arquivo,
-            imagem_produto.produto_idproduto
+            imagem_produto.produto_idProduto
         ],
         callback
     );
@@ -28,7 +30,8 @@ function cadastrar(imagem_produto, callback) {
 function listar(callback) {
 
     const sql = `
-        SELECT * FROM imagem_produto
+        SELECT *
+        FROM imagem_produto
     `;
 
     conexao.query(sql, callback);
@@ -60,18 +63,16 @@ function atualizar(id, imagem_produto, callback) {
     const sql = `
         UPDATE imagem_produto
         SET
-
             arquivo = ?,
-            produto_idproduto = ?,
-
-        WHERE idPedidos = ?
+            produto_idProduto = ?
+        WHERE idImagem_produto = ?
     `;
 
     conexao.query(
         sql,
         [
             imagem_produto.arquivo,
-            imagem_produto.produto_idproduto,
+            imagem_produto.produto_idProduto,
             id
         ],
         callback

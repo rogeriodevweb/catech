@@ -6,10 +6,22 @@ const conexao = require("../conexao/conexao.js");
 
 function cadastrar(produto, callback) {
 
-    const sql = `INSERT INTO Produto
-        ( nome,descricao,codigo,preco_antigo,preco_promocional,quantidade_estoque,
-         ativo,loja_idLoja,marca_idmarca,categorias_idCategorias)
-        VALUES (?, ?, ?, ?, ?, ?, ?,?,?,?)`;
+    const sql = `
+        INSERT INTO Produto
+        (
+            nome,
+            descricao,
+            codigo,
+            preco_antigo,
+            preco_promocional,
+            quantidade_estoque,
+            ativo,
+            loja_idLoja,
+            marca_idMarca,
+            categorias_idCategorias
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
 
     conexao.query(
         sql,
@@ -22,7 +34,7 @@ function cadastrar(produto, callback) {
             produto.quantidade_estoque,
             produto.ativo,
             produto.loja_idLoja,
-            produto.marca_idmarca,
+            produto.marca_idMarca,
             produto.categorias_idCategorias
         ],
         callback
@@ -37,7 +49,8 @@ function cadastrar(produto, callback) {
 function listar(callback) {
 
     const sql = `
-        SELECT * FROM Produto
+        SELECT *
+        FROM Produto
     `;
 
     conexao.query(sql, callback);
@@ -69,7 +82,6 @@ function atualizar(id, produto, callback) {
     const sql = `
         UPDATE Produto
         SET
-
             nome = ?,
             descricao = ?,
             codigo = ?,
@@ -78,9 +90,8 @@ function atualizar(id, produto, callback) {
             quantidade_estoque = ?,
             ativo = ?,
             loja_idLoja = ?,
-            marca_idmarca = ?,
+            marca_idMarca = ?,
             categorias_idCategorias = ?
-
         WHERE idProduto = ?
     `;
 
@@ -95,7 +106,7 @@ function atualizar(id, produto, callback) {
             produto.quantidade_estoque,
             produto.ativo,
             produto.loja_idLoja,
-            produto.marca_idmarca,
+            produto.marca_idMarca,
             produto.categorias_idCategorias,
             id
         ],

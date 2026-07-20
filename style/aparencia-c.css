@@ -1,0 +1,414 @@
+/* =====================================
+   APARÊNCIA - CA TECH
+===================================== */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+
+body {
+
+    background: #0f172a;
+    color: #ffffff;
+
+}
+
+
+
+/* CONTAINER PRINCIPAL */
+
+.container-aparencia {
+
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+
+}
+
+
+
+/* CABEÇALHO */
+
+.cabecalho {
+
+    margin-bottom: 30px;
+
+}
+
+
+.cabecalho h1 {
+
+    font-size: 32px;
+    margin-bottom: 8px;
+
+}
+
+
+.cabecalho p {
+
+    color: #94a3b8;
+    font-size: 16px;
+
+}
+
+
+
+
+
+
+/* CARDS */
+
+.config-card {
+
+    background: #101827;
+    border: 1px solid #1f2937;
+    border-radius: 14px;
+
+    padding: 25px;
+    margin-bottom: 20px;
+
+    transition: .3s;
+
+}
+
+
+.config-card:hover {
+
+    border-color: #2563eb;
+
+}
+
+
+
+
+
+/* TITULO DOS CARDS */
+
+.titulo-config {
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.titulo-config span {
+
+    font-size: 28px;
+
+}
+
+
+
+.titulo-config h2 {
+
+    font-size: 20px;
+    margin-bottom: 5px;
+
+}
+
+
+
+.titulo-config p {
+
+    color: #94a3b8;
+    font-size: 14px;
+
+}
+
+
+
+
+
+
+/* OPÇÕES DE TEMA */
+
+.opcoes {
+
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+
+}
+
+
+
+.opcao {
+
+    background: #1e293b;
+
+    padding: 15px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    transition: .3s;
+
+}
+
+
+
+.opcao:hover {
+
+    background: #2563eb;
+
+}
+
+
+
+.opcao input {
+
+    margin-right: 10px;
+
+}
+
+
+
+
+
+
+
+/* CORES */
+
+.cores {
+
+    display: flex;
+    gap: 15px;
+
+}
+
+
+
+.cor {
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: 3px solid transparent;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+
+.cor:hover {
+
+    transform: scale(1.1);
+
+}
+
+
+
+.azul {
+
+    background: #2563eb;
+
+}
+
+
+
+.roxo {
+
+    background: #7c3aed;
+
+}
+
+
+
+.verde {
+
+    background: #16a34a;
+
+}
+
+
+
+.vermelho {
+
+    background: #dc2626;
+
+}
+
+
+
+
+
+
+/* SELECT */
+
+select {
+
+    width: 250px;
+
+    padding: 12px;
+
+    background: #1e293b;
+
+    color: white;
+
+    border: 1px solid #334155;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+
+
+
+
+/* SWITCH */
+
+.switch-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #1f2937;
+
+    color: #e2e8f0;
+
+}
+
+
+
+.switch-item:last-child {
+
+    border-bottom: none;
+
+}
+
+
+
+.switch-item input {
+
+    width: 45px;
+    height: 22px;
+
+    cursor: pointer;
+
+    accent-color: #2563eb;
+
+}
+
+
+
+
+
+
+
+/* BOTÃO SALVAR */
+
+.btn-salvar {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+
+.btn-salvar:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+
+
+
+
+
+/* RESPONSIVIDADE */
+
+@media(max-width:700px){
+
+
+    .container-aparencia {
+
+        padding: 15px;
+
+        margin: 20px auto;
+
+    }
+
+
+
+    .cabecalho h1 {
+
+        font-size: 26px;
+
+    }
+
+
+
+    .opcoes {
+
+        flex-direction: column;
+
+    }
+
+
+
+    .opcao {
+
+        width: 100%;
+
+    }
+
+
+
+    .cores {
+
+        justify-content: center;
+
+    }
+
+
+}

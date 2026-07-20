@@ -1,25 +1,33 @@
-// nesse arquivo, definimos as rotas relacionadas às avaliações de produtos e associamos cada rota a uma função do AvaliacaoProdutoController. As rotas são:
-// POST /tamanhos: para cadastrar um novo tamanho.
-// GET /tamanhos: para listar todos os tamanhos.
-// GET /tamanhos/:id: para buscar um tamanho específico pelo ID.
-// PUT /tamanhos/:id: para atualizar as informações de um tamanho específico pelo ID.
-// DELETE /tamanhos/:id: para excluir um tamanho específico pelo ID.
-
+//==========================================
+// IMPORTA O EXPRESS
+//==========================================
 
 const express = require("express");
-// Importando o módulo express para criar rotas e lidar com requisições HTTP.
+
 const router = express.Router();
-// Criando um objeto router para definir as rotas relacionadas às avaliações de produtos.
-const Tamanhocontroller = require("../controller/tamanho_controller.js");
 
-router.post("/", Tamanhocontroller.cadastrar);
+//==========================================
+// IMPORTA O CONTROLLER
+//==========================================
 
-router.get("/", TamanhoController.listar);
+const tamanhoController = require("../controller/tamanho_controller");
 
-router.get("/:id", TamanhoController.buscarPorId);
+//==========================================
+// ROTAS
+//==========================================
 
-router.put("/:id", TamanhoController.atualizar);
+router.post("/", tamanhoController.cadastrar);
 
-router.delete("/:id", TamanhoController.excluir);
+router.get("/", tamanhoController.listar);
+
+router.get("/:id", tamanhoController.buscarPorId);
+
+router.put("/:id", tamanhoController.atualizar);
+
+router.delete("/:id", tamanhoController.excluir);
+
+//==========================================
+// EXPORTAÇÃO
+//==========================================
 
 module.exports = router;

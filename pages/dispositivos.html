@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dispositivos Conectados - CA Tech</title>
+
+    <link rel="stylesheet" href="../style/dispositivos.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container-dispositivos">
+
+
+    <!-- Cabeçalho -->
+
+    <div class="cabecalho">
+
+        <h1>Dispositivos conectados</h1>
+
+        <p>
+            Gerencie os aparelhos que possuem acesso à sua conta.
+        </p>
+             <a href="/index.html" class="btn-voltar-home">
+    ← Voltar para Home
+</a>
+    </div>
+
+
+
+
+
+
+    <!-- ALERTA -->
+
+    <div class="alerta-seguranca">
+
+        🔒
+        Caso não reconheça algum dispositivo,
+        desconecte imediatamente.
+
+    </div>
+
+
+
+
+
+
+
+    <!-- DISPOSITIVO ATUAL -->
+
+    <section class="card-dispositivo">
+
+
+        <div class="titulo-card">
+
+            <span>💻</span>
+
+            <div>
+
+                <h2>Este dispositivo</h2>
+
+                <p>
+                    Sessão atual
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="informacoes">
+
+
+            <div>
+
+                <strong>Dispositivo:</strong>
+
+                <span id="dispositivoAtual">
+                    Computador
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                <strong>Navegador:</strong>
+
+                <span id="navegadorAtual">
+                    Chrome
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                <strong>Local:</strong>
+
+                <span>
+                    Brasil
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                <strong>Último acesso:</strong>
+
+                <span>
+                    Agora
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <button class="btn-atual">
+
+            Dispositivo atual
+
+        </button>
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+    <!-- OUTROS DISPOSITIVOS -->
+
+    <section class="card-dispositivo">
+
+
+        <div class="titulo-card">
+
+            <span>📱</span>
+
+
+            <div>
+
+                <h2>Outros dispositivos</h2>
+
+                <p>
+                    Sessões conectadas recentemente.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <div id="listaDispositivos">
+
+
+            <!-- JS adiciona os dispositivos -->
+
+
+        </div>
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- BOTÃO -->
+
+    <button class="btn-desconectar">
+
+        Desconectar outros dispositivos
+
+    </button>
+
+
+
+</div>
+
+
+
+
+
+<script src="../js/dispositivos.js"></script>
+
+
+</body>
+
+</html>

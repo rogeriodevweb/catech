@@ -12,8 +12,6 @@ function cadastrar(req, res) {
 
     const tamanho = req.body;
 
-    // Validação dos campos obrigatórios
-
     if (!tamanho.tamanho) {
 
         return res.status(400).json({
@@ -27,6 +25,8 @@ function cadastrar(req, res) {
 
         if (erro) {
 
+            console.log(erro);
+
             return res.status(500).json({
                 sucesso: false,
                 mensagem: "Erro ao cadastrar tamanho."
@@ -34,7 +34,7 @@ function cadastrar(req, res) {
 
         }
 
-        return res.status(201).json({
+        res.status(201).json({
 
             sucesso: true,
             mensagem: "Tamanho cadastrado com sucesso!",
@@ -55,6 +55,8 @@ function listar(req, res) {
     tamanhoModel.listar((erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -80,6 +82,8 @@ function buscarPorId(req, res) {
     tamanhoModel.buscarPorId(id, (erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -112,9 +116,11 @@ function atualizar(req, res) {
     const id = req.params.id;
     const tamanho = req.body;
 
-    tamanhoModel.atualizar(id, tamanho, (erro, resultado) => {
+    tamanhoModel.atualizar(id, tamanho, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -140,9 +146,11 @@ function excluir(req, res) {
 
     const id = req.params.id;
 
-    tamanhoModel.excluir(id, (erro, resultado) => {
+    tamanhoModel.excluir(id, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,

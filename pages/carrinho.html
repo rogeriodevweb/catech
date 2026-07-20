@@ -2,112 +2,230 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CA Tech</title>
-    <link rel="stylesheet" href="/style/carrinho.css">
+    <title>CA Tech - Carrinho</title>
+
+
+    <link rel="stylesheet" href="../style/carrinho.css">
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
     <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
         rel="stylesheet">
-        <!--imagem da logo pro navegador-->
-<link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+
+
+    <link 
+    rel="icon" 
+    type="image/png" 
+    href="../assets/logo-com-fundo.png">
+
 
 </head>
 
+
 <body>
 
-<div class="carrinho">
-
-    <h1>🛒 Meu Carrinho</h1>
-
-    <div class="lista-produtos">
-
-    <div class="carrinho-vazio">
 
 
-        <p>Adicione produtos para começar suas compras.</p>
+<section class="carrinho">
 
-    </div>
 
-</div>
+    <h1>
+        Meu Carrinho
+    </h1>
 
-    <div class="cupom">
 
-        <input
-        type="text"
-        placeholder="Digite o cupom de desconto">
 
-        <button>
+    <!-- PRODUTOS ADICIONADOS PELO JS -->
 
-            Aplicar
+    <div class="lista-carrinho">
 
-        </button>
+
+        <!-- 
+            O carrinho.js
+            irá adicionar os produtos aqui
+        -->
+
 
     </div>
 
-    <div class="resumo">
 
-        <h2>Resumo do Pedido</h2>
 
-        <div class="linha">
+</section>
 
-    <span>Subtotal</span>
 
-    <span id="subtotal">R$ 0,00</span>
 
-</div>
 
-<div class="linha">
 
-    <span>Frete</span>
 
-    <span id="frete">R$ 0,00</span>
+<!-- CUPOM -->
 
-</div>
+<div class="cupom">
 
-<div class="linha">
 
-    <span>Desconto</span>
+    <input
+    type="text"
+    placeholder="Digite o cupom de desconto">
 
-    <span id="desconto">R$ 0,00</span>
 
-</div>
+    <button>
 
-<hr>
+        Aplicar
 
-<div class="linha total">
+    </button>
 
-    <span>Total</span>
-
-    <span id="total">R$ 0,00</span>
 
 </div>
+
+
+
+
+
+
+
+
+<!-- RESUMO -->
+
+<div class="resumo">
+
+
+    <h2>
+        Resumo do Pedido
+    </h2>
+
+
+
+    <div class="linha">
+
+
+        <span>
+            Subtotal
+        </span>
+
+
+        <span id="subtotal">
+            R$ 0,00
+        </span>
+
 
     </div>
 
-    <div class="acoes">
 
-        <button class="continuar">
 
-            Continuar Comprando
 
-        </button>
 
-        <button class="finalizar">
+    <div class="linha">
 
-            Finalizar Compra
 
-        </button>
+        <span>
+            Frete
+        </span>
+
+
+        <span id="frete">
+            R$ 0,00
+        </span>
+
 
     </div>
 
+
+
+
+
+    <div class="linha">
+
+
+        <span>
+            Desconto
+        </span>
+
+
+        <span id="desconto">
+            R$ 0,00
+        </span>
+
+
+    </div>
+
+
+
+
+
+    <hr>
+
+
+
+
+
+    <div class="linha total">
+
+
+        <span>
+            Total
+        </span>
+
+
+        <span id="total">
+            R$ 0,00
+        </span>
+
+
+    </div>
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+<!-- BOTÕES -->
+
+<div class="acoes">
+
+
+    <button class="continuar">
+
+        Continuar Comprando
+
+    </button>
+
+
+
+    <button class="finalizar">
+
+        Finalizar Compra
+
+    </button>
+
+
+
+</div>
+
+
+
+
+
+
 
 <script src="../js/carrinho.js"></script>
 
+
 </body>
+
 
 </html>

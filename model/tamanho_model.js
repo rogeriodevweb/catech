@@ -1,14 +1,16 @@
 const conexao = require("../conexao/conexao.js");
 
 // =========================
-// Cadastrar tamanho
+// Cadastrar Tamanho
 // =========================
 
 function cadastrar(tamanho, callback) {
 
-    const sql = `INSERT INTO Tamanho
-        ( tamanho )
-        VALUES (?)`;
+    const sql = `
+        INSERT INTO Tamanho
+        (tamanho)
+        VALUES (?)
+    `;
 
     conexao.query(
         sql,
@@ -27,7 +29,8 @@ function cadastrar(tamanho, callback) {
 function listar(callback) {
 
     const sql = `
-        SELECT * FROM Tamanho
+        SELECT *
+        FROM Tamanho
     `;
 
     conexao.query(sql, callback);
@@ -42,7 +45,7 @@ function buscarPorId(id, callback) {
 
     const sql = `
         SELECT *
-        FROM tamanho
+        FROM Tamanho
         WHERE idTamanho = ?
     `;
 
@@ -59,8 +62,7 @@ function atualizar(id, tamanho, callback) {
     const sql = `
         UPDATE Tamanho
         SET
-
-            tamanho = ?,
+            tamanho = ?
         WHERE idTamanho = ?
     `;
 
@@ -73,7 +75,7 @@ function atualizar(id, tamanho, callback) {
         callback
     );
 
-}  ;
+}
 
 // =========================
 // Excluir Tamanho
@@ -84,9 +86,9 @@ function excluir(id, callback) {
     const sql = `
         DELETE FROM Tamanho
         WHERE idTamanho = ?
-  `;
-    
-  conexao.query(sql, [id], callback);
+    `;
+
+    conexao.query(sql, [id], callback);
 
 }
 

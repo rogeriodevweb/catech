@@ -1,25 +1,33 @@
-// nesse arquivo, definimos as rotas relacionadas às avaliações de produtos e associamos cada rota a uma função do AvaliacaoProdutoController. As rotas são:
-// POST /pedidos-has-produto: para cadastrar uma nova avaliação.
-// GET /pedidos-has-produto: para listar todas as avaliações.
-// GET /pedidos-has-produto/:id: para buscar uma avaliação específica pelo ID.
-// PUT /pedidos-has-produto/:id: para atualizar as informações de uma avaliação específica pelo ID.
-// DELETE /pedidos-has-produtos/:id: para excluir uma avaliação específica pelo ID.
-
+//==========================================
+// IMPORTA O EXPRESS
+//==========================================
 
 const express = require("express");
-// Importando o módulo express para criar rotas e lidar com requisições HTTP.
+
 const router = express.Router();
-// Criando um objeto router para definir as rotas relacionadas às avaliações de produtos.
-const PedidosHasprodutocontroller = require("../controller/pedidos_has_produto_controller.js");
 
-router.post("/", PedidosHasprodutocontroller.cadastrar);
+//==========================================
+// IMPORTA O CONTROLLER
+//==========================================
 
-router.get("/", PedidosHasProdutoController.listar);
+const pedidosHasProdutoController = require("../controller/pedidos_has_produto_controller");
 
-router.get("/:id", PedidosHasProdutoController.buscarPorId);
+//==========================================
+// ROTAS
+//==========================================
 
-router.put("/:id", PedidosHasProdutoController.atualizar);
+router.post("/", pedidosHasProdutoController.cadastrar);
 
-router.delete("/:id", PedidosHasProdutoController.excluir);
+router.get("/", pedidosHasProdutoController.listar);
+
+router.get("/:id", pedidosHasProdutoController.buscarPorId);
+
+router.put("/:id", pedidosHasProdutoController.atualizar);
+
+router.delete("/:id", pedidosHasProdutoController.excluir);
+
+//==========================================
+// EXPORTAÇÃO
+//==========================================
 
 module.exports = router;

@@ -1,0 +1,533 @@
+/* =====================================
+   DISPOSITIVOS CONECTADOS - CA TECH
+===================================== */
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+
+}
+
+
+
+body {
+
+    background: #0f172a;
+    color: #ffffff;
+
+}
+
+
+
+
+
+/* CONTAINER */
+
+.container-dispositivos {
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 40px auto;
+
+    padding: 20px;
+
+}
+
+
+
+
+
+
+
+/* CABEÇALHO */
+
+.cabecalho {
+
+    margin-bottom: 30px;
+
+}
+
+
+.cabecalho h1 {
+
+    font-size: 32px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.cabecalho p {
+
+    color: #94a3b8;
+
+    font-size: 16px;
+
+}
+
+
+
+
+
+
+
+
+/* ALERTA */
+
+.alerta-seguranca {
+
+
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    margin-bottom: 25px;
+
+    color: #cbd5e1;
+
+    font-size: 15px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* CARD */
+
+.card-dispositivo {
+
+
+    background: #101827;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    transition: .3s;
+
+
+}
+
+
+
+.card-dispositivo:hover {
+
+
+    border-color: #2563eb;
+
+
+}
+
+
+
+
+
+
+
+
+/* TITULO CARD */
+
+.titulo-card {
+
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+
+}
+
+
+
+.titulo-card span {
+
+
+    font-size: 30px;
+
+
+}
+
+
+
+.titulo-card h2 {
+
+
+    font-size: 20px;
+
+    margin-bottom: 5px;
+
+
+}
+
+
+
+.titulo-card p {
+
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* INFORMAÇÕES */
+
+.informacoes {
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+
+}
+
+
+
+.informacoes div {
+
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #1f2937;
+
+
+}
+
+
+
+.informacoes span {
+
+
+    color: #94a3b8;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* BOTÃO DISPOSITIVO ATUAL */
+
+.btn-atual {
+
+
+    background: #2563eb;
+
+    border: none;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+
+}
+
+
+
+
+
+
+
+
+/* LISTA DE DISPOSITIVOS */
+
+.item-dispositivo {
+
+
+    background: #1e293b;
+
+    border-radius: 10px;
+
+    padding: 18px;
+
+    margin-bottom: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+
+}
+
+
+
+.item-info {
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+
+}
+
+
+
+.item-info strong {
+
+
+    font-size: 16px;
+
+
+}
+
+
+
+.item-info span {
+
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+
+}
+
+
+
+
+
+
+
+
+/* BOTÃO REMOVER */
+
+.btn-remover {
+
+
+    background: transparent;
+
+    border: 1px solid #ef4444;
+
+    color: #ef4444;
+
+    padding: 8px 14px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+
+}
+
+
+
+.btn-remover:hover {
+
+
+    background: #ef4444;
+
+    color: white;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* BOTÃO FINAL */
+
+.btn-desconectar {
+
+
+    width: 100%;
+
+    padding: 15px;
+
+    background: #dc2626;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+
+}
+
+
+
+.btn-desconectar:hover {
+
+
+    background: #b91c1c;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* RESPONSIVO */
+
+@media(max-width:700px){
+
+
+    .container-dispositivos {
+
+
+        padding: 15px;
+
+        margin: 20px auto;
+
+
+    }
+
+
+
+    .cabecalho h1 {
+
+
+        font-size: 26px;
+
+
+    }
+
+
+
+
+    .informacoes div {
+
+
+        flex-direction: column;
+
+        gap: 5px;
+
+
+    }
+
+
+
+
+    .item-dispositivo {
+
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+
+    }
+
+
+
+    .btn-remover {
+
+
+        width: 100%;
+
+
+    }
+
+
+}
+.btn-voltar-home {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 20px;
+
+    padding: 12px 20px;
+
+    background: #2563eb;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: .3s;
+
+}
+
+
+.btn-voltar-home:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+}

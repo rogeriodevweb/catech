@@ -1,25 +1,17 @@
-// nesse arquivo, definimos as rotas relacionadas às imagens de produtos e associamos cada rota a uma função do ImagemProdutoController. As rotas são:
-// POST /imagens-produtos: para cadastrar uma nova imagem de produto.
-// GET /imagens-produtos: para listar todas as imagens de produtos.
-// GET /imagens-produtos/:id: para buscar uma imagem de produto específica pelo ID.
-// PUT /imagens-produtos/:id: para atualizar as informações de uma imagem de produto específica pelo ID.
-// DELETE /imagens-produtos/:id: para excluir uma imagem de produto específica pelo ID.
-
-
 const express = require("express");
-// Importando o módulo express para criar rotas e lidar com requisições HTTP.
+
 const router = express.Router();
-// Criando um objeto router para definir as rotas relacionadas às imagens de produtos.
-const Imagemprodutocontroller = require("../controller/imagem_produto_controller.js");
 
-router.post("/", Imagemprodutocontroller.cadastrar);
+const imagemProdutoController = require("../controller/imagem_produto_controller");
 
-router.get("/", ImagemProdutoController.listar);
+router.post("/", imagemProdutoController.cadastrar);
 
-router.get("/:id", ImagemProdutoController.buscarPorId);
+router.get("/", imagemProdutoController.listar);
 
-router.put("/:id", ImagemProdutoController.atualizar);
+router.get("/:id", imagemProdutoController.buscarPorId);
 
-router.delete("/:id", ImagemProdutoController.excluir);
+router.put("/:id", imagemProdutoController.atualizar);
+
+router.delete("/:id", imagemProdutoController.excluir);
 
 module.exports = router;

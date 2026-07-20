@@ -12,17 +12,15 @@ function cadastrar(req, res) {
 
     const pedido = req.body;
 
-    // Validação dos campos obrigatórios
-
     if (
         !pedido.data_pedido ||
         !pedido.status_entrega ||
         !pedido.status_pagamento ||
         !pedido.codigo ||
         !pedido.cliente_idCliente ||
-        !pedido.loja_idLoja ||
+        !pedido.Loja_idLoja ||
         !pedido.endereco_idEndereco ||
-        !pedido.forma_pagamento_idForma_Pagamento
+        !pedido.formas_pagamento_idFormas_pagamento
     ) {
 
         return res.status(400).json({
@@ -36,6 +34,8 @@ function cadastrar(req, res) {
 
         if (erro) {
 
+            console.log(erro);
+
             return res.status(500).json({
                 sucesso: false,
                 mensagem: "Erro ao cadastrar pedido."
@@ -43,7 +43,7 @@ function cadastrar(req, res) {
 
         }
 
-        return res.status(201).json({
+        res.status(201).json({
 
             sucesso: true,
             mensagem: "Pedido cadastrado com sucesso!",
@@ -64,6 +64,8 @@ function listar(req, res) {
     pedidosModel.listar((erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -89,6 +91,8 @@ function buscarPorId(req, res) {
     pedidosModel.buscarPorId(id, (erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -121,9 +125,11 @@ function atualizar(req, res) {
     const id = req.params.id;
     const pedido = req.body;
 
-    pedidosModel.atualizar(id, pedido, (erro, resultado) => {
+    pedidosModel.atualizar(id, pedido, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -133,8 +139,10 @@ function atualizar(req, res) {
         }
 
         res.json({
+
             sucesso: true,
             mensagem: "Pedido atualizado com sucesso."
+
         });
 
     });
@@ -149,9 +157,11 @@ function excluir(req, res) {
 
     const id = req.params.id;
 
-    pedidosModel.excluir(id, (erro, resultado) => {
+    pedidosModel.excluir(id, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -161,8 +171,10 @@ function excluir(req, res) {
         }
 
         res.json({
+
             sucesso: true,
             mensagem: "Pedido excluído com sucesso."
+
         });
 
     });

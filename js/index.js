@@ -74,3 +74,70 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+// =====================================
+// ADICIONAR PRODUTO AO CARRINHO
+// =====================================
+
+function adicionarCarrinho(id, nome, preco, imagem) {
+
+
+    // Pega o carrinho salvo
+    let carrinho = JSON.parse(
+        localStorage.getItem("carrinho")
+    ) || [];
+
+
+
+    // Verifica se o produto já está no carrinho
+
+    let produtoExistente = carrinho.find(
+        produto => produto.id === id
+    );
+
+
+
+    if (produtoExistente) {
+
+
+        // Se já existe, aumenta quantidade
+
+        produtoExistente.quantidade++;
+
+
+    } else {
+
+
+        // Se não existe, adiciona
+
+        carrinho.push({
+
+            id: id,
+
+            nome: nome,
+
+            preco: preco,
+
+            imagem: imagem,
+
+            quantidade: 1
+
+        });
+
+
+    }
+
+
+
+    // Salva novamente
+
+    localStorage.setItem(
+        "carrinho",
+        JSON.stringify(carrinho)
+    );
+
+
+
+    alert("Produto adicionado ao carrinho!");
+
+}

@@ -12,8 +12,6 @@ function cadastrar(req, res) {
 
     const produto = req.body;
 
-    // Validação dos campos obrigatórios
-
     if (
         !produto.nome ||
         !produto.descricao ||
@@ -37,6 +35,8 @@ function cadastrar(req, res) {
 
         if (erro) {
 
+            console.log(erro);
+
             return res.status(500).json({
                 sucesso: false,
                 mensagem: "Erro ao cadastrar produto."
@@ -44,7 +44,7 @@ function cadastrar(req, res) {
 
         }
 
-        return res.status(201).json({
+        res.status(201).json({
 
             sucesso: true,
             mensagem: "Produto cadastrado com sucesso!",
@@ -65,6 +65,8 @@ function listar(req, res) {
     produtoModel.listar((erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -90,6 +92,8 @@ function buscarPorId(req, res) {
     produtoModel.buscarPorId(id, (erro, resultado) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -122,9 +126,11 @@ function atualizar(req, res) {
     const id = req.params.id;
     const produto = req.body;
 
-    produtoModel.atualizar(id, produto, (erro, resultado) => {
+    produtoModel.atualizar(id, produto, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -150,9 +156,11 @@ function excluir(req, res) {
 
     const id = req.params.id;
 
-    produtoModel.excluir(id, (erro, resultado) => {
+    produtoModel.excluir(id, (erro) => {
 
         if (erro) {
+
+            console.log(erro);
 
             return res.status(500).json({
                 sucesso: false,
