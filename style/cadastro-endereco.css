@@ -158,26 +158,37 @@ button:active{
 
 }
 
-.btn-voltar{
-    position:absolute;
-    top:20px;
-    left:20px;
+.btn-voltar {
 
-    display:inline-block;
-    padding:10px 18px;
+    display: inline-flex;
 
-    background:#1e293b;
-    color:#fff;
-    text-decoration:none;
+    align-items: center;
 
-    border:1px solid #334155;
-    border-radius:8px;
+    gap: 8px;
 
-    font-size:15px;
-    transition:.3s;
+    margin-top: -600px;
+
+    padding: 12px 20px;
+
+    background: #2563eb;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: .3s;
+
 }
 
-.btn-voltar:hover{
-    background:#2563eb;
-    border-color:#2563eb;
+
+.btn-voltar-home:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
 }

@@ -6,178 +6,486 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CA Tech</title>
+    <title>CA Tech - Cadastrar Produto</title>
 
-    <link rel="stylesheet" href="../style/cadastrarproduto.css">
-     <title>CA Tech</title>
-    <link rel="stylesheet" href="style/cadastrarproduto.css">
+
+    <link rel="stylesheet" href="../style/cadastrar-produto.css">
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-        <!--imagem da logo pro navegador-->
-<link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
+    <link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+
 
 </head>
 
-<body>
 
-    <!-- Sidebar -->
+
+<body>
+<button 
+    type="button"
+    class="btn-voltar"
+    onclick="voltarPagina()">
+
+    ← Voltar
+
+</button>
+
+
+    <!-- MENU LATERAL -->
+
     <div class="sidebar">
 
-        <!-- Seu menu lateral -->
+        <!-- menu do lojista -->
 
     </div>
 
-    <!-- Conteúdo -->
-    <div class="conteudo">
 
-        <div class="cadastraproduto">
 
-            <div class="topo-cadastraproduto">
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="conteudo">
+
+
+
+        <section class="cadastraproduto">
+
+
+
+            <!-- TOPO -->
+
+            <header class="topo-cadastraproduto">
+
 
                 <div>
-                    <h1>Cadastrar Produto</h1>
-                    <p>Preencha as informações abaixo para adicionar um novo produto.</p>
+
+                    <h1>
+                        Cadastrar Produto
+                    </h1>
+
+
+                    <p>
+                        Adicione um novo produto ao catálogo da sua loja.
+                    </p>
+
+
                 </div>
 
+
+
                 <button class="btn-voltar">
+
                     ← Voltar
+
                 </button>
 
-            </div>
+
+
+            </header>
+
+
+
+
+
 
             <form id="formProduto">
 
-                <div class="campo">
 
-                    <label>Nome do Produto</label>
 
-                    <input
-                        type="text"
-                        placeholder="Digite o nome do produto">
 
-                </div>
 
-                <div class="linha">
+                <!-- INFORMAÇÕES BÁSICAS -->
+
+                <div class="secao">
+
+
+                    <h2>
+                        Informações do Produto
+                    </h2>
+
+
 
                     <div class="campo">
 
-                        <label>Categoria</label>
+                        <label>
+                            Nome do Produto
+                        </label>
+
+
+                        <input 
+                            type="text"
+                            placeholder="Ex: SSD Kingston 480GB">
+
+                    </div>
+
+
+
+
+
+                    <div class="linha">
+
+
+                        <div class="campo">
+
+                            <label>
+                                Categoria
+                            </label>
+
+
+                            <select>
+
+                                <option>
+                                    Selecione uma categoria
+                                </option>
+
+                                <option>
+                                    Notebook
+                                </option>
+
+                                <option>
+                                    Computadores
+                                </option>
+
+                                <option>
+                                    Componentes
+                                </option>
+
+                                <option>
+                                    Periféricos
+                                </option>
+
+
+                            </select>
+
+
+                        </div>
+
+
+
+
+
+                        <div class="campo">
+
+
+                            <label>
+                                Marca
+                            </label>
+
+
+                            <input 
+                                type="text"
+                                placeholder="Ex: Kingston">
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- PREÇOS -->
+
+                <div class="secao">
+
+
+                    <h2>
+                        Valores e Estoque
+                    </h2>
+
+
+
+                    <div class="linha">
+
+
+
+                        <div class="campo">
+
+
+                            <label>
+                                Preço
+                            </label>
+
+
+                            <input 
+                                type="number"
+                                placeholder="R$ 0,00">
+
+
+                        </div>
+
+
+
+
+
+                        <div class="campo">
+
+
+                            <label>
+                                Preço Promocional
+                            </label>
+
+
+                            <input 
+                                type="number"
+                                placeholder="R$ 0,00">
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="linha">
+
+
+
+                        <div class="campo">
+
+                            <label>
+                                Estoque
+                            </label>
+
+
+                            <input 
+                                type="number"
+                                placeholder="Quantidade">
+
+
+                        </div>
+
+
+
+
+
+                        <div class="campo">
+
+                            <label>
+                                SKU
+                            </label>
+
+
+                            <input 
+                                type="text"
+                                placeholder="Código do produto">
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- DESCRIÇÃO -->
+
+                <div class="secao">
+
+
+                    <h2>
+                        Descrição
+                    </h2>
+
+
+
+                    <div class="campo">
+
+
+                        <textarea 
+                            placeholder="Descreva detalhes técnicos do produto..."></textarea>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- IMAGENS -->
+
+                <div class="secao">
+
+
+                    <h2>
+                        Imagens do Produto
+                    </h2>
+
+
+
+                    <div class="linha">
+
+
+
+                        <div class="campo">
+
+
+                            <label>
+                                Imagem Principal
+                            </label>
+
+
+                            <div class="upload">
+
+
+                                <p>
+                                    Selecione a imagem principal
+                                </p>
+
+
+                                <input 
+                                    type="file">
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+                        <div class="campo">
+
+
+                            <label>
+                                Galeria de Imagens
+                            </label>
+
+
+                            <div class="upload">
+
+
+                                <p>
+                                    Adicione imagens adicionais
+                                </p>
+
+
+                                <input 
+                                    type="file"
+                                    multiple>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- STATUS -->
+
+                <div class="secao">
+
+
+                    <h2>
+                        Configurações
+                    </h2>
+
+
+
+                    <div class="campo">
+
+
+                        <label>
+                            Status do Produto
+                        </label>
+
 
                         <select>
 
-                            <option>Selecione uma categoria</option>
+
+                            <option>
+                                Ativo
+                            </option>
+
+
+                            <option>
+                                Inativo
+                            </option>
+
 
                         </select>
 
-                    </div>
-
-                    <div class="campo">
-
-                        <label>Marca</label>
-
-                        <input
-                            type="text"
-                            placeholder="Ex.: Nike">
 
                     </div>
 
-                </div>
 
-                <div class="linha">
-
-                    <div class="campo">
-
-                        <label>Preço</label>
-
-                        <input
-                            type="number"
-                            placeholder="0,00">
-
-                    </div>
-
-                    <div class="campo">
-
-                        <label>Preço Promocional</label>
-
-                        <input
-                            type="number"
-                            placeholder="0,00">
-
-                    </div>
 
                 </div>
 
-                <div class="linha">
 
-                    <div class="campo">
 
-                        <label>Estoque</label>
 
-                        <input
-                            type="number"
-                            placeholder="0">
 
-                    </div>
 
-                    <div class="campo">
 
-                        <label>SKU</label>
 
-                        <input
-                            type="text"
-                            placeholder="Código do produto">
+                <!-- BOTÕES -->
 
-                    </div>
-
-                </div>
-
-                <div class="campo">
-
-                    <label>Descrição</label>
-
-                    <textarea
-                        rows="6"
-                        placeholder="Descreva o produto"></textarea>
-
-                </div>
-
-                <div class="campo">
-
-                    <label>Imagem Principal</label>
-
-                    <input type="file">
-
-                </div>
-
-                <div class="campo">
-
-                    <label>Galeria de Imagens</label>
-
-                    <input
-                        type="file"
-                        multiple>
-
-                </div>
-
-                <div class="campo">
-
-                    <label>Status</label>
-
-                    <select>
-
-                        <option>Ativo</option>
-                        <option>Inativo</option>
-
-                    </select>
-
-                </div>
 
                 <div class="botoes">
 
-                    <button
+
+                    <button 
                         type="button"
                         class="btn-cancelar">
 
@@ -185,7 +493,10 @@
 
                     </button>
 
-                    <button
+
+
+
+                    <button 
                         type="submit"
                         class="btn-salvar">
 
@@ -193,15 +504,33 @@
 
                     </button>
 
+
+
                 </div>
+
+
+
+
+
 
             </form>
 
-        </div>
 
-    </div>
 
-    <script src="../js/cadastrarproduto.js"></script>
+        </section>
+
+
+
+    </main>
+
+
+
+
+
+
+
+<script src="../js/cadastrar-produto.js"></script>
+
 
 </body>
 

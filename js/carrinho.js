@@ -252,3 +252,77 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const precoProduto = 100; // preço do produto
+    let quantidade = 1;
+
+    const quantidadeTexto = document.querySelector(".quantidade span");
+    const subtotal = document.querySelector("#subtotal");
+    const frete = document.querySelector("#frete");
+    const desconto = document.querySelector("#desconto");
+    const total = document.querySelector("#total");
+
+
+    function atualizarCarrinho(){
+
+        let valorSubtotal = precoProduto * quantidade;
+
+        let valorFrete = valorSubtotal > 0 ? 0 : 20;
+
+        let valorDesconto = 0;
+
+        let valorTotal = valorSubtotal + valorFrete - valorDesconto;
+
+
+        subtotal.textContent = 
+            "R$ " + valorSubtotal.toFixed(2).replace(".", ",");
+
+
+        frete.textContent = 
+            "R$ " + valorFrete.toFixed(2).replace(".", ",");
+
+
+        desconto.textContent =
+            "R$ " + valorDesconto.toFixed(2).replace(".", ",");
+
+
+        total.textContent =
+            "R$ " + valorTotal.toFixed(2).replace(".", ",");
+
+    }
+
+
+
+    document.querySelector(".mais").addEventListener("click", () => {
+
+        quantidade++;
+
+        quantidadeTexto.textContent = quantidade;
+
+        atualizarCarrinho();
+
+    });
+
+
+
+    document.querySelector(".menos").addEventListener("click", () => {
+
+        if(quantidade > 1){
+
+            quantidade--;
+
+            quantidadeTexto.textContent = quantidade;
+
+            atualizarCarrinho();
+
+        }
+
+    });
+
+
+
+    atualizarCarrinho();
+
+});

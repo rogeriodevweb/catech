@@ -6,1054 +6,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CA Tech</title>
+    <title>Minha Loja</title>
 
-    <link rel="stylesheet" href="../style/home-lojista.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-    <link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+    <link rel="stylesheet" href="/style/home-lojista.css">
 
 </head>
 
+
 <body>
 
-    <!-- MENU LATERAL -->
-    <aside class="sidebar">
 
-        <div class="logo">
-            <h2>Minha Loja</h2>
-        </div>
+    <aside class="menu-loja">
 
-        <ul>
-            <li class="menu-item" data-aba="perfil">
-                <span class="icone">👤</span>
-                <span>Meu Perfil</span>
-            </li>
 
-            <li class="menu-item ativo" data-aba="dashboard">
-                <span class="icone">🏠</span>
-                <span>Dashboard</span>
-            </li>
+        <h1>
+            Minha Loja
+        </h1>
 
-            <li class="menu-item" data-aba="produtos">
-                <span class="icone">📦</span>
-                <span>Produtos</span>
-            </li>
 
-            <li class="menu-item" data-aba="pedidos">
-                <span class="icone">🛒</span>
-                <span>Pedidos</span>
-            </li>
 
-            <li class="menu-item" data-aba="clientes">
-                <span class="icone">👥</span>
-                <span>Clientes</span>
-            </li>
+        <nav>
 
-            <li class="menu-item" data-aba="categorias">
-                <span class="icone">🏷️</span>
-                <span>Categorias</span>
-            </li>
+            <!-- cadastrar produto -->
+            <a href="../pages/cadastrar-produto.html" class="item-menu">
 
-            <li class="menu-item" data-aba="cupons">
-                <span class="icone">🎟️</span>
-                <span>Cupons</span>
-            </li>
+                <span>🎟️</span>
 
-            <li class="menu-item" data-aba="fretes">
-                <span class="icone">🚚</span>
-                <span>Fretes</span>
-            </li>
+                <p>
+                    Cadastrar Produto
+                </p>
 
-            <li class="menu-item" data-aba="financeiro">
-                <span class="icone">💰</span>
-                <span>Financeiro</span>
-            </li>
+            </a>
 
-        </ul>
 
-        <button class="btn-sair">🚪 Sair</button>
+            <!-- PERFIL -->
+            <a href="/pages/perfil-lojista.html" class="item-menu">
+
+                <span>👤</span>
+
+                <p>
+                    Meu Perfil
+                </p>
+
+            </a>
+
+
+
+            <!-- DASHBOARD -->
+            <a href="../pages/dashboard.html" class="item-menu">
+
+                <span>🏠</span>
+
+                <p>
+                    Dashboard
+                </p>
+
+            </a>
+
+
+
+            <!-- PRODUTOS -->
+            <a href="produtos.html" class="item-menu">
+
+                <span>📦</span>
+
+                <p>
+                    Produtos
+                </p>
+
+            </a>
+
+
+
+
+            <!-- PEDIDOS -->
+            <a href="../pages/pedidos.html" class="item-menu">
+
+                <span>🛒</span>
+
+                <p>
+                    Pedidos
+                </p>
+
+            </a>
+
+
+
+
+            <!-- CLIENTES -->
+            <a href="../pages/clientes.html" class="item-menu">
+
+                <span>👥</span>
+
+                <p>
+                    Clientes
+                </p>
+
+            </a>
+
+
+
+
+            <!-- CATEGORIAS -->
+            <a href="../pages/categorias.html" class="item-menu">
+
+                <span>🏷️</span>
+
+                <p>
+                    Categorias
+                </p>
+
+            </a>
+
+
+
+
+
+            <!-- CUPONS -->
+            <a href="../pages/cupom.html" class="item-menu">
+
+                <span>🎟️</span>
+
+                <p>
+                    Cupons
+                </p>
+
+            </a>
+
+
+
+
+
+
+            <!-- FRETES -->
+            <a href="../pages/fretes.html" class="item-menu">
+
+                <span>🚚</span>
+
+                <p>
+                    Fretes
+                </p>
+
+            </a>
+
+
+
+
+
+            <!-- FINANCEIRO -->
+            <a href="../pages/financeiro.html" class="item-menu">
+
+                <span>💰</span>
+
+                <p>
+                    Financeiro
+                </p>
+
+            </a>
+
+
+
+        </nav>
+
 
     </aside>
 
-    <!-- CONTEÚDO -->
-    <main class="conteudo">
 
-        <!-- DASHBOARD -->
-        <section id="dashboard" class="aba ativo">
-
-            <div class="dashboard">
-
-                <div class="topo">
-
-                    <div>
-                        <h1>Dashboard</h1>
-                        <p>Bem-vindo ao painel da sua loja 👋</p>
-                    </div>
-
-                </div>
-
-                <div class="cards">
-
-                    <div class="card">
-                        <h3>Produtos</h3>
-                        <span>0</span>
-                        <p>Produtos cadastrados</p>
-                    </div>
-
-                    <div class="card">
-                        <h3>Pedidos</h3>
-                        <span>0</span>
-                        <p>Pedidos recebidos</p>
-                    </div>
-
-                    <div class="card">
-                        <h3>Clientes</h3>
-                        <span>0</span>
-                        <p>Clientes cadastrados</p>
-                    </div>
-
-                    <div class="card">
-                        <h3>Faturamento</h3>
-                        <span>R$ 0,00</span>
-                        <p>Este mês</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- PRODUTOS -->
-        <section id="produtos" class="aba">
-
-    <div class="dashboard">
-
-        <div class="topo">
-
-            <div>
-                <h1>Produtos</h1>
-                <p>Cadastre e gerencie os produtos da sua loja.</p>
-            </div>
-
-        </div>
-
-        <div class="box">
-
-            <h2>Cadastrar Produto</h2>
-
-            <form class="form-produto">
-
-                <div class="grupo">
-
-                    <label>Nome do Produto</label>
-                    <input type="text" placeholder="Digite o nome do produto">
-
-                </div>
-
-                <div class="grupo">
-
-                    <label>Categoria</label>
-
-                    <select>
-                        <option>Selecione</option>
-                        <option>Eletrônicos</option>
-                        <option>Roupas</option>
-                        <option>Calçados</option>
-                        <option>Acessórios</option>
-                    </select>
-
-                </div>
-
-                <div class="grupo">
-
-                    <label>Preço</label>
-                    <input type="number" placeholder="0,00">
-
-                </div>
-
-                <div class="grupo">
-
-                    <label>Preço Promocional</label>
-                    <input type="number" placeholder="0,00">
-
-                </div>
-
-                <div class="grupo">
-
-                    <label>Estoque</label>
-                    <input type="number" placeholder="Quantidade">
-                </div>
-
-                <div class="grupo">
-
-                    <label>SKU</label>
-                    <input type="text" placeholder="Código do Produto">
-
-                </div>
-
-                <div class="grupo">
-
-                    <label>Descrição</label>
-                    <textarea rows="6" placeholder="Descrição do produto"></textarea>
-
-                </div>
-
-                <div class="grupo">
-
-                    <label>Imagem Principal</label>
-                    <input type="file">
-
-                </div>
-
-                <div class="grupo">
-
-                    <label>Galeria de Imagens</label>
-                    <input type="file" multiple>
-
-                </div>
-
-                <div class="grupo">
-
-                    <label>Status</label>
-
-                    <select>
-                        <option>Ativo</option>
-                        <option>Inativo</option>
-                    </select>
-
-                </div>
-
-                <button type="submit" class="btn-salvar">
-                    💾 Cadastrar Produto
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
-
-</section>
-
-        <!-- PEDIDOS -->
-        <section id="pedidos" class="aba">
-
-    <div class="dashboard">
-
-        <div class="topo">
-
-            <div>
-                <h1>Pedidos</h1>
-                <p>Gerencie todos os pedidos da sua loja.</p>
-            </div>
-
-        </div>
-
-        <div class="box">
-
-            <div class="topo-pedidos">
-
-                <input type="text" placeholder="🔍 Pesquisar pedido...">
-
-                <select>
-                    <option>Todos os Status</option>
-                    <option>Pendente</option>
-                    <option>Pago</option>
-                    <option>Enviado</option>
-                    <option>Entregue</option>
-                    <option>Cancelado</option>
-                </select>
-
-            </div>
-
-            <table class="tabela-pedidos">
-
-                <thead>
-
-                    <tr>
-                        <th>Pedido</th>
-                        <th>Cliente</th>
-                        <th>Data</th>
-                        <th>Total</th>
-                        <th>Status</th>
-                        <th>Ações</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-
-                        <td>#0001</td>
-                        <td>João Silva</td>
-                        <td>09/07/2026</td>
-                        <td>R$ 199,90</td>
-
-                        <td>
-                            <span class="status pago">
-                                Pago
-                            </span>
-                        </td>
-
-                        <td>
-
-                            <button class="btn-ver">
-                                Ver
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>#0002</td>
-                        <td>Maria Souza</td>
-                        <td>09/07/2026</td>
-                        <td>R$ 79,90</td>
-
-                        <td>
-                            <span class="status pendente">
-                                Pendente
-                            </span>
-                        </td>
-
-                        <td>
-
-                            <button class="btn-ver">
-                                Ver
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-</section>
-
-        <!-- CLIENTES -->
-        <section id="clientes" class="aba">
-
-    <div class="dashboard">
-
-        <div class="topo">
-
-            <div>
-                <h1>Clientes</h1>
-                <p>Gerencie todos os clientes da sua loja.</p>
-            </div>
-
-        </div>
-
-        <div class="box">
-
-            <div class="topo-clientes">
-
-                <input type="text" placeholder="🔍 Pesquisar cliente...">
-
-            </div>
-
-            <table class="tabela-clientes">
-
-                <thead>
-
-                    <tr>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Telefone</th>
-                        <th>Pedidos</th>
-                        <th>Cadastro</th>
-                        <th>Ações</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-
-                        <td>João Silva</td>
-                        <td>joao@email.com</td>
-                        <td>(11) 99999-9999</td>
-                        <td>12</td>
-                        <td>09/07/2026</td>
-
-                        <td>
-                            <button class="btn-cliente">
-                                Ver Perfil
-                            </button>
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>Maria Souza</td>
-                        <td>maria@email.com</td>
-                        <td>(21) 98888-8888</td>
-                        <td>5</td>
-                        <td>05/07/2026</td>
-
-                        <td>
-                            <button class="btn-cliente">
-                                Ver Perfil
-                            </button>
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-</section>
-
-        <!-- CATEGORIAS -->
-        <section id="categorias" class="aba">
-
-    <div class="dashboard">
-
-        <div class="topo">
-
-            <div>
-                <h1>Categorias</h1>
-                <p>Cadastre e gerencie as categorias dos seus produtos.</p>
-            </div>
-
-        </div>
-
-        <div class="box">
-
-            <h2>Nova Categoria</h2>
-
-            <form class="form-categoria">
-
-                <div class="grupo">
-
-                    <label>Nome da Categoria</label>
-                    <input type="text" placeholder="Ex.: Eletrônicos">
-
-                </div>
-
-                <div class="grupo">
-
-                    <label>Descrição</label>
-                    <textarea rows="4" placeholder="Descrição da categoria"></textarea>
-
-                </div>
-
-                <button class="btn-categoria" type="submit">
-                    ➕ Cadastrar Categoria
-                </button>
-
-            </form>
-
-        </div>
-
-        <div class="box">
-
-            <h2>Categorias Cadastradas</h2>
-
-            <table class="tabela-categorias">
-
-                <thead>
-
-                    <tr>
-                        <th>Categoria</th>
-                        <th>Descrição</th>
-                        <th>Produtos</th>
-                        <th>Ações</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-
-                        <td>Eletrônicos</td>
-                        <td>Celulares, notebooks e acessórios.</td>
-                        <td>15</td>
-
-                        <td>
-
-                            <button class="btn-editar">
-                                ✏ Editar
-                            </button>
-
-                            <button class="btn-excluir">
-                                🗑 Excluir
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>Roupas</td>
-                        <td>Moda masculina e feminina.</td>
-                        <td>28</td>
-
-                        <td>
-
-                            <button class="btn-editar">
-                                ✏ Editar
-                            </button>
-
-                            <button class="btn-excluir">
-                                🗑 Excluir
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-</section>
-
-        <!-- CUPONS -->
-        <section id="cupons" class="aba">
-
-    <div class="dashboard">
-
-        <div class="topo">
-
-            <div>
-                <h1>Cupons</h1>
-                <p>Crie e gerencie cupons de desconto para sua loja.</p>
-            </div>
-
-        </div>
-
-        <div class="box">
-
-            <h2>Cadastrar Cupom</h2>
-
-            <form class="form-cupom">
-
-                <div class="grupo">
-                    <label>Nome do Cupom</label>
-                    <input type="text" placeholder="Ex.: BLACK20">
-                </div>
-
-                <div class="grupo">
-                    <label>Código do Cupom</label>
-                    <input type="text" placeholder="BLACK20">
-                </div>
-
-                <div class="grupo">
-                    <label>Tipo de Desconto</label>
-
-                    <select>
-                        <option>Porcentagem (%)</option>
-                        <option>Valor Fixo (R$)</option>
-                    </select>
-                </div>
-
-                <div class="grupo">
-                    <label>Valor do Desconto</label>
-                    <input type="number" placeholder="20">
-                </div>
-
-                <div class="grupo">
-                    <label>Compra Mínima (R$)</label>
-                    <input type="number" placeholder="100">
-                </div>
-
-                <div class="grupo">
-                    <label>Quantidade de Usos</label>
-                    <input type="number" placeholder="100">
-                </div>
-
-                <div class="grupo">
-                    <label>Data de Expiração</label>
-                    <input type="date">
-                </div>
-
-                <div class="grupo">
-                    <label>Status</label>
-
-                    <select>
-                        <option>Ativo</option>
-                        <option>Inativo</option>
-                    </select>
-                </div>
-
-                <button class="btn-cupom" type="submit">
-                    🎟 Criar Cupom
-                </button>
-
-            </form>
-
-        </div>
-
-        <div class="box">
-
-            <h2>Cupons Cadastrados</h2>
-
-            <table class="tabela-cupons">
-
-                <thead>
-
-                    <tr>
-                        <th>Código</th>
-                        <th>Desconto</th>
-                        <th>Validade</th>
-                        <th>Status</th>
-                        <th>Ações</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-
-                        <td>BLACK20</td>
-                        <td>20%</td>
-                        <td>31/12/2026</td>
-
-                        <td>
-                            <span class="status pago">
-                                Ativo
-                            </span>
-                        </td>
-
-                        <td>
-
-                            <button class="btn-editar">
-                                ✏ Editar
-                            </button>
-
-                            <button class="btn-excluir">
-                                🗑 Excluir
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-</section>
-
-        <!-- FRETES -->
-        <section id="fretes" class="aba">
-
-    <div class="dashboard">
-
-        <div class="topo">
-
-            <div>
-                <h1>Fretes</h1>
-                <p>Configure as opções de entrega da sua loja.</p>
-            </div>
-
-        </div>
-
-        <div class="box">
-
-            <h2>Configuração de Frete</h2>
-
-            <form class="form-frete">
-
-                <div class="grupo">
-                    <label>Transportadora</label>
-                    <input type="text" placeholder="Ex.: Correios, Jadlog, Transportadora Própria">
-                </div>
-
-                <div class="grupo">
-                    <label>Tipo de Frete</label>
-
-                    <select>
-                        <option>PAC</option>
-                        <option>SEDEX</option>
-                        <option>Transportadora</option>
-                        <option>Retirada na Loja</option>
-                    </select>
-                </div>
-
-                <div class="grupo">
-                    <label>Valor do Frete (R$)</label>
-                    <input type="number" placeholder="0,00">
-                </div>
-
-                <div class="grupo">
-                    <label>Prazo de Entrega (dias)</label>
-                    <input type="number" placeholder="5">
-                </div>
-
-                <div class="grupo">
-                    <label>CEP Inicial</label>
-                    <input type="text" placeholder="00000-000">
-                </div>
-
-                <div class="grupo">
-                    <label>CEP Final</label>
-                    <input type="text" placeholder="99999-999">
-                </div>
-
-                <div class="grupo">
-                    <label>Valor Mínimo para Frete Grátis</label>
-                    <input type="number" placeholder="199,90">
-                </div>
-
-                <div class="grupo">
-                    <label>Status</label>
-
-                    <select>
-                        <option>Ativo</option>
-                        <option>Inativo</option>
-                    </select>
-                </div>
-
-                <button class="btn-frete" type="submit">
-                    🚚 Salvar Configuração
-                </button>
-
-            </form>
-
-        </div>
-
-        <div class="box">
-
-            <h2>Fretes Cadastrados</h2>
-
-            <table class="tabela-fretes">
-
-                <thead>
-
-                    <tr>
-                        <th>Transportadora</th>
-                        <th>Tipo</th>
-                        <th>Valor</th>
-                        <th>Prazo</th>
-                        <th>Status</th>
-                        <th>Ações</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-
-                        <td>Correios</td>
-                        <td>SEDEX</td>
-                        <td>R$ 29,90</td>
-                        <td>3 dias</td>
-                        <td>Ativo</td>
-
-                        <td>
-
-                            <button class="btn-editar">
-                                ✏ Editar
-                            </button>
-
-                            <button class="btn-excluir">
-                                🗑 Excluir
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-</section>
-
-        <!-- FINANCEIRO -->
-        <section id="financeiro" class="aba">
-
-    <div class="dashboard">
-
-        <div class="topo">
-
-            <div>
-                <h1>Financeiro</h1>
-                <p>Acompanhe o desempenho financeiro da sua loja.</p>
-            </div>
-
-        </div>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Faturamento Total</h3>
-                <span>R$ 0,00</span>
-                <p>Total de vendas</p>
-            </div>
-
-            <div class="card">
-                <h3>Pedidos Pagos</h3>
-                <span>0</span>
-                <p>Pedidos concluídos</p>
-            </div>
-
-            <div class="card">
-                <h3>Despesas</h3>
-                <span>R$ 0,00</span>
-                <p>Custos da loja</p>
-            </div>
-
-            <div class="card">
-                <h3>Lucro Líquido</h3>
-                <span>R$ 0,00</span>
-                <p>Resultado final</p>
-            </div>
-
-        </div>
-
-        <div class="box">
-
-            <h2>Registrar Despesa</h2>
-
-            <form class="form-financeiro">
-
-                <div class="grupo">
-                    <label>Descrição</label>
-                    <input type="text" placeholder="Ex.: Compra de embalagens">
-                </div>
-
-                <div class="grupo">
-                    <label>Categoria</label>
-
-                    <select>
-                        <option>Marketing</option>
-                        <option>Embalagens</option>
-                        <option>Frete</option>
-                        <option>Fornecedor</option>
-                        <option>Outros</option>
-                    </select>
-                </div>
-
-                <div class="grupo">
-                    <label>Valor (R$)</label>
-                    <input type="number" placeholder="0,00">
-                </div>
-
-                <div class="grupo">
-                    <label>Data</label>
-                    <input type="date">
-                </div>
-
-                <button class="btn-financeiro">
-                    💰 Registrar Despesa
-                </button>
-
-            </form>
-
-        </div>
-
-        <div class="box">
-
-            <h2>Histórico Financeiro</h2>
-
-            <table class="tabela-financeiro">
-
-                <thead>
-
-                    <tr>
-                        <th>Data</th>
-                        <th>Descrição</th>
-                        <th>Categoria</th>
-                        <th>Valor</th>
-                        <th>Tipo</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>09/07/2026</td>
-                        <td>Venda #001</td>
-                        <td>Vendas</td>
-                        <td>R$ 350,00</td>
-                        <td><span class="entrada">Entrada</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>09/07/2026</td>
-                        <td>Compra de Embalagens</td>
-                        <td>Embalagens</td>
-                        <td>R$ 80,00</td>
-                        <td><span class="saida">Saída</span></td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-</section>
-                <section id="perfil" class="aba">
-
-    <div class="dashboard">
-
-        <div class="topo">
-
-            <div>
-                <h1>Meu Perfil</h1>
-                <p>Gerencie as informações da sua conta.</p>
-            </div>
-
-        </div>
-
-        <div class="box">
-
-            <h2>Dados da Loja</h2>
-
-            <form class="form-perfil">
-
-                <div class="grupo">
-                    <label>Nome da Loja</label>
-                    <input type="text" placeholder="Minha Loja">
-                </div>
-
-                <div class="grupo">
-                    <label>Nome do Proprietário</label>
-                    <input type="text" placeholder="Seu nome">
-                </div>
-
-                <div class="grupo">
-                    <label>E-mail</label>
-                    <input type="email" placeholder="email@exemplo.com">
-                </div>
-
-                <div class="grupo">
-                    <label>Telefone</label>
-                    <input type="text" placeholder="(00) 00000-0000">
-                </div>
-
-                <div class="grupo">
-                    <label>CNPJ</label>
-                    <input type="text" placeholder="00.000.000/0001-00">
-                </div>
-
-                <div class="grupo">
-                    <label>CPF</label>
-                    <input type="text" placeholder="000.000.000-00">
-                </div>
-
-                <div class="grupo">
-                    <label>Endereço</label>
-                    <input type="text" placeholder="Rua, número, bairro...">
-                </div>
-
-                <div class="grupo">
-                    <label>CEP</label>
-                    <input type="text" placeholder="00000-000">
-                </div>
-
-                <div class="grupo">
-                    <label>Nova Senha</label>
-                    <input type="password">
-                </div>
-
-                <div class="grupo">
-                    <label>Confirmar Senha</label>
-                    <input type="password">
-                </div>
-
-                <div class="grupo" style="grid-column:1/-1;">
-                    <label>Logo da Loja</label>
-                    <input type="file">
-                </div>
-
-                <button class="btn-salvar">
-                    💾 Salvar Alterações
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
-
-</section>
-
-    </main>
-
-    <script src="../js/home-lojista.js"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const menuItems = document.querySelectorAll(".menu-item");
-            const abas = document.querySelectorAll(".aba");
-
-            menuItems.forEach(item => {
-
-                item.addEventListener("click", () => {
-
-                    menuItems.forEach(i => i.classList.remove("ativo"));
-                    abas.forEach(a => a.classList.remove("ativo"));
-
-                    item.classList.add("ativo");
-
-                    const aba = document.getElementById(item.dataset.aba);
-
-                    if (aba) {
-                        aba.classList.add("ativo");
-                    }
-
-                });
-
-            });
-
-            const btnLoja = document.querySelector(".btn-loja");
-
-            if (btnLoja) {
-                btnLoja.addEventListener("click", () => {
-                    window.location.href = "../index.html";
-                });
-            }
-
-        });
-    </script>
-
+<script src="/js/home-lojista.js"></script>
 </body>
 
 </html>

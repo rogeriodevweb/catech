@@ -39,3 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+function voltarPagina(){
+
+    window.history.back();
+
+}

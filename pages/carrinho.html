@@ -96,65 +96,49 @@
 
 <div class="resumo">
 
+    <h2>Resumo do Pedido</h2>
 
-    <h2>
-        Resumo do Pedido
-    </h2>
+    <!-- Cupom -->
+    <div class="cupom">
 
+        <input
+            type="text"
+            id="cupom"
+            placeholder="Digite seu cupom">
 
-
-    <div class="linha">
-
-
-        <span>
-            Subtotal
-        </span>
-
-
-        <span id="subtotal">
-            R$ 0,00
-        </span>
-
+        <button id="aplicar-cupom">
+            Aplicar
+        </button>
 
     </div>
 
-
-
-
-
     <div class="linha">
-
-
-        <span>
-            Frete
-        </span>
-
-
-        <span id="frete">
-            R$ 0,00
-        </span>
-
-
+        <span>Subtotal</span>
+        <span id="subtotal">R$ 0,00</span>
     </div>
 
-
-
-
+    <div class="linha">
+        <span>Frete</span>
+        <span id="frete">R$ 0,00</span>
+    </div>
 
     <div class="linha">
-
-
-        <span>
-            Desconto
-        </span>
-
-
-        <span id="desconto">
-            R$ 0,00
-        </span>
-
-
+        <span>Desconto</span>
+        <span id="desconto">R$ 0,00</span>
     </div>
+
+    <hr>
+
+    <div class="linha total">
+        <strong>Total</strong>
+        <strong id="total">R$ 0,00</strong>
+    </div>
+
+    <button class="finalizar">
+        Finalizar Compra
+    </button>
+
+</div>
 
 
 

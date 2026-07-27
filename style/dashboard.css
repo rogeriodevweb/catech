@@ -1,0 +1,325 @@
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Ubuntu,Arial,sans-serif;
+
+}
+
+
+
+body{
+
+    background:#0f172a;
+    color:white;
+
+}
+
+
+
+.dashboard{
+
+    padding:35px;
+    max-width:1400px;
+    margin:auto;
+
+}
+
+
+
+
+
+.topo{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+
+}
+
+
+.topo h1{
+
+    font-size:32px;
+
+}
+
+
+
+.topo p{
+
+    color:#94a3b8;
+    margin-top:8px;
+
+}
+
+
+
+
+.btn-loja{
+
+    background:#2563eb;
+    border:none;
+    color:white;
+    padding:14px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+
+}
+
+
+
+
+
+.cards{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+
+}
+
+
+
+.card{
+
+    background:#101827;
+    border:1px solid #1f2937;
+    padding:25px;
+    border-radius:15px;
+    display:flex;
+    gap:20px;
+    align-items:center;
+
+}
+
+
+
+.card span{
+
+    font-size:35px;
+
+}
+
+
+.card h3{
+
+    color:#94a3b8;
+    font-size:15px;
+
+}
+
+
+.card strong{
+
+    font-size:25px;
+    display:block;
+    margin-top:8px;
+
+}
+
+
+
+
+
+.painel{
+
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
+    margin-top:30px;
+
+}
+
+
+
+
+.box{
+
+    background:#101827;
+    border:1px solid #1f2937;
+    border-radius:15px;
+    padding:25px;
+
+}
+
+
+
+.box h2{
+
+    margin-bottom:25px;
+    font-size:22px;
+
+}
+
+
+
+
+.grafico{
+
+    height:250px;
+    display:flex;
+    align-items:end;
+    justify-content:space-around;
+    gap:15px;
+
+}
+
+
+
+.grafico div{
+
+    width:35px;
+    background:#2563eb;
+    border-radius:8px 8px 0 0;
+    display:flex;
+    align-items:end;
+    justify-content:center;
+    padding-bottom:5px;
+    font-size:12px;
+
+}
+
+
+
+
+
+.lista{
+
+    list-style:none;
+
+}
+
+
+
+.lista li{
+
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+    border-bottom:1px solid #1f2937;
+
+}
+
+
+.lista span{
+
+    color:#60a5fa;
+
+}
+
+
+
+
+
+.pedidos{
+
+    margin-top:30px;
+
+}
+
+
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+
+
+th,td{
+
+    padding:15px;
+    text-align:left;
+    border-bottom:1px solid #1f2937;
+
+}
+
+
+th{
+
+    color:#94a3b8;
+
+}
+
+
+
+.entregue{
+
+    color:#22c55e;
+
+}
+
+
+
+.processando{
+
+    color:#facc15;
+
+}
+
+
+
+
+
+@media(max-width:900px){
+
+
+.cards{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+.painel{
+
+    grid-template-columns:1fr;
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.dashboard{
+
+    padding:20px;
+
+}
+
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.topo{
+
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+
+}
+
+
+table{
+
+    font-size:13px;
+
+}
+
+
+
+}

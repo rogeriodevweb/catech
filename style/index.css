@@ -194,6 +194,7 @@ background-color: #00063D;
 
 /* CARD */
 .card-produtos {
+     margin-bottom: 60px;
     margin-left: 20px;
     font-family: Ubuntu;
     width: 280px;
@@ -206,6 +207,15 @@ background-color: #00063D;
     border: 2px solid #7c3aed30;
     box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
     transition: all 0.3s ease;
+
+}
+.titulo-card{
+    width: 280px;             /* mesma largura do card */
+    margin: 0 0 15px 20px;    /* mesmo alinhamento do card */
+    font-family: Ubuntu, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;           /* branco se o fundo for escuro */
 }
 
 .card-produtos:hover {
@@ -498,17 +508,24 @@ position: relative; /*posição relativa para posicionar a linha divisória em r
 
 .titulo-ofertas{
     margin-top: 20px;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: #fdfdfd;
-    font-family: Ubuntu;
-    padding-left: 50px;
+    font-family: Ubuntu, sans-serif;
 }
 
 .titulo-ofertas a{
     color: #fdfdfd;
     text-decoration: none;
-    margin-left: 1700px;
-    font-family: Ubuntu;
-    padding-left: 50px;
+    font-family: Ubuntu, sans-serif;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.titulo-ofertas a:hover{
+    text-decoration: underline;
 }
 
 /*configurar para que os elementos da pagina preencham toda a tela*/

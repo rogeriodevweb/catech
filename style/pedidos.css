@@ -405,53 +405,59 @@ body{
 }
 
 /*====================================
-=          BOTÃO VOLTAR
+=          TOPO
 ====================================*/
 
 .topo{
-
-    max-width:1300px;
-
-    margin:40px auto;
-
-    padding:0 20px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-}
-
-.btn-voltar{
-
-    align-self:flex-start;
-
-    display:inline-flex;
-
-    padding:12px 18px;
-
-    margin-bottom:25px;
-
-    background:#1e293b;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    border-radius:10px;
-
-}
-
-.btn-voltar:hover{
-
-    background:#2563eb;
-
+    max-width: 1100px;
+    margin: 60px auto 40px;
+    padding: 0 20px;
 }
 
 .topo h1{
+    margin-bottom: 10px;
+}
 
-    margin-bottom:10px;
+.topo p{
+    margin-bottom: 28px;
+    color: #94a3b8;
+}
+
+/*====================================
+=          BOTÃO VOLTAR
+====================================*/
+
+.btn-voltar {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 80px;
+
+    margin-top: 20px;
+
+    padding: 12px 20px;
+
+    background: #2563eb;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: .3s;
+
+}
+
+
+.btn-voltar-home:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
 
 }

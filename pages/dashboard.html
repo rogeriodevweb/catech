@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard Lojista - CA Tech</title>
+
+    <link rel="stylesheet" href="../style/dashboard.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+    <!-- TOPO -->
+
+    <header class="topo">
+
+        <div>
+
+            <h1>
+                Dashboard da Loja
+            </h1>
+
+            <p>
+                Acompanhe o desempenho da sua loja
+            </p>
+
+        </div>
+
+
+        <button class="btn-loja">
+
+            Minha Loja
+
+        </button>
+
+
+    </header>
+
+
+
+
+    <!-- CARDS -->
+
+    <section class="cards">
+
+
+        <div class="card">
+
+            <span>
+                💰
+            </span>
+
+            <div>
+
+                <h3>
+                    Vendas
+                </h3>
+
+                <strong>
+                    R$ 12.450,00
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="card">
+
+            <span>
+                🛒
+            </span>
+
+            <div>
+
+                <h3>
+                    Pedidos
+                </h3>
+
+                <strong>
+                    128
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="card">
+
+            <span>
+                👥
+            </span>
+
+            <div>
+
+                <h3>
+                    Clientes
+                </h3>
+
+                <strong>
+                    560
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="card">
+
+            <span>
+                📦
+            </span>
+
+            <div>
+
+                <h3>
+                    Produtos
+                </h3>
+
+                <strong>
+                    86
+                </strong>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <!-- CONTEUDO -->
+
+    <section class="painel">
+
+
+        <!-- VENDAS -->
+
+        <div class="box vendas">
+
+
+            <h2>
+                Vendas da Semana
+            </h2>
+
+
+            <div class="grafico">
+
+
+                <div style="height:40%">
+                    Seg
+                </div>
+
+
+                <div style="height:65%">
+                    Ter
+                </div>
+
+
+                <div style="height:80%">
+                    Qua
+                </div>
+
+
+                <div style="height:55%">
+                    Qui
+                </div>
+
+
+                <div style="height:90%">
+                    Sex
+                </div>
+
+
+                <div style="height:70%">
+                    Sab
+                </div>
+
+
+                <div style="height:45%">
+                    Dom
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!-- PRODUTOS -->
+
+        <div class="box">
+
+
+            <h2>
+                Produtos Mais Vendidos
+            </h2>
+
+
+            <ul class="lista">
+
+
+                <li>
+                    SSD Kingston 480GB
+                    <span>
+                        35 vendas
+                    </span>
+                </li>
+
+
+                <li>
+                    Memória RAM 16GB
+                    <span>
+                        28 vendas
+                    </span>
+                </li>
+
+
+                <li>
+                    Fonte ATX 500W
+                    <span>
+                        22 vendas
+                    </span>
+                </li>
+
+
+                <li>
+                    Kit Ferramentas
+                    <span>
+                        18 vendas
+                    </span>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+
+    <!-- PEDIDOS -->
+
+    <section class="box pedidos">
+
+
+        <h2>
+            Pedidos Recentes
+        </h2>
+
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Pedido
+                    </th>
+
+                    <th>
+                        Cliente
+                    </th>
+
+                    <th>
+                        Valor
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+
+            <tbody>
+
+
+                <tr>
+
+                    <td>
+                        #1025
+                    </td>
+
+                    <td>
+                        João Silva
+                    </td>
+
+                    <td>
+                        R$ 350,00
+                    </td>
+
+                    <td class="entregue">
+                        Entregue
+                    </td>
+
+
+                </tr>
+
+
+
+
+                <tr>
+
+                    <td>
+                        #1026
+                    </td>
+
+                    <td>
+                        Maria Souza
+                    </td>
+
+                    <td>
+                        R$ 890,00
+                    </td>
+
+                    <td class="processando">
+                        Processando
+                    </td>
+
+
+                </tr>
+
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+
+
+
+</div>
+
+
+
+
+<script src="../js/dashboard.js"></script>
+
+
+</body>
+
+</html>
