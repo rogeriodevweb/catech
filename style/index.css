@@ -354,6 +354,69 @@ footer{
     
 }
 
+footer a{
+
+    display:inline-block;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-family:Ubuntu, Arial, sans-serif;
+
+    font-size:16px;
+
+    margin-top:10px;
+
+    transition:0.3s;
+
+}
+
+
+footer a:hover{
+
+    color:#2563eb;
+
+}
+
+.link-sobre{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-family:Ubuntu, Arial, sans-serif;
+
+}
+
+
+.link-sobre:hover{
+
+    color:#2563eb;
+
+}
+
+.link-rodape{
+    width:100%;
+    text-align:center;
+    margin-top:15px;
+    transform: translateX(-70px);
+}
+
+.link-rodape a{
+    color:#ffffff;
+    text-decoration:none;
+    font-size:15px;
+}
+
+.link-rodape a:hover{
+    color:#2563eb;
+}
+
 .superior{
 display: flex; /*exibe os elementos em linha*/
 gap: 10px; /*distancia entre os elementos do rodapé*/

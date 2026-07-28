@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clientes | CA Tech</title>
+
+    <link rel="stylesheet" href="/style/clientes-lojista.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- MENU LATERAL -->
+
+    <div class="sidebar">
+
+        <!-- Menu do lojista -->
+
+    </div>
+
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="conteudo">
+
+
+
+        <!-- BOTÃO VOLTAR -->
+
+        <div class="area-voltar">
+
+            <button
+                class="btn-voltar"
+                onclick="history.back()">
+
+                ← Voltar
+
+            </button>
+
+        </div>
+
+
+
+        <section class="clientes-lojista">
+
+
+
+            <!-- TOPO -->
+
+            <header class="topo-clientes">
+
+                <div>
+
+                    <h1>
+
+                        Clientes
+
+                    </h1>
+
+                    <p>
+
+                        Gerencie todos os clientes cadastrados em sua loja.
+
+                    </p>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- ESTATÍSTICAS -->
+
+            <section class="estatisticas">
+
+                <div class="card-estatistica">
+
+                    <span>👥</span>
+
+                    <h2 id="totalClientes">
+
+                        0
+
+                    </h2>
+
+                    <p>
+
+                        Total de Clientes
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="card-estatistica">
+
+                    <span>🛒</span>
+
+                    <h2 id="clientesCompraram">
+
+                        0
+
+                    </h2>
+
+                    <p>
+
+                        Clientes com Compras
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="card-estatistica">
+
+                    <span>⭐</span>
+
+                    <h2 id="clientesVip">
+
+                        0
+
+                    </h2>
+
+                    <p>
+
+                        Clientes VIP
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="card-estatistica">
+
+                    <span>📅</span>
+
+                    <h2 id="novosClientes">
+
+                        0
+
+                    </h2>
+
+                    <p>
+
+                        Novos este mês
+
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- FILTROS -->
+
+            <section class="filtros">
+
+                <input
+                    type="text"
+                    id="pesquisa"
+                    placeholder="Pesquisar cliente...">
+
+                <select id="status">
+
+                    <option value="">
+
+                        Todos os Status
+
+                    </option>
+
+                    <option value="ativo">
+
+                        Ativo
+
+                    </option>
+
+                    <option value="inativo">
+
+                        Inativo
+
+                    </option>
+
+                    <option value="vip">
+
+                        VIP
+
+                    </option>
+
+                </select>
+
+            </section>
+
+
+
+            <!-- LISTA DE CLIENTES -->
+
+            <section
+                class="lista-clientes"
+                id="listaClientes">
+
+            </section>
+
+
+
+            <!-- SEM CLIENTES -->
+
+            <section
+                class="sem-clientes"
+                id="semClientes"
+                style="display:none;">
+
+                <div class="icone">
+
+                    👥
+
+                </div>
+
+                <h2>
+
+                    Nenhum cliente encontrado
+
+                </h2>
+
+                <p>
+
+                    Quando um cliente realizar uma compra, ele aparecerá aqui.
+
+                </p>
+
+            </section>
+
+
+
+        </section>
+
+    </main>
+
+    <script src="/js/clientes-lojista.js"></script>
+
+</body>
+
+</html>

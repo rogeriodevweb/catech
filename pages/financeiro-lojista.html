@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Financeiro | CA Tech</title>
+
+    <link rel="stylesheet" href="/style/financeiro-lojista.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- MENU LATERAL -->
+
+    <div class="sidebar">
+
+        <!-- Menu do Lojista -->
+
+    </div>
+
+
+
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="conteudo">
+
+
+
+        <!-- BOTÃO VOLTAR -->
+
+        <div class="area-voltar">
+
+            <button
+                type="button"
+                class="btn-voltar"
+                onclick="history.back()">
+
+                ← Voltar
+
+            </button>
+
+        </div>
+
+
+
+
+
+        <!-- TOPO -->
+
+        <section class="topo-financeiro">
+
+            <div>
+
+                <h1>
+
+                    Financeiro
+
+                </h1>
+
+                <p>
+
+                    Acompanhe o desempenho financeiro da sua loja.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- CARDS -->
+
+        <section class="cards-financeiros">
+
+            <div class="card">
+
+                <h3>💰 Receita Total</h3>
+
+                <h2 id="receitaTotal"></h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3>📦 Vendas do Mês</h3>
+
+                <h2 id="vendasMes"></h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🛒 Ticket Médio</h3>
+
+                <h2 id="ticketMedio"></h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3>💳 Saldo Disponível</h3>
+
+                <h2 id="saldoDisponivel"></h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3>⏳ Saldo Pendente</h3>
+
+                <h2 id="saldoPendente"></h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3>📈 Lucro Líquido</h3>
+
+                <h2 id="lucroLiquido"></h2>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- RESUMO FINANCEIRO -->
+
+        <section class="bloco">
+
+            <h2>
+
+                Resumo Financeiro
+
+            </h2>
+
+            <div class="resumo-grid">
+
+                <div class="resumo-item">
+
+                    <span>Total Vendido</span>
+
+                    <strong id="totalVendido"></strong>
+
+                </div>
+
+                <div class="resumo-item">
+
+                    <span>Taxas da Plataforma</span>
+
+                    <strong id="taxas"></strong>
+
+                </div>
+
+                <div class="resumo-item">
+
+                    <span>Lucro Estimado</span>
+
+                    <strong id="lucro"></strong>
+
+                </div>
+
+                <div class="resumo-item">
+
+                    <span>Próximo Repasse</span>
+
+                    <strong id="repasse"></strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- PRÓXIMOS RECEBIMENTOS -->
+
+        <section class="bloco">
+
+            <h2>
+
+                Próximos Recebimentos
+
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Data</th>
+
+                        <th>Valor</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tabelaRecebimentos">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+
+
+
+        <!-- PAGAMENTOS -->
+
+        <section class="bloco">
+
+            <h2>
+
+                Últimos Pagamentos
+
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Cliente</th>
+
+                        <th>Pedido</th>
+
+                        <th>Pagamento</th>
+
+                        <th>Valor</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tabelaPagamentos">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+
+
+
+        <!-- PRODUTOS -->
+
+        <section class="bloco">
+
+            <h2>
+
+                Produtos Mais Lucrativos
+
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Produto</th>
+
+                        <th>Vendidos</th>
+
+                        <th>Lucro</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tabelaProdutos">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+
+
+
+        <!-- EXTRATO -->
+
+        <section class="bloco">
+
+            <h2>
+
+                Extrato Financeiro
+
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Data</th>
+
+                        <th>Descrição</th>
+
+                        <th>Tipo</th>
+
+                        <th>Valor</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tabelaExtrato">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+
+
+
+        <!-- DADOS BANCÁRIOS -->
+
+        <section class="bloco">
+
+            <div class="titulo-bloco">
+
+                <h2>
+
+                    Dados Bancários
+
+                </h2>
+
+                <button class="btn-editar">
+
+                    Editar
+
+                </button>
+
+            </div>
+
+            <div class="dados-banco">
+
+                <div>
+
+                    <span>Banco</span>
+
+                    <strong id="banco"></strong>
+
+                </div>
+
+                <div>
+
+                    <span>Agência</span>
+
+                    <strong id="agencia"></strong>
+
+                </div>
+
+                <div>
+
+                    <span>Conta</span>
+
+                    <strong id="conta"></strong>
+
+                </div>
+
+                <div>
+
+                    <span>PIX</span>
+
+                    <strong id="pix"></strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- ALERTAS -->
+
+        <section class="bloco">
+
+            <h2>
+
+                Alertas Financeiros
+
+            </h2>
+
+            <ul id="listaAlertas">
+
+            </ul>
+
+        </section>
+
+
+
+
+
+        <!-- AÇÕES -->
+
+        <section class="acoes">
+
+            <button class="btn-pdf">
+
+                📄 Exportar PDF
+
+            </button>
+
+            <button class="btn-excel">
+
+                📊 Exportar Excel
+
+            </button>
+
+            <button class="btn-saque">
+
+                💸 Solicitar Saque
+
+            </button>
+
+        </section>
+
+
+
+    </main>
+
+    <script src="/js/financeiro-lojista.js"></script>
+
+</body>
+
+</html>

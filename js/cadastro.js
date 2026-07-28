@@ -105,16 +105,75 @@ document.getElementById("btn-criar-conta").addEventListener("click", () => {
  
         return;
  
+
+
+        
     }
- 
-    if (!email.includes("@")) {
- 
+    // VERIFICAR SE A SENHA POSSUI LETRAS MAIUSCULAS
+    if (!/[A-Z]/.test(senha)){
         mensagem.style.color = "red";
-        mensagem.innerHTML = "Digite um e-mail válido.";
- 
+        mensagem.innerHTML =
+        "A SENHA DEVE CONTER PELO MENOS UMA LETRA MAIÚSCULA.";
         return;
- 
     }
+    // VERIFICAR SE A SENHA POSSUI LETRAS MINÚSCULA
+    if (!/[a-z]/.test(senha)){
+        mensagem.style.color = "red";
+        mensagem.innerHTML =
+        "A SENHA DEVE CONTER PELO MENOS UMA LETRA MINÚSCULA.";
+        return;
+    }
+    if(!/[!@#$%^&*(),.?":{}|<>_\-+=/\[\]\\;'`~]/.test(senha)) {
+        mensagem.style.color = "red";
+        mensagem.innerHTML =
+        "A SENHA DEVE CONTER PELO MENOS UM CARACTER ESPECIAL.";
+        return;
+    }
+    if (!/[0-9]/.test(senha)){
+        mensagem.style.color = "red";
+        mensagem.innerHTML =
+        "A SENHA DEVE CONTER PELO MENOS UM NÚMERO.";
+        return;
+    }
+    // VERIFICAR SE A SENHA POSSIU NOME DA PESSOA
+    if(senha.includes(nome)) {
+        mensagem.style.color = "red";
+        mensagem.innerHTML =
+            "A SENHA NAO PODE CONTER O NOME DO USUÁRIO.";
+        return;
+    }
+    if(senha !== confirmarSenha) {
+        mensagem.style.color = "red";
+        mensagem.innerHTML = "AS SENHAS NÃO COINCIDEM.";
+        return;
+    }
+    // verificar se o cliente e maior de idade
+    const idade = new Date().getFullYear() -
+        new Date(dataNascimento).getFullYear();
+
+    if (idade < 18) {
+         mensagem.style.color = "red";
+        mensagem.innerHTML = "VOCÊ DEVE SER MAIOR DE IDADE PARA SE CADASTRAR.";
+        return;
+    }
+
+
+
+
+    if (!email.includes("@gmail.com") ||
+        !email.includes("@hotmail.com") ||
+        !email.includes("@yahoo.com") ||
+        !email.includes("@outlook.com") ||
+        !email.includes("@icloud.com")) {
+
+        mensagem.style.color = "red";
+        mensagem.innerHTML = "DIGITE UM EMAIL VÁLIDO.";    
+
+        return;
+
+        }
+
+
  
     mensagem.style.color = "green";
  
@@ -124,19 +183,12 @@ document.getElementById("btn-criar-conta").addEventListener("click", () => {
     // Objeto pronto para enviar ao Node.js
  
     const cliente = {
- 
         nome: nome,
- 
         cpf: cpf.replace(/\D/g, ""),
- 
-        telefone: telefone.replace(/\D/g, ""),
- 
+        telefone: telefone.replace(/\D/g, ""), 
         email: email,
- 
         senha: senha,
- 
         data_nascimento: dataNascimento,
- 
         Loja_idLoja: 1
  
     };
@@ -171,6 +223,7 @@ document.getElementById("btn-criar-conta").addEventListener("click", () => {
                 document.getElementById("email").value = "";
                 document.getElementById("senha").value = "";
                 document.getElementById("dataNascimento").value = "";
+                document.getElementById("confirmarSenha").value = "";
  
             } else {
  

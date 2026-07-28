@@ -423,3 +423,6 @@ function salvarDispositivos(){
 
 
 }
+function voltarPagina() {
+    window.history.back();
+}

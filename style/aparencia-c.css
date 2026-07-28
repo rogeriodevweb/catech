@@ -412,3 +412,28 @@ select {
 
 
 }
+
+.btn-voltar{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    background:#101827;
+    color:#fff;
+
+    border:1px solid #334155;
+    border-radius:12px;
+
+    padding:12px 20px;
+    cursor:pointer;
+
+    font-size:15px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.btn-voltar:hover{
+    background:#2563eb;
+    border-color:#2563eb;
+}

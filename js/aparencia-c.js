@@ -367,3 +367,7 @@ btnSalvar.addEventListener("click",()=>{
 
 
 });
+
+function voltarPagina() {
+    window.history.back();
+}

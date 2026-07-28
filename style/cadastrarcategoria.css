@@ -1,12 +1,14 @@
 /*====================================
-=            RESET
+=               RESET
 ====================================*/
 
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:"Ubuntu",sans-serif;
+
 }
 
 body{
@@ -18,15 +20,13 @@ body{
 }
 
 /*====================================
-=          ÁREA DE CONTEÚDO
+=            CONTEÚDO
 ====================================*/
 
 .conteudo{
 
     margin-left:260px;
-
-    padding:35px 40px 60px;
-
+    padding:35px;
     min-height:100vh;
 
 }
@@ -37,37 +37,29 @@ body{
 
 .area-voltar{
 
-    margin-top:25px;
-
-    margin-left:25px;
-
-    margin-bottom:30px;
+    margin-bottom:25px;
 
 }
 
 .btn-voltar{
 
     display:inline-flex;
-
     align-items:center;
-
-    gap:10px;
+    gap:8px;
 
     background:#101827;
 
-    border:1px solid #334155;
-
     color:#fff;
 
-    padding:14px 24px;
+    border:1px solid #334155;
+
+    padding:14px 25px;
 
     border-radius:12px;
 
     cursor:pointer;
 
     font-size:15px;
-
-    font-weight:600;
 
     transition:.3s;
 
@@ -82,12 +74,10 @@ body{
 }
 
 /*====================================
-=      CONTAINER PRINCIPAL
+=       CONTAINER PRINCIPAL
 ====================================*/
 
-.cadastraproduto{
-
-    width:100%;
+.cadastro-categoria{
 
     background:#101827;
 
@@ -95,56 +85,42 @@ body{
 
     border-radius:18px;
 
-    padding:40px;
+    padding:35px;
 
-    box-shadow:0 12px 30px rgba(0,0,0,.25);
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
 
 }
 
 /*====================================
-=            CABEÇALHO
+=               TOPO
 ====================================*/
 
-.topo-cadastraproduto{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:20px;
-
-    padding-bottom:30px;
+.topo-categoria{
 
     margin-bottom:35px;
+
+    padding-bottom:25px;
 
     border-bottom:1px solid #1f2937;
 
 }
 
-.topo-cadastraproduto h1{
+.topo-categoria h1{
 
     font-size:34px;
 
-    font-weight:700;
+    margin-bottom:8px;
 
 }
 
-.topo-cadastraproduto p{
-
-    margin-top:8px;
+.topo-categoria p{
 
     color:#94a3b8;
-
-    font-size:15px;
-
-    line-height:24px;
 
 }
 
 /*====================================
-=             SEÇÕES
+=              SEÇÕES
 ====================================*/
 
 .secao{
@@ -157,7 +133,7 @@ body{
 
     padding:30px;
 
-    margin-bottom:28px;
+    margin-bottom:30px;
 
 }
 
@@ -167,21 +143,17 @@ body{
 
     margin-bottom:25px;
 
-    color:#fff;
-
 }
 
 /*====================================
-=             CAMPOS
+=              CAMPOS
 ====================================*/
 
 .linha{
 
     display:flex;
 
-    gap:25px;
-
-    margin-bottom:10px;
+    gap:20px;
 
 }
 
@@ -193,7 +165,7 @@ body{
 
     flex-direction:column;
 
-    margin-bottom:22px;
+    margin-bottom:20px;
 
 }
 
@@ -201,11 +173,11 @@ body{
 
     color:#cbd5e1;
 
+    margin-bottom:10px;
+
     font-size:15px;
 
     font-weight:500;
-
-    margin-bottom:10px;
 
 }
 
@@ -223,19 +195,19 @@ body{
 
     border-radius:12px;
 
-    padding:16px;
-
-    font-size:15px;
+    padding:15px;
 
     outline:none;
 
     transition:.3s;
 
+    font-size:15px;
+
 }
 
 .campo textarea{
 
-    min-height:150px;
+    min-height:140px;
 
     resize:vertical;
 
@@ -259,7 +231,7 @@ body{
 }
 
 /*====================================
-=          ÁREA DE UPLOAD
+=            UPLOAD
 ====================================*/
 
 .upload{
@@ -268,13 +240,13 @@ body{
 
     border-radius:16px;
 
-    padding:45px;
+    padding:40px;
 
     text-align:center;
 
-    color:#94a3b8;
-
     background:#101827;
+
+    color:#94a3b8;
 
     transition:.3s;
 
@@ -290,15 +262,11 @@ body{
 
 .upload p{
 
-    margin-top:10px;
-
-    font-size:15px;
+    margin-bottom:18px;
 
 }
 
-input[type="file"]{
-
-    margin-top:20px;
+.upload input{
 
     color:#fff;
 
@@ -314,23 +282,13 @@ input[type="file"]{
 
     justify-content:flex-end;
 
-    align-items:center;
-
     gap:15px;
 
-    margin-top:35px;
+    margin-top:30px;
 
 }
 
 .btn-cancelar{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
 
     background:transparent;
 
@@ -338,7 +296,7 @@ input[type="file"]{
 
     border:1px solid #475569;
 
-    padding:14px 26px;
+    padding:14px 28px;
 
     border-radius:12px;
 
@@ -358,21 +316,13 @@ input[type="file"]{
 
 .btn-salvar{
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
     background:#2563eb;
 
     color:#fff;
 
     border:none;
 
-    padding:14px 28px;
+    padding:14px 30px;
 
     border-radius:12px;
 
@@ -395,7 +345,7 @@ input[type="file"]{
 }
 
 /*====================================
-=           RESPONSIVO
+=            RESPONSIVO
 ====================================*/
 
 @media(max-width:1100px){
@@ -404,13 +354,15 @@ input[type="file"]{
 
         margin-left:0;
 
-        padding:25px;
+        width:100%;
+
+        padding:20px;
 
     }
 
 }
 
-@media(max-width:900px){
+@media(max-width:768px){
 
     .linha{
 
@@ -420,11 +372,15 @@ input[type="file"]{
 
     }
 
-    .topo-cadastraproduto{
+    .cadastro-categoria{
 
-        flex-direction:column;
+        padding:25px;
 
-        align-items:flex-start;
+    }
+
+    .secao{
+
+        padding:20px;
 
     }
 
@@ -438,40 +394,6 @@ input[type="file"]{
     .btn-salvar{
 
         width:100%;
-
-    }
-
-    .cadastraproduto{
-
-        padding:25px;
-
-    }
-
-}
-
-@media(max-width:600px){
-
-    .conteudo{
-
-        padding:15px;
-
-    }
-
-    .cadastraproduto{
-
-        padding:20px;
-
-    }
-
-    .topo-cadastraproduto h1{
-
-        font-size:28px;
-
-    }
-
-    .secao{
-
-        padding:20px;
 
     }
 

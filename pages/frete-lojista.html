@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Configuração de Frete | CA Tech</title>
+
+    <link rel="stylesheet" href="/style/frete-lojista.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- MENU LATERAL -->
+
+    <div class="sidebar">
+
+        <!-- Menu do lojista -->
+
+    </div>
+
+
+
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="conteudo">
+
+        <!-- BOTÃO VOLTAR -->
+
+        <div class="area-voltar">
+
+            <button
+                type="button"
+                class="btn-voltar"
+                onclick="history.back()">
+
+                ← Voltar
+
+            </button>
+
+        </div>
+
+
+
+
+
+        <section class="frete-lojista">
+
+            <!-- TOPO -->
+
+            <header class="topo-frete">
+
+                <div>
+
+                    <h1>
+
+                        Configuração de Frete
+
+                    </h1>
+
+                    <p>
+
+                        Configure as formas de entrega disponíveis para sua loja.
+
+                    </p>
+
+                </div>
+
+            </header>
+
+
+
+
+
+            <form id="formFrete">
+
+                <!-- ORIGEM -->
+
+                <div class="secao">
+
+                    <h2>
+
+                        Endereço de Origem
+
+                    </h2>
+
+                    <div class="linha">
+
+                        <div class="campo">
+
+                            <label>
+
+                                CEP
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="cep"
+                                placeholder="00000-000">
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label>
+
+                                Estado
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="estado"
+                                placeholder="SP">
+
+                        </div>
+
+                    </div>
+
+                    <div class="linha">
+
+                        <div class="campo">
+
+                            <label>
+
+                                Cidade
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="cidade"
+                                placeholder="São Paulo">
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label>
+
+                                Endereço
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="endereco"
+                                placeholder="Rua, Avenida...">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- MÉTODOS -->
+
+                <div class="secao">
+
+                    <h2>
+
+                        Métodos de Entrega
+
+                    </h2>
+
+                    <div class="check">
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                                id="correios">
+
+                            Correios
+
+                        </label>
+
+                    </div>
+
+                    <div class="check">
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                                id="transportadora">
+
+                            Transportadora
+
+                        </label>
+
+                    </div>
+
+                    <div class="check">
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                                id="retirada">
+
+                            Retirada na Loja
+
+                        </label>
+
+                    </div>
+
+                    <div class="check">
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                                id="entregaPropria">
+
+                            Entrega Própria
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- VALORES -->
+
+                <div class="secao">
+
+                    <h2>
+
+                        Valores
+
+                    </h2>
+
+                    <div class="linha">
+
+                        <div class="campo">
+
+                            <label>
+
+                                Frete Grátis acima de (R$)
+
+                            </label>
+
+                            <input
+                                type="number"
+                                id="freteGratis"
+                                placeholder="0.00">
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label>
+
+                                Valor da Entrega Local (R$)
+
+                            </label>
+
+                            <input
+                                type="number"
+                                id="valorEntrega"
+                                placeholder="0.00">
+
+                        </div>
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>
+
+                            Raio Máximo da Entrega Própria (km)
+
+                        </label>
+
+                        <input
+                            type="number"
+                            id="raioEntrega"
+                            placeholder="20">
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- PRAZO -->
+
+                <div class="secao">
+
+                    <h2>
+
+                        Prazo de Entrega
+
+                    </h2>
+
+                    <div class="linha">
+
+                        <div class="campo">
+
+                            <label>
+
+                                Prazo Mínimo (dias)
+
+                            </label>
+
+                            <input
+                                type="number"
+                                id="prazoMinimo"
+                                placeholder="1">
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label>
+
+                                Prazo Máximo (dias)
+
+                            </label>
+
+                            <input
+                                type="number"
+                                id="prazoMaximo"
+                                placeholder="10">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- OBSERVAÇÕES -->
+
+                <div class="secao">
+
+                    <h2>
+
+                        Observações
+
+                    </h2>
+
+                    <div class="campo">
+
+                        <label>
+
+                            Informações adicionais
+
+                        </label>
+
+                        <textarea
+                            id="observacoes"
+                            placeholder="Informe regras, horários de entrega, regiões atendidas..."></textarea>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- BOTÕES -->
+
+                <div class="botoes">
+
+                    <button
+                        type="reset"
+                        class="btn-cancelar">
+
+                        Cancelar
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn-salvar">
+
+                        Salvar Configurações
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="/js/frete-lojista.js"></script>
+
+</body>
+
+</html>

@@ -141,3 +141,12 @@ function adicionarCarrinho(id, nome, preco, imagem) {
     alert("Produto adicionado ao carrinho!");
 
 }
+// =====================================
+// ABRIR DETALHES DO PRODUTO
+// =====================================
+
+function abrirProduto(id){
+
+    window.location.href = `pages/produto.html?id=${id}`;
+
+}

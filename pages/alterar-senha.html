@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alterar Senha - CA Tech</title>
+
+    <link rel="stylesheet" href="/style/alterar-senha.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <button class="btn-voltar" onclick="history.back()">
+                ← Voltar
+            </button>
+
+            <h1>Alterar Senha</h1>
+
+            <p class="descricao">
+                Para manter sua conta segura, escolha uma senha forte contendo letras, números e caracteres especiais.
+            </p>
+
+            <form id="formSenha">
+
+                <div class="campo">
+
+                    <label>Senha Atual</label>
+
+                    <div class="input-senha">
+                        <input
+                            type="password"
+                            id="senhaAtual"
+                            placeholder="Digite sua senha atual"
+                        >
+                        <button type="button" class="mostrar" data-input="senhaAtual">
+                            👁
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Nova Senha</label>
+
+                    <div class="input-senha">
+                        <input
+                            type="password"
+                            id="novaSenha"
+                            placeholder="Digite a nova senha"
+                        >
+                        <button type="button" class="mostrar" data-input="novaSenha">
+                            👁
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Confirmar Nova Senha</label>
+
+                    <div class="input-senha">
+                        <input
+                            type="password"
+                            id="confirmarSenha"
+                            placeholder="Repita a nova senha"
+                        >
+                        <button type="button" class="mostrar" data-input="confirmarSenha">
+                            👁
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="barra">
+                    <div id="forcaSenha"></div>
+                </div>
+
+                <span id="textoForca">
+                    Força da senha
+                </span>
+
+                <button class="btn-salvar" type="submit">
+                    Salvar Nova Senha
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="/js/alterar-senha.js"></script>
+
+</body>
+</html>

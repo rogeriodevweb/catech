@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Histórico de Login | CA Tech</title>
+
+    <link rel="stylesheet" href="/style/historico-login.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- TOPO -->
+
+        <div class="topo">
+
+            <button class="btn-voltar" onclick="history.back()">
+
+                ← Voltar
+
+            </button>
+
+            <h1>
+
+                Histórico de Login
+
+            </h1>
+
+            <p>
+
+                Consulte todos os acessos realizados em sua conta.
+
+            </p>
+
+        </div>
+
+
+        <!-- ESTATÍSTICAS -->
+
+        <section class="estatisticas">
+
+            <div class="card-estatistica">
+
+                <span class="icone">
+                    📊
+                </span>
+
+                <h2 id="totalLogins">
+
+                    0
+
+                </h2>
+
+                <p>
+
+                    Total de Logins
+
+                </p>
+
+            </div>
+
+
+            <div class="card-estatistica">
+
+                <span class="icone">
+
+                    🕒
+
+                </span>
+
+                <h2 id="ultimoLogin">
+
+                    --
+
+                </h2>
+
+                <p>
+
+                    Último Login
+
+                </p>
+
+            </div>
+
+
+            <div class="card-estatistica">
+
+                <span class="icone">
+
+                    📅
+
+                </span>
+
+                <h2 id="mesLogin">
+
+                    0
+
+                </h2>
+
+                <p>
+
+                    Este Mês
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FILTROS -->
+
+        <section class="filtros">
+
+            <input
+                type="text"
+                id="pesquisa"
+                placeholder="Pesquisar cidade, navegador ou IP..."
+            >
+
+            <select id="statusFiltro">
+
+                <option value="todos">
+
+                    Todos
+
+                </option>
+
+                <option value="sucesso">
+
+                    Sucesso
+
+                </option>
+
+                <option value="falha">
+
+                    Falha
+
+                </option>
+
+            </select>
+
+        </section>
+
+
+
+        <!-- HISTÓRICO -->
+
+        <section
+            class="lista-login"
+            id="listaLogin"
+        >
+
+        </section>
+
+
+
+        <!-- RODAPÉ -->
+
+        <div class="rodape">
+
+            <button
+                class="btn-exportar"
+                id="btnExportar"
+            >
+
+                Exportar Histórico
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="/js/historico-login.js"></script>
+
+</body>
+
+</html>

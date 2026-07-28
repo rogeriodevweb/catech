@@ -1,0 +1,576 @@
+/* =====================================
+   RESET
+===================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+    font-family:'Ubuntu', Arial, sans-serif;
+
+}
+
+
+
+body{
+
+    background:#0f172a;
+
+    color:#fff;
+
+}
+
+
+
+/* =====================================
+   TOPO / BOTÃO VOLTAR
+===================================== */
+
+
+.topo{
+
+    max-width:1300px;
+
+    margin:40px auto 20px;
+
+    padding:0 20px;
+
+}
+
+
+
+.btn-voltar{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#101827;
+
+    border:1px solid #334155;
+
+    color:#fff;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+
+
+.btn-voltar:hover{
+
+    background:#2563eb;
+
+    border-color:#2563eb;
+
+}
+
+
+
+
+
+
+/* =====================================
+   BANNER
+===================================== */
+
+
+.sobre-banner{
+
+    max-width:1300px;
+
+    height:320px;
+
+    margin:20px auto;
+
+    border-radius:20px;
+
+    background:
+
+    linear-gradient(
+        rgba(15,23,42,.8),
+        rgba(15,23,42,.8)
+    ),
+
+    url("../assets/banner-sobre.jpg");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+}
+
+
+
+.sobre-banner-conteudo{
+
+    max-width:700px;
+
+}
+
+
+
+.sobre-banner h1{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.sobre-banner p{
+
+    font-size:19px;
+
+    color:#cbd5e1;
+
+}
+
+
+
+
+
+
+/* =====================================
+   CONTAINER PRINCIPAL
+===================================== */
+
+
+.sobre-container{
+
+    max-width:1300px;
+
+    margin:50px auto;
+
+    padding:0 20px;
+
+}
+
+
+
+
+
+.sobre-introducao{
+
+    background:#101827;
+
+    border:1px solid #1f2937;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.sobre-introducao h2{
+
+    color:#4f6fff;
+
+    font-size:28px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.sobre-introducao p{
+
+    color:#cbd5e1;
+
+    line-height:1.7;
+
+    font-size:16px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+
+/* =====================================
+   MISSÃO VISÃO VALORES
+===================================== */
+
+
+.cards-institucional{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.sobre-card{
+
+    background:#101827;
+
+    border:1px solid #1f2937;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    transition:.3s;
+
+}
+
+
+
+.sobre-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#2563eb;
+
+}
+
+
+
+.icone{
+
+    font-size:35px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.sobre-card h2{
+
+    color:#fff;
+
+    margin-bottom:15px;
+
+    font-size:23px;
+
+}
+
+
+
+.sobre-card p{
+
+    color:#cbd5e1;
+
+    line-height:1.6;
+
+}
+
+
+
+.sobre-card ul{
+
+    list-style:none;
+
+}
+
+
+
+.sobre-card li{
+
+    color:#cbd5e1;
+
+    margin-bottom:12px;
+
+}
+
+
+
+
+
+
+/* =====================================
+   DIFERENCIAIS
+===================================== */
+
+
+.diferenciais{
+
+    max-width:1300px;
+
+    margin:50px auto;
+
+    padding:0 20px;
+
+}
+
+
+
+.diferenciais h2{
+
+    text-align:center;
+
+    font-size:30px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.cards-diferenciais{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+
+
+.diferencial{
+
+    background:#101827;
+
+    border:1px solid #1f2937;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+
+
+.diferencial:hover{
+
+    border-color:#2563eb;
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.diferencial span{
+
+    font-size:35px;
+
+}
+
+
+
+.diferencial h3{
+
+    margin:15px 0;
+
+}
+
+
+
+.diferencial p{
+
+    color:#cbd5e1;
+
+    line-height:1.5;
+
+}
+
+
+
+
+
+
+/* =====================================
+   NÚMEROS
+===================================== */
+
+
+.numeros{
+
+    max-width:1000px;
+
+    margin:60px auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    padding:0 20px;
+
+}
+
+
+
+.numero-box{
+
+    background:#101827;
+
+    border:1px solid #1f2937;
+
+    border-radius:18px;
+
+    padding:30px 50px;
+
+    text-align:center;
+
+}
+
+
+
+.numero-box strong{
+
+    display:block;
+
+    color:#2563eb;
+
+    font-size:35px;
+
+}
+
+
+
+.numero-box span{
+
+    color:#cbd5e1;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+
+footer{
+
+    margin-top:50px;
+
+    padding:25px;
+
+    background:#101827;
+
+    border-top:1px solid #1f2937;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+}
+
+
+
+
+
+
+/* =====================================
+   RESPONSIVO
+===================================== */
+
+
+@media(max-width:1000px){
+
+
+    .cards-institucional{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .cards-diferenciais{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+    .sobre-banner h1{
+
+        font-size:30px;
+
+    }
+
+
+
+    .sobre-banner p{
+
+        font-size:16px;
+
+    }
+
+
+
+    .cards-diferenciais{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .numeros{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+
+
+    .numero-box{
+
+        width:100%;
+
+    }
+
+
+}

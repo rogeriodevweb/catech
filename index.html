@@ -31,10 +31,10 @@
                 <input type="text" placeholder="Buscar produtos...">
             </div>
             <div class="icones">
-                <a href="">
-                    <img src="assets/user.png" alt="login">
-                    <small>Usuário</small>
-                </a>
+                <a href="pages/perfil-cliente.html">
+    <img src="assets/user.png" alt="login">
+    <small>Usuário</small>
+</a>
             </div>
         </div>
         <!-- menu de navegação -->
@@ -43,8 +43,9 @@
             <a href="/pages/cadastro-endereco.html">Endereço</a>
             <a href="/pages/favoritos.html">Favoritos</a>
             <a href="/pages/pedidos.html">Pedidos</a>
+            <a href="/pages/carrinho.html">Carrinho</a>
             <a href="/pages/configuracoesc.html">Configurações</a>
-             <a href="/pages/carrinho.html">Carrinho</a>
+             
         </nav>
     </header>
 
@@ -138,7 +139,7 @@
     <div class="lista-produtos">
 
         <!-- 1º CARD -->
-        <div class="card-produtos" onclick="window.location.href='produto.html'">
+        <div class="card-produtos" onclick="abrirProduto(1)">
 
             <div class="imagem-botao">
                 <img src="/assets/chave-teste-1.png" alt="Kit Eletrica Chave Teste Digital + Caneta Detectora Tensão">
@@ -191,7 +192,7 @@
     <div class="lista-produtos">
 
         <!-- 2º CARD -->
-        <div class="card-produtos" onclick="window.location.href='produto.html'">
+        <div class="card-produtos" onclick="abrirProduto(2)">
 
             <div class="imagem-botao">
                 <img src="/assets/alicate-de-crimpagem.png" alt="Alicate de crimpagem">
@@ -243,7 +244,7 @@
     <div class="lista-produtos">
 
         <!-- 3º CARD -->
-        <div class="card-produtos" onclick="window.location.href='produto.html'">
+        <div class="card-produtos" onclick="abrirProduto(3)">
 
             <div class="imagem-botao">
                 <img src="/assets/alicate-de-crimpagem.png" alt="Alicate de crimpagem">
@@ -295,8 +296,12 @@
                     <a href="#"><img src="assets/linkedin.png" alt="LinkedIn"></a>
 
                 </div>
-
+                
                 <p>Copyright © 2026 CA tech Inc.</p>
+
+              <div class="link-rodape">
+    <a href="sobre.html">Sobre nós</a>
+</div>
             </div>
 
             <div class="coluna2">
@@ -338,6 +343,11 @@
         </div>
 
     </footer>
+    
+        
+    
+
+    
     <script src="js/index.js"></script>
 </body>
 

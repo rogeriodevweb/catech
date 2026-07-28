@@ -1,0 +1,237 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Ubuntu,Arial,sans-serif;
+}
+
+body{
+
+    background:#0f172a;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:30px;
+
+}
+
+.container{
+
+    width:100%;
+    max-width:550px;
+
+}
+
+.card{
+
+    background:#101827;
+
+    border:1px solid #1f2937;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.btn-voltar{
+
+    background:none;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    margin-bottom:25px;
+
+}
+
+.btn-voltar:hover{
+
+    color:#3b82f6;
+
+}
+
+h1{
+
+    color:#fff;
+
+    margin-bottom:12px;
+
+}
+
+.descricao{
+
+    color:#94a3b8;
+
+    line-height:24px;
+
+    margin-bottom:30px;
+
+}
+
+.campo{
+
+    margin-bottom:22px;
+
+}
+
+label{
+
+    display:block;
+
+    color:#fff;
+
+    margin-bottom:8px;
+
+    font-weight:500;
+
+}
+
+.input-senha{
+
+    display:flex;
+
+    align-items:center;
+
+    background:#1e293b;
+
+    border:1px solid #334155;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
+.input-senha input{
+
+    flex:1;
+
+    background:transparent;
+
+    border:none;
+
+    color:white;
+
+    padding:16px;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+.input-senha input::placeholder{
+
+    color:#94a3b8;
+
+}
+
+.mostrar{
+
+    width:55px;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.barra{
+
+    width:100%;
+
+    height:8px;
+
+    background:#1e293b;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-top:10px;
+
+}
+
+#forcaSenha{
+
+    width:0;
+
+    height:100%;
+
+    transition:.3s;
+
+}
+
+#textoForca{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:#94a3b8;
+
+    font-size:14px;
+
+}
+
+.btn-salvar{
+
+    width:100%;
+
+    margin-top:30px;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-salvar:hover{
+
+    background:#1d4ed8;
+
+}
+
+@media(max-width:600px){
+
+.card{
+
+padding:25px;
+
+}
+
+}

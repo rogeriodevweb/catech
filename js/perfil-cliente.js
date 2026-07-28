@@ -7,35 +7,35 @@ const cliente = {
 
     foto: "../assets/perfil.png",
 
-    nome: "Carlos Alberto",
+    nome: "",
 
-    cpf: "123.456.789-00",
+    cpf: "",
 
-    dataNascimento: "2002-05-10",
+    dataNascimento: "",
 
-    sexo: "Masculino",
-
-
-    email: "carlos@email.com",
-
-    celular: "(63) 99999-9999",
-
-    telefone: "(63) 3412-0000",
+    sexo: "",
 
 
-    cep: "77800-000",
+    email: "",
 
-    rua: "Rua das Flores",
+    celular: "",
 
-    numero: "120",
+    telefone: "",
 
-    complemento: "Casa",
 
-    bairro: "Centro",
+    cep: "",
 
-    cidade: "Araguaína",
+    rua: "",
 
-    estado: "TO"
+    numero: "",
+
+    complemento: "",
+
+    bairro: "",
+
+    cidade: "",
+
+    estado: ""
 
 };
 

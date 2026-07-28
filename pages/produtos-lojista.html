@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Produtos Cadastrados | CA Tech</title>
+
+    <link rel="stylesheet" href="/style/produtos-lojista.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- MENU LATERAL -->
+
+    <div class="sidebar">
+
+        <!-- Menu do lojista -->
+
+    </div>
+
+
+
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="conteudo">
+
+
+
+        <!-- BOTÃO VOLTAR -->
+
+        <div class="area-voltar">
+
+            <button
+                class="btn-voltar"
+                onclick="history.back()">
+
+                ← Voltar
+
+            </button>
+
+        </div>
+
+
+
+
+
+        <section class="produtos-lojista">
+
+
+
+            <!-- TOPO -->
+
+            <header class="topo-produtos">
+
+                <div>
+
+                    <h1>
+
+                        Produtos Cadastrados
+
+                    </h1>
+
+                    <p>
+
+                        Gerencie todos os produtos cadastrados em sua loja.
+
+                    </p>
+
+                </div>
+
+
+
+                <button
+                    class="btn-novo"
+                    onclick="window.location.href='cadastrarproduto.html'">
+
+                    + Cadastrar Produto
+
+                </button>
+
+            </header>
+
+
+
+
+
+            <!-- ESTATÍSTICAS -->
+
+            <section class="estatisticas">
+
+
+
+                <div class="card-estatistica">
+
+                    <span>
+
+                        📦
+
+                    </span>
+
+                    <h2 id="totalProdutos">
+
+                        0
+
+                    </h2>
+
+                    <p>
+
+                        Total de Produtos
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="card-estatistica">
+
+                    <span>
+
+                        ✅
+
+                    </span>
+
+                    <h2 id="produtosAtivos">
+
+                        0
+
+                    </h2>
+
+                    <p>
+
+                        Produtos Ativos
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="card-estatistica">
+
+                    <span>
+
+                        ⚠
+
+                    </span>
+
+                    <h2 id="semEstoque">
+
+                        0
+
+                    </h2>
+
+                    <p>
+
+                        Sem Estoque
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="card-estatistica">
+
+                    <span>
+
+                        🏷
+
+                    </span>
+
+                    <h2 id="promocao">
+
+                        0
+
+                    </h2>
+
+                    <p>
+
+                        Em Promoção
+
+                    </p>
+
+                </div>
+
+
+
+            </section>
+
+
+
+
+
+            <!-- FILTROS -->
+
+            <section class="filtros">
+
+
+
+                <input
+                    type="text"
+                    id="pesquisa"
+                    placeholder="Pesquisar produto...">
+
+
+
+                <select id="categoria">
+
+                    <option value="">
+
+                        Todas as Categorias
+
+                    </option>
+
+                </select>
+
+
+
+                <select id="status">
+
+                    <option value="">
+
+                        Todos os Status
+
+                    </option>
+
+                    <option value="ativo">
+
+                        Ativo
+
+                    </option>
+
+                    <option value="inativo">
+
+                        Inativo
+
+                    </option>
+
+                    <option value="estoque">
+
+                        Sem Estoque
+
+                    </option>
+
+                </select>
+
+
+
+            </section>
+
+
+
+
+
+            <!-- LISTA DE PRODUTOS -->
+
+            <section
+                class="lista-produtos"
+                id="listaProdutos">
+
+            </section>
+
+
+
+
+
+            <!-- SEM PRODUTOS -->
+
+            <section
+                class="sem-produtos"
+                id="semProdutos"
+                style="display:none;">
+
+                <div class="icone">
+
+                    📦
+
+                </div>
+
+                <h2>
+
+                    Nenhum produto encontrado
+
+                </h2>
+
+                <p>
+
+                    Cadastre um novo produto para começar a vender.
+
+                </p>
+
+                <button
+                    class="btn-novo"
+                    onclick="window.location.href='cadastrarproduto.html'">
+
+                    Cadastrar Produto
+
+                </button>
+
+            </section>
+
+
+
+        </section>
+
+
+
+    </main>
+
+    <script src="/js/produtos-lojista.js"></script>
+
+</body>
+
+</html>

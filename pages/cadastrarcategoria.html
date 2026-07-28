@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastrar Categoria | CA Tech</title>
+
+    <link rel="stylesheet" href="/style/cadastrarcategoria.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- MENU LATERAL -->
+
+    <div class="sidebar">
+
+        <!-- Menu do lojista -->
+
+    </div>
+
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="conteudo">
+
+        <!-- BOTÃO VOLTAR -->
+
+        <div class="area-voltar">
+
+            <button
+                type="button"
+                class="btn-voltar"
+                onclick="history.back()">
+
+                ← Voltar
+
+            </button>
+
+        </div>
+
+
+
+        <section class="cadastro-categoria">
+
+            <!-- TOPO -->
+
+            <header class="topo-categoria">
+
+                <div>
+
+                    <h1>
+
+                        Cadastrar Categoria
+
+                    </h1>
+
+                    <p>
+
+                        Crie uma nova categoria para organizar os produtos da sua loja.
+
+                    </p>
+
+                </div>
+
+            </header>
+
+
+
+            <form id="formCategoria">
+
+                <!-- DADOS DA CATEGORIA -->
+
+                <div class="secao">
+
+                    <h2>
+
+                        Informações da Categoria
+
+                    </h2>
+
+                    <div class="campo">
+
+                        <label>
+
+                            Nome da Categoria
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nomeCategoria"
+                            placeholder="Ex: Placas de Vídeo">
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>
+
+                            Descrição
+
+                        </label>
+
+                        <textarea
+                            id="descricaoCategoria"
+                            placeholder="Descreva a categoria..."></textarea>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONFIGURAÇÕES -->
+
+                <div class="secao">
+
+                    <h2>
+
+                        Configurações
+
+                    </h2>
+
+                    <div class="linha">
+
+                        <div class="campo">
+
+                            <label>
+
+                                Categoria Pai
+
+                            </label>
+
+                            <select id="categoriaPai">
+
+                                <option value="">
+
+                                    Nenhuma
+
+                                </option>
+
+                                <option>
+
+                                    Componentes
+
+                                </option>
+
+                                <option>
+
+                                    Periféricos
+
+                                </option>
+
+                                <option>
+
+                                    Notebooks
+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label>
+
+                                Status
+
+                            </label>
+
+                            <select id="statusCategoria">
+
+                                <option value="Ativa">
+
+                                    Ativa
+
+                                </option>
+
+                                <option value="Inativa">
+
+                                    Inativa
+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>
+
+                            Ordem de Exibição
+
+                        </label>
+
+                        <input
+                            type="number"
+                            id="ordem"
+                            min="1"
+                            value="1">
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- IMAGEM -->
+
+                <div class="secao">
+
+                    <h2>
+
+                        Imagem da Categoria
+
+                    </h2>
+
+                    <div class="upload">
+
+                        <p>
+
+                            Arraste uma imagem aqui ou selecione um arquivo.
+
+                        </p>
+
+                        <input
+                            type="file"
+                            id="imagemCategoria"
+                            accept="image/*">
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BOTÕES -->
+
+                <div class="botoes">
+
+                    <button
+                        type="reset"
+                        class="btn-cancelar">
+
+                        Cancelar
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn-salvar">
+
+                        Salvar Categoria
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="/js/cadastrarcategoria.js"></script>
+
+</body>
+
+</html>
