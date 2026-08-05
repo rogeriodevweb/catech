@@ -12,10 +12,23 @@ function cadastrar(req, res) {
 
     const banner = req.body;
 
-    // Validação dos campos obrigatórios
+    // Recebe o arquivo enviado pelo Multer
+    banner.arquivo = req.file ? req.file.buffer : null;
+    banner.tipo_arquivo = req.file ? req.file.mimetype : null;
 
+    // Converte o valor recebido para boolean
+    banner.status_visibilidade =
+        banner.status_visibilidade === "true" ||
+        banner.status_visibilidade === true ||
+        banner.status_visibilidade == 1;
+
+    // Validação dos campos obrigatórios
     if (
-        !banner.imagem ||
+        !banner.titulo ||
+        !banner.descricao ||
+        !banner.arquivo ||
+        !banner.tipo_arquivo ||
+        !banner.link ||
         !banner.data_inicio ||
         banner.status_visibilidade == null ||
         !banner.loja_idLoja
@@ -31,6 +44,8 @@ function cadastrar(req, res) {
     bannerModel.cadastrar(banner, (erro, resultado) => {
 
         if (erro) {
+
+            console.error(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -61,6 +76,8 @@ function listar(req, res) {
 
         if (erro) {
 
+            console.error(erro);
+
             return res.status(500).json({
                 sucesso: false,
                 mensagem: "Erro ao listar banners."
@@ -86,6 +103,8 @@ function buscarPorId(req, res) {
 
         if (erro) {
 
+            console.error(erro);
+
             return res.status(500).json({
                 sucesso: false,
                 mensagem: "Erro ao buscar banner."
@@ -109,6 +128,46 @@ function buscarPorId(req, res) {
 }
 
 //==========================================
+// BUSCAR ARQUIVO DO BANNER
+//==========================================
+
+function buscarArquivo(req, res) {
+
+    const id = req.params.id;
+
+    bannerModel.buscarArquivo(id, (erro, resultado) => {
+
+        if (erro) {
+
+            console.error(erro);
+
+            return res.status(500).json({
+                sucesso: false,
+                mensagem: "Erro ao buscar arquivo do banner."
+            });
+
+        }
+
+        if (resultado.length === 0) {
+
+            return res.status(404).json({
+                sucesso: false,
+                mensagem: "Banner não encontrado."
+            });
+
+        }
+
+        const banner = resultado[0];
+
+        res.setHeader("Content-Type", banner.tipo_arquivo);
+
+        res.send(banner.arquivo);
+
+    });
+
+}
+
+//==========================================
 // ATUALIZAR BANNER
 //==========================================
 
@@ -117,9 +176,23 @@ function atualizar(req, res) {
     const id = req.params.id;
     const banner = req.body;
 
-    bannerModel.atualizar(id, banner, (erro, resultado) => {
+    if (req.file) {
+
+        banner.arquivo = req.file.buffer;
+        banner.tipo_arquivo = req.file.mimetype;
+
+    }
+
+    banner.status_visibilidade =
+        banner.status_visibilidade === "true" ||
+        banner.status_visibilidade === true ||
+        banner.status_visibilidade == 1;
+
+    bannerModel.atualizar(id, banner, (erro) => {
 
         if (erro) {
+
+            console.error(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -129,8 +202,10 @@ function atualizar(req, res) {
         }
 
         res.json({
+
             sucesso: true,
             mensagem: "Banner atualizado com sucesso."
+
         });
 
     });
@@ -145,9 +220,11 @@ function excluir(req, res) {
 
     const id = req.params.id;
 
-    bannerModel.excluir(id, (erro, resultado) => {
+    bannerModel.excluir(id, (erro) => {
 
         if (erro) {
+
+            console.error(erro);
 
             return res.status(500).json({
                 sucesso: false,
@@ -157,8 +234,10 @@ function excluir(req, res) {
         }
 
         res.json({
+
             sucesso: true,
             mensagem: "Banner excluído com sucesso."
+
         });
 
     });
@@ -174,6 +253,7 @@ module.exports = {
     cadastrar,
     listar,
     buscarPorId,
+    buscarArquivo,
     atualizar,
     excluir
 

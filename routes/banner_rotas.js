@@ -1,25 +1,70 @@
-// nesse arquivo, definimos as rotas relacionadas aos banners e associamos cada rota a uma função do BannerController. As rotas são:
-// POST /banners: para cadastrar um novo banner.
-// GET /banners: para listar todos os banners.
-// GET /banners/:id: para buscar um banner específico pelo ID.
-// PUT /banners/:id: para atualizar as informações de um banner específico pelo ID.
-// DELETE /banners/:id: para excluir um banner específico pelo ID.
-
+//==========================================
+// IMPORTAÇÕES
+//==========================================
 
 const express = require("express");
-// Importando o módulo express para criar rotas e lidar com requisições HTTP.
 const router = express.Router();
-// Criando um objeto router para definir as rotas relacionadas aos banners.
-const bannercontroller = require("../controller/banner_controller.js");
 
-router.post("/", bannercontroller.cadastrar);
+const bannerController = require("../controller/banner_controller");
 
-router.get("/", bannercontroller.listar);
+//==========================================
+// MULTER
+//==========================================
 
-router.get("/:id", bannercontroller.buscarPorId);
+const multer = require("multer");
 
-router.put("/:id", bannercontroller.atualizar);
+const storage = multer.memoryStorage();
 
-router.delete("/:id", bannercontroller.excluir);
+const upload = multer({
+    storage: storage
+});
+
+//==========================================
+// ROTAS
+//==========================================
+
+// Cadastrar Banner
+router.post(
+    "/",
+    upload.single("arquivo"),
+    bannerController.cadastrar
+);
+
+// Listar Todos os Banners
+router.get(
+    "/",
+    bannerController.listar
+);
+
+// Buscar Banner por ID
+router.get(
+    "/:id",
+    bannerController.buscarPorId
+);
+
+// ==========================
+// Buscar Arquivo do Banner
+// ==========================
+router.get(
+    "/:id/arquivo",
+    bannerController.buscarArquivo
+);
+
+// Atualizar Banner
+router.put(
+    "/:id",
+    upload.single("arquivo"),
+    bannerController.atualizar
+);
+
+// Excluir Banner
+router.delete(
+    "/:id",
+    bannerController.excluir
+);
+
+//==========================================
+// EXPORTAÇÃO
+//==========================================
 
 module.exports = router;

@@ -24,22 +24,9 @@ body{
 
 
 
-/* =====================================
-   TOPO / BOTÃO VOLTAR
-===================================== */
-
-
-.topo{
-
-    max-width:1300px;
-
-    margin:40px auto 20px;
-
-    padding:0 20px;
-
-}
-
-
+/* =========================
+   BOTÃO VOLTAR
+========================= */
 
 .btn-voltar{
 
@@ -49,24 +36,34 @@ body{
 
     gap:8px;
 
+    padding:11px 22px;
+
     background:#101827;
 
-    border:1px solid #334155;
+    color:#cbd5e1;
 
-    color:#fff;
+    text-decoration:none;
 
-    padding:12px 22px;
+    border:1px solid #1f2937;
 
     border-radius:12px;
 
-    cursor:pointer;
-
     font-size:15px;
 
-    transition:.3s;
+    font-weight:600;
+
+    margin-left:400px;
+
+    margin-top:100px;
+
+    margin-bottom:35px;
+
+    transition:.3s ease;
+
+    box-shadow:
+    0 6px 15px rgba(0,0,0,.20);
 
 }
-
 
 
 .btn-voltar:hover{
@@ -75,8 +72,11 @@ body{
 
     border-color:#2563eb;
 
-}
+    color:white;
 
+    transform:translateX(-5px);
+
+}
 
 
 

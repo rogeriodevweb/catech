@@ -1,8 +1,8 @@
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Cadastrar Produto
-// =========================
+// ==========================================
+// CADASTRAR PRODUTO
+// ==========================================
 
 function cadastrar(produto, callback) {
 
@@ -37,29 +37,44 @@ function cadastrar(produto, callback) {
             produto.marca_idMarca,
             produto.categorias_idCategorias
         ],
-        callback
+        (erro, resultado) => {
+
+            if (erro) {
+                console.error("Erro ao cadastrar produto:", erro);
+                return callback(erro, null);
+            }
+
+            callback(null, resultado);
+
+        }
     );
 
 }
 
-// =========================
-// Listar Produto
-// =========================
+// ==========================================
+// LISTAR PRODUTOS
+// ==========================================
 
 function listar(callback) {
 
-    const sql = `
-        SELECT *
-        FROM Produto
-    `;
+    const sql = "SELECT * FROM Produto";
 
-    conexao.query(sql, callback);
+    conexao.query(sql, (erro, resultado) => {
+
+        if (erro) {
+            console.error("Erro ao listar produtos:", erro);
+            return callback(erro, null);
+        }
+
+        callback(null, resultado);
+
+    });
 
 }
 
-// =========================
-// Buscar por ID
-// =========================
+// ==========================================
+// BUSCAR PRODUTO POR ID
+// ==========================================
 
 function buscarPorId(id, callback) {
 
@@ -69,13 +84,22 @@ function buscarPorId(id, callback) {
         WHERE idProduto = ?
     `;
 
-    conexao.query(sql, [id], callback);
+    conexao.query(sql, [id], (erro, resultado) => {
+
+        if (erro) {
+            console.error("Erro ao buscar produto:", erro);
+            return callback(erro, null);
+        }
+
+        callback(null, resultado);
+
+    });
 
 }
 
-// =========================
-// Atualizar Produto
-// =========================
+// ==========================================
+// ATUALIZAR PRODUTO
+// ==========================================
 
 function atualizar(id, produto, callback) {
 
@@ -110,14 +134,23 @@ function atualizar(id, produto, callback) {
             produto.categorias_idCategorias,
             id
         ],
-        callback
+        (erro, resultado) => {
+
+            if (erro) {
+                console.error("Erro ao atualizar produto:", erro);
+                return callback(erro, null);
+            }
+
+            callback(null, resultado);
+
+        }
     );
 
 }
 
-// =========================
-// Excluir Produto
-// =========================
+// ==========================================
+// EXCLUIR PRODUTO
+// ==========================================
 
 function excluir(id, callback) {
 
@@ -126,9 +159,22 @@ function excluir(id, callback) {
         WHERE idProduto = ?
     `;
 
-    conexao.query(sql, [id], callback);
+    conexao.query(sql, [id], (erro, resultado) => {
+
+        if (erro) {
+            console.error("Erro ao excluir produto:", erro);
+            return callback(erro, null);
+        }
+
+        callback(null, resultado);
+
+    });
 
 }
+
+// ==========================================
+// EXPORTAÇÃO
+// ==========================================
 
 module.exports = {
 

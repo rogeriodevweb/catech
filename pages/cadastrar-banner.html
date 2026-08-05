@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastrar Banner - CA Tech</title>
+
+    <link rel="stylesheet" href="../style/cadastrar-banner.css">
+     <!--imagem da logo pro navegador-->
+    <link rel="icon" type="image/png" href="../assets/logo-com-fundo.png">
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <a href="home-lojista.html" class="btn-voltar">
+            ← Voltar
+        </a>
+
+        <h1>Cadastro de Banner</h1>
+
+    </header>
+
+    <main class="container">
+
+        <section class="card-banner">
+
+            <h2>Novo Banner</h2>
+
+            <form id="formBanner" enctype="multipart/form-data">
+
+                <div class="campo">
+
+                    <label>Arquivo do Banner</label>
+
+                    <input
+                        type="file"
+                        id="arquivo"
+                        name="arquivo"
+                        accept="image/*,video/*">
+
+                </div>
+
+                <div class="preview">
+
+                    <img
+                        id="previewImagem"
+                        src="../assets/imagem-padrao.png"
+                        alt="Preview do Banner">
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Título do Banner</label>
+
+                    <input
+                        type="text"
+                        id="titulo"
+                        placeholder="Ex: Promoção SSD NVMe">
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Descrição</label>
+
+                    <textarea
+                        id="descricao"
+                        placeholder="Digite uma descrição do banner"></textarea>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Link do Banner</label>
+
+                    <input
+                        type="text"
+                        id="link"
+                        placeholder="Ex: pages/produtos.html">
+
+                </div>
+
+                <div class="linha">
+
+                    <div class="campo">
+
+                        <label>Data Inicial</label>
+
+                        <input
+                            type="date"
+                            id="inicio">
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>Data Final</label>
+
+                        <input
+                            type="date"
+                            id="fim">
+
+                    </div>
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Status</label>
+
+                    <select id="status">
+
+                        <option value="ativo">
+                            Ativo
+                        </option>
+
+                        <option value="inativo">
+                            Inativo
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn-salvar">
+
+                    Salvar Banner
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="../js/cadastrar-banner.js"></script>
+
+</body>
+
+</html>

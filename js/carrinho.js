@@ -211,20 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // Continuar comprando
-
-    const continuar = document.querySelector(".continuar");
-
-
-    if(continuar){
-
-        continuar.addEventListener("click",()=>{
-
-            history.back();
-
-        });
-
-    }
+  
 
 
 
@@ -326,3 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarCarrinho();
 
 });
+  // Continuar comprando
+function continuarComprando() {
+    window.location.href = "../index.html";
+}

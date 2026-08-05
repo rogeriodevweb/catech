@@ -1,3 +1,5 @@
+console.log("login.js carregado");
+
 const form = document.getElementById("loginForm");
 
 const email = document.getElementById("email");
@@ -20,48 +22,67 @@ window.addEventListener("load",()=>{
 
 });
 
-form.addEventListener("submit",(e)=>{
 
-    e.preventDefault();
 
-    const usuario = email.value.trim();
+const btnEntrar = document.getElementById("btn-entrar");
 
-    const password = senha.value.trim();
+btnEntrar.addEventListener("click", () => {
 
-    if(usuario === ""){
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("senha").value;
 
-        alert("Digite seu e-mail.");
+    const mensagem = document.getElementById("mensagem");
 
-        email.focus();
+    if (email === "" || senha === "") {
 
+        mensagem.innerHTML = "Preencha todos os campos.";
+        mensagem.style.color = "red";
         return;
 
     }
 
-    if(password === ""){
+    if (senha.length < 8) {
 
-        alert("Digite sua senha.");
-
-        senha.focus();
-
+        mensagem.innerHTML = "A senha deve possuir no mínimo 8 caracteres.";
+        mensagem.style.color = "red";
         return;
 
     }
 
-    if(remember.checked){
+    fetch("http://localhost:3000/clientes/login", {
 
-        localStorage.setItem("usuario",usuario);
+    method: "POST",
 
-    }else{
+    headers: {
+        "Content-Type": "application/json"
+    },
 
-        localStorage.removeItem("usuario");
+    body: JSON.stringify({
+        email,
+        senha
+    })
+
+})
+
+.then(res => res.json())
+
+.then(resposta => {
+
+    if (resposta.sucesso) {
+
+        localStorage.setItem(
+            "cliente",
+            JSON.stringify(resposta.cliente)
+        );
+
+        window.location.href = "../index.html";
+
+    } else {
+
+        mensagem.innerHTML = resposta.mensagem;
+        mensagem.style.color = "red";
 
     }
-
-    alert("Login realizado com sucesso!");
-
-   
-    // window.location.href = "home.html";
 
 });
-
+});

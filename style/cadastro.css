@@ -142,3 +142,64 @@ button:hover{
 .input-box input[type="date"]{
     color:#555;
 }
+
+
+
+.campo-senha{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.campo-senha input{
+    width: 100%;
+    padding-right: 45px;
+}
+
+.campo-senha .toggle-senha{
+    position: absolute;
+    right: 15px;
+    color: #7a7a7a;
+    cursor: pointer;
+    font-size: 18px;
+    transition: .2s;
+}
+
+.campo-senha .toggle-senha:hover{
+    color: #2563eb;
+}
+
+/* =====================================
+   BOTÃO VOLTAR
+===================================== */
+
+.btn-voltar {
+
+    display: inline-block;
+
+    margin-top: -600px;
+
+    padding: 10px 25px;
+
+    background: #1e293b;
+
+    color: white !important;
+
+    border: 1px solid #334155;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    transition: .3s;
+
+}
+
+
+.btn-voltar:hover {
+
+    background: #2563eb;
+
+    border-color: #2563eb;
+
+}

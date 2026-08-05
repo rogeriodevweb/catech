@@ -3,56 +3,175 @@
 //==========================================
 
 const produtoModel = require("../model/produto_model");
+const imagemProdutoModel = require("../model/imagem_produto_model");
 
 //==========================================
-// CADASTRAR PRODUTO
+// CADASTRAR PRODUTO + IMAGEM
 //==========================================
 
 function cadastrar(req, res) {
 
+
     const produto = req.body;
 
+
+    const imagem = req.file;
+
+
+
+    console.log("Dados recebidos:", produto);
+
+    console.log("Imagem recebida:", imagem);
+
+
+
+    // Define valores padrão
+
+    if (!produto.loja_idLoja) {
+
+        produto.loja_idLoja = 1;
+
+    }
+
+
+    if (produto.ativo === undefined) {
+
+        produto.ativo = true;
+
+    }
+
+
+
+    // Validação
+
     if (
+
         !produto.nome ||
         !produto.descricao ||
         !produto.codigo ||
         produto.preco_antigo == null ||
         produto.quantidade_estoque == null ||
-        produto.ativo == null ||
         !produto.loja_idLoja ||
         !produto.marca_idMarca ||
         !produto.categorias_idCategorias
+
     ) {
 
+
         return res.status(400).json({
-            sucesso: false,
-            mensagem: "Preencha todos os campos obrigatórios."
+
+            sucesso:false,
+
+            mensagem:"Preencha todos os campos obrigatórios."
+
         });
+
 
     }
 
-    produtoModel.cadastrar(produto, (erro, resultado) => {
 
-        if (erro) {
 
-            console.log(erro);
+    // Cadastra produto
+
+    produtoModel.cadastrar(produto, (erro, resultado)=>{
+
+
+        if(erro){
+
+
+            console.error(erro);
+
 
             return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao cadastrar produto."
+
+                sucesso:false,
+
+                mensagem:erro.sqlMessage || erro.message
+
             });
+
 
         }
 
-        res.status(201).json({
 
-            sucesso: true,
-            mensagem: "Produto cadastrado com sucesso!",
-            idProduto: resultado.insertId
 
-        });
+        const idProduto = resultado.insertId;
+
+
+
+        // Se tiver imagem, salva
+
+        if(imagem){
+
+
+            imagemProdutoModel.cadastrar(
+
+                imagem.buffer,
+
+                idProduto,
+
+                (erroImagem)=>{
+
+
+                    if(erroImagem){
+
+
+                        console.error(
+                            "Erro ao salvar imagem:",
+                            erroImagem
+                        );
+
+
+                        return res.status(500).json({
+
+                            sucesso:false,
+
+                            mensagem:"Produto cadastrado, mas erro ao salvar imagem."
+
+                        });
+
+
+                    }
+
+
+
+                    return res.status(201).json({
+
+                        sucesso:true,
+
+                        mensagem:"Produto e imagem cadastrados com sucesso!",
+
+                        idProduto:idProduto
+
+                    });
+
+
+                }
+
+
+            );
+
+
+        }else{
+
+
+            return res.status(201).json({
+
+                sucesso:true,
+
+                mensagem:"Produto cadastrado sem imagem.",
+
+                idProduto:idProduto
+
+            });
+
+
+        }
+
+
 
     });
+
 
 }
 
@@ -66,11 +185,11 @@ function listar(req, res) {
 
         if (erro) {
 
-            console.log(erro);
+            console.error(erro);
 
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao listar produtos."
+                mensagem: erro.sqlMessage || erro.message
             });
 
         }
@@ -93,11 +212,11 @@ function buscarPorId(req, res) {
 
         if (erro) {
 
-            console.log(erro);
+            console.error(erro);
 
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao buscar produto."
+                mensagem: erro.sqlMessage || erro.message
             });
 
         }
@@ -130,11 +249,11 @@ function atualizar(req, res) {
 
         if (erro) {
 
-            console.log(erro);
+            console.error(erro);
 
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao atualizar produto."
+                mensagem: erro.sqlMessage || erro.message
             });
 
         }
@@ -160,11 +279,11 @@ function excluir(req, res) {
 
         if (erro) {
 
-            console.log(erro);
+            console.error(erro);
 
             return res.status(500).json({
                 sucesso: false,
-                mensagem: "Erro ao excluir produto."
+                mensagem: erro.sqlMessage || erro.message
             });
 
         }

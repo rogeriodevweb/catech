@@ -10,155 +10,219 @@
 
     <link rel="stylesheet" href="/style/home-lojista.css">
 
-</head>
+     <!--imagem da logo pro navegador-->
+    <link rel="icon" type="image/png" href="../assets/logo-com-fundo.png">
 
+    <!-- Fonte Ubuntu --><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
 
 <body>
 
+    <!-- MENU LATERAL -->
 
     <aside class="menu-loja">
 
-
-        <h1>
-            Minha Loja
-        </h1>
-
-
+        <h1>Minha Loja</h1>
 
         <nav>
 
-            <!-- cadastrar produto -->
+            <!-- Cadastrar Produto -->
             <a href="../pages/cadastrar-produto.html" class="item-menu">
-
-                <span>🎟️</span>
-
-                <p>
-                    Cadastrar Produto
-                </p>
-
+                <span>🛒</span>
+                <p>Cadastrar Produto</p>
             </a>
 
+                  <!-- Cadastrar Banner -->
+             <a href="../pages/cadastrar-banner.html" class="item-menu">
 
-            <!-- PERFIL -->
+              <span>🖼️</span>
+
+             <p>Cadastrar Banner</p>
+
+             </a>
+
+            <!-- Perfil -->
             <a href="/pages/perfil-lojista.html" class="item-menu">
-
                 <span>👤</span>
-
-                <p>
-                    Meu Perfil
-                </p>
-
+                <p>Meu Perfil</p>
             </a>
 
-
-
-            <!-- DASHBOARD -->
+            <!-- Dashboard -->
             <a href="../pages/dashboard.html" class="item-menu">
-
                 <span>🏠</span>
-
-                <p>
-                    Dashboard
-                </p>
-
+                <p>Dashboard</p>
             </a>
 
-
-
-            <!-- PRODUTOS -->
+            <!-- Produtos -->
             <a href="../pages/produtos-lojista.html" class="item-menu">
-
                 <span>📦</span>
-
-                <p>
-                    Produtos
-                </p>
-
+                <p>Produtos</p>
             </a>
 
-
-
-
-            <!-- CLIENTES -->
+            <!-- Clientes -->
             <a href="../pages/clientes-lojista.html" class="item-menu">
-
                 <span>👥</span>
-
-                <p>
-                    Clientes
-                </p>
-
+                <p>Clientes</p>
             </a>
 
-
-
-
-            <!-- CATEGORIAS -->
+            <!-- Categorias -->
             <a href="../pages/cadastrarcategoria.html" class="item-menu">
-
                 <span>🏷️</span>
-
-                <p>
-                    Categorias
-                </p>
-
+                <p>Categorias</p>
             </a>
 
-
-
-
-
-            <!-- CUPONS -->
+            <!-- Cupons -->
             <a href="../pages/cadastrarcupom.html" class="item-menu">
-
                 <span>🎟️</span>
-
-                <p>
-                    Cupons
-                </p>
-
+                <p>Cupons</p>
             </a>
 
-
-
-
-
-
-            <!-- FRETES -->
+            <!-- Fretes -->
             <a href="../pages/frete-lojista.html" class="item-menu">
-
                 <span>🚚</span>
-
-                <p>
-                    Fretes
-                </p>
-
+                <p>Fretes</p>
             </a>
 
-
-
-
-
-            <!-- FINANCEIRO -->
+            <!-- Financeiro -->
             <a href="../pages/financeiro-lojista.html" class="item-menu">
-
                 <span>💰</span>
-
-                <p>
-                    Financeiro
-                </p>
-
+                <p>Financeiro</p>
             </a>
-
-
 
         </nav>
 
-
     </aside>
 
+    <!-- CONTEÚDO -->
 
-<script src="/js/home-lojista.js"></script>
+    <main class="conteudo">
+
+        <header class="topo">
+
+            <h1>Bem-vindo ao Painel do Lojista</h1>
+
+            <p>
+                Gerencie sua loja, acompanhe suas vendas e utilize os atalhos abaixo para acessar rapidamente todas as funcionalidades.
+            </p>
+
+        </header>
+
+        <section class="cards">
+
+            <a href="/pages/perfil-lojista.html" class="card">
+
+                <div class="icone">👤</div>
+
+                <h2>Meu Perfil</h2>
+
+                <p>
+                    Atualize os dados da sua loja e suas informações pessoais.
+                </p>
+
+            </a>
+
+            <a href="../pages/dashboard.html" class="card">
+
+                <div class="icone">📊</div>
+
+                <h2>Dashboard</h2>
+
+                <p>
+                    Visualize vendas, pedidos e estatísticas da loja.
+                </p>
+
+            </a>
+
+            <a href="../pages/produtos-lojista.html" class="card">
+
+                <div class="icone">📦</div>
+
+                <h2>Produtos</h2>
+
+                <p>
+                    Cadastre, edite ou remova produtos do catálogo.
+                </p>
+
+            </a>
+
+            <a href="../pages/clientes-lojista.html" class="card">
+
+                <div class="icone">👥</div>
+
+                <h2>Clientes</h2>
+
+                <p>
+                    Consulte todos os clientes cadastrados.
+                </p>
+
+            </a>
+
+            <a href="../pages/cadastrarcategoria.html" class="card">
+
+                <div class="icone">🏷️</div>
+
+                <h2>Categorias</h2>
+
+                <p>
+                    Organize seus produtos por categorias.
+                </p>
+
+            </a>
+
+            <a href="../pages/cadastrarcupom.html" class="card">
+
+                <div class="icone">🎟️</div>
+
+                <h2>Cupons</h2>
+
+                <p>
+                    Crie cupons de desconto e promoções.
+                </p>
+
+            </a>
+
+            <a href="../pages/frete-lojista.html" class="card">
+
+                <div class="icone">🚚</div>
+
+                <h2>Fretes</h2>
+
+                <p>
+                    Configure formas de entrega e valores de frete.
+                </p>
+
+            </a>
+
+            <a href="../pages/financeiro-lojista.html" class="card">
+
+                <div class="icone">💰</div>
+
+                <h2>Financeiro</h2>
+
+                <p>
+                    Consulte faturamento, pagamentos e relatórios.
+                </p>
+
+            </a>
+
+            <a href="../pages/cadastrar-produto.html" class="card destaque">
+
+                <div class="icone">🛒</div>
+
+                <h2>Cadastrar Produto</h2>
+
+                <p>
+                    Adicione rapidamente um novo produto ao catálogo da loja.
+                </p>
+
+            </a>
+
+        </section>
+
+    </main>
+
+    <script src="/js/home-lojista.js"></script>
+
 </body>
 
 </html>

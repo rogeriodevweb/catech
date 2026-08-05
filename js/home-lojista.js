@@ -1,53 +1,53 @@
+// ==============================
+// HOME DO LOJISTA
+// ==============================
+
 document.addEventListener("DOMContentLoaded", () => {
 
+    // ==========================
+    // Destacar menu selecionado
+    // ==========================
 
     const itensMenu = document.querySelectorAll(".item-menu");
 
-
-    // pega o nome da página atual
-    const paginaAtual = window.location.pathname
-        .split("/")
-        .pop();
-
-
-
     itensMenu.forEach(item => {
-
-
-        const link = item.getAttribute("href");
-
-
-        // verifica qual página está aberta
-        if(link === paginaAtual){
-
-            item.classList.add("ativo");
-
-        }
-
-
 
         item.addEventListener("click", () => {
 
-
-            // remove ativo de todos
             itensMenu.forEach(menu => {
 
                 menu.classList.remove("ativo");
 
             });
 
-
-
-            // adiciona no clicado
             item.classList.add("ativo");
-
 
         });
 
-
-
     });
 
+    // ==========================
+    // Animação dos cards
+    // ==========================
 
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card, index) => {
+
+        card.style.opacity = "0";
+
+        card.style.transform = "translateY(20px)";
+
+        setTimeout(() => {
+
+            card.style.transition = "0.4s ease";
+
+            card.style.opacity = "1";
+
+            card.style.transform = "translateY(0)";
+
+        }, index * 100);
+
+    });
 
 });

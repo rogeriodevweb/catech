@@ -1,284 +1,399 @@
-/* ======================================
-   CONFIGURAÇÕES CLIENTE - CA TECH
-====================================== */
+/* ===========================
+   CONFIGURAÇÕES CLIENTE
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 
 
-/* Reset */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Ubuntu", sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Ubuntu', sans-serif;
 }
 
 
-body {
+body{
 
-    background: #0f172a;
-    color: #ffffff;
-    min-height: 100vh;
-
-}
-
-
-/* Container principal */
-
-.container {
-
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
+    min-height:100vh;
+    background:#0f172a;
+    color:white;
 
 }
 
 
+/* CONTAINER */
 
-/* Cabeçalho */
+.container{
 
-.cabecalho {
-
-    margin-bottom: 30px;
-
-}
-
-
-.cabecalho h1 {
-
-    font-size: 32px;
-    margin-bottom: 8px;
+    width:90%;
+    max-width:900px;
+    margin:50px auto;
 
 }
 
 
-.cabecalho p {
-
-    color: #94a3b8;
-    font-size: 16px;
-
-}
+/* ===========================
+        CABEÇALHO
+=========================== */
 
 
+.cabecalho{
 
-/* Lista dos cards */
-
-.lista-config {
-
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    margin-bottom:35px;
 
 }
 
 
+.cabecalho h1{
 
-/* Card de configuração */
+    font-size:38px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:12px;
 
-.config-card {
+    color:#ffffff;
 
-    background: #101827;
+}
 
-    border: 1px solid #1f2937;
 
-    border-radius: 14px;
+.cabecalho p{
 
-    padding: 22px;
+    margin-top:8px;
 
-    display: flex;
+    color:#94a3b8;
 
-    align-items: center;
-
-    gap: 20px;
-
-    text-decoration: none;
-
-    color: white;
-
-    transition: 0.3s;
+    font-size:17px;
 
 }
 
 
 
-/* Hover */
-
-.config-card:hover {
-
-    border-color: #2563eb;
-
-    transform: translateY(-3px);
-
-    background: #162033;
-
-}
+/* ===========================
+        BOTÃO VOLTAR
+=========================== */
 
 
+.btn-voltar{
 
-/* Ícones */
+    display:inline-flex;
 
-.icone {
+    align-items:center;
 
-    width: 55px;
-
-    height: 55px;
-
-    border-radius: 50%;
-
-    background: #1e293b;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 26px;
-
-    flex-shrink: 0;
-
-}
+    gap:8px;
 
 
+    margin-top:25px;
 
-/* Informações */
-
-.informacao {
-
-    flex: 1;
-
-}
+    margin-bottom:35px;
 
 
-.informacao h2 {
+    background:#1e293b;
 
-    font-size: 20px;
+    color:white;
 
-    margin-bottom: 6px;
+
+    border:1px solid #334155;
+
+
+    padding:10px 22px;
+
+
+    border-radius:10px;
+
+
+    cursor:pointer;
+
+
+    font-size:15px;
+
+    font-weight:500;
+
+
+    text-decoration:none;
+
+
+    transition:.3s ease;
+
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.20);
 
 }
 
 
 
-.informacao p {
-
-    color: #94a3b8;
-
-    font-size: 14px;
-
-}
+.btn-voltar:hover{
 
 
+    background:#2563eb;
 
-/* Seta */
 
-.config-card span {
+    border-color:#2563eb;
 
-    font-size: 32px;
 
-    color: #64748b;
+    transform:translateX(-5px);
 
-    transition: 0.3s;
+
+    box-shadow:
+    0 10px 25px rgba(37,99,235,.30);
 
 }
 
 
 
-.config-card:hover span {
+/* ===========================
+        LISTA
+=========================== */
 
-    color: #2563eb;
 
-    transform: translateX(5px);
+.lista-config{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+/* ===========================
+        CARDS
+=========================== */
+
+
+.config-card{
+
+    height:110px;
+
+    background:#111827;
+
+    border:1px solid #1f2937;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:25px;
+
+    text-decoration:none;
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+
+
+/* brilho lateral */
+
+
+.config-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    height:100%;
+
+    width:4px;
+
+    background:#2563eb;
+
+    transform:scaleY(0);
+
+    transition:.3s;
+
+}
+
+
+.config-card:hover::before{
+
+    transform:scaleY(1);
+
+}
+
+
+
+.config-card:hover{
+
+    background:#172033;
+
+    border-color:#2563eb;
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
 
 }
 
 
 
 
-/* Responsividade */
 
-@media(max-width:700px){
-
-
-    .container {
-
-        margin: 20px auto;
-
-        padding: 15px;
-
-    }
+/* ===========================
+        ICONE
+=========================== */
 
 
+.icone{
 
-    .cabecalho h1 {
+    width:55px;
 
-        font-size: 26px;
+    height:55px;
 
-    }
+    background:#1e293b;
 
+    border-radius:50%;
 
+    display:flex;
 
-    .config-card {
+    align-items:center;
 
-        padding: 18px;
+    justify-content:center;
 
-    }
+    font-size:28px;
 
+    margin-right:25px;
 
-
-    .icone {
-
-        width: 48px;
-
-        height: 48px;
-
-        font-size: 22px;
-
-    }
-
-
-
-    .informacao h2 {
-
-        font-size: 17px;
-
-    }
-
-
-
-}
-
-.btn-voltar-home {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin-top: 20px;
-
-    padding: 12px 20px;
-
-    background: #2563eb;
-
-    color: white;
-
-    text-decoration: none;
-
-    border-radius: 10px;
-
-    font-weight: bold;
-
-    transition: .3s;
+    box-shadow:
+    inset 0 0 10px rgba(255,255,255,.05);
 
 }
 
 
-.btn-voltar-home:hover {
 
-    background: #1d4ed8;
+/* ===========================
+        TEXTO
+=========================== */
 
-    transform: translateY(-2px);
+
+.informacao h2{
+
+    font-size:21px;
+
+    margin-bottom:7px;
+
+    font-weight:700;
+
+}
+
+
+.informacao p{
+
+    color:#94a3b8;
+
+    font-size:15px;
+
+}
+
+
+
+/* ===========================
+        SETA
+=========================== */
+
+
+.config-card span{
+
+    margin-left:auto;
+
+    font-size:38px;
+
+    color:#64748b;
+
+    transition:.3s;
+
+}
+
+
+.config-card:hover span{
+
+    color:#2563eb;
+
+    transform:translateX(8px);
+
+}
+
+
+
+
+/* ===========================
+        RESPONSIVO
+=========================== */
+
+
+@media(max-width:600px){
+
+
+.container{
+
+    width:92%;
+
+}
+
+
+.cabecalho h1{
+
+    font-size:30px;
+
+}
+
+
+
+.config-card{
+
+    height:auto;
+
+    min-height:100px;
+
+    padding:20px;
+
+}
+
+
+
+.icone{
+
+    width:48px;
+
+    height:48px;
+
+    font-size:24px;
+
+    margin-right:15px;
+
+}
+
+
+.informacao h2{
+
+    font-size:18px;
+
+}
+
+
+
+.informacao p{
+
+    font-size:13px;
+
+}
+
+
 
 }

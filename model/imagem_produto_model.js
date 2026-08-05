@@ -4,22 +4,35 @@ const conexao = require("../conexao/conexao.js");
 // Cadastrar imagem_produto
 // =========================
 
-function cadastrar(imagem_produto, callback) {
+function cadastrar(arquivo, produto_idProduto, callback) {
+
 
     const sql = `
+
         INSERT INTO imagem_produto
-        (arquivo, produto_idProduto)
+        (
+            arquivo,
+            produto_idProduto
+        )
+
         VALUES (?, ?)
+
     `;
 
+
     conexao.query(
+
         sql,
+
         [
-            imagem_produto.arquivo,
-            imagem_produto.produto_idProduto
+            arquivo,
+            produto_idProduto
         ],
+
         callback
+
     );
+
 
 }
 

@@ -232,22 +232,22 @@ gap:20px;
 
 }
 
-.continuar{
+.btn-continuar{
+    flex: 1;
+    padding: 16px;
+    background: transparent;
+    border: 1px solid #334155;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Ubuntu, sans-serif;
+    transition: .3s;
+}
 
-flex:1;
-
-padding:16px;
-
-background:transparent;
-
-border:1px solid #334155;
-
-color:#fff;
-
-border-radius:10px;
-
-cursor:pointer;
-
+.btn-continuar:hover{
+    background: #2563eb;
+    border-color: #2563eb;
 }
 
 .finalizar{

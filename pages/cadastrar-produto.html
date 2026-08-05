@@ -19,7 +19,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 
-    <link rel="icon" type="image/png" href="/assets/logo-com-fundo.png">
+     <!--imagem da logo pro navegador-->
+    <link rel="icon" type="image/png" href="../assets/logo-com-fundo.png">
+    
 
 
 </head>
@@ -48,14 +50,9 @@
         
         <div class="area-voltar">
 
-        <button
-            type="button"
-            class="btn-voltar"
-            onclick="voltarPagina()">
-
+        <a href="/pages/home-lojista.html" class="btn-voltar">
             ← Voltar
-
-        </button>
+        </a>
 
     </div>
 
@@ -93,425 +90,461 @@
 
 
 
-            <form id="formProduto">
+            <form 
+    id="formProduto"
+    enctype="multipart/form-data">
 
+    <!-- Campo oculto da loja -->
+    <input
+        type="hidden"
+        id="loja_idLoja"
+        name="loja_idLoja"
+        value="1">
 
+    <!-- INFORMAÇÕES BÁSICAS -->
 
+    <div class="secao">
 
+        <h2>
+            Informações do Produto
+        </h2>
 
-                <!-- INFORMAÇÕES BÁSICAS -->
+        <div class="campo">
 
-                <div class="secao">
+            <label>
+                Nome do Produto
+            </label>
 
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Ex: SSD Kingston 480GB">
 
-                    <h2>
-                        Informações do Produto
-                    </h2>
+        </div>
 
+        <div class="linha">
 
+            <div class="campo">
 
-                    <div class="campo">
+                <label>
+                    Categoria
+                </label>
 
-                        <label>
-                            Nome do Produto
-                        </label>
+                <select
+                    id="categorias_idCategorias"
+                    name="categorias_idCategorias">
 
+                    <option value="">
+                        Selecione uma categoria
+                    </option>
 
-                        <input 
-                            type="text"
-                            placeholder="Ex: SSD Kingston 480GB">
+                    <option value="1">
+                    Componentes
+                </option>
 
-                    </div>
+                <option value="2">
+                    Processadores
+                </option>
 
+                <option value="3">
+                    Placas Mãe
+                </option>
 
+                <option value="4">
+                    Memórias RAM
+                </option>
 
+                <option value="5">
+                    Armazenamento SSD
+                </option>
 
+                <option value="6">
+                    Armazenamento HD
+                </option>
 
-                    <div class="linha">
+                <option value="7">
+                    Placas de Vídeo
+                </option>
 
+                <option value="8">
+                    Fontes de Alimentação
+                </option>
 
-                        <div class="campo">
+                <option value="9">
+                    Cabos e Conectores
+                </option>
 
-                            <label>
-                                Categoria
-                            </label>
+                <option value="10">
+                    Adaptadores
+                </option>
 
+                <option value="11">
+                    Periféricos
+                </option>
 
-                            <select>
+                <option value="12">
+                    Equipamentos de Rede
+                </option>
 
-                                <option>
-                                    Selecione uma categoria
-                                </option>
+                <option value="13">
+                    Ferramentas de Manutenção
+                </option>
 
-                                <option>
-                                    Notebook
-                                </option>
+                <option value="14">
+                    Kits de Ferramentas
+                </option>
 
-                                <option>
-                                    Computadores
-                                </option>
+                <option value="15">
+                    Estações de Solda
+                </option>
 
-                                <option>
-                                    Componentes
-                                </option>
+                <option value="16">
+                    Pasta Térmica
+                </option>
 
-                                <option>
-                                    Periféricos
-                                </option>
+                <option value="17">
+                    Multímetros
+                </option>
 
+                <option value="18">
+                    Equipamentos de Teste
+                </option>
 
-                            </select>
+                <option value="19">
+                    Limpeza e Manutenção
+                </option>
 
+                <option value="20">
+                    Segurança Eletrônica
+                </option>
 
-                        </div>
+                </select>
 
+            </div>
 
+            <div class="campo">
 
+                <label>
+                    Marca
+                </label>
 
+                <select
+                    id="marca_idMarca"
+                    name="marca_idMarca">
 
-                        <div class="campo">
+                    <option value="">
+                        Selecione uma marca
+                    </option>
 
+                   <option value="1">iFixit</option>
+                    <option value="2">Wera</option>
+                    <option value="3">Bosch</option>
+                    <option value="4">Makita</option>
+                    <option value="5">Stanley</option>
+                    <option value="6">Tramontina</option>
+                    <option value="7">Gedore</option>
+                    <option value="8">Vonder</option>
+                    <option value="9">King Tony</option>
 
-                            <label>
-                                Marca
-                            </label>
+                    <option value="10">Yihua</option>
+                    <option value="11">Hakko</option>
+                    <option value="12">Quick</option>
+                    <option value="13">WEP</option>
+                    <option value="14">Hikari</option>
+                    <option value="15">Atten</option>
 
+                    <option value="16">Fluke</option>
+                    <option value="17">Minipa</option>
+                    <option value="18">Extech</option>
+                    <option value="19">UNI-T</option>
+                    <option value="20">Kyoritsu</option>
 
-                            <input 
-                                type="text"
-                                placeholder="Ex: Kingston">
+                    <option value="21">Dell</option>
+                    <option value="22">Lenovo</option>
+                    <option value="23">HP</option>
+                    <option value="24">Acer</option>
+                    <option value="25">ASUS</option>
+                    <option value="26">Apple</option>
+                    <option value="27">Samsung</option>
+                    <option value="28">MSI</option>
 
+                    <option value="29">Intel</option>
+                    <option value="30">AMD</option>
+                    <option value="31">NVIDIA</option>
+                    <option value="32">Kingston</option>
+                    <option value="33">Corsair</option>
+                    <option value="34">Western Digital</option>
+                    <option value="35">Seagate</option>
+                    <option value="36">Crucial</option>
 
-                        </div>
+                    <option value="37">Logitech</option>
+                    <option value="38">Thermaltake</option>
+                    <option value="39">Cooler Master</option>
+                    <option value="40">Arctic</option>
+                    <option value="41">DeepCool</option>
 
+                    <option value="42">TP-Link</option>
+                    <option value="43">D-Link</option>
+                    <option value="44">Ubiquiti</option>
+                    <option value="45">MikroTik</option>
+                    <option value="46">Tenda</option>
 
+                    <option value="47">Epson</option>
+                    <option value="48">Canon</option>
+                    <option value="49">Brother</option>
+                    <option value="50">LG</option>
 
-                    </div>
+                    <option value="51">Multilaser</option>
+                    <option value="52">Fortrek</option>
+                    <option value="53">Redragon</option>
+                    <option value="54">HyperX</option>
+                    <option value="55">Razer</option>
+                    <option value="56">JBL</option>
 
+                    <option value="57">Anker</option>
+                    <option value="58">Baseus</option>
+                    <option value="59">Adata</option>
+                    <option value="60">Team Group</option>
+                    <option value="61">Patriot</option>
 
+                    <option value="62">Gigabyte</option>
+                    <option value="63">ASRock</option>
+                    <option value="64">Biostar</option>
+                    <option value="65">Zotac</option>
+                    <option value="66">PNY</option>
+                    <option value="67">Sapphire</option>
+                    <option value="68">PowerColor</option>
+
+                    <option value="69">XPG</option>
+                    <option value="70">Noctua</option>
+                    <option value="71">NZXT</option>
+                    <option value="72">Aerocool</option>
+                    <option value="73">Cougar</option>
+                    <option value="74">Havit</option>
+                    <option value="75">C3Tech</option>
+                    <option value="76">Knup</option>
+                    <option value="77">Exbom</option>
+                    <option value="78">Intelbras</option>
+                    <option value="79">APC</option>
+                    <option value="80">SMS</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PREÇOS -->
+
+    <div class="secao">
+
+        <h2>
+            Valores e Estoque
+        </h2>
+
+        <div class="linha">
+
+            <div class="campo">
+
+                <label>
+                    Preço
+                </label>
+
+                <input
+                    type="number"
+                    id="preco_antigo"
+                    name="preco_antigo"
+                    step="0.01"
+                    placeholder="R$ 0,00">
+
+            </div>
+
+            <div class="campo">
+
+                <label>
+                    Preço Promocional
+                </label>
+
+                <input
+                    type="number"
+                    id="preco_promocional"
+                    name="preco_promocional"
+                    step="0.01"
+                    placeholder="R$ 0,00">
+
+            </div>
+
+        </div>
+
+        <div class="linha">
+
+            <div class="campo">
+
+                <label>
+                    Estoque
+                </label>
+
+                <input
+                    type="number"
+                    id="quantidade_estoque"
+                    name="quantidade_estoque"
+                    placeholder="Quantidade">
+
+            </div>
+
+            <div class="campo">
+
+                <label>
+                    SKU
+                </label>
+
+                <input
+                    type="text"
+                    id="codigo"
+                    name="codigo"
+                    placeholder="Código do produto">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DESCRIÇÃO -->
+
+    <div class="secao">
+
+        <h2>
+            Descrição
+        </h2>
+
+        <div class="campo">
+
+            <textarea
+                id="descricao"
+                name="descricao"
+                placeholder="Descreva detalhes técnicos do produto..."></textarea>
+
+        </div>
+
+    </div>
+
+    <!-- IMAGENS -->
+
+    <div class="secao">
+
+        <h2>
+            Imagens do Produto
+        </h2>
+
+        <div class="linha">
+
+            <div class="campo">
+
+                <label>
+                    Imagem Principal
+                </label>
+
+                <div class="upload">
+
+                    <p>
+                        Selecione a imagem principal
+                    </p>
+
+                    <input
+                    type="file"
+                    id="imagem_principal"
+                    name="imagem"
+                    accept="image/*">
+                  </div>
+
+            </div>
+
+            <div class="campo">
+
+                <label>
+                    Galeria de Imagens
+                </label>
+
+                <div class="upload">
+
+                    <p>
+                        Adicione imagens adicionais
+                    </p>
+
+                    <input
+                        type="file"
+                        id="galeria_imagens"
+                        name="galeria_imagens"
+                        multiple>
 
                 </div>
 
+            </div>
 
+        </div>
 
+    </div>
 
+    <!-- STATUS -->
 
+    <div class="secao">
 
+        <h2>
+            Configurações
+        </h2>
 
+        <div class="campo">
 
+            <label>
+                Status do Produto
+            </label>
 
-                <!-- PREÇOS -->
+            <select
+                id="ativo"
+                name="ativo">
 
-                <div class="secao">
+                <option value="1">
+                    Ativo
+                </option>
 
+                <option value="0">
+                    Inativo
+                </option>
 
-                    <h2>
-                        Valores e Estoque
-                    </h2>
+            </select>
 
+        </div>
 
+    </div>
 
-                    <div class="linha">
+    <!-- BOTÕES -->
 
+    <div class="botoes">
 
+        <button
+            type="button"
+            class="btn-cancelar">
 
-                        <div class="campo">
+            Cancelar
 
+        </button>
 
-                            <label>
-                                Preço
-                            </label>
+        <button
+            type="submit"
+            id="btn-salvar"
+            class="btn-salvar">
 
+            Salvar Produto
 
-                            <input 
-                                type="number"
-                                placeholder="R$ 0,00">
+        </button>
 
+    </div>
 
-                        </div>
-
-
-
-
-
-                        <div class="campo">
-
-
-                            <label>
-                                Preço Promocional
-                            </label>
-
-
-                            <input 
-                                type="number"
-                                placeholder="R$ 0,00">
-
-
-                        </div>
-
-
-
-                    </div>
-
-
-
-
-
-                    <div class="linha">
-
-
-
-                        <div class="campo">
-
-                            <label>
-                                Estoque
-                            </label>
-
-
-                            <input 
-                                type="number"
-                                placeholder="Quantidade">
-
-
-                        </div>
-
-
-
-
-
-                        <div class="campo">
-
-                            <label>
-                                SKU
-                            </label>
-
-
-                            <input 
-                                type="text"
-                                placeholder="Código do produto">
-
-
-                        </div>
-
-
-
-                    </div>
-
-
-
-                </div>
-
-
-
-
-
-
-
-
-
-                <!-- DESCRIÇÃO -->
-
-                <div class="secao">
-
-
-                    <h2>
-                        Descrição
-                    </h2>
-
-
-
-                    <div class="campo">
-
-
-                        <textarea 
-                            placeholder="Descreva detalhes técnicos do produto..."></textarea>
-
-
-                    </div>
-
-
-
-                </div>
-
-
-
-
-
-
-
-
-
-                <!-- IMAGENS -->
-
-                <div class="secao">
-
-
-                    <h2>
-                        Imagens do Produto
-                    </h2>
-
-
-
-                    <div class="linha">
-
-
-
-                        <div class="campo">
-
-
-                            <label>
-                                Imagem Principal
-                            </label>
-
-
-                            <div class="upload">
-
-
-                                <p>
-                                    Selecione a imagem principal
-                                </p>
-
-
-                                <input 
-                                    type="file">
-
-
-                            </div>
-
-
-                        </div>
-
-
-
-
-
-
-                        <div class="campo">
-
-
-                            <label>
-                                Galeria de Imagens
-                            </label>
-
-
-                            <div class="upload">
-
-
-                                <p>
-                                    Adicione imagens adicionais
-                                </p>
-
-
-                                <input 
-                                    type="file"
-                                    multiple>
-
-
-                            </div>
-
-
-                        </div>
-
-
-
-
-                    </div>
-
-
-
-                </div>
-
-
-
-
-
-
-
-
-
-                <!-- STATUS -->
-
-                <div class="secao">
-
-
-                    <h2>
-                        Configurações
-                    </h2>
-
-
-
-                    <div class="campo">
-
-
-                        <label>
-                            Status do Produto
-                        </label>
-
-
-                        <select>
-
-
-                            <option>
-                                Ativo
-                            </option>
-
-
-                            <option>
-                                Inativo
-                            </option>
-
-
-                        </select>
-
-
-                    </div>
-
-
-
-                </div>
-
-
-
-
-
-
-
-
-                <!-- BOTÕES -->
-
-
-                <div class="botoes">
-
-
-                    <button 
-                        type="button"
-                        class="btn-cancelar">
-
-                        Cancelar
-
-                    </button>
-
-
-
-
-                    <button 
-                        type="submit"
-                        class="btn-salvar">
-
-                        Salvar Produto
-
-                    </button>
-
-
-
-                </div>
-
-
-
-
-
-
-            </form>
+</form>
 
 
 

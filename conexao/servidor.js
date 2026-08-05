@@ -56,6 +56,21 @@ app.use("/categorias", categoriasRotas);
 const categoriasHasPromocaoRotas = require("../routes/categorias_has_promocao_rotas");
 app.use("/categorias-has-promocao", categoriasHasPromocaoRotas);
 
+
+//==========================================
+// LOJISTA
+//==========================================
+const lojistaRotas = require("../routes/lojista_rotas");
+
+
+app.use(
+
+    "/lojistas",
+
+    lojistaRotas
+
+);
+
 //==========================================
 // CLIENTE HAS ENDEREÇO
 //==========================================

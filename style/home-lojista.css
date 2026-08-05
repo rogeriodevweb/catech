@@ -1,205 +1,272 @@
+/* ==========================
+   RESET
+========================== */
+
 *{
-
-    margin:0;
-    padding:0;
-
-    box-sizing:border-box;
-
-    font-family:Ubuntu, Arial, sans-serif;
-
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
 }
 
 body{
-
-    background:#0f172a;
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:40px;
-
+    background: #0f172a;
+    color: #ffffff;
 }
 
-/*====================================
-=          MENU HOME LOJISTA
-====================================*/
+/* ==========================
+   MENU LATERAL
+========================== */
 
 .menu-loja{
 
-    width:550px;
+    position: fixed;
 
-    background:#101827;
+    left: 0;
+    top: 0;
 
-    border:1px solid #1f2937;
+    width: 270px;
+    height: 100vh;
 
-    border-radius:22px;
+    background: #101827;
 
-    padding:45px 35px;
+    border-right: 1px solid #1f2937;
 
-    box-shadow:0 20px 40px rgba(0,0,0,.25);
+    padding: 30px 20px;
 
 }
-
-/*====================================
-=             TITULO
-====================================*/
 
 .menu-loja h1{
 
-    color:#fff;
+    text-align: center;
 
-    text-align:center;
+    color: #4f6fff;
 
-    font-size:42px;
+    font-size: 30px;
 
-    font-weight:700;
-
-    margin-bottom:45px;
+    margin-bottom: 40px;
 
 }
 
-/*====================================
-=              NAVEGAÇÃO
-====================================*/
+.menu-loja nav{
 
-nav{
+    display: flex;
 
-    display:flex;
+    flex-direction: column;
 
-    flex-direction:column;
-
-    gap:14px;
+    gap: 12px;
 
 }
-
-/*====================================
-=              ITENS MENU
-====================================*/
 
 .item-menu{
 
-    min-height:74px;
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 15px;
 
-    gap:22px;
+    text-decoration: none;
 
-    padding:0 28px;
+    color: #ffffff;
 
-    text-decoration:none;
+    padding: 15px;
 
-    color:#e5e7eb;
+    border-radius: 12px;
 
-    border-radius:16px;
-
-    font-size:22px;
-
-    transition:.3s;
+    transition: .3s;
 
 }
 
 .item-menu span{
 
-    width:42px;
-
-    text-align:center;
-
-    font-size:28px;
-
-    flex-shrink:0;
+    font-size: 25px;
 
 }
 
 .item-menu p{
 
-    margin:0;
-
-    font-weight:500;
+    font-size: 17px;
 
 }
-
-/*====================================
-=              HOVER
-====================================*/
 
 .item-menu:hover{
 
-    background:#1e293b;
+    background: #1e293b;
 
-    transform:translateX(6px);
+    border-left: 4px solid #2563eb;
+
+    padding-left: 11px;
 
 }
-
-/*====================================
-=              ITEM ATIVO
-====================================*/
 
 .item-menu.ativo{
 
-    background:#1f293b;
+    background: #1e293b;
 
-    border-left:5px solid #2563eb;
+    border-left: 4px solid #2563eb;
 
-}
-
-.item-menu.ativo p{
-
-    color:#fff;
-
-    font-weight:700;
+    padding-left: 11px;
 
 }
 
-/*====================================
-=            RESPONSIVO
-====================================*/
+/* ==========================
+   CONTEÚDO
+========================== */
 
-@media(max-width:700px){
+.conteudo{
 
-    body{
+    margin-left: 270px;
 
-        padding:20px;
+    padding: 40px;
 
-    }
+    min-height: 100vh;
+
+}
+
+.topo{
+
+    margin-bottom: 35px;
+
+}
+
+.topo h1{
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+
+}
+
+.topo p{
+
+    font-size: 18px;
+
+    color: #94a3b8;
+
+}
+
+/* ==========================
+   CARDS
+========================== */
+
+.cards{
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+
+    gap: 25px;
+
+}
+
+.card{
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    transition: .3s;
+
+}
+
+.card:hover{
+
+    transform: translateY(-8px);
+
+    border-color: #2563eb;
+
+    box-shadow: 0 15px 30px rgba(37,99,235,.25);
+
+}
+
+.icone{
+
+    width: 75px;
+
+    height: 75px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg,#2563eb,#4f6fff);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 34px;
+
+    margin-bottom: 20px;
+
+}
+
+.card h2{
+
+    margin-bottom: 12px;
+
+    font-size: 25px;
+
+}
+
+.card p{
+
+    color: #cbd5e1;
+
+    line-height: 25px;
+
+    font-size: 16px;
+
+}
+
+.destaque{
+
+    border: 2px solid #2563eb;
+
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media(max-width:900px){
 
     .menu-loja{
 
-        width:100%;
+        position: relative;
 
-        max-width:550px;
+        width: 100%;
 
-        padding:35px 25px;
-
-    }
-
-    .menu-loja h1{
-
-        font-size:34px;
+        height: auto;
 
     }
 
-    .item-menu{
+    .conteudo{
 
-        min-height:65px;
+        margin-left: 0;
 
-        font-size:18px;
-
-        padding:0 20px;
+        padding: 25px;
 
     }
 
-    .item-menu span{
+    .cards{
 
-        font-size:24px;
+        grid-template-columns: 1fr;
 
-        width:34px;
+    }
+
+    .topo h1{
+
+        font-size: 30px;
 
     }
 

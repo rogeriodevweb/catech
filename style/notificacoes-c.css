@@ -1,70 +1,114 @@
 /* ======================================
    NOTIFICAÇÕES CLIENTE - CA TECH
-   notificacoes.css
+   notificacoes-c.css
 ====================================== */
 
 
-/* Reset */
+/* =========================
+   RESET
+========================= */
 
 * {
 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Ubuntu", sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Ubuntu", sans-serif;
 
 }
 
 
 
-/* Corpo */
+/* =========================
+   CORPO
+========================= */
 
 body {
 
-    background: #0f172a;
-    color: white;
-    min-height: 100vh;
+    background:
+    radial-gradient(circle at top left, #1e3a8a30, transparent 35%),
+    #0f172a;
+
+    color:white;
+
+    min-height:100vh;
 
 }
 
 
 
-/* Container */
+/* =========================
+   CONTAINER
+========================= */
 
 .container {
 
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
+    width:100%;
+
+    max-width:950px;
+
+    margin:40px auto;
+
+    padding:25px;
 
 }
 
 
 
-
-
-/* Cabeçalho */
+/* =========================
+   CABEÇALHO
+========================= */
 
 .cabecalho {
 
-    margin-bottom: 35px;
+    margin-bottom:40px;
 
 }
 
+
+
+/* =========================
+   BOTÃO VOLTAR
+========================= */
 
 
 .voltar {
 
-    display: inline-block;
+    display:inline-flex;
 
-    text-decoration: none;
+    align-items:center;
 
-    color: #94a3b8;
+    gap:8px;
 
-    margin-bottom: 20px;
 
-    transition: .3s;
+    background:#101827;
+
+    border:1px solid #1f2937;
+
+    border-radius:12px;
+
+
+    padding:10px 20px;
+
+
+    color:#cbd5e1;
+
+    text-decoration:none;
+
+
+    font-size:15px;
+
+    font-weight:500;
+
+
+    margin-bottom:35px;
+
+
+    transition:.3s ease;
+
+
+    box-shadow:
+    0 6px 15px rgba(0,0,0,.20);
 
 }
 
@@ -72,17 +116,36 @@ body {
 
 .voltar:hover {
 
-    color: #2563eb;
+
+    background:#2563eb;
+
+    border-color:#2563eb;
+
+    color:white;
+
+
+    transform:translateX(-5px);
+
+
+    box-shadow:
+    0 10px 25px rgba(37,99,235,.35);
 
 }
 
 
 
+/* =========================
+   TITULO
+========================= */
+
+
 .cabecalho h1 {
 
-    font-size: 32px;
+    font-size:36px;
 
-    margin-bottom: 8px;
+    font-weight:700;
+
+    margin-bottom:10px;
 
 }
 
@@ -90,54 +153,72 @@ body {
 
 .cabecalho p {
 
-    color: #94a3b8;
+    color:#94a3b8;
 
-    font-size: 16px;
+    font-size:16px;
 
 }
 
 
 
+/* =========================
+   LISTA
+========================= */
 
-
-
-/* Lista de notificações */
 
 .lista-notificacoes {
 
-    display: flex;
+    display:flex;
 
-    flex-direction: column;
+    flex-direction:column;
 
-    gap: 18px;
+    gap:20px;
 
 }
 
 
 
+/* =========================
+   CARDS
+========================= */
 
-
-
-
-/* Cards */
 
 .notificacao-card {
 
-    background: #101827;
 
-    border: 1px solid #1f2937;
+    background:
 
-    border-radius: 14px;
+    linear-gradient(
+        145deg,
+        #101827,
+        #111c32
+    );
 
-    padding: 22px;
 
-    display: flex;
+    border:1px solid #1e293b;
 
-    align-items: center;
+    border-radius:18px;
 
-    gap: 20px;
 
-    transition: .3s;
+    padding:25px;
+
+
+    display:flex;
+
+    align-items:center;
+
+
+    gap:22px;
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+    transition:.3s ease;
+
 
 }
 
@@ -145,51 +226,62 @@ body {
 
 .notificacao-card:hover {
 
-    border-color: #2563eb;
 
-    transform: translateY(-3px);
+    transform:translateY(-4px);
+
+    border-color:#2563eb;
+
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.3);
 
 }
 
 
 
+/* =========================
+   ICONE
+========================= */
 
-
-
-/* Ícone */
 
 .icone {
 
-    width: 55px;
 
-    height: 55px;
+    width:60px;
 
-    border-radius: 50%;
+    height:60px;
 
-    background: #1e293b;
 
-    display: flex;
+    display:flex;
 
-    justify-content: center;
+    align-items:center;
 
-    align-items: center;
+    justify-content:center;
 
-    font-size: 26px;
 
-    flex-shrink: 0;
+    border-radius:16px;
+
+
+    background:#2563eb;
+
+
+    font-size:28px;
+
+
+    flex-shrink:0;
 
 }
 
 
 
+/* =========================
+   TEXTO
+========================= */
 
-
-
-/* Informações */
 
 .informacao {
 
-    flex: 1;
+    flex:1;
 
 }
 
@@ -197,9 +289,9 @@ body {
 
 .informacao h2 {
 
-    font-size: 19px;
+    font-size:20px;
 
-    margin-bottom: 7px;
+    margin-bottom:8px;
 
 }
 
@@ -207,29 +299,26 @@ body {
 
 .informacao p {
 
-    color: #94a3b8;
+    color:#94a3b8;
 
-    font-size: 14px;
+    font-size:14px;
 
 }
 
 
 
+/* =========================
+   SWITCH
+========================= */
 
-
-
-
-/* Switch */
 
 .switch {
 
-    position: relative;
+    position:relative;
 
-    width: 52px;
+    width:58px;
 
-    height: 28px;
-
-    flex-shrink: 0;
+    height:30px;
 
 }
 
@@ -237,7 +326,7 @@ body {
 
 .switch input {
 
-    display: none;
+    display:none;
 
 }
 
@@ -245,17 +334,22 @@ body {
 
 .switch span {
 
-    position: absolute;
 
-    inset: 0;
+    position:absolute;
 
-    background: #334155;
+    inset:0;
 
-    border-radius: 30px;
 
-    cursor: pointer;
+    background:#334155;
 
-    transition: .3s;
+
+    border-radius:30px;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
 
 }
 
@@ -263,106 +357,99 @@ body {
 
 .switch span::before {
 
-    content: "";
 
-    position: absolute;
+    content:"";
 
-    width: 22px;
 
-    height: 22px;
+    position:absolute;
 
-    background: white;
 
-    border-radius: 50%;
+    width:24px;
 
-    top: 3px;
+    height:24px;
 
-    left: 4px;
 
-    transition: .3s;
+    background:white;
+
+
+    border-radius:50%;
+
+
+    top:3px;
+
+    left:4px;
+
+
+    transition:.3s;
 
 }
-
-
 
 
 
 .switch input:checked + span {
 
-    background: #2563eb;
+
+    background:#2563eb;
 
 }
-
-
 
 
 
 .switch input:checked + span::before {
 
-    transform: translateX(22px);
+
+    transform:translateX(26px);
 
 }
 
 
 
+/* =========================
+   RESPONSIVO
+========================= */
 
-
-
-
-/* Responsividade */
 
 @media(max-width:700px){
 
 
     .container {
 
-        margin: 20px auto;
-
-        padding: 15px;
+        padding:18px;
 
     }
-
 
 
     .cabecalho h1 {
 
-        font-size: 26px;
+        font-size:28px;
 
     }
-
 
 
     .notificacao-card {
 
-        padding: 18px;
+        padding:18px;
 
     }
 
 
-
-    .icone {
-
-        width: 48px;
-
-        height: 48px;
-
-        font-size: 22px;
-
-    }
+}
 
 
 
-    .informacao h2 {
+@media(max-width:480px){
 
-        font-size: 16px;
+
+    .notificacao-card {
+
+        flex-wrap:wrap;
 
     }
 
 
+    .switch {
 
-    .informacao p {
-
-        font-size: 13px;
+        margin-left:auto;
 
     }
 

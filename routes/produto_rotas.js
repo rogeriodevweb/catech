@@ -1,33 +1,45 @@
-//==========================================
-// IMPORTA O EXPRESS
-//==========================================
+// ======================================
+// ROTAS DE PRODUTOS
+// ======================================
 
 const express = require("express");
-
 const router = express.Router();
 
-//==========================================
-// IMPORTA O CONTROLLER
-//==========================================
+const ProdutoController = require("../controller/produto_controller");
+const upload = require("../config/upload");
 
-const produtoController = require("../controller/produto_controller");
+// ===============================
+// CADASTRAR PRODUTO
+// POST /produtos
+// ===============================
+router.post(
+    "/",
+    upload.single("imagem"),
+    ProdutoController.cadastrar
+);
 
-//==========================================
-// ROTAS
-//==========================================
+// ===============================
+// LISTAR TODOS OS PRODUTOS
+// GET /produtos
+// ===============================
+router.get("/", ProdutoController.listar);
 
-router.post("/", produtoController.cadastrar);
+// ===============================
+// BUSCAR PRODUTO POR ID
+// GET /produtos/:id
+// ===============================
+router.get("/:id", ProdutoController.buscarPorId);
 
-router.get("/", produtoController.listar);
+// ===============================
+// ATUALIZAR PRODUTO
+// PUT /produtos/:id
+// ===============================
+router.put("/:id", ProdutoController.atualizar);
 
-router.get("/:id", produtoController.buscarPorId);
-
-router.put("/:id", produtoController.atualizar);
-
-router.delete("/:id", produtoController.excluir);
-
-//==========================================
-// EXPORTAÇÃO
-//==========================================
+// ===============================
+// EXCLUIR PRODUTO
+// DELETE /produtos/:id
+// ===============================
+router.delete("/:id", ProdutoController.excluir);
 
 module.exports = router;

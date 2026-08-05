@@ -49,23 +49,30 @@
         </nav>
     </header>
 
-    <!--banner-->
-    <div class="banner">
-        <div class="imagens-banner">
-            <img src="assets/banner-home.png" alt="banner 1">
-        </div>
-        <div class="botoes-banner">
+<!-- Banner -->
+<div class="banner">
 
-            <button class="btn-anterior">
-                <img src="assets/seta-esquerda.png" alt="seta para esquerda">
-            </button>
-
-            <button class="btn-proximo">
-                <img src="assets/seta-direita.png" alt="Seta para direita">
-            </button>
-        </div>
+    <div class="imagens-banner" id="bannerAtual">
 
     </div>
+
+    <div class="botoes-banner">
+
+        <button class="btn-anterior">
+
+            <img src="assets/seta-esquerda.png" alt="Anterior">
+
+        </button>
+
+        <button class="btn-proximo">
+
+            <img src="assets/seta-direita.png" alt="Próximo">
+
+        </button>
+
+    </div>
+
+</div>
     <!-- finalização da area do banner da loja -->
 <!-- ==========================
      ATALHOS RÁPIDOS
@@ -136,7 +143,7 @@
         <a href="#" class="ver-tudo">Ver tudo</a>
     </div>
 
-    <div class="lista-produtos">
+    <div class="lista-produtos" id="listaProdutos">
 
         <!-- 1º CARD -->
         <div class="card-produtos" onclick="abrirProduto(1)">
@@ -144,8 +151,12 @@
             <div class="imagem-botao">
                 <img src="/assets/chave-teste-1.png" alt="Kit Eletrica Chave Teste Digital + Caneta Detectora Tensão">
 
-                <div class="favorito" onclick="event.stopPropagation(); favoritar(this);">
+                <div 
+                    class="favorito"
+                    onclick="event.stopPropagation(); favoritar(this, 1);">
+
                     ❤
+
                 </div>
             </div>
 
@@ -189,96 +200,223 @@
         <a href="#" class="ver-tudo">Ver tudo</a>
     </div>
 
+
     <div class="lista-produtos">
+
 
         <!-- 2º CARD -->
         <div class="card-produtos" onclick="abrirProduto(2)">
 
+
             <div class="imagem-botao">
+
                 <img src="/assets/alicate-de-crimpagem.png" alt="Alicate de crimpagem">
 
-                <div class="favorito" onclick="event.stopPropagation(); favoritar(this);">
+
+                <div 
+                class="favorito"
+                onclick="event.stopPropagation(); favoritar(this, 2);">
+
                     ❤
+
                 </div>
+
+
             </div>
 
-            <h3>Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11</h3>
+
+
+            <h3>
+                Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11
+            </h3>
+
+
 
             <div class="precos">
-                <p class="p-antigo">R$ 69,90</p>
-                <p class="p-promocional">R$ 59,90</p>
+
+                <p class="p-antigo">
+                    R$ 69,90
+                </p>
+
+                <p class="p-promocional">
+                    R$ 59,90
+                </p>
+
             </div>
+
+
+
 
             <div class="btn-card">
-                <img src="/assets/avaliacoes.png" alt="Avaliação do produto">
-                <h5>4.2</h5>
 
-                <button class="btn-adicionar"
-                    onclick="event.stopPropagation(); adicionarCarrinho(
-                        1,
-                        'Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11',
-                        59.90,
-                        '/assets/alicate-de-crimpagem.png'
-                    )">
+
+                <img src="/assets/avaliacoes.png" alt="Avaliação do produto">
+
+
+                <h5>
+                    4.2
+                </h5>
+
+
+
+
+                <button 
+                class="btn-adicionar"
+
+                onclick="event.stopPropagation(); adicionarCarrinho(
+                    1,
+                    'Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11',
+                    59.90,
+                    '/assets/alicate-de-crimpagem.png'
+                )">
+
+
                     <img src="/assets/Carrinho-compras.png" alt="Ícone de carrinho">
+
+
                 </button>
+
+
             </div>
+
 
         </div>
 
+
     </div>
+
 
 </section>
 
 <section class="Ofertas">
 
     <div class="titulo-ofertas">
+
         <div class="texto-promocoes">
+
             <h2>SEGURANÇA</h2>
-            <p>Confira os melhores produtos de segurança!</p>
+
+            <p>
+                Confira os melhores produtos de segurança!
+            </p>
+
         </div>
 
-        <a href="#" class="ver-tudo">Ver tudo</a>
+
+        <a href="#" class="ver-tudo">
+            Ver tudo
+        </a>
+
     </div>
 
+
+
     <div class="lista-produtos">
+
 
         <!-- 3º CARD -->
         <div class="card-produtos" onclick="abrirProduto(3)">
 
-            <div class="imagem-botao">
-                <img src="/assets/alicate-de-crimpagem.png" alt="Alicate de crimpagem">
 
-                <div class="favorito" onclick="event.stopPropagation(); favoritar(this);">
+            <div class="imagem-botao">
+
+
+                <img 
+                src="/assets/alicate-de-crimpagem.png" 
+                alt="Alicate de crimpagem">
+
+
+                <div 
+                class="favorito"
+                onclick="event.stopPropagation(); favoritar(this, 3);">
+
                     ❤
+
                 </div>
+
+
             </div>
 
-            <h3>Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11</h3>
+
+
+
+            <h3>
+                Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11
+            </h3>
+
+
+
 
             <div class="precos">
-                <p class="p-antigo">R$ 69,90</p>
-                <p class="p-promocional">R$ 59,90</p>
+
+
+                <p class="p-antigo">
+                    R$ 69,90
+                </p>
+
+
+                <p class="p-promocional">
+                    R$ 59,90
+                </p>
+
+
             </div>
+
+
+
+
 
             <div class="btn-card">
-                <img src="/assets/avaliacoes.png" alt="Avaliação do produto">
-                <h5>4.2</h5>
 
-                <button class="btn-adicionar"
-                    onclick="event.stopPropagation(); adicionarCarrinho(
-                        2,
-                        'Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11',
-                        59.90,
-                        '/assets/alicate-de-crimpagem.png'
-                    )">
-                    <img src="/assets/Carrinho-compras.png" alt="Ícone de carrinho">
+
+                <img 
+                src="/assets/avaliacoes.png" 
+                alt="Avaliação do produto">
+
+
+                <h5>
+                    4.2
+                </h5>
+
+
+
+
+                <button 
+                class="btn-adicionar"
+
+                onclick="event.stopPropagation(); adicionarCarrinho(
+
+                    3,
+
+                    'Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11',
+
+                    59.90,
+
+                    '/assets/alicate-de-crimpagem.png'
+
+                )">
+
+
+                    <img 
+                    src="/assets/Carrinho-compras.png" 
+                    alt="Ícone de carrinho">
+
+
                 </button>
+
+
+
             </div>
+
+
 
         </div>
 
+
+
     </div>
+
+
 
 </section>
     <footer>
@@ -300,7 +438,7 @@
                 <p>Copyright © 2026 CA tech Inc.</p>
 
               <div class="link-rodape">
-    <a href="sobre.html">Sobre nós</a>
+    <a href="../pages/sobre.html">Sobre nós</a>
 </div>
             </div>
 

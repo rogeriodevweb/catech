@@ -1,0 +1,263 @@
+/* ========================================= */
+/* CONFIGURAÇÕES GERAIS */
+/* ========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Ubuntu', sans-serif;
+}
+
+
+body{
+
+    min-height:100vh;
+
+    background:#0f172a;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+}
+
+
+/* ========================================= */
+/* CONTAINER PRINCIPAL */
+/* ========================================= */
+
+.container{
+
+    width:90%;
+
+    max-width:1100px;
+
+    text-align:center;
+
+}
+
+
+/* LOGO */
+
+.logo{
+
+    width:170px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+/* TÍTULOS */
+
+h1{
+
+    font-size:38px;
+
+    margin-bottom:15px;
+
+}
+
+
+.container > p{
+
+    color:#94a3b8;
+
+    font-size:18px;
+
+    margin-bottom:45px;
+
+}
+
+
+
+/* ========================================= */
+/* CARDS */
+/* ========================================= */
+
+
+.opcoes{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:35px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.card{
+
+    width:380px;
+
+    min-height:390px;
+
+    background:#101827;
+
+    border:1px solid #1f2937;
+
+    border-radius:20px;
+
+    padding:40px 35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#2563eb;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+
+
+/* CARD LOJISTA DESTAQUE */
+
+.card.lojista{
+
+    border:2px solid #2563eb;
+
+}
+
+
+
+/* ========================================= */
+/* ÍCONES */
+/* ========================================= */
+
+
+.icone{
+
+    font-size:70px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+/* ========================================= */
+/* TEXTOS */
+/* ========================================= */
+
+
+.card h2{
+
+    font-size:28px;
+
+    margin-bottom:18px;
+
+}
+
+
+.card p{
+
+    color:#cbd5e1;
+
+    line-height:1.6;
+
+    margin-bottom:35px;
+
+}
+
+
+
+/* ========================================= */
+/* BOTÕES */
+/* ========================================= */
+
+
+.card a{
+
+    text-decoration:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+
+.card a:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+/* BOTÃO LOJISTA */
+
+.lojista a{
+
+    background:#16a34a;
+
+}
+
+
+.lojista a:hover{
+
+    background:#15803d;
+
+}
+
+
+
+/* ========================================= */
+/* RESPONSIVO */
+/* ========================================= */
+
+
+@media(max-width:850px){
+
+
+    h1{
+
+        font-size:30px;
+
+    }
+
+
+    .card{
+
+        width:100%;
+
+        max-width:380px;
+
+    }
+
+
+}
+

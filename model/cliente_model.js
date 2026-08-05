@@ -1,15 +1,24 @@
 const conexao = require("../conexao/conexao.js");
 
-// =========================
-// Cadastrar Cliente
-// =========================
+// ==========================================
+// CADASTRAR CLIENTE
+// ==========================================
 
 function cadastrar(cliente, callback) {
 
-    const sql = `INSERT INTO Cliente
-        ( nome,cpf,telefone,email,senha,
-         data_nascimento,Loja_idLoja )
-        VALUES (?, ?, ?, ?, ?, ?, ?)`;
+    const sql = `
+        INSERT INTO Cliente
+        (
+            nome,
+            cpf,
+            telefone,
+            email,
+            senha,
+            data_nascimento,
+            loja_idLoja
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
 
     conexao.query(
         sql,
@@ -20,30 +29,46 @@ function cadastrar(cliente, callback) {
             cliente.email,
             cliente.senha,
             cliente.data_nascimento,
-            cliente.Loja_idLoja
+            cliente.loja_idLoja
         ],
-        callback
+        (erro, resultado) => {
+
+            if (erro) {
+                console.error("Erro ao cadastrar cliente:", erro);
+                return callback(erro, null);
+            }
+
+            callback(null, resultado);
+
+        }
     );
 
 }
 
-// =========================
-// Listar Clientes
-// =========================
+// ==========================================
+// LISTAR CLIENTES
+// ==========================================
 
 function listar(callback) {
 
-    const sql = `
-        SELECT * FROM Cliente
-    `;
+    const sql = "SELECT * FROM Cliente";
 
-    conexao.query(sql, callback);
+    conexao.query(sql, (erro, resultado) => {
+
+        if (erro) {
+            console.error("Erro ao listar clientes:", erro);
+            return callback(erro, null);
+        }
+
+        callback(null, resultado);
+
+    });
 
 }
 
-// =========================
-// Buscar por ID
-// =========================
+// ==========================================
+// BUSCAR CLIENTE POR ID
+// ==========================================
 
 function buscarPorId(id, callback) {
 
@@ -53,13 +78,22 @@ function buscarPorId(id, callback) {
         WHERE idCliente = ?
     `;
 
-    conexao.query(sql, [id], callback);
+    conexao.query(sql, [id], (erro, resultado) => {
+
+        if (erro) {
+            console.error("Erro ao buscar cliente:", erro);
+            return callback(erro, null);
+        }
+
+        callback(null, resultado);
+
+    });
 
 }
 
-// =========================
-// Buscar por Email
-// =========================
+// ==========================================
+// BUSCAR CLIENTE POR EMAIL
+// ==========================================
 
 function buscarPorEmail(email, callback) {
 
@@ -68,28 +102,35 @@ function buscarPorEmail(email, callback) {
         WHERE email = ?
     `;
 
-    conexao.query(sql, [email], callback);
+    conexao.query(sql, [email], (erro, resultado) => {
+
+        if (erro) {
+            console.error("Erro ao buscar email:", erro);
+            return callback(erro, null);
+        }
+
+        callback(null, resultado);
+
+    });
 
 }
 
-// =========================
-// Atualizar Cliente
-// =========================
+// ==========================================
+// ATUALIZAR CLIENTE
+// ==========================================
 
 function atualizar(id, cliente, callback) {
 
     const sql = `
         UPDATE Cliente
         SET
-
             nome = ?,
             cpf = ?,
             telefone = ?,
             email = ?,
             senha = ?,
             data_nascimento = ?,
-            Loja_idLoja = ?
-
+            loja_idLoja = ?
         WHERE idCliente = ?
     `;
 
@@ -102,17 +143,26 @@ function atualizar(id, cliente, callback) {
             cliente.email,
             cliente.senha,
             cliente.data_nascimento,
-            cliente.Loja_idLoja,
+            cliente.loja_idLoja,
             id
         ],
-        callback
+        (erro, resultado) => {
+
+            if (erro) {
+                console.error("Erro ao atualizar cliente:", erro);
+                return callback(erro, null);
+            }
+
+            callback(null, resultado);
+
+        }
     );
 
 }
 
-// =========================
-// Excluir Cliente
-// =========================
+// ==========================================
+// EXCLUIR CLIENTE
+// ==========================================
 
 function excluir(id, callback) {
 
@@ -121,9 +171,22 @@ function excluir(id, callback) {
         WHERE idCliente = ?
     `;
 
-    conexao.query(sql, [id], callback);
+    conexao.query(sql, [id], (erro, resultado) => {
+
+        if (erro) {
+            console.error("Erro ao excluir cliente:", erro);
+            return callback(erro, null);
+        }
+
+        callback(null, resultado);
+
+    });
 
 }
+
+// ==========================================
+// EXPORTAÇÃO
+// ==========================================
 
 module.exports = {
 

@@ -13,23 +13,18 @@ document.querySelectorAll(".atalho").forEach((item)=>{
         switch(nome){
 
             case "Cupons":
-                // window.location.href="#cupons";
                 break;
 
             case "Ofertas":
-                // window.location.href="#ofertas";
                 break;
 
             case "Lançamentos":
-                // window.location.href="#lancamentos";
                 break;
 
             case "Assistência":
-                // window.location.href="#assistencia";
                 break;
 
             case "Kits":
-                // window.location.href="#kits";
                 break;
 
         }
@@ -37,43 +32,95 @@ document.querySelectorAll(".atalho").forEach((item)=>{
     });
 
 });
-document.querySelectorAll(".favorito").forEach(img => {
 
-    img.addEventListener("click", () => {
 
-        if (img.src.includes("heart.png")) {
 
-            img.src = "assets/heart-red.png";
 
-        } else {
+// ==========================
+// FAVORITOS
+// ==========================
 
-            img.src = "assets/heart.png";
+function favoritar(elemento, idProduto){
 
-        }
 
-    });
+    elemento.classList.toggle("ativo");
 
-});
 
-/*==========================
-=       FAVORITOS
-==========================*/
+    let favoritos = JSON.parse(
+        localStorage.getItem("favoritos")
+    ) || [];
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    const favoritos = document.querySelectorAll(".favorito");
 
-    favoritos.forEach(favorito => {
+    // pega os dados do card clicado
 
-        favorito.addEventListener("click", function () {
+    const card = elemento.closest(".card-produtos");
 
-            this.classList.toggle("ativo");
 
-        });
+    const nome = card.querySelector("h3").textContent;
 
-    });
 
-});
+    const preco = card.querySelector(".p-promocional").textContent
+        .replace("R$","")
+        .replace(",",".")
+        .trim();
+
+
+
+    const imagem = card.querySelector("img").src;
+
+
+
+    const produto = {
+
+        id: idProduto,
+
+        nome: nome,
+
+        preco: Number(preco),
+
+        imagem: imagem
+
+    };
+
+
+
+    // verifica se já existe
+
+    const existe = favoritos.find(
+        item => item.id === idProduto
+    );
+
+
+
+    if(existe){
+
+
+        favoritos = favoritos.filter(
+            item => item.id !== idProduto
+        );
+
+
+    } else {
+
+
+        favoritos.push(produto);
+
+
+    }
+
+
+
+    localStorage.setItem(
+        "favoritos",
+        JSON.stringify(favoritos)
+    );
+
+
+}
+
+
+
 
 // =====================================
 // ADICIONAR PRODUTO AO CARRINHO
@@ -82,14 +129,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function adicionarCarrinho(id, nome, preco, imagem) {
 
 
-    // Pega o carrinho salvo
     let carrinho = JSON.parse(
         localStorage.getItem("carrinho")
     ) || [];
 
 
-
-    // Verifica se o produto já está no carrinho
 
     let produtoExistente = carrinho.find(
         produto => produto.id === id
@@ -99,28 +143,24 @@ function adicionarCarrinho(id, nome, preco, imagem) {
 
     if (produtoExistente) {
 
-
-        // Se já existe, aumenta quantidade
-
         produtoExistente.quantidade++;
 
+    } 
 
-    } else {
+    else {
 
-
-        // Se não existe, adiciona
 
         carrinho.push({
 
-            id: id,
+            id:id,
 
-            nome: nome,
+            nome:nome,
 
-            preco: preco,
+            preco:preco,
 
-            imagem: imagem,
+            imagem:imagem,
 
-            quantidade: 1
+            quantidade:1
 
         });
 
@@ -128,8 +168,6 @@ function adicionarCarrinho(id, nome, preco, imagem) {
     }
 
 
-
-    // Salva novamente
 
     localStorage.setItem(
         "carrinho",
@@ -141,6 +179,11 @@ function adicionarCarrinho(id, nome, preco, imagem) {
     alert("Produto adicionado ao carrinho!");
 
 }
+
+
+
+
+
 // =====================================
 // ABRIR DETALHES DO PRODUTO
 // =====================================
@@ -150,3 +193,317 @@ function abrirProduto(id){
     window.location.href = `pages/produto.html?id=${id}`;
 
 }
+
+
+
+
+
+// =====================================
+// BANNER AUTOMÁTICO CA TECH
+// =====================================
+
+const banners = [
+
+    {
+        tipo: "imagem",
+        arquivo: "assets/banner-home.png",
+        tempo: 5000
+    },
+
+    {
+        tipo: "video",
+        arquivo: "assets/banner-2.mp4"
+    },
+
+    {
+        tipo: "imagem",
+        arquivo: "assets/banner-componentes.png",
+        tempo: 5000
+    }
+
+];
+
+let indiceBanner = 0;
+
+const bannerAtual = document.getElementById("bannerAtual");
+
+const btnAnterior = document.querySelector(".btn-anterior");
+const btnProximo = document.querySelector(".btn-proximo");
+
+let temporizador;
+
+
+
+function carregarBanner() {
+
+    if (!bannerAtual) return;
+
+    clearTimeout(temporizador);
+
+    bannerAtual.innerHTML = "";
+
+    const banner = banners[indiceBanner];
+
+
+
+    if (banner.tipo === "imagem") {
+
+        const img = document.createElement("img");
+
+        img.src = banner.arquivo;
+        img.alt = "Banner CA Tech";
+
+        bannerAtual.appendChild(img);
+
+        temporizador = setTimeout(() => {
+
+            proximoBanner();
+
+        }, banner.tempo);
+
+    }
+
+    else {
+
+        const video = document.createElement("video");
+
+        video.src = banner.arquivo;
+
+        video.autoplay = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.controls = false;
+
+        bannerAtual.appendChild(video);
+
+        video.play();
+
+        video.addEventListener("ended", () => {
+
+            proximoBanner();
+
+        });
+
+    }
+
+}
+
+
+
+function proximoBanner() {
+
+    indiceBanner++;
+
+    if (indiceBanner >= banners.length) {
+
+        indiceBanner = 0;
+
+    }
+
+    carregarBanner();
+
+}
+
+
+
+function bannerAnterior() {
+
+    indiceBanner--;
+
+    if (indiceBanner < 0) {
+
+        indiceBanner = banners.length - 1;
+
+    }
+
+    carregarBanner();
+
+}
+
+
+
+if (btnProximo) {
+
+    btnProximo.addEventListener("click", proximoBanner);
+
+}
+
+if (btnAnterior) {
+
+    btnAnterior.addEventListener("click", bannerAnterior);
+
+}
+
+
+
+carregarBanner();
+
+// =====================================
+// CARREGAR PRODUTOS DA LOJA
+// =====================================
+
+async function carregarProdutos() {
+
+    const listaProdutos = document.getElementById("listaProdutos");
+
+    if (!listaProdutos) return;
+
+
+    try {
+
+        const resposta = await fetch(
+            "http://localhost:3000/produto"
+        );
+
+
+        const produtos = await resposta.json();
+
+
+
+
+        produtos.forEach(produto => {
+
+
+    const preco = produto.preco_promocional 
+        ? produto.preco_promocional 
+        : produto.preco_antigo;
+
+
+
+    listaProdutos.innerHTML += `
+
+
+    <div class="card-produtos" onclick="abrirProduto(${produto.idproduto})">
+
+
+        <div class="imagem-botao">
+
+
+            <img 
+            src="../assets/lenovo.png"
+            alt="${produto.nome}">
+
+
+            <div 
+class="favorito"
+onclick="event.stopPropagation(); favoritar(this, ${produto.idproduto});">
+
+    ❤
+
+</div>
+
+
+        </div>
+
+
+
+        <h3>
+
+            ${produto.nome}
+
+        </h3>
+
+
+
+        <div class="precos">
+
+
+            <p class="p-antigo">
+
+                R$ ${Number(produto.preco_antigo)
+                .toFixed(2)
+                .replace(".",",")}
+
+            </p>
+
+
+
+            <p class="p-promocional">
+
+                R$ ${Number(preco)
+                .toFixed(2)
+                .replace(".",",")}
+
+            </p>
+
+
+        </div>
+
+
+
+
+        <div class="btn-card">
+
+
+            <img 
+            src="/assets/avaliacoes.png"
+            alt="Avaliações">
+
+
+            <h5>
+                4.5
+            </h5>
+
+
+
+
+            <button 
+            class="btn-adicionar"
+
+
+            onclick="
+            event.stopPropagation();
+
+            adicionarCarrinho(
+
+                ${produto.idproduto},
+
+                '${produto.nome}',
+
+                ${preco},
+
+                '../assets/lenovo.png'
+
+            )">
+
+
+                <img 
+                src="/assets/Carrinho-compras.png">
+
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+    `;
+
+
+});
+
+
+
+    } catch (erro) {
+
+
+        console.error(
+            "Erro ao carregar produtos:",
+            erro
+        );
+
+
+    }
+
+
+}
+
+
+
+document.addEventListener(
+"DOMContentLoaded",
+carregarProdutos
+);

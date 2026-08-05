@@ -6,14 +6,30 @@ const conexao = require("../conexao/conexao.js");
 
 function cadastrar(banner, callback) {
 
-    const sql = `INSERT INTO banner
-        (imagem,data_inicio,data_final,status_visibilidade,loja_idLoja)
-        VALUES (?, ?, ?, ?, ?)`;
+    const sql = `
+        INSERT INTO banner
+        (
+            titulo,
+            descricao,
+            arquivo,
+            tipo_arquivo,
+            link,
+            data_inicio,
+            data_final,
+            status_visibilidade,
+            loja_idLoja
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
 
     conexao.query(
         sql,
         [
-            banner.imagem,
+            banner.titulo,
+            banner.descricao,
+            banner.arquivo,
+            banner.tipo_arquivo,
+            banner.link,
             banner.data_inicio,
             banner.data_final,
             banner.status_visibilidade,
@@ -31,7 +47,8 @@ function cadastrar(banner, callback) {
 function listar(callback) {
 
     const sql = `
-        SELECT * FROM banner
+        SELECT *
+        FROM banner
     `;
 
     conexao.query(sql, callback);
@@ -39,14 +56,14 @@ function listar(callback) {
 }
 
 // =========================
-// Buscar por ID
+// Buscar Banner por ID
 // =========================
 
 function buscarPorId(id, callback) {
 
     const sql = `
         SELECT *
-        FROM Banner
+        FROM banner
         WHERE idBanner = ?
     `;
 
@@ -61,17 +78,39 @@ function buscarPorId(id, callback) {
 function atualizar(id, banner, callback) {
 
     const sql = `
-        UPDATE Banner
+        UPDATE banner
         SET
-
-            imagem = ?,
+            titulo = ?,
+            descricao = ?,
+            arquivo = ?,
+            tipo_arquivo = ?,
+            link = ?,
             data_inicio = ?,
             data_final = ?,
             status_visibilidade = ?,
-            loja_idLoja = ?,
+            loja_idLoja = ?
         WHERE idBanner = ?
     `;
+
+    conexao.query(
+        sql,
+        [
+            banner.titulo,
+            banner.descricao,
+            banner.arquivo,
+            banner.tipo_arquivo,
+            banner.link,
+            banner.data_inicio,
+            banner.data_final,
+            banner.status_visibilidade,
+            banner.loja_idLoja,
+            id
+        ],
+        callback
+    );
+
 }
+
 // =========================
 // Excluir Banner
 // =========================
@@ -79,7 +118,25 @@ function atualizar(id, banner, callback) {
 function excluir(id, callback) {
 
     const sql = `
-        DELETE FROM Banner
+        DELETE FROM banner
+        WHERE idBanner = ?
+    `;
+
+    conexao.query(sql, [id], callback);
+
+}
+
+// =========================
+// Buscar Arquivo do Banner
+// =========================
+
+function buscarArquivo(id, callback) {
+
+    const sql = `
+        SELECT
+            arquivo,
+            tipo_arquivo
+        FROM banner
         WHERE idBanner = ?
     `;
 
@@ -92,6 +149,7 @@ module.exports = {
     cadastrar,
     listar,
     buscarPorId,
+    buscarArquivo,
     atualizar,
     excluir
 
