@@ -1,33 +1,103 @@
 //==========================================
-// IMPORTA O EXPRESS
+// ROTAS DE MARCA
 //==========================================
+//
+// POST /marcas
+// Cadastrar uma nova marca.
+//
+// GET /marcas
+// Listar todas as marcas.
+//
+// GET /marcas/:id
+// Buscar uma marca pelo ID.
+//
+// PUT /marcas/:id
+// Atualizar uma marca.
+//
+// DELETE /marcas/:id
+// Excluir uma marca.
+//
+
 
 const express = require("express");
 
 const router = express.Router();
 
-//==========================================
-// IMPORTA O CONTROLLER
-//==========================================
 
-const marcaController = require("../controller/marca_controller");
+// Importa Controller
 
-//==========================================
-// ROTAS
-//==========================================
+const MarcaController = require("../controller/marca_controller.js");
 
-router.post("/", marcaController.cadastrar);
 
-router.get("/", marcaController.listar);
-
-router.get("/:id", marcaController.buscarPorId);
-
-router.put("/:id", marcaController.atualizar);
-
-router.delete("/:id", marcaController.excluir);
 
 //==========================================
-// EXPORTAÇÃO
+// CADASTRAR MARCA
 //==========================================
+
+router.post(
+
+    "/",
+
+    MarcaController.cadastrar
+
+);
+
+
+
+//==========================================
+// LISTAR MARCAS
+//==========================================
+
+router.get(
+
+    "/",
+
+    MarcaController.listar
+
+);
+
+
+
+//==========================================
+// BUSCAR MARCA POR ID
+//==========================================
+
+router.get(
+
+    "/:id",
+
+    MarcaController.buscarPorId
+
+);
+
+
+
+//==========================================
+// ATUALIZAR MARCA
+//==========================================
+
+router.put(
+
+    "/:id",
+
+    MarcaController.atualizar
+
+);
+
+
+
+//==========================================
+// EXCLUIR MARCA
+//==========================================
+
+router.delete(
+
+    "/:id",
+
+    MarcaController.excluir
+
+);
+
+
 
 module.exports = router;

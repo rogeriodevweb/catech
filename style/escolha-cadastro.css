@@ -27,6 +27,7 @@ body{
 }
 
 
+
 /* ========================================= */
 /* CONTAINER PRINCIPAL */
 /* ========================================= */
@@ -42,6 +43,7 @@ body{
 }
 
 
+
 /* LOGO */
 
 .logo{
@@ -54,7 +56,9 @@ body{
 
 
 
+/* ========================================= */
 /* TÍTULOS */
+/* ========================================= */
 
 h1{
 
@@ -116,7 +120,11 @@ h1{
 
     justify-content:center;
 
-    transition:.3s;
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border .3s ease,
+        box-shadow .3s ease;
 
 }
 
@@ -128,17 +136,9 @@ h1{
 
     border-color:#2563eb;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    background:#1e3a8a;
 
-}
-
-
-
-/* CARD LOJISTA DESTAQUE */
-
-.card.lojista{
-
-    border:2px solid #2563eb;
+    box-shadow:0 15px 35px rgba(37,99,235,.35);
 
 }
 
@@ -171,6 +171,7 @@ h1{
     margin-bottom:18px;
 
 }
+
 
 
 .card p{
@@ -218,18 +219,22 @@ h1{
 
 
 
+/* ========================================= */
 /* BOTÃO LOJISTA */
+/* ========================================= */
+
 
 .lojista a{
 
-    background:#16a34a;
+    background:#2563eb;
 
 }
 
 
+
 .lojista a:hover{
 
-    background:#15803d;
+    background:#1d4ed8;
 
 }
 
@@ -260,4 +265,3 @@ h1{
 
 
 }
-

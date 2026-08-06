@@ -476,3 +476,123 @@ input[type="file"]{
     }
 
 }
+
+.linha-categoria{
+
+    display:flex;
+    gap:10px;
+    align-items:center;
+
+}
+
+.btn-categoria{
+
+    height:48px;
+
+    padding:0 22px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-categoria:hover{
+
+    background:#1d4ed8;
+
+}
+
+/*==========================================
+CADASTRAR MARCA
+==========================================*/
+
+.cadastro-marca{
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:center;
+
+}
+
+.cadastro-marca input{
+
+    flex:1;
+
+    height:48px;
+
+    padding:0 15px;
+
+    border:1px solid #334155;
+
+    border-radius:10px;
+
+    background:#0f172a;
+
+    color:#fff;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.cadastro-marca input::placeholder{
+
+    color:#94a3b8;
+
+}
+
+.cadastro-marca input:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.2);
+
+}
+
+.cadastro-marca button{
+
+    height:48px;
+
+    padding:0 22px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.cadastro-marca button:hover{
+
+    background:#1d4ed8;
+
+}

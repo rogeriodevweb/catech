@@ -1,27 +1,38 @@
 const conexao = require("../conexao/conexao.js");
 
+
 // =========================
 // Cadastrar Marca
 // =========================
 
-function cadastrar(marca, callback) {
+function cadastrar(Marca, callback) {
+
 
     const sql = `
         INSERT INTO Marca
-        (nome, logo_marca)
-        VALUES (?, ?)
+        (
+            nome
+        )
+        VALUES (?)
     `;
 
+
     conexao.query(
+
         sql,
+
         [
-            marca.nome,
-            marca.logo_marca
+            Marca.nome
         ],
+
         callback
+
     );
 
+
 }
+
+
 
 // =========================
 // Listar Marcas
@@ -29,14 +40,25 @@ function cadastrar(marca, callback) {
 
 function listar(callback) {
 
+
     const sql = `
-        SELECT *
+        SELECT * 
         FROM Marca
     `;
 
-    conexao.query(sql, callback);
+
+    conexao.query(
+
+        sql,
+
+        callback
+
+    );
+
 
 }
+
+
 
 // =========================
 // Buscar por ID
@@ -44,41 +66,69 @@ function listar(callback) {
 
 function buscarPorId(id, callback) {
 
+
     const sql = `
         SELECT *
         FROM Marca
         WHERE idMarca = ?
     `;
 
-    conexao.query(sql, [id], callback);
+
+    conexao.query(
+
+        sql,
+
+        [
+            id
+        ],
+
+        callback
+
+    );
+
 
 }
+
+
 
 // =========================
 // Atualizar Marca
 // =========================
 
-function atualizar(id, marca, callback) {
+function atualizar(id, Marca, callback) {
+
 
     const sql = `
         UPDATE Marca
+
         SET
-            nome = ?,
-            logo_marca = ?
+
+            nome = ?
+
         WHERE idMarca = ?
     `;
 
+
     conexao.query(
+
         sql,
+
         [
-            marca.nome,
-            marca.logo_marca,
+
+            Marca.nome,
+
             id
+
         ],
+
         callback
+
     );
 
+
 }
+
+
 
 // =========================
 // Excluir Marca
@@ -86,21 +136,45 @@ function atualizar(id, marca, callback) {
 
 function excluir(id, callback) {
 
+
     const sql = `
         DELETE FROM Marca
+
         WHERE idMarca = ?
     `;
 
-    conexao.query(sql, [id], callback);
+
+    conexao.query(
+
+        sql,
+
+        [
+
+            id
+
+        ],
+
+        callback
+
+    );
+
 
 }
 
+
+
 module.exports = {
 
+
     cadastrar,
+
     listar,
+
     buscarPorId,
+
     atualizar,
+
     excluir
+
 
 };

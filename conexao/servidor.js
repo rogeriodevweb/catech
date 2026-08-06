@@ -116,15 +116,26 @@ app.use("/frete", freteRotas);
 //==========================================
 // IMAGEM PRODUTO
 //==========================================
-const imagemProdutoRotas = require("../routes/imagem_produto_rotas");
-app.use("/imagem-produto", imagemProdutoRotas);
 
+const imagemProdutoRotas = require("../routes/imagem_produto_rotas");
+
+app.use(
+    "/imagem-produto",
+    imagemProdutoRotas
+);
 //==========================================
 // MARCA
 //==========================================
-const marcaRotas = require("../routes/marca_rotas");
-app.use("/marca", marcaRotas);
 
+const marcaRotas = require("../routes/marca_rotas");
+
+app.use(
+
+    "/marcas",
+
+    marcaRotas
+
+);
 //==========================================
 // PEDIDOS
 //==========================================
@@ -140,9 +151,13 @@ app.use("/pedidos-has-produto", pedidosHasProdutoRotas);
 //==========================================
 // PRODUTO
 //==========================================
-const produtoRotas = require("../routes/produto_rotas");
-app.use("/produto", produtoRotas);
 
+const produtoRotas = require("../routes/produto_rotas");
+
+app.use(
+    "/produto",
+    produtoRotas
+);
 //==========================================
 // PRODUTO HAS CARRINHO
 //==========================================

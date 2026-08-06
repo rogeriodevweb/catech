@@ -4,79 +4,43 @@ CREATE DATABASE CATech;
 -- inicalizar banco de dados
 USE CATech;
 
+SHOW TABLES;
 
 -- criar tabelas que nao tem chave estrangeira
 CREATE TABLE Lojista (
 
     idLojista INT PRIMARY KEY AUTO_INCREMENT,
 
-
-    -- ==========================
-    -- DADOS DO RESPONSÁVEL
-    -- ==========================
-
-    nomeResponsavel VARCHAR(200) NOT NULL,
-
+    -- Dados do responsável
+    nome VARCHAR(200) NOT NULL,
     cpf VARCHAR(14) NOT NULL UNIQUE,
-
     telefone VARCHAR(20),
-
     nascimento DATE,
 
+    -- Dados de acesso
     email VARCHAR(120) NOT NULL UNIQUE,
-
     senha VARCHAR(255) NOT NULL,
 
-
-
-    -- ==========================
-    -- DADOS DA LOJA
-    -- ==========================
-
+    -- Dados da loja
     nomeLoja VARCHAR(200) NOT NULL,
-
-    cnpj VARCHAR(18) NOT NULL UNIQUE,
-
+    cnpj VARCHAR(18) UNIQUE,
     nomeFantasia VARCHAR(200),
-
     descricao TEXT,
 
-
-
-    -- ==========================
-    -- ENDEREÇO COMERCIAL
-    -- ==========================
-
+    -- Endereço comercial
     cep VARCHAR(10),
-
     estado VARCHAR(50),
-
     cidade VARCHAR(100),
-
     bairro VARCHAR(100),
-
     endereco VARCHAR(200),
 
-
-
-    -- ==========================
-    -- REDES DA LOJA
-    -- ==========================
-
+    -- Contatos da loja
     instagram VARCHAR(100),
-
     whatsapp VARCHAR(20),
 
-
-
-    -- ==========================
-    -- CONTROLE
-    -- ==========================
-
-    status VARCHAR(20) DEFAULT 'Pendente',
-
+    -- Controle do cadastro
+    ativo BOOLEAN DEFAULT FALSE,
     dataCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-
 
 );
 
@@ -123,18 +87,30 @@ codigo_cor VARCHAR(20)
 
 -- CRIAR TABELAS COM CHAVE ESTRANGEIRA FK
 CREATE TABLE Loja(
-idLoja INT PRIMARY KEY auto_increment,
-nome VARCHAR(200) NOT NULL,
-whatsapp VARCHAR(50),
-instagram VARCHAR(50),
-facebook VARCHAR(50),
-linkedin VARCHAR(50),
-telefone VARCHAR(120) NOT NULL,
-email VARCHAR(120) NOT NULL,
-Endereco_idEndereco INT,
-Lojista_idLojista INT,
-FOREIGN KEY (Endereco_idEndereco) REFERENCES Endereco (idEndereco),
-FOREIGN KEY (Lojista_idLojista) REFERENCES Lojista (idLojista)
+
+    idLoja INT PRIMARY KEY AUTO_INCREMENT,
+
+    nome VARCHAR(200) NOT NULL,
+
+    whatsapp VARCHAR(50),
+
+    instagram VARCHAR(50),
+
+    facebook VARCHAR(50),
+
+    linkedin VARCHAR(50),
+
+    telefone VARCHAR(120) NOT NULL,
+
+    email VARCHAR(120) NOT NULL,
+
+    Endereco_idEndereco INT,
+
+
+    FOREIGN KEY (Endereco_idEndereco)
+
+    REFERENCES Endereco(idEndereco)
+
 );
 
 CREATE TABLE Cliente(
@@ -149,21 +125,30 @@ loja_idLoja INT,
 FOREIGN KEY (Loja_idLoja) REFERENCES Loja (idLoja)
 );
 
-CREATE TABLE PRODUTO(
-idproduto INT PRIMARY KEY auto_increment,
-nome VARCHAR(100) NOT NULL,
-descricao TEXT(1000) not null,
-codigo VARCHAR(45) not null,
-preco_antigo FLOAT not null,
-preco_promocional FLOAT,
-quantidade_estoque INT not null,
-ativo BOOLEAN,
-loja_idLoja INT,
-FOREIGN KEY (Loja_idLoja) REFERENCES Loja (idLoja),
-marca_idMarca int,
-FOREIGN KEY (Marca_idMarca) references marca (idMarca),
-categorias_idCategorias int,
-FOREIGN KEY (Categorias_idCategorias) references Categoria (idCategoria)
+CREATE TABLE Produto(
+
+    idProduto INT PRIMARY KEY AUTO_INCREMENT,
+
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT NOT NULL,
+    codigo VARCHAR(45) NOT NULL UNIQUE,
+    preco_antigo DECIMAL(10,2) NOT NULL,
+    preco_promocional DECIMAL(10,2),
+    quantidade_estoque INT NOT NULL DEFAULT 0,
+    ativo BOOLEAN DEFAULT TRUE,
+    loja_idLoja INT NOT NULL,
+    marca_idMarca INT NOT NULL,
+    categorias_idCategorias INT NOT NULL,
+
+    FOREIGN KEY (loja_idLoja) 
+    REFERENCES Loja(idLoja),
+
+    FOREIGN KEY (marca_idMarca) 
+    REFERENCES Marca(idMarca),
+
+    FOREIGN KEY (categorias_idCategorias) 
+    REFERENCES Categoria(idCategoria)
+
 );
 
 CREATE TABLE Carrinho(
@@ -183,11 +168,16 @@ produto_idProduto int,
 FOREIGN KEY (produto_idProduto) references produto (idProduto)
 );
 
-CREATE TABLE imagem_produto(
-idImagem_produto INT primary key auto_increment,
-arquivo LONGBLOB NOT NULL,
-produto_idProduto int,
-FOREIGN KEY (produto_idProduto) references produto (idProduto)
+CREATE TABLE midia_produto(
+    idMidia_produto INT PRIMARY KEY AUTO_INCREMENT,
+    arquivo LONGBLOB NOT NULL,
+    tipo_arquivo VARCHAR(50) NOT NULL,
+    tipo_midia ENUM('imagem','video') DEFAULT 'imagem',
+    principal BOOLEAN DEFAULT FALSE,
+    produto_idProduto INT NOT NULL,
+    FOREIGN KEY (produto_idProduto) 
+    REFERENCES Produto(idProduto)
+
 );
 
 CREATE TABLE banner (
@@ -500,6 +490,30 @@ INSERT INTO Marca (nome) VALUES
 ('SMS'),
 ('APC'),
 ('Intelbras');
+
+INSERT INTO Lojista
+(
+    nomeResponsavel,
+    cpf,
+    cnpj,
+    telefone,
+    nascimento,
+    email,
+    senha,
+    nomeLoja
+)
+VALUES
+(
+    'Maria Oliveira',
+    '12345678900',
+    '12345678000199',
+    '63999999999',
+    '1995-08-20',
+    'maria@catech.com',
+    '123456',
+    'CA Tech Eletrônicos'
+);
+
 
 
 
