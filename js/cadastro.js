@@ -36,7 +36,7 @@ document.getElementById("btn-criar-conta").addEventListener("click", async () =>
     const email = document.getElementById("email").value.trim().toLowerCase();
     const senha = document.getElementById("senha").value;
     const confirmarSenha = document.getElementById("confirmarSenha").value;
-    const dataNascimento = document.getElementById("dataNascimento").value;
+    const dataNascimento = document.getElementById("data_nascimento").value;
 
     // ===============================
     // CAMPOS OBRIGATÓRIOS
@@ -49,7 +49,7 @@ document.getElementById("btn-criar-conta").addEventListener("click", async () =>
         !email ||
         !senha ||
         !confirmarSenha ||
-        !dataNascimento
+        !data_nascimento
     ) {
 
         alert("Preencha todos os campos.");
@@ -115,7 +115,7 @@ document.getElementById("btn-criar-conta").addEventListener("click", async () =>
     // ===============================
 
     const hoje = new Date();
-    const nascimento = new Date(dataNascimento);
+    const nascimento = new Date(data_nascimento);
 
     let idade = hoje.getFullYear() - nascimento.getFullYear();
 
@@ -162,7 +162,7 @@ document.getElementById("btn-criar-conta").addEventListener("click", async () =>
         telefone: telefone.replace(/\D/g, ""),
         email: email,
         senha: senha,
-        data_nascimento: dataNascimento,
+        data_nascimento: data_nascimento,
         loja_idLoja: 1
 
     };

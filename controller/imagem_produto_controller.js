@@ -1,175 +1,347 @@
-const imagemProdutoModel = require("../model/imagem_produto_model");
+//==========================================
+// IMPORTA O MODEL
+//==========================================
+
+const imagemProdutoModel = require("../model/imagem_produto_model.js");
+
 
 //==========================================
-// CADASTRAR IMAGEM
+// CADASTRAR MÍDIA
 //==========================================
 
 function cadastrar(req, res) {
 
-    const imagem = req.body;
+    //==========================================
+    // VERIFICAR ARQUIVO
+    //==========================================
 
-    if (
-        !imagem.arquivo ||
-        !imagem.produto_idProduto
-    ) {
+    if (!req.file) {
 
         return res.status(400).json({
+
             sucesso: false,
-            mensagem: "Preencha todos os campos."
+
+            mensagem: "Selecione uma imagem ou vídeo."
+
         });
 
     }
 
-    imagemProdutoModel.cadastrar(imagem, (erro, resultado) => {
 
-        if (erro) {
+    //==========================================
+    // DADOS DA MÍDIA
+    //==========================================
 
-            console.log(erro);
+    const midia = {
 
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao cadastrar imagem."
+        arquivo: req.file.buffer,
+
+        tipo_arquivo: req.file.mimetype,
+
+        tipo_midia:
+            req.file.mimetype.startsWith("video/")
+                ? "video"
+                : "imagem",
+
+        principal:
+            req.body.principal === "true" ||
+            req.body.principal === true ||
+            req.body.principal == 1,
+
+        produto_idProduto:
+            req.body.produto_idProduto
+
+    };
+
+
+    //==========================================
+    // VALIDAÇÃO
+    //==========================================
+
+    if (!midia.produto_idProduto) {
+
+        return res.status(400).json({
+
+            sucesso: false,
+
+            mensagem: "Informe o produto da mídia."
+
+        });
+
+    }
+
+
+    //==========================================
+    // CADASTRAR NO MODEL
+    //==========================================
+
+    imagemProdutoModel.cadastrar(
+
+        midia,
+
+        (erro, resultado) => {
+
+            if (erro) {
+
+                console.log(erro);
+
+                return res.status(500).json({
+
+                    sucesso: false,
+
+                    mensagem: "Erro ao cadastrar mídia."
+
+                });
+
+            }
+
+
+            return res.status(201).json({
+
+                sucesso: true,
+
+                mensagem: "Mídia cadastrada com sucesso!",
+
+                idMidia_produto: resultado.insertId
+
             });
 
         }
 
-        res.status(201).json({
-
-            sucesso: true,
-            mensagem: "Imagem cadastrada com sucesso!",
-            idImagem: resultado.insertId
-
-        });
-
-    });
+    );
 
 }
 
+
 //==========================================
-// LISTAR
+// LISTAR MÍDIAS
 //==========================================
 
 function listar(req, res) {
 
-    imagemProdutoModel.listar((erro, resultado) => {
+    imagemProdutoModel.listar(
 
-        if (erro) {
+        (erro, resultado) => {
 
-            console.log(erro);
+            if (erro) {
 
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao listar imagens."
-            });
+                console.log(erro);
+
+                return res.status(500).json({
+
+                    sucesso: false,
+
+                    mensagem: "Erro ao listar mídias."
+
+                });
+
+            }
+
+
+            res.json(resultado);
 
         }
 
-        res.json(resultado);
-
-    });
+    );
 
 }
 
+
 //==========================================
-// BUSCAR POR ID
+// BUSCAR MÍDIA POR ID
 //==========================================
 
 function buscarPorId(req, res) {
 
-    const id = req.params.id;
 
-    imagemProdutoModel.buscarPorId(id, (erro, resultado) => {
+    const idMidia_produto =
+        req.params.idMidia_produto;
 
-        if (erro) {
 
-            console.log(erro);
 
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao buscar imagem."
-            });
+    imagemProdutoModel.buscarPorId(
+
+        idMidia_produto,
+
+        (erro, resultado) => {
+
+
+            if (erro) {
+
+
+                console.log(erro);
+
+
+                return res.status(500).json({
+
+                    sucesso: false,
+
+                    mensagem: "Erro ao buscar mídia."
+
+                });
+
+
+            }
+
+
+
+            if (resultado.length === 0) {
+
+
+                return res.status(404).json({
+
+                    sucesso: false,
+
+                    mensagem: "Mídia não encontrada."
+
+                });
+
+
+            }
+
+
+
+            res.json(resultado[0]);
+
 
         }
 
-        if (resultado.length === 0) {
+    );
 
-            return res.status(404).json({
-                sucesso: false,
-                mensagem: "Imagem não encontrada."
-            });
-
-        }
-
-        res.json(resultado[0]);
-
-    });
 
 }
 
+
 //==========================================
-// ATUALIZAR
+// ATUALIZAR MÍDIA
 //==========================================
 
 function atualizar(req, res) {
 
-    const id = req.params.id;
-    const imagem = req.body;
+    const idMidia_produto = req.params.id;
 
-    imagemProdutoModel.atualizar(id, imagem, (erro) => {
 
-        if (erro) {
+    const midia = {
 
-            console.log(erro);
+        produto_idProduto:
+            req.body.produto_idProduto,
 
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao atualizar imagem."
+        principal:
+            req.body.principal === "true" ||
+            req.body.principal === true ||
+            req.body.principal == 1
+
+    };
+
+
+    //==========================================
+    // SE ENVIOU UM NOVO ARQUIVO
+    //==========================================
+
+    if (req.file) {
+
+        midia.arquivo = req.file.buffer;
+
+        midia.tipo_arquivo = req.file.mimetype;
+
+        midia.tipo_midia =
+            req.file.mimetype.startsWith("video/")
+                ? "video"
+                : "imagem";
+
+    }
+
+
+    //==========================================
+    // ATUALIZAR NO MODEL
+    //==========================================
+
+    imagemProdutoModel.atualizar(
+
+        idMidia_produto,
+
+        midia,
+
+        (erro) => {
+
+            if (erro) {
+
+                console.log(erro);
+
+                return res.status(500).json({
+
+                    sucesso: false,
+
+                    mensagem: "Erro ao atualizar mídia."
+
+                });
+
+            }
+
+
+            res.json({
+
+                sucesso: true,
+
+                mensagem: "Mídia atualizada com sucesso."
+
             });
 
         }
 
-        res.json({
-
-            sucesso: true,
-            mensagem: "Imagem atualizada com sucesso."
-
-        });
-
-    });
+    );
 
 }
 
+
 //==========================================
-// EXCLUIR
+// EXCLUIR MÍDIA
 //==========================================
 
 function excluir(req, res) {
 
-    const id = req.params.id;
+    const idMidia_produto = req.params.id;
 
-    imagemProdutoModel.excluir(id, (erro) => {
 
-        if (erro) {
+    imagemProdutoModel.excluir(
 
-            console.log(erro);
+        idMidia_produto,
 
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao excluir imagem."
+        (erro) => {
+
+            if (erro) {
+
+                console.log(erro);
+
+                return res.status(500).json({
+
+                    sucesso: false,
+
+                    mensagem: "Erro ao excluir mídia."
+
+                });
+
+            }
+
+
+            res.json({
+
+                sucesso: true,
+
+                mensagem: "Mídia excluída com sucesso."
+
             });
 
         }
 
-        res.json({
-
-            sucesso: true,
-            mensagem: "Imagem excluída com sucesso."
-
-        });
-
-    });
+    );
 
 }
+
+
+//==========================================
+// EXPORTAÇÃO
+//==========================================
 
 module.exports = {
 

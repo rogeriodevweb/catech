@@ -1,598 +1,476 @@
-/*====================================
-=            RESET
-====================================*/
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Ubuntu",sans-serif;
+/* ========================================= */
+/* CONFIGURAÇÕES GERAIS */
+/* ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
 
-    background:#0f172a;
-    color:#fff;
-    min-height:100vh;
-
+body {
+    font-family: "Ubuntu", Arial, sans-serif;
+    background: #0f172a;
+    color: #ffffff;
+    min-height: 100vh;
 }
 
-/*====================================
-=          ÁREA DE CONTEÚDO
-====================================*/
 
-.conteudo{
+/* ========================================= */
+/* CONTEÚDO */
+/* ========================================= */
 
-    margin-left:260px;
-
-    padding:35px 40px 60px;
-
-    min-height:100vh;
-
+.conteudo {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 30px 60px;
 }
 
-/*====================================
-=          BOTÃO VOLTAR
-====================================*/
 
-.area-voltar{
+/* ========================================= */
+/* TÍTULO */
+/* ========================================= */
 
-    margin-top:25px;
-
-    margin-left:25px;
-
-    margin-bottom:30px;
-
+.conteudo h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #ffffff;
 }
 
-.btn-voltar{
 
-    display:inline-flex;
+/* ========================================= */
+/* FORMULÁRIO */
+/* ========================================= */
 
-    align-items:center;
-
-    gap:10px;
-
-    background:#101827;
-
-    border:1px solid #334155;
-
-    color:#fff;
-
-    padding:14px 24px;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    transition:.3s;
-
+#form-produto {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
-.btn-voltar:hover{
 
-    background:#2563eb;
+/* ========================================= */
+/* CARDS */
+/* ========================================= */
 
-    border-color:#2563eb;
-
+.card {
+    background: #101827;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20);
 }
 
-/*====================================
-=      CONTAINER PRINCIPAL
-====================================*/
 
-.cadastraproduto{
-
-    width:100%;
-
-    background:#101827;
-
-    border:1px solid #1f2937;
-
-    border-radius:18px;
-
-    padding:40px;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.25);
-
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 24px;
+    color: #ffffff;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #1f2937;
 }
 
-/*====================================
-=            CABEÇALHO
-====================================*/
 
-.topo-cadastraproduto{
+/* ========================================= */
+/* LABELS */
+/* ========================================= */
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:20px;
-
-    padding-bottom:30px;
-
-    margin-bottom:35px;
-
-    border-bottom:1px solid #1f2937;
-
+.card label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-top: 18px;
+    margin-bottom: 8px;
 }
 
-.topo-cadastraproduto h1{
 
-    font-size:34px;
-
-    font-weight:700;
-
+.card label:first-of-type {
+    margin-top: 0;
 }
 
-.topo-cadastraproduto p{
 
-    margin-top:8px;
+/* ========================================= */
+/* INPUTS */
+/* ========================================= */
 
-    color:#94a3b8;
-
-    font-size:15px;
-
-    line-height:24px;
-
+.card input,
+.card select,
+.card textarea {
+    width: 100%;
+    background: #0f172a;
+    color: #ffffff;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 13px 14px;
+    font-family: "Ubuntu", Arial, sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s ease;
 }
 
-/*====================================
-=             SEÇÕES
-====================================*/
 
-.secao{
+/* ========================================= */
+/* INPUT FOCUS */
+/* ========================================= */
 
-    background:#0f172a;
-
-    border:1px solid #1f2937;
-
-    border-radius:16px;
-
-    padding:30px;
-
-    margin-bottom:28px;
-
+.card input:focus,
+.card select:focus,
+.card textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
 }
 
-.secao h2{
 
-    font-size:22px;
+/* ========================================= */
+/* PLACEHOLDER */
+/* ========================================= */
 
-    margin-bottom:25px;
-
-    color:#fff;
-
+.card input::placeholder,
+.card textarea::placeholder {
+    color: #64748b;
 }
 
-/*====================================
-=             CAMPOS
-====================================*/
 
-.linha{
+/* ========================================= */
+/* TEXTAREA */
+/* ========================================= */
 
-    display:flex;
-
-    gap:25px;
-
-    margin-bottom:10px;
-
+.card textarea {
+    min-height: 130px;
+    resize: vertical;
 }
 
-.campo{
 
-    flex:1;
+/* ========================================= */
+/* SELECT */
+/* ========================================= */
 
-    display:flex;
-
-    flex-direction:column;
-
-    margin-bottom:22px;
-
+.card select {
+    cursor: pointer;
 }
 
-.campo label{
 
-    color:#cbd5e1;
-
-    font-size:15px;
-
-    font-weight:500;
-
-    margin-bottom:10px;
-
+.card select option {
+    background: #101827;
+    color: #ffffff;
 }
 
-.campo input,
-.campo select,
-.campo textarea{
 
-    width:100%;
+/* ========================================= */
+/* CAMPO DE CADASTRO */
+/* INPUT + BOTÃO SALVAR */
+/* ========================================= */
 
-    background:#101827;
-
-    color:#fff;
-
-    border:1px solid #334155;
-
-    border-radius:12px;
-
-    padding:16px;
-
-    font-size:15px;
-
-    outline:none;
-
-    transition:.3s;
-
+.campo-cadastro {
+    display: flex;
+    width: 100%;
+    gap: 10px;
 }
 
-.campo textarea{
 
-    min-height:150px;
-
-    resize:vertical;
-
+.campo-cadastro input {
+    flex: 1;
 }
 
-.campo input::placeholder,
-.campo textarea::placeholder{
 
-    color:#64748b;
-
+.campo-cadastro button {
+    width: 90px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    font-family: "Ubuntu", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
-.campo input:focus,
-.campo select:focus,
-.campo textarea:focus{
 
-    border-color:#2563eb;
-
-    box-shadow:0 0 0 4px rgba(37,99,235,.15);
-
+.campo-cadastro button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
 }
 
-/*====================================
-=          ÁREA DE UPLOAD
-====================================*/
 
-.upload{
-
-    border:2px dashed #334155;
-
-    border-radius:16px;
-
-    padding:45px;
-
-    text-align:center;
-
-    color:#94a3b8;
-
-    background:#101827;
-
-    transition:.3s;
-
+.campo-cadastro button:active {
+    transform: translateY(0);
 }
 
-.upload:hover{
 
-    border-color:#2563eb;
+/* ========================================= */
+/* INPUT DE ARQUIVO */
+/* ========================================= */
 
-    background:#111c33;
-
+#midiasProduto {
+    padding: 10px;
+    cursor: pointer;
 }
 
-.upload p{
 
-    margin-top:10px;
-
-    font-size:15px;
-
+#midiasProduto::file-selector-button {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 14px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-family: "Ubuntu", Arial, sans-serif;
+    font-weight: 600;
 }
 
-input[type="file"]{
 
-    margin-top:20px;
-
-    color:#fff;
-
+#midiasProduto::file-selector-button:hover {
+    background: #1d4ed8;
 }
 
-/*====================================
-=             BOTÕES
-====================================*/
 
-.botoes{
+/* ========================================= */
+/* TEXTO DAS IMAGENS */
+/* ========================================= */
 
-    display:flex;
-
-    justify-content:flex-end;
-
-    align-items:center;
-
-    gap:15px;
-
-    margin-top:35px;
-
+.card small {
+    display: block;
+    margin-top: 10px;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.5;
 }
 
-.btn-cancelar{
 
-    display:flex;
+/* ========================================= */
+/* PRÉVIA DAS IMAGENS */
+/* ========================================= */
 
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
-    background:transparent;
-
-    color:#fff;
-
-    border:1px solid #475569;
-
-    padding:14px 26px;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    transition:.3s;
-
+#preview-imagens {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
 }
 
-.btn-cancelar:hover{
 
-    background:#334155;
+/* ========================================= */
+/* CARD DA IMAGEM */
+/* ========================================= */
 
+.preview-imagem {
+    position: relative;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: hidden;
 }
 
-.btn-salvar{
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
-    background:#2563eb;
-
-    color:#fff;
-
-    border:none;
-
-    padding:14px 28px;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    transition:.3s;
-
+.preview-imagem img {
+    display: block;
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 7px;
 }
 
-.btn-salvar:hover{
 
-    background:#1d4ed8;
+/* ========================================= */
+/* IMAGEM PRINCIPAL */
+/* ========================================= */
 
-    transform:translateY(-2px);
-
+.preview-imagem.principal {
+    border: 2px solid #2563eb;
 }
 
-/*====================================
-=           RESPONSIVO
-====================================*/
 
-@media(max-width:1100px){
+.preview-imagem .principal-label {
+    display: block;
+    margin-top: 8px;
+    text-align: center;
+    color: #60a5fa;
+    font-size: 12px;
+    font-weight: 600;
+}
 
-    .conteudo{
 
-        margin-left:0;
+/* ========================================= */
+/* BOTÃO DE IMAGEM PRINCIPAL */
+/* ========================================= */
 
-        padding:25px;
+.btn-principal {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    background: #1f2937;
+    color: #cbd5e1;
+    font-family: "Ubuntu", Arial, sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
 
+
+.btn-principal:hover {
+    background: #334155;
+    color: #ffffff;
+}
+
+
+/* ========================================= */
+/* INFORMAÇÕES DA LOJA */
+/* ========================================= */
+
+#loja_idLoja {
+    max-width: 400px;
+}
+
+
+/* ========================================= */
+/* AÇÕES */
+/* ========================================= */
+
+.acoes {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    margin-top: 5px;
+}
+
+
+/* ========================================= */
+/* BOTÕES GERAIS */
+/* ========================================= */
+
+.acoes button {
+    border: none;
+    border-radius: 8px;
+    padding: 13px 22px;
+    font-family: "Ubuntu", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+
+/* ========================================= */
+/* BOTÃO STATUS */
+/* ========================================= */
+
+#btn-status {
+    background: #334155;
+    color: #ffffff;
+}
+
+
+#btn-status:hover {
+    background: #475569;
+}
+
+
+/* ========================================= */
+/* BOTÃO SALVAR PRODUTO */
+/* ========================================= */
+
+#btn-salvar {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+
+#btn-salvar:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+#btn-salvar:active {
+    transform: translateY(0);
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE */
+/* ========================================= */
+
+@media (max-width: 700px) {
+
+    .conteudo {
+        padding: 25px 16px 40px;
+    }
+
+
+    .conteudo h1 {
+        font-size: 26px;
+    }
+
+
+    .card {
+        padding: 20px;
+    }
+
+
+    .campo-cadastro {
+        flex-direction: column;
+    }
+
+
+    .campo-cadastro button {
+        width: 100%;
+        min-height: 44px;
+    }
+
+
+    .acoes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+
+    .acoes button {
+        width: 100%;
+    }
+
+
+    #loja_idLoja {
+        max-width: 100%;
+    }
+
+
+    #preview-imagens {
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
 
-@media(max-width:900px){
 
-    .linha{
+/* ========================================= */
+/* TELAS MUITO PEQUENAS */
+/* ========================================= */
 
-        flex-direction:column;
+@media (max-width: 400px) {
 
-        gap:0;
-
+    .conteudo {
+        padding: 20px 12px 30px;
     }
 
-    .topo-cadastraproduto{
 
-        flex-direction:column;
-
-        align-items:flex-start;
-
+    .card {
+        padding: 16px;
     }
 
-    .botoes{
 
-        flex-direction:column;
-
-    }
-
-    .btn-cancelar,
-    .btn-salvar{
-
-        width:100%;
-
-    }
-
-    .cadastraproduto{
-
-        padding:25px;
-
+    #preview-imagens {
+        grid-template-columns: 1fr;
     }
 
 }
 
-@media(max-width:600px){
-
-    .conteudo{
-
-        padding:15px;
-
-    }
-
-    .cadastraproduto{
-
-        padding:20px;
-
-    }
-
-    .topo-cadastraproduto h1{
-
-        font-size:28px;
-
-    }
-
-    .secao{
-
-        padding:20px;
-
-    }
-
-}
-
-.linha-categoria{
-
-    display:flex;
-    gap:10px;
-    align-items:center;
-
-}
-
-.btn-categoria{
-
-    height:48px;
-
-    padding:0 22px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#2563eb;
-
-    color:#fff;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.btn-categoria:hover{
-
-    background:#1d4ed8;
-
-}
-
-/*==========================================
-CADASTRAR MARCA
-==========================================*/
-
-.cadastro-marca{
-
-    display:flex;
-
-    gap:12px;
-
-    align-items:center;
-
-}
-
-.cadastro-marca input{
-
-    flex:1;
-
-    height:48px;
-
-    padding:0 15px;
-
-    border:1px solid #334155;
-
-    border-radius:10px;
-
-    background:#0f172a;
-
-    color:#fff;
-
-    font-size:15px;
-
-    outline:none;
-
-    transition:.3s;
-
-}
-
-.cadastro-marca input::placeholder{
-
-    color:#94a3b8;
-
-}
-
-.cadastro-marca input:focus{
-
-    border-color:#2563eb;
-
-    box-shadow:0 0 0 3px rgba(37,99,235,.2);
-
-}
-
-.cadastro-marca button{
-
-    height:48px;
-
-    padding:0 22px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#2563eb;
-
-    color:#fff;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.cadastro-marca button:hover{
-
-    background:#1d4ed8;
-
-}

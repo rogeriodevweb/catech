@@ -11,421 +11,277 @@
 
     <link rel="stylesheet" href="../style/cadastrar-produto.css">
 
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-
-     <!--imagem da logo pro navegador-->
-    <link rel="icon" type="image/png" href="../assets/logo-com-fundo.png">
-    
-
-
 </head>
-
 
 
 <body>
 
 
-
-    <!-- MENU LATERAL -->
-
-    <div class="sidebar">
-
-        <!-- menu do lojista -->
-
-    </div>
+  
+<!-- ========================================= -->
+<!-- CONTEÚDO -->
+<!-- ========================================= -->
 
 
+<main class="conteudo">
 
 
-
-    <!-- CONTEÚDO -->
-
-    <main class="conteudo">
-        
-        <div class="area-voltar">
-
-        <a href="/pages/home-lojista.html" class="btn-voltar">
-            ← Voltar
-        </a>
-
-    </div>
-
-
-        <section class="cadastraproduto">
+    <h1>Cadastrar Produto</h1>
 
 
 
-            <!-- TOPO -->
-
-            <header class="topo-cadastraproduto">
-
-
-                <div>
-
-                    <h1>
-                        Cadastrar Produto
-                    </h1>
-
-
-                    <p>
-                        Adicione um novo produto ao catálogo da sua loja.
-                    </p>
-
-
-                </div>
+    <form id="form-produto">
 
 
 
-
-            </header>
-
-
-
+        <!-- ========================================= -->
+        <!-- DADOS DO PRODUTO -->
+        <!-- ========================================= -->
 
 
-
-            <form 
-    id="formProduto"
-    enctype="multipart/form-data">
-
-    <!-- Campo oculto da loja -->
-    <input
-        type="hidden"
-        id="loja_idLoja"
-        name="loja_idLoja"
-        value="1">
-
-    <!-- INFORMAÇÕES BÁSICAS -->
-
-    <div class="secao">
+        <section class="card">
 
 
-        
+            <h2>Dados do Produto</h2>
 
-        <h2>
-            Informações do Produto
-        </h2>
 
-        <div class="campo">
 
-            <label>
+            <!-- ========================================= -->
+            <!-- NOME -->
+            <!-- ========================================= -->
+
+
+            <label for="nome">
                 Nome do Produto
             </label>
+
 
             <input
                 type="text"
                 id="nome"
-                name="nome"
-                placeholder="Ex: SSD Kingston 480GB">
-
-        </div>
-
-        <div class="linha">
-
-            <div class="campo">
-
-    <label>
-        Categoria
-    </label>
-
-    <select
-    id="categorias_idCategorias"
-    name="categorias_idCategorias">
-
-    <option value="">
-        Selecione uma categoria
-    </option>
-
-</select>
-</div>
-
-  <div class="campo">
-
-    <label>Marca</label>
-
-    <select
-    id="marca_idMarca"
-    name="marca_idMarca">
-
-    <option value="">
-        Selecione uma marca
-    </option>
-
-</select>
-
-</div>
-
-            </div>
-
-        </div>
-        <!-- CADASTRAR NOVA CATEGORIA -->
-<div class="campo">
-
-    <label>
-        Nova Categoria
-    </label>
-
-    <div class="linha-categoria">
-
-        <input
-            type="text"
-            id="novaCategoria"
-            placeholder="Digite o nome da categoria">
-
-        <button
-            type="button"
-            id="btnCategoria"
-            class="btn-categoria">
-
-            Cadastrar
-
-        </button>
-
-    </div>
-
-</div>
-
-<div class="campo">
-
-    <label>Nova Marca</label>
-
-    <div class="cadastro-marca">
-
-        <input
-            type="text"
-            id="novaMarca"
-            placeholder="Digite o nome da marca"
-        >
+                placeholder="Digite o nome do produto"
+            >
 
 
-        <button 
-            type="button"
-            onclick="cadastrarMarca()">
-
-            Cadastrar
-
-        </button>
 
 
-    </div>
+            <!-- ========================================= -->
+            <!-- CÓDIGO -->
+            <!-- ========================================= -->
 
-</div>
-    </div>
 
-    <!-- PREÇOS -->
+            <label for="codigo">
+                Código do Produto
+            </label>
 
-    <div class="secao">
 
-        <h2>
-            Valores e Estoque
-        </h2>
+            <input
+                type="text"
+                id="codigo"
+                placeholder="Ex: SSD001"
+            >
 
-        <div class="linha">
 
-            <div class="campo">
 
-                <label>
-                    Preço
-                </label>
 
-                <input
-                    type="number"
-                    id="preco_antigo"
-                    name="preco_antigo"
-                    step="0.01"
-                    placeholder="R$ 0,00">
+            <!-- ========================================= -->
+            <!-- DESCRIÇÃO -->
+            <!-- ========================================= -->
 
-            </div>
 
-            <div class="campo">
+            <label for="descricao">
+                Descrição
+            </label>
 
-                <label>
-                    Preço Promocional
-                </label>
-
-                <input
-                    type="number"
-                    id="preco_promocional"
-                    name="preco_promocional"
-                    step="0.01"
-                    placeholder="R$ 0,00">
-
-            </div>
-
-        </div>
-
-        <div class="linha">
-
-            <div class="campo">
-
-                <label>
-                    Estoque
-                </label>
-
-                <input
-                    type="number"
-                    id="quantidade_estoque"
-                    name="quantidade_estoque"
-                    placeholder="Quantidade">
-
-            </div>
-
-            <div class="campo">
-
-                <label>
-                    SKU
-                </label>
-
-                <input
-                    type="text"
-                    id="codigo"
-                    name="codigo"
-                    placeholder="Código do produto">
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- DESCRIÇÃO -->
-
-    <div class="secao">
-
-        <h2>
-            Descrição
-        </h2>
-
-        <div class="campo">
 
             <textarea
                 id="descricao"
-                name="descricao"
-                placeholder="Descreva detalhes técnicos do produto..."></textarea>
+                placeholder="Descrição do produto"
+            ></textarea>
 
-        </div>
 
-    </div>
 
-    <!-- IMAGENS -->
 
-    <div class="secao">
+            <!-- ========================================= -->
+            <!-- CATEGORIA -->
+            <!-- ========================================= -->
 
-        <h2>
-            Imagens do Produto
-        </h2>
 
-        <div class="linha">
-
-            <div class="campo">
-
-                <label>
-                    Imagem Principal
-                </label>
-
-                <div class="upload">
-
-                    <p>
-                        Selecione a imagem principal
-                    </p>
-
-                    <input
-                    type="file"
-                    id="imagem_principal"
-                    name="imagem"
-                    accept="image/*">
-                  </div>
-
-            </div>
-
-            <div class="campo">
-
-                <label>
-                    Galeria de Imagens
-                </label>
-
-                <div class="upload">
-
-                    <p>
-                        Adicione imagens adicionais
-                    </p>
-
-                    <input
-                        type="file"
-                        id="galeria_imagens"
-                        name="galeria_imagens"
-                        multiple>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- STATUS -->
-
-    <div class="secao">
-
-        <h2>
-            Configurações
-        </h2>
-
-        <div class="campo">
-
-            <label>
-                Status do Produto
+            <label for="novaCategoria">
+                Nova Categoria
             </label>
 
-            <select
-                id="ativo"
-                name="ativo">
 
-                <option value="1">
-                    Ativo
-                </option>
+            <div class="campo-cadastro">
 
-                <option value="0">
-                    Inativo
+                <input
+                    type="text"
+                    id="novaCategoria"
+                    placeholder="Digite o nome da categoria"
+                >
+
+
+                <button
+                    type="button"
+                    id="btn-salvar-categoria"
+                >
+                    Salvar
+                </button>
+
+            </div>
+
+
+
+            <label for="produtoCategoria">
+                Categoria do Produto
+            </label>
+
+
+            <select id="produtoCategoria">
+
+                <option value="">
+                    Selecione uma categoria
                 </option>
 
             </select>
 
-        </div>
 
-    </div>
 
-    <!-- BOTÕES -->
 
-    <div class="botoes">
+            <!-- ========================================= -->
+            <!-- MARCA -->
+            <!-- ========================================= -->
 
-        <button
-            type="button"
-            class="btn-cancelar">
 
-            Cancelar
+            <label for="novaMarca">
+                Nova Marca
+            </label>
 
-        </button>
 
-        <button
-            type="submit"
-            id="btn-salvar"
-            class="btn-salvar">
+            <div class="campo-cadastro">
 
-            Salvar Produto
+                <input
+                    type="text"
+                    id="novaMarca"
+                    placeholder="Digite o nome da marca"
+                >
 
-        </button>
 
-    </div>
+                <button
+                    type="button"
+                    id="btn-salvar-marca"
+                >
+                    Salvar
+                </button>
 
-</form>
+            </div>
+
+
+
+            <label for="produtoMarca">
+                Marca do Produto
+            </label>
+
+
+            <select id="produtoMarca">
+
+                <option value="">
+                    Selecione uma marca
+                </option>
+
+            </select>
+
+
+
+
+            <!-- ========================================= -->
+            <!-- COR -->
+            <!-- ========================================= -->
+
+
+            <label for="novaCor">
+                Nova Cor
+            </label>
+
+
+            <div class="campo-cadastro">
+
+                <input
+                    type="text"
+                    id="novaCor"
+                    placeholder="Digite o nome da cor"
+                >
+
+
+                <button
+                    type="button"
+                    id="btn-salvar-cor"
+                >
+                    Salvar
+                </button>
+
+            </div>
+
+
+
+            <label for="produtoCor">
+                Cor do Produto
+            </label>
+
+
+            <select id="produtoCor">
+
+                <option value="">
+                    Selecione uma cor
+                </option>
+
+            </select>
+
+
+
+
+            <!-- ========================================= -->
+            <!-- TAMANHO -->
+            <!-- ========================================= -->
+
+
+            <label for="novoTamanho">
+                Novo Tamanho
+            </label>
+
+
+            <div class="campo-cadastro">
+
+                <input
+                    type="text"
+                    id="novoTamanho"
+                    placeholder="Digite o tamanho"
+                >
+
+
+                <button
+                    type="button"
+                    id="btn-salvar-tamanho"
+                >
+                    Salvar
+                </button>
+
+            </div>
+
+
+
+            <label for="produtoTamanho">
+                Tamanho do Produto
+            </label>
+
+
+            <select id="produtoTamanho">
+
+                <option value="">
+                    Selecione um tamanho
+                </option>
+
+            </select>
 
 
 
@@ -433,12 +289,217 @@
 
 
 
-    </main>
+
+
+
+
+        <!-- ========================================= -->
+        <!-- VALORES E ESTOQUE -->
+        <!-- ========================================= -->
+
+
+        <section class="card">
+
+
+            <h2>Valores e Estoque</h2>
+
+
+
+            <!-- PREÇO ANTIGO -->
+
+
+            <label for="preco_antigo">
+                Preço Antigo
+            </label>
+
+
+            <input
+                type="number"
+                step="1"
+                id="preco_antigo"
+                placeholder="R$ 0,00"
+            >
+
+
+
+
+            <!-- PREÇO PROMOCIONAL -->
+
+
+            <label for="preco_promocional">
+                Preço Promocional
+            </label>
+
+
+            <input
+                type="number"
+                step="0.01"
+                id="preco_promocional"
+                placeholder="R$ 0,00"
+            >
+
+
+
+
+            <!-- ESTOQUE -->
+
+
+            <label for="quantidade_estoque">
+                Quantidade em Estoque
+            </label>
+
+
+            <input
+                type="number"
+                id="quantidade_estoque"
+                min="0"
+                placeholder="Quantidade"
+            >
+
+
+
+        </section>
 
 
 
 
 
+
+
+        <!-- ========================================= -->
+        <!-- IMAGENS DO PRODUTO -->
+        <!-- ========================================= -->
+
+
+        <section class="card">
+
+
+            <h2>Imagens do Produto</h2>
+
+
+
+            <label for="midiasProduto">
+                Selecionar Imagens
+            </label>
+
+
+            <input
+                type="file"
+                id="midiasProduto"
+                accept="image/*"
+                multiple
+            >
+
+
+
+            <small>
+                Você pode selecionar várias imagens.
+                Escolha uma delas como imagem principal.
+            </small>
+
+
+
+            <!-- ========================================= -->
+            <!-- PRÉVIA DAS IMAGENS -->
+            <!-- ========================================= -->
+
+
+            <div id="preview-imagens">
+
+                <!--
+                    As imagens selecionadas
+                    serão exibidas aqui pelo JS.
+                -->
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <!-- ========================================= -->
+        <!-- INFORMAÇÕES DA LOJA -->
+        <!-- ========================================= -->
+
+
+        <section class="card">
+
+
+            <h2>Informações da Loja</h2>
+
+
+
+            <label for="loja_idLoja">
+                ID da Loja
+            </label>
+
+
+            <input
+                type="number"
+                id="loja_idLoja"
+                placeholder="Digite o ID da loja"
+            >
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <!-- ========================================= -->
+        <!-- STATUS E SALVAR -->
+        <!-- ========================================= -->
+
+
+        <div class="acoes">
+
+
+            <button
+                type="button"
+                id="btn-status"
+            >
+                Produto Ativo
+            </button>
+
+
+
+
+            <button
+                type="submit"
+                id="btn-salvar"
+            >
+                Salvar Produto
+            </button>
+
+
+
+        </div>
+
+
+
+    </form>
+
+
+
+</main>
+
+
+
+
+
+<!-- ========================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================= -->
 
 
 <script src="../js/cadastrar-produto.js"></script>
@@ -447,3 +508,4 @@
 </body>
 
 </html>
+

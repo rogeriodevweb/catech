@@ -136,6 +136,17 @@ app.use(
     marcaRotas
 
 );
+
+//==========================================
+// CORES
+//==========================================
+
+const coresRotas = require("../routes/cores_rotas");
+
+app.use(
+    "/cores",
+    coresRotas
+);
 //==========================================
 // PEDIDOS
 //==========================================
@@ -155,7 +166,7 @@ app.use("/pedidos-has-produto", pedidosHasProdutoRotas);
 const produtoRotas = require("../routes/produto_rotas");
 
 app.use(
-    "/produto",
+    "/produtos",
     produtoRotas
 );
 //==========================================

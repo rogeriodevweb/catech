@@ -2,24 +2,32 @@
 // IMPORTA CONEXÃO
 // =====================================
 
-const conexao = require("../conexao/conexao.js");
+const conexao = require("../conexao/conexao");
+
 
 
 // =====================================
-// CADASTRAR MÍDIA DO PRODUTO
+// CADASTRAR MÍDIA
 // =====================================
 
-function cadastrar(midia, callback) {
+function cadastrar(midia, callback){
+
 
     const sql = `
 
         INSERT INTO midia_produto
         (
+
             arquivo,
+
             tipo_arquivo,
+
             tipo_midia,
+
             principal,
+
             produto_idProduto
+
         )
 
         VALUES (?, ?, ?, ?, ?)
@@ -27,38 +35,62 @@ function cadastrar(midia, callback) {
     `;
 
 
+
     conexao.query(
 
         sql,
 
         [
+
             midia.arquivo,
+
             midia.tipo_arquivo,
+
             midia.tipo_midia,
+
             midia.principal,
+
             midia.produto_idProduto
+
         ],
 
         callback
 
     );
 
+
 }
+
+
 
 
 // =====================================
 // LISTAR MÍDIAS
 // =====================================
 
-function listar(callback) {
+function listar(callback){
+
 
     const sql = `
 
-        SELECT *
+        SELECT
+
+            idMidia_produto,
+
+            tipo_arquivo,
+
+            tipo_midia,
+
+            principal,
+
+            produto_idProduto
 
         FROM midia_produto
 
+        ORDER BY idMidia_produto DESC
+
     `;
+
 
 
     conexao.query(
@@ -69,14 +101,18 @@ function listar(callback) {
 
     );
 
+
 }
 
 
+
+
 // =====================================
-// BUSCAR MÍDIA POR ID
+// BUSCAR POR ID
 // =====================================
 
-function buscarPorId(idMidia_produto, callback) {
+function buscarPorId(idMidia_produto, callback){
+
 
     const sql = `
 
@@ -89,24 +125,33 @@ function buscarPorId(idMidia_produto, callback) {
     `;
 
 
+
     conexao.query(
 
         sql,
 
-        [idMidia_produto],
+        [
+
+            idMidia_produto
+
+        ],
 
         callback
 
     );
 
+
 }
+
+
 
 
 // =====================================
 // ATUALIZAR MÍDIA
 // =====================================
 
-function atualizar(idMidia_produto, midia, callback) {
+function atualizar(idMidia_produto, midia, callback){
+
 
     const sql = `
 
@@ -120,13 +165,12 @@ function atualizar(idMidia_produto, midia, callback) {
 
             tipo_midia = ?,
 
-            principal = ?,
-
-            produto_idProduto = ?
+            principal = ?
 
         WHERE idMidia_produto = ?
 
     `;
+
 
 
     conexao.query(
@@ -143,8 +187,6 @@ function atualizar(idMidia_produto, midia, callback) {
 
             midia.principal,
 
-            midia.produto_idProduto,
-
             idMidia_produto
 
         ],
@@ -153,14 +195,18 @@ function atualizar(idMidia_produto, midia, callback) {
 
     );
 
+
 }
+
+
 
 
 // =====================================
 // EXCLUIR MÍDIA
 // =====================================
 
-function excluir(idMidia_produto, callback) {
+function excluir(idMidia_produto, callback){
+
 
     const sql = `
 
@@ -171,17 +217,25 @@ function excluir(idMidia_produto, callback) {
     `;
 
 
+
     conexao.query(
 
         sql,
 
-        [idMidia_produto],
+        [
+
+            idMidia_produto
+
+        ],
 
         callback
 
     );
 
+
 }
+
+
 
 
 // =====================================
@@ -191,9 +245,13 @@ function excluir(idMidia_produto, callback) {
 module.exports = {
 
     cadastrar,
+
     listar,
+
     buscarPorId,
+
     atualizar,
+
     excluir
 
 };

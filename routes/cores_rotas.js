@@ -1,5 +1,5 @@
 // =====================================
-// IMPORTAÇÕES
+// IMPORTA EXPRESS
 // =====================================
 
 const express = require("express");
@@ -11,32 +11,25 @@ const router = express.Router();
 // IMPORTA CONTROLLER
 // =====================================
 
-const produtoController = require("../controller/produto_controller");
+const coresController = require("../controller/cores_controller");
 
 
 // =====================================
-// CADASTRAR PRODUTO
+// ROTAS
 // =====================================
 
+
+// CADASTRAR COR
 router.post(
-
     "/",
-
-    produtoController.cadastrar
-
+    coresController.cadastrar
 );
 
 
-// =====================================
-// BUSCAR DETALHES DO PRODUTO
-// =====================================
-
+// BUSCAR CORES
 router.get(
-
-    "/detalhes/:idProduto",
-
-    produtoController.detalhes
-
+    "/",
+    coresController.listar
 );
 
 

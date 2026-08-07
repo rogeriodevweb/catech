@@ -1,24 +1,36 @@
 const conexao = require("../conexao/conexao.js");
 
+
 // =========================
 // Cadastrar Categoria
 // =========================
 
 function cadastrar(Categoria, callback) {
 
-    const sql = `INSERT INTO Categoria
-        ( nome)
-        VALUES (?)`;
 
-    conexao.query(
-        sql,
-        [
-            Categoria.nome
-        ],
-        callback
-    );
+const sql = `
+INSERT INTO Categoria
+(nome)
+VALUES (?)
+`;
+
+
+conexao.query(
+
+    sql,
+
+    [
+        Categoria.nome
+    ],
+
+    callback
+
+);
+
 
 }
+
+
 
 // =========================
 // Listar Categorias
@@ -26,13 +38,21 @@ function cadastrar(Categoria, callback) {
 
 function listar(callback) {
 
-    const sql = `
-        SELECT * FROM Categoria
-    `;
 
-    conexao.query(sql, callback);
+const sql = `
+SELECT * FROM Categoria
+`;
+
+
+conexao.query(
+    sql,
+    callback
+);
+
 
 }
+
+
 
 // =========================
 // Buscar por ID
@@ -40,42 +60,27 @@ function listar(callback) {
 
 function buscarPorId(id, callback) {
 
-    const sql = `
-        SELECT *
-        FROM Categoria
-        WHERE idCategoria = ?
-    `;
 
-    conexao.query(sql, [id], callback);
-
-}
+const sql = `
+SELECT *
+FROM Categoria
+WHERE idCategoria = ?
+`;
 
 
-function listar(callback) {
+conexao.query(
 
-    const sql = `
-        SELECT * FROM Categoria
-    `;
+    sql,
 
-    conexao.query(sql, callback);
+    [id],
 
-}
+    callback
 
-// =========================
-// Buscar por ID
-// =========================
+);
 
-function buscarPorId(id, callback) {
-
-    const sql = `
-        SELECT *
-        FROM Categoria
-        WHERE idCategoria = ?
-    `;
-
-    conexao.query(sql, [id], callback);
 
 }
+
 
 
 // =========================
@@ -84,23 +89,30 @@ function buscarPorId(id, callback) {
 
 function atualizar(id, Categoria, callback) {
 
-    const sql = `
-        UPDATE Categoria
-        SET
-            nome = ?
-        WHERE idCategoria = ?
-    `;
 
-    conexao.query(
-        sql,
-        [
-            Categoria.nome,
-            id
-        ],
-        callback
-    );
+const sql = `
+UPDATE Categoria
+SET nome = ?
+WHERE idCategoria = ?
+`;
+
+
+conexao.query(
+
+    sql,
+
+    [
+        Categoria.nome,
+        id
+    ],
+
+    callback
+
+);
+
 
 }
+
 
 
 // =========================
@@ -109,14 +121,28 @@ function atualizar(id, Categoria, callback) {
 
 function excluir(id, callback) {
 
-    const sql = `
-        DELETE FROM Categoria
-        WHERE idCategoria = ?
-    `;
 
-    conexao.query(sql, [id], callback);
+const sql = `
+DELETE FROM Categoria
+WHERE idCategoria = ?
+`;
+
+
+conexao.query(
+
+    sql,
+
+    [id],
+
+    callback
+
+);
+
 
 }
+
+
+
 
 module.exports = {
 
