@@ -1,12 +1,10 @@
 const conexao = require("../conexao/conexao.js");
 
-
 // =====================================
 // CADASTRAR LOJISTA
 // =====================================
 
 function cadastrar(lojista, callback) {
-
 
     const sql = `
 
@@ -14,7 +12,7 @@ function cadastrar(lojista, callback) {
 
         (
 
-            nomeResponsavel,
+            nome,
             cpf,
             telefone,
             nascimento,
@@ -30,17 +28,16 @@ function cadastrar(lojista, callback) {
             bairro,
             endereco,
             instagram,
-            whatsapp
+            whatsapp,
+            loja_idLoja
 
         )
 
         VALUES
 
-        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
 
     `;
-
-
 
     conexao.query(
 
@@ -48,7 +45,7 @@ function cadastrar(lojista, callback) {
 
         [
 
-            lojista.nomeResponsavel,
+            lojista.nome,
             lojista.cpf,
             lojista.telefone,
             lojista.nascimento,
@@ -64,7 +61,8 @@ function cadastrar(lojista, callback) {
             lojista.bairro,
             lojista.endereco,
             lojista.instagram,
-            lojista.whatsapp
+            lojista.whatsapp,
+            lojista.loja_idLoja
 
         ],
 
@@ -72,13 +70,47 @@ function cadastrar(lojista, callback) {
 
     );
 
+}
+
+
+// =====================================
+// BUSCAR LOJISTA PELA LOJA
+// =====================================
+
+function buscarPorLoja(idLoja, callback) {
+
+    const sql = `
+
+        SELECT *
+
+        FROM Lojista
+
+        WHERE loja_idLoja = ?
+
+    `;
+
+
+    conexao.query(
+
+        sql,
+
+        [idLoja],
+
+        callback
+
+    );
 
 }
 
 
+// =====================================
+// EXPORTAR
+// =====================================
 
 module.exports = {
 
-    cadastrar
+    cadastrar,
+
+    buscarPorLoja
 
 };

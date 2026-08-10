@@ -139,7 +139,38 @@
 
 <form id="formCadastroLojista">
 
+<!-- ================================= -->
+<!-- CÓDIGO DA LOJA -->
+<!-- ================================= -->
 
+<div class="secao">
+
+    <h3>
+        Código da Loja
+    </h3>
+
+    <div class="campo">
+
+        <label for="codigoLoja">
+            Código da Loja *
+        </label>
+
+        <input
+            type="text"
+            id="codigoLoja"
+            name="codigoLoja"
+            readonly
+            required
+        >
+
+        <small>
+            Código gerado automaticamente no cadastro da loja.
+            Não é possível alterá-lo.
+        </small>
+
+    </div>
+
+</div>
 
 <!-- ============================= -->
 <!-- RESPONSÁVEL -->
@@ -167,7 +198,7 @@ Nome Completo
 
 <input 
 type="text"
-id="nomeResponsavel"
+id="nome"
 placeholder="Digite seu nome"
 required>
 

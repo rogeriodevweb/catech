@@ -1,18 +1,70 @@
+// =====================================
+// PEGAR CÓDIGO DA LOJA DA URL
+// =====================================
+
+const parametros =
+    new URLSearchParams(window.location.search);
+
+const codigoLoja =
+    parametros.get("codigo");
+
+
+// =====================================
+// PREENCHER CÓDIGO NO INPUT
+// =====================================
+
+const campoCodigo =
+    document.getElementById("codigoLoja");
+
+
+if (codigoLoja) {
+
+    campoCodigo.value = codigoLoja;
+
+}
+
+
+// =====================================
+// BOTÃO CADASTRAR
+// =====================================
+
 document
 .getElementById("btnCadastrar")
 .addEventListener("click", async function(){
 
 
+    // =====================================
+    // VERIFICAR CÓDIGO
+    // =====================================
 
-    const senha = document.getElementById("senha").value;
+    if (!codigoLoja) {
 
-    const confirmarSenha = document.getElementById("confirmarSenha").value;
+        alert(
+            "Código da loja não encontrado."
+        );
+
+        return;
+
+    }
 
 
+    // =====================================
+    // SENHAS
+    // =====================================
 
-    // Verifica senha
+    const senha =
+        document.getElementById("senha").value;
 
-    if(senha !== confirmarSenha){
+
+    const confirmarSenha =
+        document.getElementById("confirmarSenha").value;
+
+
+    // =====================================
+    // VERIFICAR SENHA
+    // =====================================
+
+    if (senha !== confirmarSenha) {
 
         alert("As senhas não são iguais!");
 
@@ -21,88 +73,124 @@ document
     }
 
 
-
+    // =====================================
+    // DADOS DO LOJISTA
+    // =====================================
 
     const lojista = {
 
+        // Código da loja
+        codigoLoja:
+            codigoLoja,
 
-        nomeResponsavel:
-        document.getElementById("nomeResponsavel").value,
+
+        nome:
+            document
+            .getElementById("nome")
+            .value,
 
 
         cpf:
-        document.getElementById("cpf").value,
+            document
+            .getElementById("cpf")
+            .value,
 
 
         telefone:
-        document.getElementById("telefone").value,
+            document
+            .getElementById("telefone")
+            .value,
 
 
         nascimento:
-        document.getElementById("nascimento").value,
+            document
+            .getElementById("nascimento")
+            .value,
 
 
         email:
-        document.getElementById("email").value,
+            document
+            .getElementById("email")
+            .value,
 
 
         senha:
-        senha,
+            senha,
 
 
         nomeLoja:
-        document.getElementById("nomeLoja").value,
+            document
+            .getElementById("nomeLoja")
+            .value,
 
 
         cnpj:
-        document.getElementById("cnpj").value,
+            document
+            .getElementById("cnpj")
+            .value,
 
 
         nomeFantasia:
-        document.getElementById("nomeFantasia").value,
+            document
+            .getElementById("nomeFantasia")
+            .value,
 
 
         descricao:
-        document.getElementById("descricao").value,
+            document
+            .getElementById("descricao")
+            .value,
 
 
         cep:
-        document.getElementById("cep").value,
+            document
+            .getElementById("cep")
+            .value,
 
 
         estado:
-        document.getElementById("estado").value,
+            document
+            .getElementById("estado")
+            .value,
 
 
         cidade:
-        document.getElementById("cidade").value,
+            document
+            .getElementById("cidade")
+            .value,
 
 
         bairro:
-        document.getElementById("bairro").value,
+            document
+            .getElementById("bairro")
+            .value,
 
 
         endereco:
-        document.getElementById("endereco").value,
+            document
+            .getElementById("endereco")
+            .value,
 
 
         instagram:
-        document.getElementById("instagram").value,
+            document
+            .getElementById("instagram")
+            .value,
 
 
         whatsapp:
-        document.getElementById("whatsapp").value
-
+            document
+            .getElementById("whatsapp")
+            .value
 
     };
 
 
-
-
+    // =====================================
+    // ENVIAR PARA O SERVIDOR
+    // =====================================
 
     try {
-
-
 
         const resposta = await fetch(
 
@@ -110,67 +198,60 @@ document
 
             {
 
+                method: "POST",
 
-                method:"POST",
+                headers: {
 
-
-                headers:{
-
-
-                    "Content-Type":"application/json"
-
+                    "Content-Type":
+                        "application/json"
 
                 },
 
-
-                body:JSON.stringify(lojista)
-
+                body:
+                    JSON.stringify(lojista)
 
             }
-
 
         );
 
 
+        const dados =
+            await resposta.json();
 
 
+        // =====================================
+        // CADASTRO REALIZADO
+        // =====================================
 
-        const dados = await resposta.json();
+        if (resposta.ok) {
 
-
-
-
-
-        if(resposta.ok){
-
-
-            alert(dados.mensagem);
-
+            alert(
+                dados.mensagem
+            );
 
 
             window.location.href =
-            "login-lojista.html";
-
-
-        }
-
-        else{
-
-
-            alert(dados.mensagem);
-
+                "login-lojista.html";
 
         }
 
 
+        // =====================================
+        // ERRO
+        // =====================================
 
+        else {
 
+            alert(
+                dados.mensagem
+            );
+
+        }
 
 
     }
 
-    catch(erro){
-
+    catch (erro) {
 
         console.log(erro);
 
@@ -179,9 +260,6 @@ document
             "Erro ao conectar com o servidor"
         );
 
-
     }
-
-
 
 });

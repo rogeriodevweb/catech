@@ -3,6 +3,8 @@ const cors = require("cors");
 
 const app = express();
 
+console.log(">>> ESTE SERVIDOR.JS ESTÁ RODANDO <<<");
+
 app.use(cors());
 app.use(express.json());
 
@@ -56,6 +58,18 @@ app.use("/categorias", categoriasRotas);
 const categoriasHasPromocaoRotas = require("../routes/categorias_has_promocao_rotas");
 app.use("/categorias-has-promocao", categoriasHasPromocaoRotas);
 
+
+//==========================================
+// LOJA
+//==========================================
+
+const lojaRotas = require("../routes/loja_rotas");
+
+app.use(
+    "/lojas",
+    lojaRotas
+);
+console.log(">>> LOJA ROTAS CARREGADAS <<<");
 
 //==========================================
 // LOJISTA
@@ -199,7 +213,12 @@ app.use("/promocao", promocaoRotas);
 const tamanhoRotas = require("../routes/tamanho_rotas");
 app.use("/tamanho", tamanhoRotas);
 
+
 //==========================================
+// INICIAR SERVIDOR
+//==========================================
+
+console.log(">>> SERVIDOR CORRETO CARREGADO <<<");
 
 app.listen(3000, () => {
     console.log("Servidor iniciado na porta 3000!");

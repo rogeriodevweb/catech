@@ -1,57 +1,119 @@
 const form = document.getElementById("loginLojista");
 
 
-form.addEventListener("submit", function(e){
-
+form.addEventListener("submit", async function(e) {
 
     e.preventDefault();
 
 
+    // =====================================
+    // PEGAR DADOS DO FORMULÁRIO
+    // =====================================
 
-    const email = document.getElementById("email").value;
+    const codigoLoja =
+        document.getElementById("codigoLoja").value.trim();
 
-    const senha = document.getElementById("senha").value;
-
-
-
-    // Usuário de teste
-
-    const lojista = {
-
-        email: "lojista@catech.com",
-        senha: "123456"
-
-    };
+    const senha =
+        document.getElementById("senha").value;
 
 
+    // =====================================
+    // ENVIAR PARA O SERVIDOR
+    // =====================================
 
+    try {
 
-    if(email === lojista.email && senha === lojista.senha){
+        const resposta = await fetch(
 
+            "http://localhost:3000/lojistas/login",
 
-        localStorage.setItem(
-            "lojistaLogado",
-            JSON.stringify(lojista)
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    codigoLoja: codigoLoja,
+
+                    senha: senha
+
+                })
+
+            }
+
         );
 
 
-        alert("Login realizado com sucesso!");
+        const dados =
+            await resposta.json();
 
 
+        // =====================================
+        // VERIFICAR ERRO
+        // =====================================
 
-        window.location.href = "home-lojista.html";
+        if (!resposta.ok) {
 
+            alert(
+
+                dados.mensagem ||
+                "Código da loja ou senha incorretos."
+
+            );
+
+            return;
+
+        }
+
+
+        // =====================================
+        // SALVAR LOJISTA LOGADO
+        // =====================================
+
+        localStorage.setItem(
+
+            "lojistaLogado",
+
+            JSON.stringify(
+                dados.lojista
+            )
+
+        );
+
+
+        // =====================================
+        // SUCESSO
+        // =====================================
+
+        alert(
+            dados.mensagem
+        );
+
+
+        // =====================================
+        // IR PARA O PAINEL
+        // =====================================
+
+        window.location.href =
+            "home-lojista.html";
 
 
     }
 
-    else{
+    catch (erro) {
 
+        console.error(erro);
 
-        alert("E-mail ou senha incorretos!");
+        alert(
+            "Erro ao conectar com o servidor."
+        );
 
     }
-
-
 
 });

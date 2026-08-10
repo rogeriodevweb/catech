@@ -1,26 +1,41 @@
 const conexao = require("../conexao/conexao.js");
 
+
 // =========================
 // Cadastrar Endereco
 // =========================
 
 function cadastrar(endereco, callback) {
 
-    const sql = `INSERT INTO Endereco
-        ( rua,cep,setor,numero,complemento,tipo )
-        VALUES (?, ?, ?, ?, ?, ?)`;
+    const sql = `
+        INSERT INTO Endereco
+        (
+            rua,
+            cep,
+            bairro,
+            numero,
+            complemento,
+            tipo
+        )
+        VALUES (?, ?, ?, ?, ?, ?)
+    `;
+
 
     conexao.query(
+
         sql,
+
         [
             endereco.rua,
             endereco.cep,
-            endereco.setor,
+            endereco.bairro,
             endereco.numero,
             endereco.complemento,
             endereco.tipo
         ],
+
         callback
+
     );
 
 }
@@ -33,12 +48,21 @@ function cadastrar(endereco, callback) {
 function listar(callback) {
 
     const sql = `
-        SELECT * FROM Endereco
+        SELECT *
+        FROM Endereco
     `;
 
-    conexao.query(sql, callback);
+
+    conexao.query(
+
+        sql,
+
+        callback
+
+    );
 
 }
+
 
 // =========================
 // Buscar por ID
@@ -52,9 +76,19 @@ function buscarPorId(id, callback) {
         WHERE idEndereco = ?
     `;
 
-    conexao.query(sql, [id], callback);
+
+    conexao.query(
+
+        sql,
+
+        [id],
+
+        callback
+
+    );
 
 }
+
 
 // =========================
 // Atualizar Endereco
@@ -64,11 +98,12 @@ function atualizar(id, endereco, callback) {
 
     const sql = `
         UPDATE Endereco
+
         SET
 
             rua = ?,
             cep = ?,
-            setor = ?,
+            bairro = ?,
             numero = ?,
             complemento = ?,
             tipo = ?
@@ -76,21 +111,27 @@ function atualizar(id, endereco, callback) {
         WHERE idEndereco = ?
     `;
 
+
     conexao.query(
+
         sql,
+
         [
             endereco.rua,
             endereco.cep,
-            endereco.setor,
+            endereco.bairro,
             endereco.numero,
             endereco.complemento,
             endereco.tipo,
             id
         ],
+
         callback
+
     );
 
 }
+
 
 // =========================
 // Excluir Endereco
@@ -103,16 +144,34 @@ function excluir(id, callback) {
         WHERE idEndereco = ?
     `;
 
-    conexao.query(sql, [id], callback);
+
+    conexao.query(
+
+        sql,
+
+        [id],
+
+        callback
+
+    );
 
 }
+
+
+// =========================
+// EXPORTAR
+// =========================
 
 module.exports = {
 
     cadastrar,
+
     listar,
+
     buscarPorId,
+
     atualizar,
+
     excluir
 
 };

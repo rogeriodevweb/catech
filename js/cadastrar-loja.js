@@ -14,47 +14,71 @@ form.addEventListener("submit", async function (event) {
     event.preventDefault();
 
 
+    // =====================================
+    // DADOS DA LOJA
+    // =====================================
+
     const loja = {
 
-        nome: document.getElementById("nome").value.trim(),
+        nome:
+            document.getElementById("nome").value.trim(),
 
-        razaoSocial: document.getElementById("razaoSocial").value.trim(),
+        razaoSocial:
+            document.getElementById("razaoSocial").value.trim(),
 
-        cnpj: document.getElementById("cnpj").value.trim(),
+        cnpj:
+            document.getElementById("cnpj").value.trim(),
 
-        inscricaoEstadual: document.getElementById("inscricaoEstadual").value.trim(),
+        inscricaoEstadual:
+            document.getElementById("inscricaoEstadual").value.trim(),
 
-        fundacao: document.getElementById("fundacao").value,
+        fundacao:
+            document.getElementById("fundacao").value,
 
-        email: document.getElementById("email").value.trim(),
+        email:
+            document.getElementById("email").value.trim(),
 
-        telefone: document.getElementById("telefone").value.trim(),
+        telefone:
+            document.getElementById("telefone").value.trim(),
 
-        whatsapp: document.getElementById("whatsapp").value.trim(),
+        whatsapp:
+            document.getElementById("whatsapp").value.trim(),
 
-        site: document.getElementById("site").value.trim(),
+        site:
+            document.getElementById("site").value.trim(),
 
-        instagram: document.getElementById("instagram").value.trim(),
+        instagram:
+            document.getElementById("instagram").value.trim(),
 
-        facebook: document.getElementById("facebook").value.trim(),
+        facebook:
+            document.getElementById("facebook").value.trim(),
 
-        linkedin: document.getElementById("linkedin").value.trim(),
+        linkedin:
+            document.getElementById("linkedin").value.trim(),
 
-        cep: document.getElementById("cep").value.trim(),
+        cep:
+            document.getElementById("cep").value.trim(),
 
-        estado: document.getElementById("estado").value.trim(),
+        estado:
+            document.getElementById("estado").value.trim(),
 
-        cidade: document.getElementById("cidade").value.trim(),
+        cidade:
+            document.getElementById("cidade").value.trim(),
 
-        bairro: document.getElementById("bairro").value.trim(),
+        bairro:
+            document.getElementById("bairro").value.trim(),
 
-        rua: document.getElementById("rua").value.trim(),
+        rua:
+            document.getElementById("rua").value.trim(),
 
-        numero: document.getElementById("numero").value.trim(),
+        numero:
+            document.getElementById("numero").value.trim(),
 
-        complemento: document.getElementById("complemento").value.trim(),
+        complemento:
+            document.getElementById("complemento").value.trim(),
 
-        descricao: document.getElementById("descricao").value.trim()
+        descricao:
+            document.getElementById("descricao").value.trim()
 
     };
 
@@ -77,6 +101,8 @@ form.addEventListener("submit", async function (event) {
 
         loja.rua === "" ||
 
+        loja.bairro === "" ||
+
         loja.numero === ""
 
     ) {
@@ -88,7 +114,11 @@ form.addEventListener("submit", async function (event) {
     }
 
 
-    try{
+    // =====================================
+    // ENVIA PARA O SERVIDOR
+    // =====================================
+
+    try {
 
         const resposta = await fetch(
 
@@ -96,15 +126,15 @@ form.addEventListener("submit", async function (event) {
 
             {
 
-                method:"POST",
+                method: "POST",
 
-                headers:{
+                headers: {
 
-                    "Content-Type":"application/json"
+                    "Content-Type": "application/json"
 
                 },
 
-                body:JSON.stringify(loja)
+                body: JSON.stringify(loja)
 
             }
 
@@ -114,22 +144,29 @@ form.addEventListener("submit", async function (event) {
         const dados = await resposta.json();
 
 
-        if(!resposta.ok){
+        // =====================================
+        // VERIFICA ERRO
+        // =====================================
 
-            throw new Error(dados.erro || "Erro ao cadastrar.");
+        if (!resposta.ok) {
+
+            throw new Error(
+
+                dados.erro ||
+
+                "Erro ao cadastrar a loja."
+
+            );
 
         }
 
 
         // =====================================
-        // CÓDIGO DA LOJA
+        // CÓDIGO GERADO PELO SERVIDOR
         // =====================================
 
         const codigoLoja =
-
-            "CAT-" +
-
-            String(dados.idLoja).padStart(6,"0");
+            dados.codigoAcesso;
 
 
         // =====================================
@@ -138,58 +175,69 @@ form.addEventListener("submit", async function (event) {
 
         document.body.innerHTML = `
 
-        <div class="sucesso">
+            <div class="sucesso">
 
-            <div class="card-sucesso">
+                <div class="card-sucesso">
 
-                <div class="icone">
+                    <div class="icone">
 
-                    ✔
+                        ✔
+
+                    </div>
+
+
+                    <h1>
+
+                        Loja cadastrada com sucesso!
+
+                    </h1>
+
+
+                    <p>
+
+                        O código da sua loja é
+
+                    </p>
+
+
+                    <div class="codigo">
+
+                        ${codigoLoja}
+
+                    </div>
+
+
+                    <p>
+
+                        Guarde este código.
+
+                        Ele será utilizado para
+
+                        cadastrar o lojista.
+
+                    </p>
+
+
+                    <button
+
+                        onclick="window.location.href='cadastro-lojista.html?codigo=${encodeURIComponent(codigoLoja)}'"
+
+                    >
+
+                        Cadastrar Lojista
+
+                    </button>
 
                 </div>
-
-                <h1>
-
-                    Loja cadastrada com sucesso!
-
-                </h1>
-
-                <p>
-
-                    O código da sua loja é
-
-                </p>
-
-                <div class="codigo">
-
-                    ${codigoLoja}
-
-                </div>
-
-                <p>
-
-                    Guarde este código.
-
-                    Ele será utilizado para cadastrar o lojista.
-
-                </p>
-
-                <button onclick="window.location.href='cadastro-lojista.html'">
-
-                    Cadastrar Lojista
-
-                </button>
 
             </div>
-
-        </div>
 
         `;
 
 
     }
 
-    catch(erro){
+    catch (erro) {
 
         console.error(erro);
 
