@@ -6,9 +6,7 @@ const express = require("express");
 
 const router = express.Router();
 
-console.log(
-    ">>> IMAGEM PRODUTO ROTAS CARREGADAS <<<"
-);
+
 //==========================================
 // IMPORTA CONTROLLER
 //==========================================
@@ -52,30 +50,17 @@ router.get(
     midiaProdutoController.listar
 );
 
+
 //==========================================
 // EXIBIR ARQUIVO
 //==========================================
 
 router.get(
     "/arquivo/:idMidia_produto",
-
-    function (req, res, next) {
-
-        console.log(
-            ">>> GET ARQUIVO CHEGOU NA ROTA <<<"
-        );
-
-        console.log(
-            "ID RECEBIDO:",
-            req.params.idMidia_produto
-        );
-
-        next();
-
-    },
-
     midiaProdutoController.arquivo
 );
+
+
 //==========================================
 // BUSCAR MÍDIA POR ID
 //==========================================

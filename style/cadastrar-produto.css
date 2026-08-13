@@ -1,4 +1,3 @@
-
 /* ========================================= */
 /* CONFIGURAÇÕES GERAIS */
 /* ========================================= */
@@ -163,7 +162,7 @@ body {
 
 /* ========================================= */
 /* CAMPO DE CADASTRO */
-/* INPUT + BOTÃO SALVAR */
+/* INPUT + BOTÃO */
 /* ========================================= */
 
 .campo-cadastro {
@@ -204,30 +203,54 @@ body {
 
 
 /* ========================================= */
-/* INPUT DE ARQUIVO */
+/* INPUTS DE IMAGEM */
 /* ========================================= */
 
-#midiasProduto {
+#imagem_principal,
+#galeria_imagens {
+
     padding: 10px;
+
     cursor: pointer;
+
 }
 
 
-#midiasProduto::file-selector-button {
+/* ========================================= */
+/* BOTÃO ESCOLHER ARQUIVO */
+/* ========================================= */
+
+#imagem_principal::file-selector-button,
+#galeria_imagens::file-selector-button {
+
     background: #2563eb;
+
     color: #ffffff;
+
     border: none;
+
     border-radius: 6px;
+
     padding: 9px 14px;
+
     margin-right: 10px;
+
     cursor: pointer;
+
     font-family: "Ubuntu", Arial, sans-serif;
+
     font-weight: 600;
+
+    transition: 0.2s ease;
+
 }
 
 
-#midiasProduto::file-selector-button:hover {
+#imagem_principal::file-selector-button:hover,
+#galeria_imagens::file-selector-button:hover {
+
     background: #1d4ed8;
+
 }
 
 
@@ -236,11 +259,17 @@ body {
 /* ========================================= */
 
 .card small {
+
     display: block;
+
     margin-top: 10px;
+
     color: #64748b;
+
     font-size: 12px;
+
     line-height: 1.5;
+
 }
 
 
@@ -249,10 +278,23 @@ body {
 /* ========================================= */
 
 #preview-imagens {
+
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(150px, 1fr)
+        );
+
     gap: 16px;
-    margin-top: 20px;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #1f2937;
+
 }
 
 
@@ -261,21 +303,49 @@ body {
 /* ========================================= */
 
 .preview-imagem {
+
     position: relative;
+
     background: #0f172a;
+
     border: 1px solid #334155;
+
     border-radius: 10px;
+
     padding: 10px;
+
     overflow: hidden;
+
+    transition: 0.2s ease;
+
 }
 
 
+.preview-imagem:hover {
+
+    border-color: #475569;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* ========================================= */
+/* IMAGEM DA PRÉVIA */
+/* ========================================= */
+
 .preview-imagem img {
+
     display: block;
+
     width: 100%;
+
     height: 130px;
+
     object-fit: cover;
+
     border-radius: 7px;
+
 }
 
 
@@ -284,42 +354,73 @@ body {
 /* ========================================= */
 
 .preview-imagem.principal {
+
     border: 2px solid #2563eb;
-}
 
+    box-shadow:
+        0 0 0 1px rgba(37, 99, 235, 0.15);
 
-.preview-imagem .principal-label {
-    display: block;
-    margin-top: 8px;
-    text-align: center;
-    color: #60a5fa;
-    font-size: 12px;
-    font-weight: 600;
 }
 
 
 /* ========================================= */
-/* BOTÃO DE IMAGEM PRINCIPAL */
+/* TEXTO IMAGEM PRINCIPAL */
+/* ========================================= */
+
+.preview-imagem .principal-label {
+
+    display: block;
+
+    margin-top: 8px;
+
+    text-align: center;
+
+    color: #60a5fa;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* ========================================= */
+/* BOTÃO IMAGEM PRINCIPAL */
 /* ========================================= */
 
 .btn-principal {
+
     width: 100%;
+
     margin-top: 8px;
+
     padding: 8px;
+
     border: 1px solid #334155;
+
     border-radius: 6px;
+
     background: #1f2937;
+
     color: #cbd5e1;
+
     font-family: "Ubuntu", Arial, sans-serif;
+
     font-size: 12px;
+
     cursor: pointer;
+
     transition: 0.2s ease;
+
 }
 
 
 .btn-principal:hover {
+
     background: #334155;
+
     color: #ffffff;
+
 }
 
 
@@ -328,7 +429,9 @@ body {
 /* ========================================= */
 
 #loja_idLoja {
+
     max-width: 400px;
+
 }
 
 
@@ -337,11 +440,17 @@ body {
 /* ========================================= */
 
 .acoes {
+
     display: flex;
+
     justify-content: flex-end;
+
     align-items: center;
+
     gap: 14px;
+
     margin-top: 5px;
+
 }
 
 
@@ -350,14 +459,23 @@ body {
 /* ========================================= */
 
 .acoes button {
+
     border: none;
+
     border-radius: 8px;
+
     padding: 13px 22px;
+
     font-family: "Ubuntu", Arial, sans-serif;
+
     font-size: 14px;
+
     font-weight: 600;
+
     cursor: pointer;
+
     transition: 0.2s ease;
+
 }
 
 
@@ -366,13 +484,18 @@ body {
 /* ========================================= */
 
 #btn-status {
+
     background: #334155;
+
     color: #ffffff;
+
 }
 
 
 #btn-status:hover {
+
     background: #475569;
+
 }
 
 
@@ -381,19 +504,27 @@ body {
 /* ========================================= */
 
 #btn-salvar {
+
     background: #2563eb;
+
     color: #ffffff;
+
 }
 
 
 #btn-salvar:hover {
+
     background: #1d4ed8;
+
     transform: translateY(-1px);
+
 }
 
 
 #btn-salvar:active {
+
     transform: translateY(0);
+
 }
 
 
@@ -404,49 +535,70 @@ body {
 @media (max-width: 700px) {
 
     .conteudo {
+
         padding: 25px 16px 40px;
+
     }
 
 
     .conteudo h1 {
+
         font-size: 26px;
+
     }
 
 
     .card {
+
         padding: 20px;
+
     }
 
 
     .campo-cadastro {
+
         flex-direction: column;
+
     }
 
 
     .campo-cadastro button {
+
         width: 100%;
+
         min-height: 44px;
+
     }
 
 
     .acoes {
+
         flex-direction: column;
+
         align-items: stretch;
+
     }
 
 
     .acoes button {
+
         width: 100%;
+
     }
 
 
     #loja_idLoja {
+
         max-width: 100%;
+
     }
 
 
     #preview-imagens {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
     }
 
 }
@@ -459,18 +611,117 @@ body {
 @media (max-width: 400px) {
 
     .conteudo {
+
         padding: 20px 12px 30px;
+
     }
 
 
     .card {
+
         padding: 16px;
+
     }
 
 
     #preview-imagens {
+
         grid-template-columns: 1fr;
+
     }
 
 }
 
+/* ========================================= */
+/* BOTÃO VOLTAR */
+/* ========================================= */
+
+.btn-voltar {
+    position: relative;
+
+    top: 150px;
+    left: 300px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 20px;
+
+    background-color: #f8fafc;
+
+    color: #0f172a;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 8px;
+
+    font-family: "Ubuntu", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.btn-voltar:hover {
+
+    background-color: #ffffff;
+
+    color: #2563eb;
+
+    border-color: #2563eb;
+
+    transform: translateX(-3px);
+
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.10);
+}
+
+.btn-voltar::before {
+
+    content: "←";
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+/* ========================================= */
+/* HOVER */
+/* ========================================= */
+
+.btn-voltar:hover {
+
+    background-color: #ffffff;
+
+    color: #2563eb;
+
+    border-color: #2563eb;
+
+    transform: translateX(-3px);
+
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.10);
+}
+
+
+/* ========================================= */
+/* ÍCONE */
+/* ========================================= */
+
+.btn-voltar::before {
+
+    content: "←";
+
+    font-size: 18px;
+
+    font-weight: bold;
+}

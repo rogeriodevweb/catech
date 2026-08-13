@@ -2,424 +2,289 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>CA Tech</title>
+
+
     <link rel="stylesheet" href="style/index.css">
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-        <!--imagem da logo pro navegador-->
-<link rel="icon" type="image/png" href="assets/logo-com-fundo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
+    <link rel="icon" type="image/png" href="assets/logo-com-fundo.png">
 
 </head>
 
+
 <body>
-    <!--Cabeçalho/Menu-->
+
+
+    <!-- ========================================= -->
+    <!-- CABEÇALHO -->
+    <!-- ========================================= -->
+
     <header>
+
+
         <div class="topo">
-            <!--logo-->
+
+
+            <!-- LOGO -->
+
             <div class="logo">
-                <img src="assets/CATech.png" alt="CA Tech">
+
+                <a href="index.html">
+
+                    <img src="assets/CATech.png" alt="CA Tech">
+
+                </a>
+
             </div>
-            <!-- caixa de pesquisa -->
+
+
+            <!-- PESQUISA -->
+
             <div class="caixa-pesquisa">
-                <input type="text" placeholder="Buscar produtos...">
+
+                <input type="text" id="pesquisaProduto" placeholder="Buscar produtos...">
+
             </div>
+
+
+            <!-- USUÁRIO -->
+
             <div class="icones">
+
                 <a href="pages/perfil-cliente.html">
-    <img src="assets/user.png" alt="login">
-    <small>Usuário</small>
-</a>
+
+                    <img src="assets/user.png" alt="Usuário">
+
+                    <div>
+
+                        <small>
+                            Usuário
+                        </small>
+
+                        <span>
+                            Minha Conta
+                        </span>
+
+                    </div>
+
+                </a>
+
             </div>
+
+
         </div>
-        <!-- menu de navegação -->
+
+
+        <!-- ========================================= -->
+        <!-- MENU -->
+        <!-- ========================================= -->
+
         <nav class="menu">
-            <a href="/pages/categorias.html">Todas as categorias</a>
-            <a href="/pages/cadastro-endereco.html">Endereço</a>
-            <a href="/pages/favoritos.html">Favoritos</a>
-            <a href="/pages/pedidos.html">Pedidos</a>
-            <a href="/pages/carrinho.html">Carrinho</a>
-            <a href="/pages/configuracoesc.html">Configurações</a>
-             
+
+
+            <a href="pages/categorias.html">
+
+                Todas as categorias
+
+            </a>
+
+
+            <a href="pages/cadastro-endereco.html">
+
+                Endereço
+
+            </a>
+
+
+            <a href="pages/favoritos.html">
+
+                Favoritos
+
+            </a>
+
+
+            <a href="pages/pedidos.html">
+
+                Pedidos
+
+            </a>
+
+
+            <a href="pages/carrinho.html">
+
+                Carrinho
+
+            </a>
+
+
+            <a href="pages/configuracoesc.html">
+
+                Configurações
+
+            </a>
+
+
         </nav>
+
+
     </header>
 
-<!-- Banner -->
-<div class="banner">
 
-    <div class="imagens-banner" id="bannerAtual">
 
-    </div>
+    <!-- ========================================= -->
+    <!-- BANNER -->
+    <!-- ========================================= -->
 
-    <div class="botoes-banner">
+    <section class="banner">
 
-        <button class="btn-anterior">
 
-            <img src="assets/seta-esquerda.png" alt="Anterior">
-
-        </button>
-
-        <button class="btn-proximo">
-
-            <img src="assets/seta-direita.png" alt="Próximo">
-
-        </button>
-
-    </div>
-
-</div>
-    <!-- finalização da area do banner da loja -->
-<!-- ==========================
-     ATALHOS RÁPIDOS
-=========================== -->
-
-<section class="atalhos">
-
-    <a href="/pages/cupom.html" class="atalho">
-
-    <div class="atalho-icone">
-        🏷️
-    </div>
-
-    <span>Cupons</span>
-
-</a>
-
-    <div class="atalho">
-
-        <div class="atalho-icone">
-            🔥
+        <div class="imagens-banner" id="bannerAtual">
         </div>
 
-        <span>Ofertas</span>
 
-    </div>
+        <div class="botoes-banner">
 
-    <div class="atalho">
 
-        <div class="atalho-icone">
-            💻
+            <button type="button" class="btn-anterior">
+
+                <img src="assets/seta-esquerda.png" alt="Anterior">
+
+            </button>
+
+
+            <button type="button" class="btn-proximo">
+
+                <img src="assets/seta-direita.png" alt="Próximo">
+
+            </button>
+
+
         </div>
 
-        <span>Lançamentos</span>
 
-    </div>
+    </section>
 
-    <div class="atalho">
 
-        <div class="atalho-icone">
-            🛠️
-        </div>
 
-        <span>Assistência</span>
+    <!-- ========================================= -->
+    <!-- ATALHOS -->
+    <!-- ========================================= -->
 
-    </div>
+    <section class="atalhos">
 
-    <div class="atalho">
 
-        <div class="atalho-icone">
-            🎁
-        </div>
+        <a href="pages/cupom.html" class="atalho">
 
-        <span>Kits</span>
-
-    </div>
-
-</section>
-<!-- Área de Ofertas -->
-<section class="Ofertas">
-
-    <div class="titulo-ofertas">
-        <div class="texto-promocoes">
-            <h2>OFERTAS RELÂMPAGO</h2>
-            <p>Confira as melhores ofertas!</p>
-        </div>
-
-        <a href="#" class="ver-tudo">Ver tudo</a>
-    </div>
-
-    <div class="lista-produtos" id="listaProdutos">
-
-        <!-- 1º CARD -->
-        <div class="card-produtos" onclick="abrirProduto(1)">
-
-            <div class="imagem-botao">
-                <img src="/assets/chave-teste-1.png" alt="Kit Eletrica Chave Teste Digital + Caneta Detectora Tensão">
-
-                <div 
-                    class="favorito"
-                    onclick="event.stopPropagation(); favoritar(this, 1);">
-
-                    ❤
-
-                </div>
+            <div class="atalho-icone">
+                🏷️
             </div>
 
-            <h3>Kit Eletrica Chave Teste Digital + Caneta Detectora Tensão</h3>
+            <span>
+                Cupons
+            </span>
 
-            <div class="precos">
-                <p class="p-antigo">R$ 46,90</p>
-                <p class="p-promocional">R$ 22,90</p>
-            </div>
-
-            <div class="btn-card">
-                <img src="/assets/avaliacoes.png" alt="Avaliação do produto">
-                <h5>4.2</h5>
-
-                <button class="btn-adicionar"
-                    onclick="event.stopPropagation(); adicionarCarrinho(
-                        0,
-                        'Kit Eletrica Chave Teste Digital + Caneta Detectora Tensão',
-                        22.90,
-                        '/assets/chave-teste-1.png'
-                    )">
-                    <img src="/assets/Carrinho-compras.png" alt="Ícone de carrinho">
-                </button>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- Área de Promoções -->
-<section class="Ofertas">
-
-    <div class="titulo-ofertas">
-        <div class="texto-promocoes">
-            <h2>PROMOÇÕES</h2>
-            <p>Confira as melhores promoções!</p>
-        </div>
-
-        <a href="#" class="ver-tudo">Ver tudo</a>
-    </div>
-
-
-    <div class="lista-produtos">
-
-
-        <!-- 2º CARD -->
-        <div class="card-produtos" onclick="abrirProduto(2)">
-
-
-            <div class="imagem-botao">
-
-                <img src="/assets/alicate-de-crimpagem.png" alt="Alicate de crimpagem">
-
-
-                <div 
-                class="favorito"
-                onclick="event.stopPropagation(); favoritar(this, 2);">
-
-                    ❤
-
-                </div>
-
-
-            </div>
-
-
-
-            <h3>
-                Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11
-            </h3>
-
-
-
-            <div class="precos">
-
-                <p class="p-antigo">
-                    R$ 69,90
-                </p>
-
-                <p class="p-promocional">
-                    R$ 59,90
-                </p>
-
-            </div>
-
-
-
-
-            <div class="btn-card">
-
-
-                <img src="/assets/avaliacoes.png" alt="Avaliação do produto">
-
-
-                <h5>
-                    4.2
-                </h5>
-
-
-
-
-                <button 
-                class="btn-adicionar"
-
-                onclick="event.stopPropagation(); adicionarCarrinho(
-                    1,
-                    'Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11',
-                    59.90,
-                    '/assets/alicate-de-crimpagem.png'
-                )">
-
-
-                    <img src="/assets/Carrinho-compras.png" alt="Ícone de carrinho">
-
-
-                </button>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-<section class="Ofertas">
-
-    <div class="titulo-ofertas">
-
-        <div class="texto-promocoes">
-
-            <h2>SEGURANÇA</h2>
-
-            <p>
-                Confira os melhores produtos de segurança!
-            </p>
-
-        </div>
-
-
-        <a href="#" class="ver-tudo">
-            Ver tudo
         </a>
 
-    </div>
 
+        <a href="pages/categorias.html" class="atalho">
 
-
-    <div class="lista-produtos">
-
-
-        <!-- 3º CARD -->
-        <div class="card-produtos" onclick="abrirProduto(3)">
-
-
-            <div class="imagem-botao">
-
-
-                <img 
-                src="/assets/alicate-de-crimpagem.png" 
-                alt="Alicate de crimpagem">
-
-
-                <div 
-                class="favorito"
-                onclick="event.stopPropagation(); favoritar(this, 3);">
-
-                    ❤
-
-                </div>
-
-
+            <div class="atalho-icone">
+                💻
             </div>
 
+            <span>
+                Produtos
+            </span>
+
+        </a>
 
 
+        <a href="pages/favoritos.html" class="atalho">
 
-            <h3>
-                Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11
-            </h3>
-
-
-
-
-            <div class="precos">
-
-
-                <p class="p-antigo">
-                    R$ 69,90
-                </p>
-
-
-                <p class="p-promocional">
-                    R$ 59,90
-                </p>
-
-
+            <div class="atalho-icone">
+                ❤
             </div>
 
+            <span>
+                Favoritos
+            </span>
+
+        </a>
 
 
+        <a href="pages/carrinho.html" class="atalho">
 
-
-            <div class="btn-card">
-
-
-                <img 
-                src="/assets/avaliacoes.png" 
-                alt="Avaliação do produto">
-
-
-                <h5>
-                    4.2
-                </h5>
-
-
-
-
-                <button 
-                class="btn-adicionar"
-
-                onclick="event.stopPropagation(); adicionarCarrinho(
-
-                    3,
-
-                    'Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11',
-
-                    59.90,
-
-                    '/assets/alicate-de-crimpagem.png'
-
-                )">
-
-
-                    <img 
-                    src="/assets/Carrinho-compras.png" 
-                    alt="Ícone de carrinho">
-
-
-                </button>
-
-
-
+            <div class="atalho-icone">
+                🛒
             </div>
 
+            <span>
+                Carrinho
+            </span>
+
+        </a>
 
 
-        </div>
+        <a href="pages/pedidos.html" class="atalho">
+
+            <div class="atalho-icone">
+                📦
+            </div>
+
+            <span>
+                Pedidos
+            </span>
+
+        </a>
+
+
+    </section>
 
 
 
-    </div>
+    <!-- ========================================= -->
+    <!-- PRODUTOS POR CATEGORIA -->
+    <!-- ========================================= -->
+
+    <main id="areaCategorias">
+
+
+        <!--
+            O JAVASCRIPT IRÁ CRIAR:
+
+            CATEGORIA
+                PRODUTO
+                PRODUTO
+                PRODUTO
+
+            CATEGORIA
+                PRODUTO
+                PRODUTO
+        -->
+
+
+    </main>
 
 
 
-</section>
-    <footer>
+    <!-- ========================================= -->
+    <!-- RODAPÉ -->
+    <!-- ========================================= -->
+
+   <footer>
         <!--parte superiordo rodapé-->
         <div class="superior">
 

@@ -1,421 +1,888 @@
-// ===============================
-// PRODUTOS CADASTRADOS
-// ===============================
+// ========================================
+// API
+// ========================================
 
-const produtos = {
+const API =
+    "http://localhost:3000";
 
-    1: {
 
-        nome:
-        "Kit Eletrica Chave Teste Digital + Caneta Detectora Tensão",
+// ========================================
+// PEGAR ID DA URL
+// ========================================
 
-        estoque: 8,
+const parametros =
+    new URLSearchParams(
+        window.location.search
+    );
 
-        descricao: `
-<h3>Descrição do Produto</h3>
+const idProduto =
+    parametros.get("id");
 
-<p>
-O <strong>Kit Elétrica Chave Teste Digital + Caneta Detectora de Tensão</strong> é ideal para eletricistas, técnicos e profissionais que realizam instalações, manutenções e reparos em sistemas elétricos.
-</p>
 
-<p>
-A <strong>Chave Teste Digital</strong> possui visor de fácil leitura para auxiliar na verificação de tensão em tomadas, interruptores, fios e outros componentes elétricos.
-</p>
+// ========================================
+// VERIFICAR ID
+// ========================================
 
-<h4>Características</h4>
+if (!idProduto) {
 
-<ul>
-<li>✔ Chave teste digital.</li>
-<li>✔ Caneta detectora sem contato.</li>
-<li>✔ Ideal para manutenção elétrica.</li>
-<li>✔ Compacto e leve.</li>
-<li>✔ Uso profissional e doméstico.</li>
-</ul>
+    alert(
+        "Produto não informado."
+    );
 
-<h4>Conteúdo</h4>
+    window.location.href =
+        "../index.html";
 
-<ul>
-<li>01 Chave Teste Digital</li>
-<li>01 Caneta Detectora</li>
-</ul>
-`,
+}
 
-        imagemPrincipal:
-        "/assets/chave-teste-1.png",
 
-        imagens: [
+// ========================================
+// VARIÁVEIS
+// ========================================
 
-            "/assets/chave-teste-1.png",
-            "/assets/chave-teste-2.png",
-            "/assets/chave-teste-3.png",
-            "/assets/chave-teste-4.png",
-            "/assets/chave-teste-5.png"
+let produtoAtual = null;
 
-        ],
+let quantidade = 1;
 
-        avaliacaoImagem:
-        "/assets/avaliacoes.png",
 
-        avaliacao:
-        "(178 avaliações)",
+// ========================================
+// CARREGAR PRODUTO
+// ========================================
 
-        precoAntigo:
-        "R$ 46,90",
+async function carregarProduto() {
 
-        preco:
-        "R$ 22,90",
+    try {
 
-        desconto:
-        "48,83% OFF",
+        console.log(
+            "================================"
+        );
 
-        sku:
-        "SKU: CZ270F",
+        console.log(
+            "BUSCANDO PRODUTO:",
+            idProduto
+        );
 
-        botaoCarrinho:
-        "Adicionar ao carrinho",
 
-        botaoComprar:
-        "Comprar agora"
+        const resposta =
+            await fetch(
 
-    },
+                `${API}/produtos/detalhes/${idProduto}`
 
-    // ==========================================
-    // PRODUTO 2
-    // ==========================================
+            );
 
-    2: {
 
-        nome:
-        "Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11",
+        console.log(
+            "STATUS:",
+            resposta.status
+        );
 
-        estoque: 15,
 
-        descricao: `
-<h3>Descrição do Produto</h3>
+        if (!resposta.ok) {
 
-<p>
-Alicate profissional para crimpar conectores RJ45, RJ12 e RJ11.
-Ideal para técnicos de informática, instaladores de redes e manutenção.
-</p>
+            throw new Error(
+                `Erro HTTP ${resposta.status}`
+            );
 
-<ul>
-<li>✔ Crimpagem precisa</li>
-<li>✔ Corte de fios</li>
-<li>✔ Decapador integrado</li>
-<li>✔ Cabo emborrachado</li>
-<li>✔ Alta resistência</li>
-</ul>
-`,
+        }
 
-        imagemPrincipal:
-        "/assets/alicate-de-crimpagem.png",
 
-        imagens: [
+        const dados =
+            await resposta.json();
 
-            "/assets/alicate-de-crimpagem.png",
-            "/assets/alicate-de-crimpagem.png",
-            "/assets/alicate-de-crimpagem.png",
-            "/assets/alicate-de-crimpagem.png",
-            "/assets/alicate-de-crimpagem.png"
 
-        ],
+        console.log(
+            "DADOS RECEBIDOS:",
+            dados
+        );
 
-        avaliacaoImagem:
-        "/assets/avaliacoes.png",
 
-        avaliacao:
-        "(96 avaliações)",
+        if (
+            !dados.sucesso ||
+            !dados.produto
+        ) {
 
-        precoAntigo:
-        "R$ 69,90",
+            throw new Error(
+                "Produto não encontrado."
+            );
 
-        preco:
-        "R$ 59,90",
+        }
 
-        desconto:
-        "14% OFF",
 
-        sku:
-        "SKU: AL450",
+        produtoAtual =
+            dados.produto;
 
-        botaoCarrinho:
-        "Adicionar ao carrinho",
 
-        botaoComprar:
-        "Comprar agora"
+        console.log(
+            "PRODUTO:",
+            produtoAtual
+        );
 
-    },
 
-    // ==========================================
-    // PRODUTO 3
-    // ==========================================
+        // ==================================
+        // PREENCHER PRODUTO
+        // ==================================
 
-    3: {
+        preencherProduto(
+            produtoAtual
+        );
 
-        nome:
-        "Alicate Crimpagem De Conectores De Passagem RJ45, RJ12, RJ11",
 
-        estoque: 10,
+        // ==================================
+        // CARREGAR IMAGENS
+        // ==================================
 
-        descricao: `
-<h3>Descrição do Produto</h3>
+        carregarImagens(
+            produtoAtual
+        );
 
-<p>
-Ferramenta profissional indicada para instalação e manutenção de redes de computadores.
-</p>
 
-<ul>
-<li>✔ Excelente acabamento</li>
-<li>✔ Alta durabilidade</li>
-<li>✔ Fácil utilização</li>
-</ul>
-`,
+        // ==================================
+        // CONFIGURAR QUANTIDADE
+        // ==================================
 
-        imagemPrincipal:
-        "/assets/alicate-de-crimpagem.png",
+        configurarQuantidade(
+            produtoAtual.quantidade_estoque
+        );
 
-        imagens: [
 
-            "/assets/alicate-de-crimpagem.png",
-            "/assets/alicate-de-crimpagem.png",
-            "/assets/alicate-de-crimpagem.png",
-            "/assets/alicate-de-crimpagem.png",
-            "/assets/alicate-de-crimpagem.png"
+        // ==================================
+        // CONFIGURAR BOTÕES
+        // ==================================
 
-        ],
+        configurarBotoes();
 
-        avaliacaoImagem:
-        "/assets/avaliacoes.png",
 
-        avaliacao:
-        "(55 avaliações)",
+        console.log(
+            "PRODUTO CARREGADO COM SUCESSO!"
+        );
 
-        precoAntigo:
-        "R$ 69,90",
-
-        preco:
-        "R$ 59,90",
-
-        desconto:
-        "14% OFF",
-
-        sku:
-        "SKU: AL451",
-
-        botaoCarrinho:
-        "Adicionar ao carrinho",
-
-        botaoComprar:
-        "Comprar agora"
+        console.log(
+            "================================"
+        );
 
     }
 
-};
+    catch (erro) {
 
-// ===============================
-// IDENTIFICA O PRODUTO
-// ===============================
+        console.error(
+            "ERRO AO CARREGAR PRODUTO:",
+            erro
+        );
 
-const idProduto = new URLSearchParams(window.location.search).get("id") || 1;
 
-const produto = produtos[idProduto];
+        document.querySelector(
+            "#nome-produto"
+        ).textContent =
+            "Produto não encontrado.";
 
-// ========================================
-// CARREGA AS INFORMAÇÕES DO PRODUTO
-// ========================================
 
-// Nome
-document.querySelector("#nome-produto").innerHTML = produto.nome;
+        alert(
+            "Não foi possível carregar os detalhes do produto."
+        );
 
-// Imagem principal
-const imagemPrincipal = document.querySelector("#imagem-maior");
-imagemPrincipal.src = produto.imagemPrincipal;
+    }
 
-// Descrição
-document.querySelector("#descricao-produto").innerHTML = produto.descricao;
+}
 
-// ========================================
-// MINIATURAS
-// ========================================
-
-const lateral = document.querySelector("#img-lateral");
-
-// limpa as miniaturas
-lateral.innerHTML = "";
-
-produto.imagens.forEach((imagem) => {
-
-    const caixa = document.createElement("div");
-    caixa.classList.add("miniatura-box");
-
-    const img = document.createElement("img");
-    img.src = imagem;
-
-    img.addEventListener("click", () => {
-        imagemPrincipal.src = imagem;
-    });
-
-    caixa.appendChild(img);
-    lateral.appendChild(caixa);
-
-});
 
 // ========================================
-// AVALIAÇÃO
+// PREENCHER DADOS
 // ========================================
 
-document.querySelector("#estrela-avaliacao").src =
-produto.avaliacaoImagem;
+function preencherProduto(
+    produto
+) {
 
-document.querySelector("#valor-avaliacao").innerHTML =
-produto.avaliacao;
+    // ==================================
+    // NOME
+    // ==================================
+
+    document.querySelector(
+        "#nome-produto"
+    ).textContent =
+        produto.nome;
+
+
+    // ==================================
+    // DESCRIÇÃO
+    // ==================================
+
+    document.querySelector(
+        "#descricao-produto"
+    ).innerHTML =
+        produto.descricao || "";
+
+
+    // ==================================
+    // PREÇO ANTIGO
+    // ==================================
+
+    const precoAntigo =
+        Number(
+            produto.preco_antigo
+        ) || 0;
+
+
+    document.querySelector(
+        "#preco-antigo"
+    ).textContent =
+
+        `R$ ${formatarPreco(
+            precoAntigo
+        )}`;
+
+
+    // ==================================
+    // PREÇO FINAL
+    // ==================================
+
+    let precoFinal =
+        precoAntigo;
+
+
+    if (
+
+        produto.preco_promocional !==
+        null &&
+
+        produto.preco_promocional !==
+        undefined &&
+
+        produto.preco_promocional !==
+        ""
+
+    ) {
+
+        precoFinal =
+            Number(
+                produto.preco_promocional
+            );
+
+    }
+
+
+    document.querySelector(
+        "#preco-promocional"
+    ).textContent =
+
+        `R$ ${formatarPreco(
+            precoFinal
+        )}`;
+
+
+    // ==================================
+    // DESCONTO
+    // ==================================
+
+    const elementoDesconto =
+        document.querySelector(
+            "#desconto"
+        );
+
+
+    if (
+        precoAntigo > 0 &&
+        precoFinal < precoAntigo
+    ) {
+
+        const desconto =
+            (
+                (
+                    precoAntigo -
+                    precoFinal
+                )
+                /
+                precoAntigo
+            ) * 100;
+
+
+        elementoDesconto.textContent =
+
+            `${desconto.toFixed(0)}% OFF`;
+
+    }
+
+    else {
+
+        elementoDesconto.textContent =
+            "";
+
+    }
+
+
+    // ==================================
+    // SKU
+    // ==================================
+
+    document.querySelector(
+        "#sku"
+    ).textContent =
+
+        `SKU: ${produto.codigo}`;
+
+
+    // ==================================
+    // AVALIAÇÃO
+    // ==================================
+
+    document.querySelector(
+        "#estrela-avaliacao"
+    ).src =
+        "/assets/avaliacoes.png";
+
+
+    document.querySelector(
+        "#valor-avaliacao"
+    ).textContent =
+        "";
+
+
+    // ==================================
+    // BOTÕES
+    // ==================================
+
+    document.querySelector(
+        "#btn-add-carrinho"
+    ).textContent =
+        "Adicionar ao carrinho";
+
+
+    document.querySelector(
+        "#btn-comprar"
+    ).textContent =
+        "Comprar agora";
+
+}
+
 
 // ========================================
-// PREÇOS
+// FORMATAR PREÇO
 // ========================================
 
-document.querySelector("#preco-antigo").innerHTML =
-produto.precoAntigo;
+function formatarPreco(
+    valor
+) {
 
-document.querySelector("#preco-promocional").innerHTML =
-produto.preco;
+    return Number(
+        valor
+    )
+        .toFixed(2)
+        .replace(
+            ".",
+            ","
+        );
 
-document.querySelector("#desconto").innerHTML =
-produto.desconto;
+}
 
-// ========================================
-// SKU
-// ========================================
-
-document.querySelector("#sku").innerHTML =
-produto.sku;
-
-// ========================================
-// BOTÕES
-// ========================================
-
-document.querySelector("#btn-add-carrinho").innerHTML =
-produto.botaoCarrinho;
-
-document.querySelector("#btn-comprar").innerHTML =
-produto.botaoComprar;
 
 // ========================================
-// ÍCONES DOS BOTÕES
+// CARREGAR IMAGENS
 // ========================================
 
-document.querySelector("#aumentar").innerHTML =
-'<img src="/assets/botao-adicionar.png" alt="Adicionar">';
+function carregarImagens(
+    produto
+) {
 
-document.querySelector("#diminuir").innerHTML =
-'<img src="/assets/remover.png" alt="Remover">';
+    const imagemPrincipal =
+        document.querySelector(
+            "#imagem-maior"
+        );
+
+
+    const lateral =
+        document.querySelector(
+            "#img-lateral"
+        );
+
+
+    lateral.innerHTML =
+        "";
+
+
+    let imagens =
+        produto.imagens || [];
+
+
+    // ==================================
+    // SE VIER STRING
+    // ==================================
+
+    if (
+        typeof imagens ===
+        "string"
+    ) {
+
+        imagens =
+            imagens
+                .split("|||")
+                .filter(
+                    imagem =>
+                        imagem.trim() !== ""
+                );
+
+    }
+
+
+    console.log(
+        "IMAGENS:",
+        imagens
+    );
+
+
+    // ==================================
+    // SEM IMAGEM
+    // ==================================
+
+    if (
+        imagens.length === 0
+    ) {
+
+        imagemPrincipal.src =
+            "/assets/sem-imagem.png";
+
+        return;
+
+    }
+
+
+    // ==================================
+    // IMAGEM PRINCIPAL
+    // ==================================
+
+    imagemPrincipal.src =
+        imagens[0];
+
+
+    // ==================================
+    // MINIATURAS
+    // ==================================
+
+    imagens.forEach(
+        (
+            imagem,
+            indice
+        ) => {
+
+            const caixa =
+                document.createElement(
+                    "div"
+                );
+
+
+            caixa.classList.add(
+                "miniatura-box"
+            );
+
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+
+            img.src =
+                imagem;
+
+
+            img.alt =
+                `${produto.nome} - imagem ${indice + 1}`;
+
+
+            img.addEventListener(
+                "click",
+                () => {
+
+                    imagemPrincipal.src =
+                        imagem;
+
+                }
+            );
+
+
+            caixa.appendChild(
+                img
+            );
+
+
+            lateral.appendChild(
+                caixa
+            );
+
+        }
+    );
+
+}
+
 
 // ========================================
 // QUANTIDADE
 // ========================================
 
-let quantidade = 1;
+function configurarQuantidade(
+    estoque
+) {
 
-const numero = document.querySelector("#numero-quantidade");
+    quantidade =
+        1;
 
-numero.textContent = quantidade;
 
-// AUMENTAR
-document.querySelector("#aumentar").addEventListener("click", () => {
+    const numero =
+        document.querySelector(
+            "#numero-quantidade"
+        );
 
-    if (quantidade < produto.estoque) {
 
-        quantidade++;
-        numero.textContent = quantidade;
+    const aumentar =
+        document.querySelector(
+            "#aumentar"
+        );
 
-    } else {
 
-        alert("Você atingiu o limite disponível em estoque.");
+    const diminuir =
+        document.querySelector(
+            "#diminuir"
+        );
 
-    }
 
-    const botao = document.querySelector("#aumentar");
+    numero.textContent =
+        quantidade;
 
-    botao.classList.add("click");
 
-    setTimeout(() => {
+    aumentar.innerHTML =
+        '<img src="/assets/botao-adicionar.png" alt="Adicionar">';
 
-        botao.classList.remove("click");
 
-    }, 250);
+    diminuir.innerHTML =
+        '<img src="/assets/remover.png" alt="Remover">';
 
-});
 
-// DIMINUIR
+    aumentar.onclick =
+        function () {
 
-document.querySelector("#diminuir").addEventListener("click", () => {
+            if (
+                quantidade < estoque
+            ) {
 
-    if (quantidade > 1) {
+                quantidade++;
 
-        quantidade--;
+                numero.textContent =
+                    quantidade;
 
-        numero.textContent = quantidade;
+            }
 
-    }
+            else {
 
-    const botao = document.querySelector("#diminuir");
+                alert(
+                    "Você atingiu o limite disponível em estoque."
+                );
 
-    botao.classList.add("click");
+            }
 
-    setTimeout(() => {
+        };
 
-        botao.classList.remove("click");
 
-    }, 250);
+    diminuir.onclick =
+        function () {
 
-});
+            if (
+                quantidade > 1
+            ) {
+
+                quantidade--;
+
+                numero.textContent =
+                    quantidade;
+
+            }
+
+        };
+
+}
+
 
 // ========================================
 // ADICIONAR AO CARRINHO
 // ========================================
 
-document.querySelector("#btn-add-carrinho").addEventListener("click", () => {
+function adicionarAoCarrinho() {
 
-    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    if (!produtoAtual) {
 
-    const existente = carrinho.find(item => item.id == idProduto);
+        return;
+
+    }
+
+
+    let carrinho =
+
+        JSON.parse(
+            localStorage.getItem(
+                "carrinho"
+            )
+        ) || [];
+
+
+    const id =
+        Number(
+            produtoAtual.idProduto
+        );
+
+
+    const existente =
+        carrinho.find(
+
+            item =>
+                Number(item.id) ===
+                id
+
+        );
+
+
+    const preco =
+
+        produtoAtual.preco_promocional !==
+        null &&
+
+        produtoAtual.preco_promocional !==
+        undefined &&
+
+        produtoAtual.preco_promocional !==
+        ""
+
+            ?
+
+        Number(
+            produtoAtual.preco_promocional
+        )
+
+            :
+
+        Number(
+            produtoAtual.preco_antigo
+        );
+
+
+    const imagem =
+
+        produtoAtual.imagens &&
+        produtoAtual.imagens.length > 0
+
+            ?
+
+        produtoAtual.imagens[0]
+
+            :
+
+        "/assets/sem-imagem.png";
+
 
     if (existente) {
 
-        existente.quantidade += quantidade;
+        existente.quantidade +=
+            quantidade;
 
-    } else {
+    }
+
+    else {
 
         carrinho.push({
 
-            id: idProduto,
+            id:
+                id,
 
-            nome: produto.nome,
+            nome:
+                produtoAtual.nome,
 
-            preco: produto.preco,
+            preco:
+                preco,
 
-            imagem: produto.imagemPrincipal,
+            imagem:
+                imagem,
 
-            quantidade: quantidade
+            quantidade:
+                quantidade
 
         });
 
     }
 
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-    alert("Produto adicionado ao carrinho!");
+    localStorage.setItem(
 
-});
+        "carrinho",
+
+        JSON.stringify(
+            carrinho
+        )
+
+    );
+
+
+    alert(
+        "Produto adicionado ao carrinho!"
+    );
+
+}
+
 
 // ========================================
-// COMPRAR AGORA
+// CONFIGURAR BOTÕES
 // ========================================
 
-document.querySelector("#btn-comprar").addEventListener("click", () => {
+function configurarBotoes() {
 
-    document.querySelector("#btn-add-carrinho").click();
+    const btnCarrinho =
+        document.querySelector(
+            "#btn-add-carrinho"
+        );
 
-    window.location.href = "carrinho.html";
 
-});
+    const btnComprar =
+        document.querySelector(
+            "#btn-comprar"
+        );
+
+
+    // ========================================
+    // BOTÃO ADICIONAR AO CARRINHO
+    // ========================================
+
+    if (btnCarrinho) {
+
+        btnCarrinho.onclick =
+            function () {
+
+                adicionarAoCarrinho();
+
+            };
+
+    }
+
+
+    // ========================================
+    // BOTÃO COMPRAR - WHATSAPP
+    // ========================================
+
+    if (btnComprar) {
+
+        btnComprar.onclick =
+            function () {
+
+                // Verificar se o produto foi carregado
+                if (!produtoAtual) {
+
+                    alert(
+                        "Aguarde o produto carregar."
+                    );
+
+                    return;
+
+                }
+
+
+                // ==================================
+                // NÚMERO DO WHATSAPP
+                // ==================================
+
+                const numeroWhatsApp =
+                    "5563992057108";
+
+
+                // ==================================
+                // PREÇO
+                // ==================================
+
+                const preco =
+
+                    produtoAtual.preco_promocional !==
+                    null &&
+
+                    produtoAtual.preco_promocional !==
+                    undefined &&
+
+                    produtoAtual.preco_promocional !==
+                    ""
+
+                        ?
+
+                    Number(
+                        produtoAtual.preco_promocional
+                    )
+
+                        :
+
+                    Number(
+                        produtoAtual.preco_antigo
+                    );
+
+
+                // ==================================
+                // MENSAGEM
+                // ==================================
+
+                const mensagem =
+
+                    `Olá! Tenho interesse neste produto.
+
+Produto: ${produtoAtual.nome}
+
+Código: ${produtoAtual.codigo}
+
+Preço: R$ ${preco
+                        .toFixed(2)
+                        .replace(".", ",")}
+
+Quantidade: ${quantidade}
+
+Gostaria de realizar a compra.`;
+
+
+                // ==================================
+                // LINK WHATSAPP
+                // ==================================
+
+                const linkWhatsApp =
+
+                    `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+
+                console.log(
+                    "ABRINDO WHATSAPP:"
+                );
+
+                console.log(
+                    linkWhatsApp
+                );
+
+
+                // ==================================
+                // ABRIR WHATSAPP
+                // ==================================
+
+                window.open(
+                    linkWhatsApp,
+                    "_blank"
+                );
+
+            };
+
+    }
+
+}
+
+
+// ========================================
+// INICIAR
+// ========================================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    function () {
+
+        carregarProduto();
+
+    }
+
+);
+

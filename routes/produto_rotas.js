@@ -1,47 +1,52 @@
-// =====================================
+//==========================================
 // IMPORTAÇÕES
-// =====================================
+//==========================================
 
 const express = require("express");
 
 const router = express.Router();
 
 
-// =====================================
+//==========================================
 // IMPORTA CONTROLLER
-// =====================================
+//==========================================
 
-const produtoController = require("../controller/produto_controller");
-
-
-// =====================================
-// CADASTRAR PRODUTO
-// =====================================
-
-router.post(
-
-    "/",
-
-    produtoController.cadastrar
-
-);
+const produtoController =
+    require("../controller/produto_controller");
 
 
-// =====================================
-// BUSCAR DETALHES DO PRODUTO
-// =====================================
+//==========================================
+// LISTAR TODOS OS PRODUTOS
+//==========================================
 
 router.get(
-
-    "/detalhes/:idProduto",
-
-    produtoController.detalhes
-
+    "/",
+    produtoController.listar
 );
 
 
-// =====================================
+//==========================================
+// CADASTRAR PRODUTO
+//==========================================
+
+router.post(
+    "/",
+    produtoController.cadastrar
+);
+
+
+//==========================================
+// BUSCAR DETALHES DO PRODUTO
+//==========================================
+
+router.get(
+    "/detalhes/:idProduto",
+    produtoController.detalhes
+);
+
+
+//==========================================
 // EXPORTAÇÃO
-// =====================================
+//==========================================
 
 module.exports = router;

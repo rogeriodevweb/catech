@@ -5,8 +5,76 @@ padding:0;
 box-sizing:border-box;
 font-family:"Ubuntu",sans-serif;
 
+
+}
+/* ========================================= */
+/* BOTÃO VOLTAR */
+/* ========================================= */
+
+.btn-voltar {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 20px;
+
+    background-color: #f8fafc;
+
+    color: #0f172a;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 8px;
+
+    font-family: "Ubuntu", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
+
+/* ========================================= */
+/* HOVER */
+/* ========================================= */
+
+.btn-voltar:hover {
+
+    background-color: #ffffff;
+
+    color: #2563eb;
+
+    border-color: #2563eb;
+
+    transform: translateX(-3px);
+
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.10);
+}
+
+
+/* ========================================= */
+/* ÍCONE */
+/* ========================================= */
+
+.btn-voltar::before {
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
 
 
     /*COLOCANDO COR DE FUNDO NO CABEÇALHO*/
@@ -135,28 +203,6 @@ background-color: #00063D;
         margin: 0;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -475,40 +521,9 @@ height:300px;
 
 }
 
-/* DESCRIÇÃO DO PRODUTO */
-.descricao-produto{
-    margin-top:30px;
-}
-
-.descricao-produto h3{
-    font-size:24px;
-    margin-bottom:15px;
-    color:#fff;
-}
-
-#descricao-produto{
-    color:#d8d8d8;
-    font-size:16px;
-    line-height:1.8;
-}
-
-#descricao-produto p{
-    margin-bottom:18px;
-}
-
-#descricao-produto h4{
-    margin:20px 0 10px;
-    color:#fff;
-    font-size:18px;
-}
-
-#descricao-produto ul{
-    margin-left:20px;
-    margin-bottom:20px;
-}
-
-#descricao-produto li{
-    margin-bottom:8px;
+.descricao-produto p {
+    font-size: 24px;
+    line-height: 1.8;
 }
 footer{
     margin-top: 25px;
@@ -700,4 +715,38 @@ body{
     overflow-x: hidden; /*remove a barra de rolagem horizontal da página*/
     width: 100%; /*define a largura da página para 100% da tela*/
 
+}
+
+/* ========================================
+   DESCRIÇÃO / DETALHES DO PRODUTO
+======================================== */
+
+.descricao-produto {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 40px auto;
+    padding: 30px;
+
+    background-color: #1f2937;
+
+    border: 1px solid #334155;
+
+    border-radius: 10px;
+
+    box-sizing: border-box;
+}
+
+
+.descricao-produto p {
+    margin: 0;
+
+    font-family: "Ubuntu", sans-serif;
+
+    font-size: 20px;
+    line-height: 1.8;
+
+    color: #ffffff;
+
+    text-align: justify;
 }

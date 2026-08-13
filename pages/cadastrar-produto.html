@@ -17,7 +17,7 @@
 <body>
 
 
-  
+  <a href="../pages/home-lojista.html" class="btn-voltar">Voltar</a>
 <!-- ========================================= -->
 <!-- CONTEÚDO -->
 <!-- ========================================= -->
@@ -283,14 +283,35 @@
 
             </select>
 
+            <!-- ========================================= -->
+            <!-- SEÇÃO DA HOME -->
+            <!-- ========================================= -->
 
+            <label for="secaoHome">
+                Seção da Home
+            </label>
+
+            <select id="secaoHome">
+
+                <option value="">
+                    Selecione uma seção
+                </option>
+
+                <option value="ofertas">
+                    Ofertas Relâmpago
+                </option>
+
+                <option value="promocoes">
+                    Promoções
+                </option>
+
+                <option value="seguranca">
+                    Segurança
+                </option>
+
+            </select>
 
         </section>
-
-
-
-
-
 
 
         <!-- ========================================= -->
@@ -367,55 +388,43 @@
 
 
         <!-- ========================================= -->
-        <!-- IMAGENS DO PRODUTO -->
-        <!-- ========================================= -->
+<!-- IMAGENS DO PRODUTO -->
+<!-- ========================================= -->
+
+<section class="card">
+
+    <h2>Imagens do Produto</h2>
 
 
-        <section class="card">
+    <!-- ========================================= -->
+<!-- IMAGENS DO PRODUTO -->
+<!-- ========================================= -->
+
+<label for="midiasProduto">
+    Imagens do Produto
+</label>
+
+<input
+    type="file"
+    id="midiasProduto"
+    name="midiasProduto"
+    accept="image/*"
+    multiple
+>
+
+<small>
+    Selecione várias imagens. A primeira imagem será definida
+    como principal.
+</small>
 
 
-            <h2>Imagens do Produto</h2>
+<!-- ========================================= -->
+<!-- PRÉVIA DAS IMAGENS -->
+<!-- ========================================= -->
 
+<div id="preview-imagens">
 
-
-            <label for="midiasProduto">
-                Selecionar Imagens
-            </label>
-
-
-            <input
-                type="file"
-                id="midiasProduto"
-                accept="image/*"
-                multiple
-            >
-
-
-
-            <small>
-                Você pode selecionar várias imagens.
-                Escolha uma delas como imagem principal.
-            </small>
-
-
-
-            <!-- ========================================= -->
-            <!-- PRÉVIA DAS IMAGENS -->
-            <!-- ========================================= -->
-
-
-            <div id="preview-imagens">
-
-                <!--
-                    As imagens selecionadas
-                    serão exibidas aqui pelo JS.
-                -->
-
-            </div>
-
-
-
-        </section>
+</div>
 
 
 

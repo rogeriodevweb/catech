@@ -1,9 +1,14 @@
-const conexao = require("../conexao/conexao.js");
+//==========================================
+// IMPORTA CONEXÃO
+//==========================================
+
+const conexao =
+    require("../conexao/conexao.js");
 
 
-// =====================================
+//==========================================
 // CADASTRAR PRODUTO
-// =====================================
+//==========================================
 
 function cadastrar(produto, callback) {
 
@@ -25,7 +30,11 @@ function cadastrar(produto, callback) {
             tamanho_idTamanho
         )
 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES
+        (
+            ?, ?, ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?
+        )
 
     `;
 
@@ -69,12 +78,11 @@ function cadastrar(produto, callback) {
 }
 
 
+//==========================================
+// LISTAR TODOS OS PRODUTOS
+//==========================================
 
-// =====================================
-// BUSCAR DETALHES DO PRODUTO
-// =====================================
-
-function buscarPorId(idProduto, callback) {
+function listar(callback) {
 
     const sql = `
 
@@ -97,64 +105,190 @@ function buscarPorId(idProduto, callback) {
             p.ativo,
 
 
-            -- ID DA LOJA
             p.loja_idLoja,
 
-
-            -- ID DA MARCA
             p.marca_idMarca,
 
-
-            -- ID DA CATEGORIA
             p.categorias_idCategorias,
 
-
-            -- ID DA COR
             p.cor_idCores,
 
-
-            -- ID DO TAMANHO
             p.tamanho_idTamanho,
 
 
-            -- NOME DA MARCA
             m.nome AS marca,
 
-
-            -- NOME DA CATEGORIA
             c.nome AS categoria,
 
-
-            -- NOME DA COR
             co.nome AS cor,
 
-
-            -- CÓDIGO DA COR
             co.codigo_cor,
 
+            t.tamanho,
 
-            -- TAMANHO
-            t.tamanho AS tamanho,
-
-
-            -- LOJA
             l.nome AS loja,
 
 
-            -- IMAGENS E VÍDEOS
+            (
+                SELECT
+
+                    CONCAT(
+
+                        'http://localhost:3000/imagem-produto/arquivo/',
+
+                        mp.idMidia_produto
+
+                    )
+
+                FROM midia_produto mp
+
+                WHERE
+
+                    mp.produto_idProduto =
+                    p.idProduto
+
+                    AND
+
+                    mp.tipo_midia = 'imagem'
+
+                ORDER BY
+
+                    mp.principal DESC,
+
+                    mp.idMidia_produto ASC
+
+                LIMIT 1
+
+            ) AS imagem
+
+
+        FROM Produto p
+
+
+        INNER JOIN Marca m
+
+            ON p.marca_idMarca =
+               m.idMarca
+
+
+        INNER JOIN Categoria c
+
+            ON p.categorias_idCategorias =
+               c.idCategoria
+
+
+        INNER JOIN Cores co
+
+            ON p.cor_idCores =
+               co.idCores
+
+
+        INNER JOIN Tamanho t
+
+            ON p.tamanho_idTamanho =
+               t.idTamanho
+
+
+        INNER JOIN Loja l
+
+            ON p.loja_idLoja =
+               l.idLoja
+
+
+        ORDER BY
+
+            c.nome ASC,
+
+            p.nome ASC
+
+    `;
+
+
+    conexao.query(
+
+        sql,
+
+        callback
+
+    );
+
+}
+
+
+//==========================================
+// BUSCAR PRODUTO PELO ID
+//==========================================
+
+function buscarPorId(
+
+    idProduto,
+
+    callback
+
+) {
+
+    const sql = `
+
+        SELECT
+
+            p.idProduto,
+
+            p.nome,
+
+            p.descricao,
+
+            p.codigo,
+
+            p.preco_antigo,
+
+            p.preco_promocional,
+
+            p.quantidade_estoque,
+
+            p.ativo,
+
+
+            p.loja_idLoja,
+
+            p.marca_idMarca,
+
+            p.categorias_idCategorias,
+
+            p.cor_idCores,
+
+            p.tamanho_idTamanho,
+
+
+            m.nome AS marca,
+
+            c.nome AS categoria,
+
+            co.nome AS cor,
+
+            co.codigo_cor,
+
+            t.tamanho,
+
+            l.nome AS loja,
+
+
             GROUP_CONCAT(
 
                 CONCAT(
 
-                    'data:',
+                    'http://localhost:3000/imagem-produto/arquivo/',
 
-                    mp.tipo_arquivo,
-
-                    ';base64,',
-
-                    TO_BASE64(mp.arquivo)
+                    mp.idMidia_produto
 
                 )
+
+                ORDER BY
+
+                    mp.principal DESC,
+
+                    mp.idMidia_produto ASC
+
+                SEPARATOR '|||'
 
             ) AS imagens
 
@@ -164,38 +298,88 @@ function buscarPorId(idProduto, callback) {
 
         INNER JOIN Marca m
 
-            ON p.marca_idMarca = m.idMarca
+            ON p.marca_idMarca =
+               m.idMarca
 
 
         INNER JOIN Categoria c
 
-            ON p.categorias_idCategorias = c.idCategoria
+            ON p.categorias_idCategorias =
+               c.idCategoria
 
 
         INNER JOIN Cores co
 
-            ON p.cor_idCores = co.idCores
+            ON p.cor_idCores =
+               co.idCores
 
 
         INNER JOIN Tamanho t
 
-            ON p.tamanho_idTamanho = t.idTamanho
+            ON p.tamanho_idTamanho =
+               t.idTamanho
 
 
         INNER JOIN Loja l
 
-            ON p.loja_idLoja = l.idLoja
+            ON p.loja_idLoja =
+               l.idLoja
 
 
         LEFT JOIN midia_produto mp
 
-            ON p.idProduto = mp.produto_idProduto
+            ON p.idProduto =
+               mp.produto_idProduto
+
+            AND
+
+               mp.tipo_midia = 'imagem'
 
 
-        WHERE p.idProduto = ?
+        WHERE
+
+            p.idProduto = ?
 
 
-        GROUP BY p.idProduto
+        GROUP BY
+
+            p.idProduto,
+
+            p.nome,
+
+            p.descricao,
+
+            p.codigo,
+
+            p.preco_antigo,
+
+            p.preco_promocional,
+
+            p.quantidade_estoque,
+
+            p.ativo,
+
+            p.loja_idLoja,
+
+            p.marca_idMarca,
+
+            p.categorias_idCategorias,
+
+            p.cor_idCores,
+
+            p.tamanho_idTamanho,
+
+            m.nome,
+
+            c.nome,
+
+            co.nome,
+
+            co.codigo_cor,
+
+            t.tamanho,
+
+            l.nome
 
     `;
 
@@ -213,14 +397,15 @@ function buscarPorId(idProduto, callback) {
 }
 
 
-
-// =====================================
+//==========================================
 // EXPORTAÇÃO
-// =====================================
+//==========================================
 
 module.exports = {
 
     cadastrar,
+
+    listar,
 
     buscarPorId
 

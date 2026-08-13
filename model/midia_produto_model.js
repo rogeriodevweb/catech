@@ -2,87 +2,63 @@
 // IMPORTA CONEXÃO
 // =====================================
 
-const conexao = require("../conexao/conexao");
-
+const conexao =
+    require("../conexao/conexao");
 
 
 // =====================================
 // CADASTRAR MÍDIA
 // =====================================
 
-function cadastrar(midia, callback){
-
+function cadastrar(midia, callback) {
 
     const sql = `
 
         INSERT INTO midia_produto
         (
-
             arquivo,
-
             tipo_arquivo,
-
             tipo_midia,
-
             principal,
-
             produto_idProduto
-
         )
 
         VALUES (?, ?, ?, ?, ?)
 
     `;
 
-
-
     conexao.query(
 
         sql,
 
         [
-
             midia.arquivo,
-
             midia.tipo_arquivo,
-
             midia.tipo_midia,
-
             midia.principal,
-
             midia.produto_idProduto
-
         ],
 
         callback
 
     );
 
-
 }
-
-
 
 
 // =====================================
 // LISTAR MÍDIAS
 // =====================================
 
-function listar(callback){
-
+function listar(callback) {
 
     const sql = `
 
         SELECT
-
             idMidia_produto,
-
             tipo_arquivo,
-
             tipo_midia,
-
             principal,
-
             produto_idProduto
 
         FROM midia_produto
@@ -91,28 +67,22 @@ function listar(callback){
 
     `;
 
-
-
     conexao.query(
-
         sql,
-
         callback
-
     );
 
-
 }
-
-
 
 
 // =====================================
 // BUSCAR POR ID
 // =====================================
 
-function buscarPorId(idMidia_produto, callback){
-
+function buscarPorId(
+    idMidia_produto,
+    callback
+) {
 
     const sql = `
 
@@ -124,89 +94,140 @@ function buscarPorId(idMidia_produto, callback){
 
     `;
 
-
-
     conexao.query(
 
         sql,
 
-        [
-
-            idMidia_produto
-
-        ],
+        [idMidia_produto],
 
         callback
 
     );
 
-
 }
 
 
+// =====================================
+// BUSCAR ARQUIVO
+// =====================================
+
+function buscarArquivo(
+    idMidia_produto,
+    callback
+) {
+
+    const sql = `
+
+        SELECT
+            arquivo,
+            tipo_arquivo,
+            tipo_midia
+
+        FROM midia_produto
+
+        WHERE idMidia_produto = ?
+
+        LIMIT 1
+
+    `;
+
+    conexao.query(
+
+        sql,
+
+        [idMidia_produto],
+
+        callback
+
+    );
+
+}
 
 
 // =====================================
 // ATUALIZAR MÍDIA
 // =====================================
 
-function atualizar(idMidia_produto, midia, callback){
+function atualizar(
+    idMidia_produto,
+    midia,
+    callback
+) {
+
+    let sql;
+    let valores;
 
 
-    const sql = `
+    if (midia.arquivo) {
 
-        UPDATE midia_produto
+        sql = `
 
-        SET
+            UPDATE midia_produto
 
-            arquivo = ?,
+            SET
+                arquivo = ?,
+                tipo_arquivo = ?,
+                tipo_midia = ?,
+                principal = ?
 
-            tipo_arquivo = ?,
+            WHERE idMidia_produto = ?
 
-            tipo_midia = ?,
+        `;
 
-            principal = ?
+        valores = [
 
-        WHERE idMidia_produto = ?
+            midia.arquivo,
+            midia.tipo_arquivo,
+            midia.tipo_midia,
+            midia.principal,
+            idMidia_produto
 
-    `;
+        ];
 
+    } else {
+
+        sql = `
+
+            UPDATE midia_produto
+
+            SET
+                principal = ?
+
+            WHERE idMidia_produto = ?
+
+        `;
+
+        valores = [
+
+            midia.principal,
+            idMidia_produto
+
+        ];
+
+    }
 
 
     conexao.query(
 
         sql,
 
-        [
-
-            midia.arquivo,
-
-            midia.tipo_arquivo,
-
-            midia.tipo_midia,
-
-            midia.principal,
-
-            idMidia_produto
-
-        ],
+        valores,
 
         callback
 
     );
 
-
 }
-
-
 
 
 // =====================================
 // EXCLUIR MÍDIA
 // =====================================
 
-function excluir(idMidia_produto, callback){
-
+function excluir(
+    idMidia_produto,
+    callback
+) {
 
     const sql = `
 
@@ -216,26 +237,17 @@ function excluir(idMidia_produto, callback){
 
     `;
 
-
-
     conexao.query(
 
         sql,
 
-        [
-
-            idMidia_produto
-
-        ],
+        [idMidia_produto],
 
         callback
 
     );
 
-
 }
-
-
 
 
 // =====================================
@@ -249,6 +261,8 @@ module.exports = {
     listar,
 
     buscarPorId,
+
+    buscarArquivo,
 
     atualizar,
 

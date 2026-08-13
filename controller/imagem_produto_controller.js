@@ -2,7 +2,8 @@
 // IMPORTA O MODEL
 //==========================================
 
-const imagemProdutoModel = require("../model/imagem_produto_model.js");
+const imagemProdutoModel =
+    require("../model/imagem_produto_model.js");
 
 
 //==========================================
@@ -21,7 +22,8 @@ function cadastrar(req, res) {
 
             sucesso: false,
 
-            mensagem: "Selecione uma imagem ou vídeo."
+            mensagem:
+                "Selecione uma imagem ou vídeo."
 
         });
 
@@ -29,14 +31,34 @@ function cadastrar(req, res) {
 
 
     //==========================================
-    // DADOS DA MÍDIA
+    // VERIFICAR PRODUTO
+    //==========================================
+
+    if (!req.body.produto_idProduto) {
+
+        return res.status(400).json({
+
+            sucesso: false,
+
+            mensagem:
+                "Informe o ID do produto."
+
+        });
+
+    }
+
+
+    //==========================================
+    // MONTAR MÍDIA
     //==========================================
 
     const midia = {
 
-        arquivo: req.file.buffer,
+        arquivo:
+            req.file.buffer,
 
-        tipo_arquivo: req.file.mimetype,
+        tipo_arquivo:
+            req.file.mimetype,
 
         tipo_midia:
             req.file.mimetype.startsWith("video/")
@@ -49,30 +71,15 @@ function cadastrar(req, res) {
             req.body.principal == 1,
 
         produto_idProduto:
-            req.body.produto_idProduto
+            Number(
+                req.body.produto_idProduto
+            )
 
     };
 
 
     //==========================================
-    // VALIDAÇÃO
-    //==========================================
-
-    if (!midia.produto_idProduto) {
-
-        return res.status(400).json({
-
-            sucesso: false,
-
-            mensagem: "Informe o produto da mídia."
-
-        });
-
-    }
-
-
-    //==========================================
-    // CADASTRAR NO MODEL
+    // CADASTRAR NO BANCO
     //==========================================
 
     imagemProdutoModel.cadastrar(
@@ -83,13 +90,22 @@ function cadastrar(req, res) {
 
             if (erro) {
 
+                console.log(
+                    "ERRO AO CADASTRAR MÍDIA:"
+                );
+
                 console.log(erro);
 
                 return res.status(500).json({
 
                     sucesso: false,
 
-                    mensagem: "Erro ao cadastrar mídia."
+                    mensagem:
+                        "Erro ao cadastrar mídia.",
+
+                    erro:
+                        erro.sqlMessage ||
+                        erro.message
 
                 });
 
@@ -100,9 +116,11 @@ function cadastrar(req, res) {
 
                 sucesso: true,
 
-                mensagem: "Mídia cadastrada com sucesso!",
+                mensagem:
+                    "Mídia cadastrada com sucesso!",
 
-                idMidia_produto: resultado.insertId
+                idMidia_produto:
+                    resultado.insertId
 
             });
 
@@ -125,20 +143,31 @@ function listar(req, res) {
 
             if (erro) {
 
+                console.log(
+                    "ERRO AO LISTAR MÍDIAS:"
+                );
+
                 console.log(erro);
 
                 return res.status(500).json({
 
                     sucesso: false,
 
-                    mensagem: "Erro ao listar mídias."
+                    mensagem:
+                        "Erro ao listar mídias.",
+
+                    erro:
+                        erro.sqlMessage ||
+                        erro.message
 
                 });
 
             }
 
 
-            res.json(resultado);
+            return res.status(200).json(
+                resultado
+            );
 
         }
 
@@ -153,10 +182,22 @@ function listar(req, res) {
 
 function buscarPorId(req, res) {
 
-
     const idMidia_produto =
         req.params.idMidia_produto;
 
+
+    if (!idMidia_produto) {
+
+        return res.status(400).json({
+
+            sucesso: false,
+
+            mensagem:
+                "Informe o ID da mídia."
+
+        });
+
+    }
 
 
     imagemProdutoModel.buscarPorId(
@@ -165,49 +206,53 @@ function buscarPorId(req, res) {
 
         (erro, resultado) => {
 
-
             if (erro) {
 
+                console.log(
+                    "ERRO AO BUSCAR MÍDIA:"
+                );
 
                 console.log(erro);
-
 
                 return res.status(500).json({
 
                     sucesso: false,
 
-                    mensagem: "Erro ao buscar mídia."
+                    mensagem:
+                        "Erro ao buscar mídia.",
+
+                    erro:
+                        erro.sqlMessage ||
+                        erro.message
 
                 });
-
 
             }
 
 
-
-            if (resultado.length === 0) {
-
+            if (
+                resultado.length === 0
+            ) {
 
                 return res.status(404).json({
 
                     sucesso: false,
 
-                    mensagem: "Mídia não encontrada."
+                    mensagem:
+                        "Mídia não encontrada."
 
                 });
-
 
             }
 
 
-
-            res.json(resultado[0]);
-
+            return res.status(200).json(
+                resultado[0]
+            );
 
         }
 
     );
-
 
 }
 
@@ -218,7 +263,22 @@ function buscarPorId(req, res) {
 
 function atualizar(req, res) {
 
-    const idMidia_produto = req.params.id;
+    const idMidia_produto =
+        req.params.idMidia_produto;
+
+
+    if (!idMidia_produto) {
+
+        return res.status(400).json({
+
+            sucesso: false,
+
+            mensagem:
+                "Informe o ID da mídia."
+
+        });
+
+    }
 
 
     const midia = {
@@ -235,14 +295,16 @@ function atualizar(req, res) {
 
 
     //==========================================
-    // SE ENVIOU UM NOVO ARQUIVO
+    // NOVO ARQUIVO
     //==========================================
 
     if (req.file) {
 
-        midia.arquivo = req.file.buffer;
+        midia.arquivo =
+            req.file.buffer;
 
-        midia.tipo_arquivo = req.file.mimetype;
+        midia.tipo_arquivo =
+            req.file.mimetype;
 
         midia.tipo_midia =
             req.file.mimetype.startsWith("video/")
@@ -251,10 +313,6 @@ function atualizar(req, res) {
 
     }
 
-
-    //==========================================
-    // ATUALIZAR NO MODEL
-    //==========================================
 
     imagemProdutoModel.atualizar(
 
@@ -266,24 +324,34 @@ function atualizar(req, res) {
 
             if (erro) {
 
+                console.log(
+                    "ERRO AO ATUALIZAR MÍDIA:"
+                );
+
                 console.log(erro);
 
                 return res.status(500).json({
 
                     sucesso: false,
 
-                    mensagem: "Erro ao atualizar mídia."
+                    mensagem:
+                        "Erro ao atualizar mídia.",
+
+                    erro:
+                        erro.sqlMessage ||
+                        erro.message
 
                 });
 
             }
 
 
-            res.json({
+            return res.status(200).json({
 
                 sucesso: true,
 
-                mensagem: "Mídia atualizada com sucesso."
+                mensagem:
+                    "Mídia atualizada com sucesso."
 
             });
 
@@ -300,7 +368,22 @@ function atualizar(req, res) {
 
 function excluir(req, res) {
 
-    const idMidia_produto = req.params.id;
+    const idMidia_produto =
+        req.params.idMidia_produto;
+
+
+    if (!idMidia_produto) {
+
+        return res.status(400).json({
+
+            sucesso: false,
+
+            mensagem:
+                "Informe o ID da mídia."
+
+        });
+
+    }
 
 
     imagemProdutoModel.excluir(
@@ -311,24 +394,34 @@ function excluir(req, res) {
 
             if (erro) {
 
+                console.log(
+                    "ERRO AO EXCLUIR MÍDIA:"
+                );
+
                 console.log(erro);
 
                 return res.status(500).json({
 
                     sucesso: false,
 
-                    mensagem: "Erro ao excluir mídia."
+                    mensagem:
+                        "Erro ao excluir mídia.",
+
+                    erro:
+                        erro.sqlMessage ||
+                        erro.message
 
                 });
 
             }
 
 
-            res.json({
+            return res.status(200).json({
 
                 sucesso: true,
 
-                mensagem: "Mídia excluída com sucesso."
+                mensagem:
+                    "Mídia excluída com sucesso."
 
             });
 
@@ -346,9 +439,13 @@ function excluir(req, res) {
 module.exports = {
 
     cadastrar,
+
     listar,
+
     buscarPorId,
+
     atualizar,
+
     excluir
 
 };
