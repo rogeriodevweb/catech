@@ -3,7 +3,6 @@
 // =====================================
 
 const lojistaModel = require("../model/lojista_model");
-
 const lojaModel = require("../model/loja_model");
 
 
@@ -13,9 +12,13 @@ const lojaModel = require("../model/loja_model");
 
 function cadastrar(req, res) {
 
-        console.log(">>> CADASTRO DE LOJISTA CHEGOU <<<");
-        console.log(req.body);
-        const lojista = req.body;
+    console.log("=====================================");
+    console.log(">>> CADASTRO DE LOJISTA CHEGOU <<<");
+    console.log("BODY RECEBIDO:");
+    console.log(req.body);
+    console.log("=====================================");
+
+    const lojista = req.body;
 
 
     // =====================================
@@ -25,12 +28,64 @@ function cadastrar(req, res) {
     if (!lojista.codigoLoja) {
 
         return res.status(400).json({
-
+            sucesso: false,
             mensagem: "Informe o código da loja."
-
         });
 
     }
+
+
+    // =====================================
+    // VERIFICA DATA
+    // =====================================
+
+    if (!lojista.nascimento) {
+
+        return res.status(400).json({
+            sucesso: false,
+            mensagem: "Informe a data de nascimento."
+        });
+
+    }
+
+
+    console.log(
+        "DATA RECEBIDA:",
+        lojista.nascimento
+    );
+
+    console.log(
+        "TIPO DA DATA:",
+        typeof lojista.nascimento
+    );
+
+
+    // =====================================
+    // GARANTE FORMATO YYYY-MM-DD
+    // =====================================
+
+    const nascimento = String(
+        lojista.nascimento
+    ).trim();
+
+
+    // Verifica se está no formato correto
+
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(nascimento)) {
+
+        return res.status(400).json({
+            sucesso: false,
+            mensagem: "Data de nascimento inválida. Use o formato YYYY-MM-DD."
+        });
+
+    }
+
+
+    // IMPORTANTE:
+    // Não usamos new Date() aqui.
+    // Mantemos exatamente 2004-02-13.
+
+    lojista.nascimento = nascimento;
 
 
     // =====================================
@@ -43,15 +98,21 @@ function cadastrar(req, res) {
 
         function (erroLoja, lojas) {
 
+            // =================================
+            // ERRO AO BUSCAR LOJA
+            // =================================
 
             if (erroLoja) {
 
-                console.log(erroLoja);
+                console.error(
+                    "ERRO AO BUSCAR LOJA:"
+                );
+
+                console.error(erroLoja);
 
                 return res.status(500).json({
-
+                    sucesso: false,
                     mensagem: "Erro ao buscar a loja."
-
                 });
 
             }
@@ -61,27 +122,45 @@ function cadastrar(req, res) {
             // CÓDIGO NÃO ENCONTRADO
             // =================================
 
-            if (lojas.length === 0) {
+            if (
+                !lojas ||
+                lojas.length === 0
+            ) {
 
                 return res.status(400).json({
-
+                    sucesso: false,
                     mensagem: "Código da loja inválido."
-
                 });
 
             }
 
 
             // =================================
-            // PEGA O ID DA LOJA
+            // PEGA ID DA LOJA
             // =================================
 
             lojista.loja_idLoja =
                 lojas[0].idLoja;
 
 
+            console.log(
+                "CÓDIGO DA LOJA:",
+                lojista.codigoLoja
+            );
+
+            console.log(
+                "ID DA LOJA ENCONTRADO:",
+                lojista.loja_idLoja
+            );
+
+            console.log(
+                "DATA FINAL:",
+                lojista.nascimento
+            );
+
+
             // =================================
-            // CADASTRA LOJISTA
+            // CADASTRAR LOJISTA
             // =================================
 
             lojistaModel.cadastrar(
@@ -90,28 +169,44 @@ function cadastrar(req, res) {
 
                 function (erro, resultado) {
 
+                    // =================================
+                    // ERRO
+                    // =================================
 
-                  if (erro) {
+                    if (erro) {
 
-                    console.error("ERRO AO CADASTRAR LOJISTA:");
-                    console.error(erro);
+                        console.error(
+                            "ERRO AO CADASTRAR LOJISTA:"
+                        );
 
-                    return res.status(500).json({
+                        console.error(erro);
 
-                        mensagem: "Erro ao cadastrar lojista.",
+                        return res.status(500).json({
 
-                        erro: erro.message
+                            sucesso: false,
 
-                    });
+                            mensagem:
+                                erro.sqlMessage ||
+                                erro.message ||
+                                "Erro ao cadastrar lojista."
 
-                }
+                        });
+
+                    }
 
 
-                    // =============================
+                    // =================================
                     // SUCESSO
-                    // =============================
+                    // =================================
+
+                    console.log(
+                        "LOJISTA CADASTRADO COM SUCESSO!"
+                    );
+
 
                     return res.status(201).json({
+
+                        sucesso: true,
 
                         mensagem:
                             "Lojista cadastrado com sucesso!",
@@ -131,14 +226,18 @@ function cadastrar(req, res) {
 
 }
 
+
 // =====================================
 // LOGIN DO LOJISTA
 // =====================================
 
 function login(req, res) {
 
-    const codigoLoja = req.body.codigoLoja;
-    const senha = req.body.senha;
+    const codigoLoja =
+        req.body.codigoLoja;
+
+    const senha =
+        req.body.senha;
 
 
     // =================================
@@ -149,7 +248,10 @@ function login(req, res) {
 
         return res.status(400).json({
 
-            mensagem: "Informe o código da loja e a senha."
+            sucesso: false,
+
+            mensagem:
+                "Informe o código da loja e a senha."
 
         });
 
@@ -172,7 +274,10 @@ function login(req, res) {
 
                 return res.status(500).json({
 
-                    mensagem: "Erro ao buscar a loja."
+                    sucesso: false,
+
+                    mensagem:
+                        "Erro ao buscar a loja."
 
                 });
 
@@ -183,11 +288,17 @@ function login(req, res) {
             // CÓDIGO NÃO ENCONTRADO
             // =================================
 
-            if (lojas.length === 0) {
+            if (
+                !lojas ||
+                lojas.length === 0
+            ) {
 
                 return res.status(401).json({
 
-                    mensagem: "Código da loja ou senha incorretos."
+                    sucesso: false,
+
+                    mensagem:
+                        "Código da loja ou senha incorretos."
 
                 });
 
@@ -210,13 +321,20 @@ function login(req, res) {
 
                 idLoja,
 
-                function (erroLojista, lojistas) {
+                function (
+                    erroLojista,
+                    lojistas
+                ) {
 
                     if (erroLojista) {
 
-                        console.error(erroLojista);
+                        console.error(
+                            erroLojista
+                        );
 
                         return res.status(500).json({
+
+                            sucesso: false,
 
                             mensagem:
                                 "Erro ao buscar o lojista."
@@ -230,9 +348,14 @@ function login(req, res) {
                     // LOJISTA NÃO ENCONTRADO
                     // =================================
 
-                    if (lojistas.length === 0) {
+                    if (
+                        !lojistas ||
+                        lojistas.length === 0
+                    ) {
 
                         return res.status(401).json({
+
+                            sucesso: false,
 
                             mensagem:
                                 "Código da loja ou senha incorretos."
@@ -250,9 +373,13 @@ function login(req, res) {
                     // VERIFICAR SENHA
                     // =================================
 
-                    if (lojista.senha !== senha) {
+                    if (
+                        lojista.senha !== senha
+                    ) {
 
                         return res.status(401).json({
+
+                            sucesso: false,
 
                             mensagem:
                                 "Código da loja ou senha incorretos."
@@ -300,6 +427,8 @@ function login(req, res) {
     );
 
 }
+
+
 // =====================================
 // EXPORTAR
 // =====================================
@@ -307,7 +436,6 @@ function login(req, res) {
 module.exports = {
 
     cadastrar,
-
     login
 
 };

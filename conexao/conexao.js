@@ -2,10 +2,11 @@
 const mysql = require("mysql2");
 
 const conexao = mysql.createConnection({
-    host: "localhost",
+    host: "thomas.proxy.rlwy.net",
     user: "root",
-    password: "", // senha do mySQL
-    database: "CATech"
+    port: 48179,
+    password: "scZMCzucnFLsRIkFhFroLTISoVWutpez", // senha do mySQL
+    database: "railway"
 });
 conexao.connect((erro) => {
     if (erro) {

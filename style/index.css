@@ -1,7 +1,24 @@
 /* ========================================= */
 /* CONFIGURAÇÕES GERAIS */
 /* ========================================= */
+a[href="pages/escolha-cadastro.html"] {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
 
+a[href="pages/escolha-cadastro.html"]:hover {
+    background-color: #4f6fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.35);
+}
 * {
 
     margin: 0;
