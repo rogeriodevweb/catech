@@ -35,12 +35,11 @@ const banners = [
 
     {
 
-        tipo: "imagem",
+        tipo: "video",
 
         arquivo:
-            "assets/banner-componentes.png",
+            "assets/banner-3.mp4",
 
-        tempo: 5000
 
     }
 
