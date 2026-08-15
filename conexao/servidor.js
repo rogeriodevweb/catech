@@ -20,6 +20,8 @@ app.use(
         path.join(__dirname, "..", "assets")
     )
 );
+//servir o site index.html
+app.use(express.static(path.join(__dirname, "..")));
 
 
 const conexao = require("./conexao");
