@@ -134,7 +134,7 @@ function listar(callback) {
 
                     CONCAT(
 
-                        'https://catech.onrender.com/imagem-produto/arquivo/'
+                        'https://catech.onrender.com/imagem-produto/arquivo/',
 
                         mp.idMidia_produto
 
