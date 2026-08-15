@@ -25,7 +25,7 @@ form.addEventListener("submit", async function(e) {
 
         const resposta = await fetch(
 
-            "http://localhost:3000/lojistas/login",
+            "https://catech.onrender.com/lojistas/login",
 
             {
 
