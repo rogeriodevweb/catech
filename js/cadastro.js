@@ -298,8 +298,8 @@ document
         try {
 
             const respostaServidor =
-                await fetch(
-                    "http://localhost:3000/clientes",
+    await fetch(
+        "/clientes",
                     {
 
                         method: "POST",
