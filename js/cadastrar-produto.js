@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // CONFIGURAÇÕES
     //======================================================
 
-    const API = "http://localhost:3000";
+    const API = "https://catech.onrender.com";
 
 
     //======================================================
