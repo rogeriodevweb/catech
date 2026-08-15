@@ -122,7 +122,7 @@ form.addEventListener("submit", async function (event) {
 
         const resposta = await fetch(
 
-            "http://localhost:3000/lojas/cadastrar",
+            "https://catech.onrender.com/lojas/cadastrar",
 
             {
 
