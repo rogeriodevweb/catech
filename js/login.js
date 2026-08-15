@@ -49,7 +49,7 @@ btnEntrar.addEventListener("click", () => {
 
     }
 
-    fetch("http://localhost:3000/clientes/login", {
+    fetch("https://catech.onrender.com/clientes/login", {
 
     method: "POST",
 
