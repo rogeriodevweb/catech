@@ -194,7 +194,7 @@ document
 
         const resposta = await fetch(
 
-            "http://localhost:3000/lojistas",
+            "https://catech.onrender.com/lojistas",
 
             {
 
