@@ -193,7 +193,9 @@ document
     try {
 
         const resposta = await fetch(
+
             "https://catech.onrender.com/lojistas",
+
             {
 
                 method: "POST",
@@ -209,6 +211,7 @@ document
                     JSON.stringify(lojista)
 
             }
+
         );
 
 
@@ -240,8 +243,7 @@ document
         else {
 
             alert(
-                dados.mensagem ||
-                "Erro ao cadastrar lojista."
+                dados.mensagem
             );
 
         }

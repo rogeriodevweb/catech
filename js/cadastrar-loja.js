@@ -2,338 +2,247 @@
 // FORMULÁRIO
 // =====================================
 
-const form =
-    document.getElementById("formLoja");
+const form = document.getElementById("formLoja");
 
 
 // =====================================
 // CADASTRAR LOJA
 // =====================================
 
-form.addEventListener(
-    "submit",
-    async function (event) {
-
-        event.preventDefault();
-
-
-        // =====================================
-        // DADOS DA LOJA
-        // =====================================
-
-        const loja = {
-
-            nome:
-                document
-                    .getElementById("nome")
-                    .value
-                    .trim(),
-
-            razaoSocial:
-                document
-                    .getElementById("razaoSocial")
-                    .value
-                    .trim(),
-
-            cnpj:
-                document
-                    .getElementById("cnpj")
-                    .value
-                    .trim(),
-
-            inscricaoEstadual:
-                document
-                    .getElementById("inscricaoEstadual")
-                    .value
-                    .trim(),
-
-            fundacao:
-                document
-                    .getElementById("fundacao")
-                    .value,
-
-            email:
-                document
-                    .getElementById("email")
-                    .value
-                    .trim(),
-
-            telefone:
-                document
-                    .getElementById("telefone")
-                    .value
-                    .trim(),
-
-            whatsapp:
-                document
-                    .getElementById("whatsapp")
-                    .value
-                    .trim(),
-
-            site:
-                document
-                    .getElementById("site")
-                    .value
-                    .trim(),
-
-            instagram:
-                document
-                    .getElementById("instagram")
-                    .value
-                    .trim(),
-
-            facebook:
-                document
-                    .getElementById("facebook")
-                    .value
-                    .trim(),
+form.addEventListener("submit", async function (event) {
 
-            linkedin:
-                document
-                    .getElementById("linkedin")
-                    .value
-                    .trim(),
+    event.preventDefault();
 
-            cep:
-                document
-                    .getElementById("cep")
-                    .value
-                    .trim(),
 
-            estado:
-                document
-                    .getElementById("estado")
-                    .value
-                    .trim(),
+    // =====================================
+    // DADOS DA LOJA
+    // =====================================
 
-            cidade:
-                document
-                    .getElementById("cidade")
-                    .value
-                    .trim(),
+    const loja = {
 
-            bairro:
-                document
-                    .getElementById("bairro")
-                    .value
-                    .trim(),
+        nome:
+            document.getElementById("nome").value.trim(),
 
-            rua:
-                document
-                    .getElementById("rua")
-                    .value
-                    .trim(),
+        razaoSocial:
+            document.getElementById("razaoSocial").value.trim(),
 
-            numero:
-                document
-                    .getElementById("numero")
-                    .value
-                    .trim(),
+        cnpj:
+            document.getElementById("cnpj").value.trim(),
 
-            complemento:
-                document
-                    .getElementById("complemento")
-                    .value
-                    .trim(),
+        inscricaoEstadual:
+            document.getElementById("inscricaoEstadual").value.trim(),
 
-            descricao:
-                document
-                    .getElementById("descricao")
-                    .value
-                    .trim()
+        fundacao:
+            document.getElementById("fundacao").value,
 
-        };
+        email:
+            document.getElementById("email").value.trim(),
 
+        telefone:
+            document.getElementById("telefone").value.trim(),
 
-        // =====================================
-        // VALIDAÇÃO
-        // =====================================
+        whatsapp:
+            document.getElementById("whatsapp").value.trim(),
 
-        if (
+        site:
+            document.getElementById("site").value.trim(),
 
-            loja.nome === "" ||
+        instagram:
+            document.getElementById("instagram").value.trim(),
 
-            loja.cnpj === "" ||
+        facebook:
+            document.getElementById("facebook").value.trim(),
 
-            loja.email === "" ||
+        linkedin:
+            document.getElementById("linkedin").value.trim(),
 
-            loja.telefone === "" ||
+        cep:
+            document.getElementById("cep").value.trim(),
 
-            loja.cep === "" ||
+        estado:
+            document.getElementById("estado").value.trim(),
 
-            loja.rua === "" ||
+        cidade:
+            document.getElementById("cidade").value.trim(),
 
-            loja.bairro === "" ||
+        bairro:
+            document.getElementById("bairro").value.trim(),
 
-            loja.numero === ""
+        rua:
+            document.getElementById("rua").value.trim(),
 
-        ) {
+        numero:
+            document.getElementById("numero").value.trim(),
 
-            alert(
-                "Preencha todos os campos obrigatórios."
-            );
+        complemento:
+            document.getElementById("complemento").value.trim(),
 
-            return;
+        descricao:
+            document.getElementById("descricao").value.trim()
 
-        }
+    };
 
 
-        // =====================================
-        // ENVIA PARA O SERVIDOR
-        // =====================================
+    // =====================================
+    // VALIDAÇÃO
+    // =====================================
 
-        try {
+    if (
 
-            const resposta =
-                await fetch(
+        loja.nome === "" ||
 
-                    "https://catech.onrender.com/lojas/cadastrar",
+        loja.cnpj === "" ||
 
-                    {
+        loja.email === "" ||
 
-                        method: "POST",
+        loja.telefone === "" ||
 
-                        headers: {
+        loja.cep === "" ||
 
-                            "Content-Type":
-                                "application/json"
+        loja.rua === "" ||
 
-                        },
+        loja.bairro === "" ||
 
-                        body:
-                            JSON.stringify(loja)
+        loja.numero === ""
 
-                    }
+    ) {
 
-                );
+        alert("Preencha todos os campos obrigatórios.");
 
-
-            const dados =
-                await resposta.json();
-
-
-            // =====================================
-            // VERIFICA ERRO
-            // =====================================
-
-            if (!resposta.ok) {
-
-                throw new Error(
-
-                    dados.erro ||
-
-                    "Erro ao cadastrar a loja."
-
-                );
-
-            }
-
-
-            // =====================================
-            // CÓDIGO GERADO PELO SERVIDOR
-            // =====================================
-
-            const codigoLoja =
-                dados.codigoAcesso;
-
-
-            // =====================================
-            // VERIFICAR CÓDIGO
-            // =====================================
-
-            if (!codigoLoja) {
-
-                throw new Error(
-
-                    "A loja foi cadastrada, mas o código de acesso não foi recebido."
-
-                );
-
-            }
-
-
-            // =====================================
-            // TELA DE SUCESSO
-            // =====================================
-
-            document.body.innerHTML = `
-
-                <div class="sucesso">
-
-                    <div class="card-sucesso">
-
-                        <div class="icone">
-
-                            ✔
-
-                        </div>
-
-
-                        <h1>
-
-                            Loja cadastrada com sucesso!
-
-                        </h1>
-
-
-                        <p>
-
-                            O código da sua loja é
-
-                        </p>
-
-
-                        <div class="codigo">
-
-                            ${codigoLoja}
-
-                        </div>
-
-
-                        <p>
-
-                            Guarde este código.
-
-                            Ele será utilizado para
-
-                            cadastrar o lojista.
-
-                        </p>
-
-
-                        <button
-
-                            onclick="window.location.href='cadastro-lojista.html?codigo=${encodeURIComponent(codigoLoja)}'"
-
-                        >
-
-                            Cadastrar Lojista
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `;
-
-
-        }
-
-        catch (erro) {
-
-            console.error(
-                "Erro ao cadastrar loja:",
-                erro
-            );
-
-
-            alert(
-                erro.message
-            );
-
-        }
+        return;
 
     }
 
-);
+
+    // =====================================
+    // ENVIA PARA O SERVIDOR
+    // =====================================
+
+    try {
+
+        const resposta = await fetch(
+
+            "https://catech.onrender.com/lojas/cadastrar",
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify(loja)
+
+            }
+
+        );
+
+
+        const dados = await resposta.json();
+
+
+        // =====================================
+        // VERIFICA ERRO
+        // =====================================
+
+        if (!resposta.ok) {
+
+            throw new Error(
+
+                dados.erro ||
+
+                "Erro ao cadastrar a loja."
+
+            );
+
+        }
+
+
+        // =====================================
+        // CÓDIGO GERADO PELO SERVIDOR
+        // =====================================
+
+        const codigoLoja =
+            dados.codigoAcesso;
+
+
+        // =====================================
+        // TELA DE SUCESSO
+        // =====================================
+
+        document.body.innerHTML = `
+
+            <div class="sucesso">
+
+                <div class="card-sucesso">
+
+                    <div class="icone">
+
+                        ✔
+
+                    </div>
+
+
+                    <h1>
+
+                        Loja cadastrada com sucesso!
+
+                    </h1>
+
+
+                    <p>
+
+                        O código da sua loja é
+
+                    </p>
+
+
+                    <div class="codigo">
+
+                        ${codigoLoja}
+
+                    </div>
+
+
+                    <p>
+
+                        Guarde este código.
+
+                        Ele será utilizado para
+
+                        cadastrar o lojista.
+
+                    </p>
+
+
+                    <button
+
+                        onclick="window.location.href='cadastro-lojista.html?codigo=${encodeURIComponent(codigoLoja)}'"
+
+                    >
+
+                        Cadastrar Lojista
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+    }
+
+    catch (erro) {
+
+        console.error(erro);
+
+        alert(erro.message);
+
+    }
+
+});

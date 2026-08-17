@@ -6,6 +6,7 @@ const API =
     "https://catech.onrender.com";
 
 
+
 // ================================================
 // BANNERS
 // ================================================
@@ -66,6 +67,7 @@ const btnProximo =
     document.querySelector(
         ".btn-proximo"
     );
+
 
 
 // ================================================
@@ -168,6 +170,7 @@ function carregarBanner() {
 }
 
 
+
 // ================================================
 // PRÓXIMO BANNER
 // ================================================
@@ -192,6 +195,7 @@ function proximoBanner() {
 }
 
 
+
 // ================================================
 // BANNER ANTERIOR
 // ================================================
@@ -214,6 +218,7 @@ function bannerAnterior() {
     carregarBanner();
 
 }
+
 
 
 // ================================================
@@ -249,6 +254,7 @@ if (btnAnterior) {
 carregarBanner();
 
 
+
 // ================================================
 // FORMATAR PREÇO
 // ================================================
@@ -275,6 +281,7 @@ function formatarPreco(valor) {
 }
 
 
+
 // ================================================
 // ESCAPAR TEXTO
 // ================================================
@@ -295,6 +302,7 @@ function escaparTexto(texto) {
         .replace(/"/g, "&quot;");
 
 }
+
 
 
 // ================================================
@@ -394,8 +402,8 @@ function criarCardProduto(
 
                 R$
                 ${formatarPreco(
-                    precoAntigo
-                )}
+            precoAntigo
+        )}
 
             </p>
 
@@ -490,8 +498,8 @@ function criarCardProduto(
 
                     R$
                     ${formatarPreco(
-                        precoFinal
-                    )}
+        precoFinal
+    )}
 
                 </p>
 
@@ -565,6 +573,7 @@ function criarCardProduto(
     `;
 
 }
+
 
 
 // ================================================
@@ -695,7 +704,6 @@ async function carregarProdutos() {
                 </p>
 
             `;
-
 
             return;
 
@@ -892,6 +900,7 @@ async function carregarProdutos() {
 }
 
 
+
 // ================================================
 // ABRIR PRODUTO
 // ================================================
@@ -905,6 +914,7 @@ function abrirProduto(
         `pages/produto.html?id=${idProduto}`;
 
 }
+
 
 
 // ================================================
@@ -1032,6 +1042,7 @@ function favoritar(
 }
 
 
+
 // ================================================
 // CARRINHO
 // ================================================
@@ -1114,6 +1125,7 @@ function adicionarCarrinho(
     );
 
 }
+
 
 
 // ================================================
@@ -1205,6 +1217,7 @@ function configurarPesquisa() {
     );
 
 }
+
 
 
 // ================================================
