@@ -6,20 +6,28 @@ document.querySelectorAll(".toggle-senha").forEach((icone) => {
 
     icone.addEventListener("click", () => {
 
-        const input = document.getElementById(icone.dataset.target);
+        const input =
+            document.getElementById(
+                icone.dataset.target
+            );
+
 
         if (input.type === "password") {
 
             input.type = "text";
+
 
             icone.classList.replace(
                 "fa-eye",
                 "fa-eye-slash"
             );
 
-        } else {
+        }
+
+        else {
 
             input.type = "password";
+
 
             icone.classList.replace(
                 "fa-eye-slash",
@@ -39,302 +47,80 @@ document.querySelectorAll(".toggle-senha").forEach((icone) => {
 
 document
     .getElementById("btn-criar-conta")
-    .addEventListener("click", async () => {
-
-        // ===============================
-        // PEGAR VALORES
-        // ===============================
-
-        const nome =
-            document.getElementById("nome").value.trim();
-
-        const cpf =
-            document.getElementById("cpf").value.trim();
-
-        const telefone =
-            document.getElementById("telefone").value.trim();
-
-        const email =
-            document
-                .getElementById("email")
-                .value
-                .trim()
-                .toLowerCase();
-
-        const senha =
-            document.getElementById("senha").value;
-
-        const confirmarSenha =
-            document.getElementById("confirmarSenha").value;
-
-        const dataNascimento =
-            document.getElementById("data_nascimento").value;
-
-
-        // ===============================
-        // CAMPOS OBRIGATÓRIOS
-        // ===============================
-
-        if (
-            !nome ||
-            !cpf ||
-            !telefone ||
-            !email ||
-            !senha ||
-            !confirmarSenha ||
-            !dataNascimento
-        ) {
-
-            alert("Preencha todos os campos.");
-
-            return;
-
-        }
-
-
-        // ===============================
-        // VALIDAÇÕES DA SENHA
-        // ===============================
-
-        if (senha.length < 8 || senha.length > 13) {
-
-            alert(
-                "A senha deve possuir entre 8 e 13 caracteres."
-            );
-
-            return;
-
-        }
-
-
-        if (!/[A-Z]/.test(senha)) {
-
-            alert(
-                "A senha deve conter pelo menos uma letra maiúscula."
-            );
-
-            return;
-
-        }
-
-
-        if (!/[a-z]/.test(senha)) {
-
-            alert(
-                "A senha deve conter pelo menos uma letra minúscula."
-            );
-
-            return;
-
-        }
-
-
-        if (!/[0-9]/.test(senha)) {
-
-            alert(
-                "A senha deve conter pelo menos um número."
-            );
-
-            return;
-
-        }
-
-
-        if (!/[!@#$%^&*(),.?":{}|<>_\-+=/\[\]\\;'`~]/.test(senha)) {
-
-            alert(
-                "A senha deve conter pelo menos um caractere especial."
-            );
-
-            return;
-
-        }
-
-
-        if (
-            senha
-                .toLowerCase()
-                .includes(nome.toLowerCase())
-        ) {
-
-            alert(
-                "A senha não pode conter o nome do usuário."
-            );
-
-            return;
-
-        }
-
-
-        if (senha !== confirmarSenha) {
-
-            alert("As senhas não coincidem.");
-
-            return;
-
-        }
-
-
-        // ===============================
-        // IDADE
-        // ===============================
-
-        const hoje = new Date();
-
-        const nascimento =
-            new Date(dataNascimento + "T00:00:00");
-
-
-        let idade =
-            hoje.getFullYear() -
-            nascimento.getFullYear();
-
-
-        const mes =
-            hoje.getMonth() -
-            nascimento.getMonth();
-
-
-        if (
-            mes < 0 ||
-            (
-                mes === 0 &&
-                hoje.getDate() < nascimento.getDate()
-            )
-        ) {
-
-            idade--;
-
-        }
-
-
-        if (idade < 18) {
-
-            alert(
-                "Você deve ser maior de idade para se cadastrar."
-            );
-
-            return;
-
-        }
-
-
-        // ===============================
-        // E-MAIL
-        // ===============================
-
-        const regexEmail =
-            /^[^\s@]+@(gmail|hotmail|outlook|yahoo|icloud)\.com$/i;
-
-
-        if (!regexEmail.test(email)) {
-
-            alert("Digite um e-mail válido.");
-
-            return;
-
-        }
-
-
-        // ===============================
-        // TRATAR DATA
-        // ===============================
-
-        const dataFormatada =
-            dataNascimento;
-
-
-        console.log(
-            "Data de nascimento:",
-            dataFormatada
-        );
-
-
-        // ===============================
-        // OBJETO DO CLIENTE
-        // ===============================
-
-        const cliente = {
-
-            nome: nome,
-
-            cpf:
-                cpf.replace(/\D/g, ""),
-
-            telefone:
-                telefone.replace(/\D/g, ""),
-
-            email: email,
-
-            senha: senha,
-
-            data_nascimento:
-                dataFormatada,
-
-            loja_idLoja: 1
-
-        };
-
-
-        // ===============================
-        // VERIFICAR NO CONSOLE
-        // ===============================
-
-        console.log(
-            "CLIENTE ENVIADO:",
-            cliente
-        );
-
-        console.log(
-            "TIPO DA DATA:",
-            typeof cliente.data_nascimento
-        );
-
-
-        // ===============================
-        // ENVIAR PARA O NODE
-        // ===============================
-
-        try {
-
-            const respostaServidor =
-    await fetch(
-        "/clientes",
-                    {
-
-                        method: "POST",
-
-                        headers: {
-
-                            "Content-Type":
-                                "application/json"
-
-                        },
-
-                        body:
-                            JSON.stringify(cliente)
-
-                    }
-                );
+    .addEventListener(
+        "click",
+        async () => {
 
 
             // ===============================
-            // LER RESPOSTA
+            // PEGAR VALORES
             // ===============================
 
-            const resposta =
-                await respostaServidor.json();
+            const nome =
+                document
+                    .getElementById("nome")
+                    .value
+                    .trim();
+
+
+            const cpf =
+                document
+                    .getElementById("cpf")
+                    .value
+                    .trim();
+
+
+            const telefone =
+                document
+                    .getElementById("telefone")
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim()
+                    .toLowerCase();
+
+
+            const senha =
+                document
+                    .getElementById("senha")
+                    .value;
+
+
+            const confirmarSenha =
+                document
+                    .getElementById("confirmarSenha")
+                    .value;
+
+
+            const dataNascimento =
+                document
+                    .getElementById("data_nascimento")
+                    .value;
 
 
             // ===============================
-            // ERRO
+            // CAMPOS OBRIGATÓRIOS
             // ===============================
 
-            if (!respostaServidor.ok) {
+            if (
+
+                !nome ||
+                !cpf ||
+                !telefone ||
+                !email ||
+                !senha ||
+                !confirmarSenha ||
+                !dataNascimento
+
+            ) {
 
                 alert(
-                    resposta.mensagem ||
-                    "Erro ao cadastrar."
+                    "Preencha todos os campos."
                 );
 
                 return;
@@ -343,38 +129,341 @@ document
 
 
             // ===============================
-            // SUCESSO
+            // VALIDAÇÕES DA SENHA
             // ===============================
 
-            alert(
-                "Cadastro realizado com sucesso!"
+            if (
+                senha.length < 8 ||
+                senha.length > 13
+            ) {
+
+                alert(
+                    "A senha deve possuir entre 8 e 13 caracteres."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !/[A-Z]/.test(senha)
+            ) {
+
+                alert(
+                    "A senha deve conter pelo menos uma letra maiúscula."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !/[a-z]/.test(senha)
+            ) {
+
+                alert(
+                    "A senha deve conter pelo menos uma letra minúscula."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !/[0-9]/.test(senha)
+            ) {
+
+                alert(
+                    "A senha deve conter pelo menos um número."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !/[!@#$%^&*(),.?":{}|<>_\-+=/\[\]\\;'`~]/.test(senha)
+            ) {
+
+                alert(
+                    "A senha deve conter pelo menos um caractere especial."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                senha
+                    .toLowerCase()
+                    .includes(
+                        nome.toLowerCase()
+                    )
+            ) {
+
+                alert(
+                    "A senha não pode conter o nome do usuário."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                senha !== confirmarSenha
+            ) {
+
+                alert(
+                    "As senhas não coincidem."
+                );
+
+                return;
+
+            }
+
+
+            // ===============================
+            // IDADE
+            // ===============================
+
+            const hoje =
+                new Date();
+
+
+            const nascimento =
+                new Date(
+                    dataNascimento +
+                    "T00:00:00"
+                );
+
+
+            let idade =
+                hoje.getFullYear() -
+                nascimento.getFullYear();
+
+
+            const mes =
+                hoje.getMonth() -
+                nascimento.getMonth();
+
+
+            if (
+
+                mes < 0 ||
+
+                (
+                    mes === 0 &&
+                    hoje.getDate() <
+                    nascimento.getDate()
+                )
+
+            ) {
+
+                idade--;
+
+            }
+
+
+            if (
+                idade < 18
+            ) {
+
+                alert(
+                    "Você deve ser maior de idade para se cadastrar."
+                );
+
+                return;
+
+            }
+
+
+            // ===============================
+            // E-MAIL
+            // ===============================
+
+            const regexEmail =
+                /^[^\s@]+@(gmail|hotmail|outlook|yahoo|icloud)\.com$/i;
+
+
+            if (
+                !regexEmail.test(email)
+            ) {
+
+                alert(
+                    "Digite um e-mail válido."
+                );
+
+                return;
+
+            }
+
+
+            // ===============================
+            // TRATAR DATA
+            // ===============================
+
+            const dataFormatada =
+                dataNascimento;
+
+
+            console.log(
+                "Data de nascimento:",
+                dataFormatada
             );
 
 
-            document
-                .getElementById("cadastroForm")
-                .reset();
+            // ===============================
+            // OBJETO DO CLIENTE
+            // ===============================
+
+            const cliente = {
+
+                nome:
+                    nome,
+
+                cpf:
+                    cpf.replace(
+                        /\D/g,
+                        ""
+                    ),
+
+                telefone:
+                    telefone.replace(
+                        /\D/g,
+                        ""
+                    ),
+
+                email:
+                    email,
+
+                senha:
+                    senha,
+
+                data_nascimento:
+                    dataFormatada,
+
+                loja_idLoja:
+                    1
+
+            };
 
 
             // ===============================
-            // REDIRECIONAR
+            // VERIFICAR NO CONSOLE
             // ===============================
 
-            window.location.href =
-                "../pages/login.html";
-
-
-        } catch (erro) {
-
-            console.error(
-                "ERRO NO CADASTRO:",
-                erro
+            console.log(
+                "CLIENTE ENVIADO:",
+                cliente
             );
 
-            alert(
-                "Erro ao conectar com o servidor."
+
+            console.log(
+                "TIPO DA DATA:",
+                typeof cliente.data_nascimento
             );
+
+
+            // ===============================
+            // ENVIAR PARA O NODE
+            // ===============================
+
+            try {
+
+                const respostaServidor =
+                    await fetch(
+                        "https://catech.onrender.com/clientes",
+                        {
+
+                            method: "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    cliente
+                                )
+
+                        }
+                    );
+
+
+                // ===============================
+                // LER RESPOSTA
+                // ===============================
+
+                const resposta =
+                    await respostaServidor.json();
+
+
+                // ===============================
+                // ERRO
+                // ===============================
+
+                if (
+                    !respostaServidor.ok
+                ) {
+
+                    alert(
+                        resposta.mensagem ||
+                        "Erro ao cadastrar."
+                    );
+
+                    return;
+
+                }
+
+
+                // ===============================
+                // SUCESSO
+                // ===============================
+
+                alert(
+                    "Cadastro realizado com sucesso!"
+                );
+
+
+                document
+                    .getElementById(
+                        "cadastroForm"
+                    )
+                    .reset();
+
+
+                // ===============================
+                // REDIRECIONAR
+                // ===============================
+
+                window.location.href =
+                    "../pages/login.html";
+
+
+            }
+
+            catch (erro) {
+
+                console.error(
+                    "ERRO NO CADASTRO:",
+                    erro
+                );
+
+
+                alert(
+                    "Erro ao conectar com o servidor."
+                );
+
+            }
 
         }
-
-    });
+    );

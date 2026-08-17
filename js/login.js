@@ -8,11 +8,14 @@ const senha = document.getElementById("senha");
 
 const remember = document.getElementById("remember");
 
-window.addEventListener("load",()=>{
 
-    const usuario = localStorage.getItem("usuario");
+window.addEventListener("load", () => {
 
-    if(usuario){
+    const usuario =
+        localStorage.getItem("usuario");
+
+
+    if (usuario) {
 
         email.value = usuario;
 
@@ -23,66 +26,147 @@ window.addEventListener("load",()=>{
 });
 
 
+// =====================================
+// BOTÃO ENTRAR
+// =====================================
 
-const btnEntrar = document.getElementById("btn-entrar");
+const btnEntrar =
+    document.getElementById("btn-entrar");
+
 
 btnEntrar.addEventListener("click", () => {
 
-    const email = document.getElementById("email").value.trim();
-    const senha = document.getElementById("senha").value;
+    const email =
+        document
+            .getElementById("email")
+            .value
+            .trim();
 
-    const mensagem = document.getElementById("mensagem");
 
-    if (email === "" || senha === "") {
+    const senha =
+        document
+            .getElementById("senha")
+            .value;
 
-        mensagem.innerHTML = "Preencha todos os campos.";
-        mensagem.style.color = "red";
+
+    const mensagem =
+        document.getElementById("mensagem");
+
+
+    // =====================================
+    // VALIDAR CAMPOS
+    // =====================================
+
+    if (
+        email === "" ||
+        senha === ""
+    ) {
+
+        mensagem.innerHTML =
+            "Preencha todos os campos.";
+
+        mensagem.style.color =
+            "red";
+
         return;
 
     }
+
+
+    // =====================================
+    // VALIDAR SENHA
+    // =====================================
 
     if (senha.length < 8) {
 
-        mensagem.innerHTML = "A senha deve possuir no mínimo 8 caracteres.";
-        mensagem.style.color = "red";
+        mensagem.innerHTML =
+            "A senha deve possuir no mínimo 8 caracteres.";
+
+        mensagem.style.color =
+            "red";
+
         return;
 
     }
 
-    fetch("https://catech.onrender.com/clientes/login", {
 
-    method: "POST",
+    // =====================================
+    // ENVIAR PARA O SERVIDOR
+    // =====================================
 
-    headers: {
-        "Content-Type": "application/json"
-    },
+    fetch(
+        "https://catech.onrender.com/clientes/login",
+        {
 
-    body: JSON.stringify({
-        email,
-        senha
-    })
+            method: "POST",
 
-})
+            headers: {
 
-.then(res => res.json())
+                "Content-Type":
+                    "application/json"
 
-.then(resposta => {
+            },
 
-    if (resposta.sucesso) {
+            body: JSON.stringify({
 
-        localStorage.setItem(
-            "cliente",
-            JSON.stringify(resposta.cliente)
-        );
+                email,
+                senha
 
-        window.location.href = "../index.html";
+            })
 
-    } else {
+        }
 
-        mensagem.innerHTML = resposta.mensagem;
-        mensagem.style.color = "red";
+    )
 
-    }
 
-});
+    .then(
+        res =>
+            res.json()
+    )
+
+
+    .then(
+        resposta => {
+
+            // =====================================
+            // LOGIN REALIZADO
+            // =====================================
+
+            if (resposta.sucesso) {
+
+                localStorage.setItem(
+
+                    "cliente",
+
+                    JSON.stringify(
+                        resposta.cliente
+                    )
+
+                );
+
+
+                window.location.href =
+                    "../index.html";
+
+            }
+
+
+            // =====================================
+            // ERRO NO LOGIN
+            // =====================================
+
+            else {
+
+                mensagem.innerHTML =
+                    resposta.mensagem;
+
+                mensagem.style.color =
+                    "red";
+
+            }
+
+        }
+
+    );
+
 });

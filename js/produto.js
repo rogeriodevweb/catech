@@ -15,6 +15,7 @@ const parametros =
         window.location.search
     );
 
+
 const idProduto =
     parametros.get("id");
 
@@ -28,6 +29,7 @@ if (!idProduto) {
     alert(
         "Produto não informado."
     );
+
 
     window.location.href =
         "../index.html";
@@ -55,6 +57,7 @@ async function carregarProduto() {
         console.log(
             "================================"
         );
+
 
         console.log(
             "BUSCANDO PRODUTO:",
@@ -155,11 +158,13 @@ async function carregarProduto() {
             "PRODUTO CARREGADO COM SUCESSO!"
         );
 
+
         console.log(
             "================================"
         );
 
     }
+
 
     catch (erro) {
 
@@ -191,6 +196,7 @@ async function carregarProduto() {
 function preencherProduto(
     produto
 ) {
+
 
     // ==================================
     // NOME
@@ -285,6 +291,7 @@ function preencherProduto(
     ) {
 
         const desconto =
+
             (
                 (
                     precoAntigo -
@@ -300,6 +307,7 @@ function preencherProduto(
             `${desconto.toFixed(0)}% OFF`;
 
     }
+
 
     else {
 
@@ -564,10 +572,12 @@ function configurarQuantidade(
 
                 quantidade++;
 
+
                 numero.textContent =
                     quantidade;
 
             }
+
 
             else {
 
@@ -588,6 +598,7 @@ function configurarQuantidade(
             ) {
 
                 quantidade--;
+
 
                 numero.textContent =
                     quantidade;
@@ -682,6 +693,7 @@ function adicionarAoCarrinho() {
 
     }
 
+
     else {
 
         carrinho.push({
@@ -768,11 +780,13 @@ function configurarBotoes() {
             function () {
 
                 // Verificar se o produto foi carregado
+
                 if (!produtoAtual) {
 
                     alert(
                         "Aguarde o produto carregar."
                     );
+
 
                     return;
 
@@ -849,6 +863,7 @@ Gostaria de realizar a compra.`;
                     "ABRINDO WHATSAPP:"
                 );
 
+
                 console.log(
                     linkWhatsApp
                 );
@@ -885,4 +900,3 @@ document.addEventListener(
     }
 
 );
-

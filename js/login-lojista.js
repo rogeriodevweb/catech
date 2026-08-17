@@ -24,9 +24,7 @@ form.addEventListener("submit", async function(e) {
     try {
 
         const resposta = await fetch(
-
             "https://catech.onrender.com/lojistas/login",
-
             {
 
                 method: "POST",
