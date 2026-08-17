@@ -750,3 +750,617 @@ body{
 
     text-align: justify;
 }
+
+
+/* ============================================================
+   RESPONSIVIDADE COMPLETA - TELA DE DETALHES DO PRODUTO
+   Adicione este bloco no FINAL do arquivo CSS.
+   ============================================================ */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+/* ============================================================
+   TABLETS
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    /* =========================
+       CABEÇALHO
+       ========================= */
+
+    .topo {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo img {
+        width: 85px;
+        height: auto;
+        margin-left: 0;
+    }
+
+    .caixa-pesquisa {
+        width: 100%;
+        margin: 10px 0;
+        padding: 0 15px;
+    }
+
+    .caixa-pesquisa input {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .icones {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .icones a {
+        margin: 5px 10px;
+    }
+
+    nav {
+        width: 100%;
+        height: auto;
+        min-height: 50px;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    nav a {
+        margin: 5px 12px;
+        font-size: 20px;
+    }
+
+    /* =========================
+       BOTÃO VOLTAR
+       ========================= */
+
+    .btn-voltar {
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+
+    /* =========================
+       ÁREA DO PRODUTO
+       ========================= */
+
+    .area-detalhes {
+        width: 100%;
+        max-width: 760px;
+        margin: 30px auto;
+        padding: 20px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .area-imagens {
+        width: 100%;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .img-lateral img {
+        margin-left: 0;
+    }
+
+    .img-principal {
+        width: min(100%, 500px);
+        height: auto;
+    }
+
+    #imagem-maior {
+        width: 100%;
+        max-width: 500px;
+        margin-left: 0;
+    }
+
+    .area-textos {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .descricao-produto {
+        width: calc(100% - 40px);
+        padding: 25px;
+    }
+
+    /* =========================
+       RODAPÉ
+       ========================= */
+
+    footer {
+        padding: 25px;
+    }
+
+    .superior {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .coluna1,
+    .coluna2,
+    .coluna3,
+    .coluna4 {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .coluna3 img {
+        width: 120px;
+        padding-left: 0;
+    }
+
+    .coluna1::after,
+    .coluna2::before,
+    .coluna3::before,
+    .coluna4::before {
+        display: none;
+    }
+
+    .titulo-ofertas {
+        padding-left: 20px;
+    }
+
+    .titulo-ofertas a {
+        margin-left: 0;
+        padding-left: 0;
+    }
+}
+
+
+/* ============================================================
+   CELULARES
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* =========================
+       CABEÇALHO
+       ========================= */
+
+    header {
+        width: 100%;
+    }
+
+    .topo {
+        flex-direction: column;
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 70px;
+        height: auto;
+        margin: 0;
+    }
+
+    /* PESQUISA */
+
+    .caixa-pesquisa {
+        width: 100%;
+        margin: 5px 0 10px;
+        padding: 0;
+    }
+
+    .caixa-pesquisa input {
+        width: 100%;
+        max-width: none;
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+
+    /* ÍCONES */
+
+    .icones {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 5px;
+        margin: 0;
+    }
+
+    .icones a {
+        flex: 1;
+        min-width: 0;
+        margin: 5px 2px;
+        padding: 5px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .icones a img {
+        width: 26px;
+        height: 26px;
+        margin: 0 0 5px 0;
+    }
+
+    .icones a small {
+        font-size: 11px;
+        line-height: 14px;
+    }
+
+    /* MENU */
+
+    nav {
+        width: 100%;
+        height: auto;
+        padding: 8px 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    nav a {
+        margin: 4px 7px;
+        font-size: 15px;
+        white-space: nowrap;
+    }
+
+    /* =========================
+       BOTÃO VOLTAR
+       ========================= */
+
+    .btn-voltar {
+        margin: 12px;
+        padding: 9px 14px;
+        font-size: 14px;
+    }
+
+    /* =========================
+       DETALHES DO PRODUTO
+       ========================= */
+
+    .area-detalhes {
+        width: 100%;
+        max-width: none;
+        margin: 15px auto 25px;
+        padding: 12px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        align-items: stretch;
+    }
+
+    /* IMAGENS */
+
+    .area-imagens {
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .img-principal {
+        width: 100%;
+        height: auto;
+    }
+
+    #imagem-maior {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: 300px;
+        margin: 0 auto;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+
+    #imagem-maior:hover {
+        transform: none;
+    }
+
+    /* Miniaturas passam a ficar lado a lado */
+
+    .img-lateral {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .img-lateral img {
+        width: 58px;
+        height: 58px;
+        margin-left: 0;
+        object-fit: cover;
+    }
+
+    /* TEXTO */
+
+    .area-textos {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .area-textos h1,
+    .area-textos h2,
+    .area-textos h3 {
+        word-break: break-word;
+    }
+
+    .avaliacoes-produto {
+        flex-wrap: wrap;
+        gap: 7px;
+        margin: 12px 0;
+    }
+
+    .avaliacoes-produto img {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* PREÇO */
+
+    .preco-promocional p {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    #desconto {
+        display: inline-block;
+        margin-top: 5px;
+        font-size: 13px;
+    }
+
+    /* QUANTIDADE */
+
+    .quantidade {
+        gap: 12px;
+        margin: 20px 0;
+    }
+
+    .quantidade button {
+        width: 45px;
+        height: 45px;
+    }
+
+    #numero-quantidade {
+        min-width: 30px;
+        font-size: 22px;
+    }
+
+    /* BOTÕES */
+
+    .btn-add-carrinho button,
+    .btn-comprar button {
+        width: 100%;
+        padding: 15px;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    /* FRETE */
+
+    .area-frete {
+        width: 100%;
+        margin-top: 22px;
+        display: flex;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .area-frete p {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .area-frete input {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        padding: 11px 12px;
+    }
+
+    #btn-calcular-frete {
+        flex-shrink: 0;
+        padding: 11px 14px;
+        font-size: 14px;
+    }
+
+    /* =========================
+       DESCRIÇÃO
+       ========================= */
+
+    .descricao-produto {
+        width: calc(100% - 24px);
+        max-width: none;
+        margin: 20px auto;
+        padding: 18px;
+    }
+
+    .descricao-produto p {
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: left;
+        overflow-wrap: anywhere;
+    }
+
+    /* =========================
+       OFERTAS
+       ========================= */
+
+    .titulo-ofertas {
+        width: 100%;
+        padding: 0 15px;
+        margin-top: 15px;
+    }
+
+    .titulo-ofertas a {
+        display: block;
+        margin-left: 0;
+        padding-left: 0;
+        margin-top: 8px;
+    }
+
+    /* =========================
+       RODAPÉ
+       ========================= */
+
+    footer {
+        margin-top: 25px;
+        padding: 25px 18px;
+    }
+
+    .superior {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .coluna1,
+    .coluna2,
+    .coluna3,
+    .coluna4 {
+        width: 100%;
+        padding: 20px 5px;
+        text-align: center;
+    }
+
+    .superior h2 {
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+
+    .superior p,
+    .superior a {
+        font-size: 15px;
+    }
+
+    .coluna1 h2 {
+        margin-bottom: 15px;
+    }
+
+    .coluna1 .redes-sociais {
+        margin-bottom: 20px;
+    }
+
+    .coluna1 p {
+        margin-top: 20px;
+        font-size: 13px;
+    }
+
+    .coluna2 {
+        padding-left: 5px;
+    }
+
+    .coluna2 h2 {
+        margin-bottom: 15px;
+    }
+
+    .coluna2 li {
+        margin-bottom: 12px;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .coluna3 {
+        padding-left: 5px;
+    }
+
+    .coluna3 img {
+        display: block;
+        width: 110px;
+        max-width: 60%;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .coluna4 {
+        padding: 15px 5px;
+    }
+
+    .coluna4 a {
+        margin-top: 15px;
+        justify-content: center;
+    }
+
+    .coluna1::after,
+    .coluna2::before,
+    .coluna3::before,
+    .coluna4::before {
+        display: none;
+    }
+}
+
+
+/* ============================================================
+   CELULARES PEQUENOS
+   ============================================================ */
+
+@media (max-width: 380px) {
+
+    .icones a small {
+        font-size: 10px;
+    }
+
+    nav a {
+        font-size: 13px;
+        margin: 3px 5px;
+    }
+
+    #imagem-maior {
+        height: 245px;
+    }
+
+    .img-lateral img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .preco-promocional p {
+        font-size: 26px;
+    }
+
+    .area-frete {
+        flex-direction: column;
+    }
+
+    .area-frete input,
+    #btn-calcular-frete {
+        width: 100%;
+    }
+
+    .descricao-produto {
+        padding: 15px;
+    }
+}
