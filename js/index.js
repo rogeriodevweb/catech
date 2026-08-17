@@ -2,9 +2,7 @@
 // API
 // ================================================
 
-const API =
-    "https://catech.onrender.com";
-
+const API = "https://catech.onrender.com";
 
 
 // ================================================
@@ -14,59 +12,38 @@ const API =
 const banners = [
 
     {
-
         tipo: "imagem",
-
-        arquivo:
-            "assets/banner-home.png",
-
+        arquivo: "assets/banner-home.png",
         tempo: 5000
-
     },
 
     {
-
         tipo: "video",
-
-        arquivo:
-            "assets/banner-2.mp4"
-
+        arquivo: "assets/banner-2.mp4"
     },
 
     {
-
         tipo: "video",
-
-        arquivo:
-            "assets/banner-3.mp4",
-
-
+        arquivo: "assets/banner-3.mp4"
     }
 
 ];
 
 
 let indiceBanner = 0;
-
 let temporizador;
 
 
 const bannerAtual =
-    document.getElementById(
-        "bannerAtual"
-    );
+    document.getElementById("bannerAtual");
 
 
 const btnAnterior =
-    document.querySelector(
-        ".btn-anterior"
-    );
+    document.querySelector(".btn-anterior");
 
 
 const btnProximo =
-    document.querySelector(
-        ".btn-proximo"
-    );
+    document.querySelector(".btn-proximo");
 
 
 
@@ -77,15 +54,11 @@ const btnProximo =
 function carregarBanner() {
 
     if (!bannerAtual) {
-
         return;
-
     }
 
 
-    clearTimeout(
-        temporizador
-    );
+    clearTimeout(temporizador);
 
 
     bannerAtual.innerHTML = "";
@@ -95,14 +68,10 @@ function carregarBanner() {
         banners[indiceBanner];
 
 
-    if (
-        banner.tipo === "imagem"
-    ) {
+    if (banner.tipo === "imagem") {
 
         const imagem =
-            document.createElement(
-                "img"
-            );
+            document.createElement("img");
 
 
         imagem.src =
@@ -113,18 +82,13 @@ function carregarBanner() {
             "Banner CA Tech";
 
 
-        bannerAtual.appendChild(
-            imagem
-        );
+        bannerAtual.appendChild(imagem);
 
 
         temporizador =
             setTimeout(
-
                 proximoBanner,
-
                 banner.tempo
-
             );
 
     }
@@ -132,9 +96,7 @@ function carregarBanner() {
     else {
 
         const video =
-            document.createElement(
-                "video"
-            );
+            document.createElement("video");
 
 
         video.src =
@@ -148,9 +110,7 @@ function carregarBanner() {
         video.playsInline = true;
 
 
-        bannerAtual.appendChild(
-            video
-        );
+        bannerAtual.appendChild(video);
 
 
         video.play()
@@ -158,11 +118,8 @@ function carregarBanner() {
 
 
         video.addEventListener(
-
             "ended",
-
             proximoBanner
-
         );
 
     }
@@ -205,9 +162,7 @@ function bannerAnterior() {
     indiceBanner--;
 
 
-    if (
-        indiceBanner < 0
-    ) {
+    if (indiceBanner < 0) {
 
         indiceBanner =
             banners.length - 1;
@@ -228,11 +183,8 @@ function bannerAnterior() {
 if (btnProximo) {
 
     btnProximo.addEventListener(
-
         "click",
-
         proximoBanner
-
     );
 
 }
@@ -241,11 +193,8 @@ if (btnProximo) {
 if (btnAnterior) {
 
     btnAnterior.addEventListener(
-
         "click",
-
         bannerAnterior
-
     );
 
 }
@@ -265,9 +214,7 @@ function formatarPreco(valor) {
         Number(valor);
 
 
-    if (
-        Number.isNaN(numero)
-    ) {
+    if (Number.isNaN(numero)) {
 
         return "0,00";
 
@@ -306,12 +253,52 @@ function escaparTexto(texto) {
 
 
 // ================================================
+// TRATAR URL DA IMAGEM
+// ================================================
+
+function tratarImagem(imagem) {
+
+    if (!imagem) {
+
+        return "assets/sem-imagem.png";
+
+    }
+
+
+    // Se já for uma URL completa
+
+    if (
+        imagem.startsWith("http://") ||
+        imagem.startsWith("https://")
+    ) {
+
+        return imagem;
+
+    }
+
+
+    // Se for uma rota da API
+
+    if (imagem.startsWith("/")) {
+
+        return `${API}${imagem}`;
+
+    }
+
+
+    // Imagem local do frontend
+
+    return imagem;
+
+}
+
+
+
+// ================================================
 // CRIAR CARD
 // ================================================
 
-function criarCardProduto(
-    produto
-) {
+function criarCardProduto(produto) {
 
     const precoAntigo =
         Number(
@@ -357,12 +344,8 @@ function criarCardProduto(
     }
 
 
-    if (!imagem) {
-
-        imagem =
-            "assets/sem-imagem.png";
-
-    }
+    imagem =
+        tratarImagem(imagem);
 
 
     const nome =
@@ -377,6 +360,7 @@ function criarCardProduto(
         );
 
 
+
     // ============================================
     // PREÇO ANTIGO
     // ============================================
@@ -384,9 +368,7 @@ function criarCardProduto(
     let precoAntigoHTML = `
 
         <p class="p-antigo">
-
             &nbsp;
-
         </p>
 
     `;
@@ -402,8 +384,8 @@ function criarCardProduto(
 
                 R$
                 ${formatarPreco(
-            precoAntigo
-        )}
+                    precoAntigo
+                )}
 
             </p>
 
@@ -411,6 +393,11 @@ function criarCardProduto(
 
     }
 
+
+
+    // ============================================
+    // CARD
+    // ============================================
 
     return `
 
@@ -475,9 +462,7 @@ function criarCardProduto(
 
 
             <h3>
-
                 ${produto.nome}
-
             </h3>
 
 
@@ -498,8 +483,8 @@ function criarCardProduto(
 
                     R$
                     ${formatarPreco(
-        precoFinal
-    )}
+                        precoFinal
+                    )}
 
                 </p>
 
@@ -522,9 +507,7 @@ function criarCardProduto(
 
 
                 <h5>
-
                     4.5
-
                 </h5>
 
 
@@ -588,27 +571,111 @@ async function carregarProdutos() {
         );
 
 
+    if (!areaCategorias) {
+
+        console.error(
+            "Elemento #areaCategorias não encontrado."
+        );
+
+        return;
+
+    }
+
+
     try {
+
+        console.log(
+            "Buscando produtos em:",
+            `${API}/produtos`
+        );
+
 
         const resposta =
             await fetch(
-                `${API}/produtos`
+                `${API}/produtos`,
+                {
+
+                    method: "GET",
+
+                    headers: {
+
+                        "Accept":
+                            "application/json"
+
+                    }
+
+                }
             );
+
+
+        console.log(
+            "STATUS PRODUTOS:",
+            resposta.status
+        );
+
+
+        // ============================================
+        // LER RESPOSTA COMO TEXTO
+        // ============================================
+
+        const texto =
+            await resposta.text();
+
+
+        console.log(
+            "RESPOSTA PRODUTOS:",
+            texto
+        );
 
 
         if (!resposta.ok) {
 
             throw new Error(
-
-                `Erro HTTP ${resposta.status}`
-
+                `Erro HTTP ${resposta.status}: ${texto}`
             );
 
         }
 
 
-        const produtos =
-            await resposta.json();
+        if (
+            !texto ||
+            texto.trim() === ""
+        ) {
+
+            throw new Error(
+                "A API retornou uma resposta vazia."
+            );
+
+        }
+
+
+        // ============================================
+        // CONVERTER JSON
+        // ============================================
+
+        let produtos;
+
+
+        try {
+
+            produtos =
+                JSON.parse(texto);
+
+        }
+
+        catch (erroJSON) {
+
+            console.error(
+                "A API não retornou JSON válido:",
+                texto
+            );
+
+
+            throw new Error(
+                "A API não retornou JSON válido."
+            );
+
+        }
 
 
         console.log(
@@ -626,10 +693,11 @@ async function carregarProdutos() {
         ) {
 
             throw new Error(
-                "A API não retornou uma lista."
+                "A API não retornou uma lista de produtos."
             );
 
         }
+
 
 
         // ============================================
@@ -640,11 +708,10 @@ async function carregarProdutos() {
 
 
         produtos.forEach(
-
             produto => {
 
-
                 // Produto inativo
+
                 if (
                     produto.ativo === 0 ||
                     produto.ativo === false
@@ -672,13 +739,11 @@ async function carregarProdutos() {
 
 
                 categorias[nomeCategoria]
-                    .push(
-                        produto
-                    );
+                    .push(produto);
 
             }
-
         );
+
 
 
         // ============================================
@@ -710,8 +775,8 @@ async function carregarProdutos() {
         }
 
 
-        nomesCategorias.forEach(
 
+        nomesCategorias.forEach(
             nomeCategoria => {
 
 
@@ -724,6 +789,7 @@ async function carregarProdutos() {
                 section.classList.add(
                     "secao-produtos"
                 );
+
 
 
                 // ====================================
@@ -782,6 +848,7 @@ async function carregarProdutos() {
                 );
 
 
+
                 // ====================================
                 // VER TUDO
                 // ====================================
@@ -802,11 +869,9 @@ async function carregarProdutos() {
 
 
                 verTudo.href =
-
                     `pages/categorias.html?categoria=${encodeURIComponent(
                         nomeCategoria
-                    )
-                    }`;
+                    )}`;
 
 
                 cabecalho.appendChild(
@@ -822,6 +887,7 @@ async function carregarProdutos() {
                 section.appendChild(
                     cabecalho
                 );
+
 
 
                 // ====================================
@@ -841,22 +907,16 @@ async function carregarProdutos() {
 
                 categorias[nomeCategoria]
                     .forEach(
-
                         produto => {
 
-                            lista
-                                .insertAdjacentHTML(
-
-                                    "beforeend",
-
-                                    criarCardProduto(
-                                        produto
-                                    )
-
-                                );
+                            lista.insertAdjacentHTML(
+                                "beforeend",
+                                criarCardProduto(
+                                    produto
+                                )
+                            );
 
                         }
-
                     );
 
 
@@ -870,7 +930,6 @@ async function carregarProdutos() {
                 );
 
             }
-
         );
 
 
@@ -879,7 +938,7 @@ async function carregarProdutos() {
     catch (erro) {
 
         console.error(
-            "Erro:",
+            "ERRO AO CARREGAR PRODUTOS:",
             erro
         );
 
@@ -905,12 +964,9 @@ async function carregarProdutos() {
 // ABRIR PRODUTO
 // ================================================
 
-function abrirProduto(
-    idProduto
-) {
+function abrirProduto(idProduto) {
 
     window.location.href =
-
         `pages/produto.html?id=${idProduto}`;
 
 }
@@ -932,13 +988,10 @@ function favoritar(
 
 
     let favoritos =
-
         JSON.parse(
-
             localStorage.getItem(
                 "favoritos"
             )
-
         ) || [];
 
 
@@ -946,6 +999,13 @@ function favoritar(
         elemento.closest(
             ".card-produtos"
         );
+
+
+    if (!card) {
+
+        return;
+
+    }
 
 
     const nome =
@@ -964,14 +1024,11 @@ function favoritar(
 
 
     const preco =
-
         Number(
-
             precoTexto
                 .replace("R$", "")
                 .replace(",", ".")
                 .trim()
-
         );
 
 
@@ -985,12 +1042,9 @@ function favoritar(
 
     const existe =
         favoritos.find(
-
             produto =>
-
                 Number(produto.id) ===
                 Number(idProduto)
-
         );
 
 
@@ -998,12 +1052,9 @@ function favoritar(
 
         favoritos =
             favoritos.filter(
-
                 produto =>
-
                     Number(produto.id) !==
                     Number(idProduto)
-
             );
 
     }
@@ -1030,13 +1081,8 @@ function favoritar(
 
 
     localStorage.setItem(
-
         "favoritos",
-
-        JSON.stringify(
-            favoritos
-        )
-
+        JSON.stringify(favoritos)
     );
 
 }
@@ -1055,33 +1101,24 @@ function adicionarCarrinho(
 ) {
 
     let carrinho =
-
         JSON.parse(
-
             localStorage.getItem(
                 "carrinho"
             )
-
         ) || [];
 
 
     const produtoExistente =
         carrinho.find(
-
             produto =>
-
                 Number(produto.id) ===
                 Number(id)
-
         );
 
 
-    if (
-        produtoExistente
-    ) {
+    if (produtoExistente) {
 
-        produtoExistente
-            .quantidade++;
+        produtoExistente.quantidade++;
 
     }
 
@@ -1110,13 +1147,8 @@ function adicionarCarrinho(
 
 
     localStorage.setItem(
-
         "carrinho",
-
-        JSON.stringify(
-            carrinho
-        )
-
+        JSON.stringify(carrinho)
     );
 
 
@@ -1148,9 +1180,7 @@ function configurarPesquisa() {
 
 
     pesquisa.addEventListener(
-
         "input",
-
         function () {
 
 
@@ -1161,39 +1191,32 @@ function configurarPesquisa() {
 
 
             const cards =
-
                 document.querySelectorAll(
                     ".card-produtos"
                 );
 
 
             cards.forEach(
-
                 card => {
 
 
                     const nome =
-                        card.dataset.nome
-                            .toLowerCase();
+                        (
+                            card.dataset.nome ||
+                            ""
+                        ).toLowerCase();
 
 
                     const categoria =
-                        card.dataset.categoria
-                            .toLowerCase();
+                        (
+                            card.dataset.categoria ||
+                            ""
+                        ).toLowerCase();
 
 
                     if (
-
-                        nome.includes(
-                            termo
-                        )
-
-                        ||
-
-                        categoria.includes(
-                            termo
-                        )
-
+                        nome.includes(termo) ||
+                        categoria.includes(termo)
                     ) {
 
                         card.style.display =
@@ -1209,11 +1232,9 @@ function configurarPesquisa() {
                     }
 
                 }
-
             );
 
         }
-
     );
 
 }
@@ -1225,9 +1246,7 @@ function configurarPesquisa() {
 // ================================================
 
 document.addEventListener(
-
     "DOMContentLoaded",
-
     function () {
 
         carregarProdutos();
@@ -1235,5 +1254,4 @@ document.addEventListener(
         configurarPesquisa();
 
     }
-
 );

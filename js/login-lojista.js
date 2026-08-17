@@ -1,119 +1,317 @@
-const form = document.getElementById("loginLojista");
+// ======================================================
+// LOGIN DO LOJISTA
+// ======================================================
 
 
-form.addEventListener("submit", async function(e) {
+// ======================================================
+// API
+// ======================================================
 
-    e.preventDefault();
-
-
-    // =====================================
-    // PEGAR DADOS DO FORMULÁRIO
-    // =====================================
-
-    const codigoLoja =
-        document.getElementById("codigoLoja").value.trim();
-
-    const senha =
-        document.getElementById("senha").value;
+const API =
+    "https://catech.onrender.com";
 
 
-    // =====================================
-    // ENVIAR PARA O SERVIDOR
-    // =====================================
+// ======================================================
+// FORMULÁRIO
+// ======================================================
 
-    try {
+const form =
+    document.getElementById(
+        "loginLojista"
+    );
 
-        const resposta = await fetch(
 
-            "https://catech.onrender.com/lojistas/login",
+// ======================================================
+// VERIFICAR SE O FORMULÁRIO EXISTE
+// ======================================================
 
-            {
+if (form) {
 
-                method: "POST",
+    form.addEventListener(
+        "submit",
+        async function (e) {
 
-                headers: {
+            e.preventDefault();
 
-                    "Content-Type": "application/json"
 
-                },
+            // ==================================================
+            // PEGAR DADOS DO FORMULÁRIO
+            // ==================================================
 
-                body: JSON.stringify({
+            const codigoLojaInput =
+                document.getElementById(
+                    "codigoLoja"
+                );
 
-                    codigoLoja: codigoLoja,
 
-                    senha: senha
+            const senhaInput =
+                document.getElementById(
+                    "senha"
+                );
 
-                })
+
+            const codigoLoja =
+                codigoLojaInput
+                    ? codigoLojaInput.value.trim()
+                    : "";
+
+
+            const senha =
+                senhaInput
+                    ? senhaInput.value
+                    : "";
+
+
+            // ==================================================
+            // VALIDAR CAMPOS
+            // ==================================================
+
+            if (
+                codigoLoja === "" ||
+                senha === ""
+            ) {
+
+                alert(
+                    "Preencha o código da loja e a senha."
+                );
+
+                return;
 
             }
 
-        );
+
+            // ==================================================
+            // ENVIAR PARA O SERVIDOR
+            // ==================================================
+
+            try {
+
+                console.log(
+                    "LOGIN LOJISTA:"
+                );
 
 
-        const dados =
-            await resposta.json();
+                console.log(
+                    "URL:",
+                    `${API}/lojistas/login`
+                );
 
 
-        // =====================================
-        // VERIFICAR ERRO
-        // =====================================
+                const resposta =
+                    await fetch(
+                        `${API}/lojistas/login`,
+                        {
 
-        if (!resposta.ok) {
+                            method: "POST",
 
-            alert(
+                            headers: {
 
-                dados.mensagem ||
-                "Código da loja ou senha incorretos."
+                                "Content-Type":
+                                    "application/json",
 
-            );
+                                "Accept":
+                                    "application/json"
 
-            return;
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    codigoLoja:
+                                        codigoLoja,
+
+                                    senha:
+                                        senha
+
+                                })
+
+                        }
+                    );
+
+
+                // ==================================================
+                // LER RESPOSTA COMO TEXTO
+                // ==================================================
+
+                const textoResposta =
+                    await resposta.text();
+
+
+                console.log(
+                    "STATUS LOGIN LOJISTA:",
+                    resposta.status
+                );
+
+
+                console.log(
+                    "RESPOSTA LOGIN LOJISTA:",
+                    textoResposta
+                );
+
+
+                // ==================================================
+                // VERIFICAR RESPOSTA VAZIA
+                // ==================================================
+
+                if (
+                    !textoResposta ||
+                    textoResposta.trim() === ""
+                ) {
+
+                    console.error(
+                        "O servidor retornou uma resposta vazia."
+                    );
+
+
+                    alert(
+                        "O servidor não retornou uma resposta."
+                    );
+
+
+                    return;
+
+                }
+
+
+                // ==================================================
+                // CONVERTER PARA JSON
+                // ==================================================
+
+                let dados;
+
+
+                try {
+
+                    dados =
+                        JSON.parse(
+                            textoResposta
+                        );
+
+                }
+
+                catch (erroJSON) {
+
+                    console.error(
+                        "Resposta inválida do servidor:",
+                        textoResposta
+                    );
+
+
+                    alert(
+                        "O servidor retornou uma resposta inválida."
+                    );
+
+
+                    return;
+
+                }
+
+
+                // ==================================================
+                // VERIFICAR ERRO HTTP
+                // ==================================================
+
+                if (
+                    !resposta.ok
+                ) {
+
+                    alert(
+
+                        dados.mensagem ||
+
+                        dados.message ||
+
+                        "Código da loja ou senha incorretos."
+
+                    );
+
+
+                    return;
+
+                }
+
+
+                // ==================================================
+                // VERIFICAR SUCESSO
+                // ==================================================
+
+                if (
+                    dados.sucesso === false
+                ) {
+
+                    alert(
+
+                        dados.mensagem ||
+
+                        "Código da loja ou senha incorretos."
+
+                    );
+
+
+                    return;
+
+                }
+
+
+                // ==================================================
+                // SALVAR LOJISTA LOGADO
+                // ==================================================
+
+                if (
+                    dados.lojista
+                ) {
+
+                    localStorage.setItem(
+
+                        "lojistaLogado",
+
+                        JSON.stringify(
+                            dados.lojista
+                        )
+
+                    );
+
+                }
+
+
+                // ==================================================
+                // SUCESSO
+                // ==================================================
+
+                alert(
+
+                    dados.mensagem ||
+
+                    "Login realizado com sucesso!"
+
+                );
+
+
+                // ==================================================
+                // IR PARA O PAINEL
+                // ==================================================
+
+                window.location.href =
+                    "home-lojista.html";
+
+
+            }
+
+            catch (erro) {
+
+                console.error(
+                    "ERRO NO LOGIN DO LOJISTA:",
+                    erro
+                );
+
+
+                alert(
+                    "Erro ao conectar com o servidor."
+                );
+
+            }
 
         }
+    );
 
-
-        // =====================================
-        // SALVAR LOJISTA LOGADO
-        // =====================================
-
-        localStorage.setItem(
-
-            "lojistaLogado",
-
-            JSON.stringify(
-                dados.lojista
-            )
-
-        );
-
-
-        // =====================================
-        // SUCESSO
-        // =====================================
-
-        alert(
-            dados.mensagem
-        );
-
-
-        // =====================================
-        // IR PARA O PAINEL
-        // =====================================
-
-        window.location.href =
-            "home-lojista.html";
-
-
-    }
-
-    catch (erro) {
-
-        console.error(erro);
-
-        alert(
-            "Erro ao conectar com o servidor."
-        );
-
-    }
-
-});
+}
