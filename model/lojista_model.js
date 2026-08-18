@@ -29,7 +29,7 @@ function cadastrar(lojista, callback) {
             endereco,
             instagram,
             whatsapp,
-            loja_idLoja
+            Loja_idLoja
 
         )
 
@@ -62,7 +62,7 @@ function cadastrar(lojista, callback) {
             lojista.endereco,
             lojista.instagram,
             lojista.whatsapp,
-            lojista.loja_idLoja
+            lojista.Loja_idLoja
 
         ],
 
@@ -85,7 +85,7 @@ function buscarPorLoja(idLoja, callback) {
 
         FROM Lojista
 
-        WHERE loja_idLoja = ?
+        WHERE Loja_idLoja = ?
 
     `;
 

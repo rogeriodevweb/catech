@@ -139,7 +139,7 @@ function cadastrar(req, res) {
             // PEGA ID DA LOJA
             // =================================
 
-            lojista.loja_idLoja =
+            lojista.Loja_idLoja =
                 lojas[0].idLoja;
 
 
@@ -150,7 +150,7 @@ function cadastrar(req, res) {
 
             console.log(
                 "ID DA LOJA ENCONTRADO:",
-                lojista.loja_idLoja
+                lojista.Loja_idLoja
             );
 
             console.log(
@@ -411,8 +411,8 @@ function login(req, res) {
                             codigoLoja:
                                 codigoLoja,
 
-                            loja_idLoja:
-                                lojista.loja_idLoja
+                            Loja_idLoja:
+                                lojista.Loja_idLoja
 
                         }
 
