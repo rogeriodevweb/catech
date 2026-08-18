@@ -15,30 +15,25 @@ document.addEventListener(
                 ".lista-carrinho"
             );
 
-
         const subtotalElemento =
             document.querySelector(
                 "#subtotal"
             );
-
 
         const freteElemento =
             document.querySelector(
                 "#frete"
             );
 
-
         const descontoElemento =
             document.querySelector(
                 "#desconto"
             );
 
-
         const totalElemento =
             document.querySelector(
                 "#total"
             );
-
 
         const finalizar =
             document.querySelector(
@@ -51,7 +46,6 @@ document.addEventListener(
         // ==================================================
 
         let carrinho = [];
-
 
         try {
 
@@ -71,10 +65,115 @@ document.addEventListener(
                 erro
             );
 
-
             carrinho = [];
 
         }
+
+
+        // ==================================================
+        // CORRIGIR DADOS DO CARRINHO
+        // ==================================================
+
+        carrinho = carrinho.map(
+            produto => {
+
+                // ------------------------------------------
+                // PREÇO
+                // ------------------------------------------
+
+                let preco = 0;
+
+                // Se tiver preço promocional válido,
+                // usa o promocional.
+                if (
+                    produto.preco_promocional !== undefined &&
+                    produto.preco_promocional !== null &&
+                    produto.preco_promocional !== "" &&
+                    Number(produto.preco_promocional) > 0
+                ) {
+
+                    preco =
+                        Number(
+                            produto.preco_promocional
+                        );
+
+                }
+
+                // Caso não tenha promoção,
+                // usa o preço normal.
+                else if (
+                    produto.preco !== undefined &&
+                    produto.preco !== null &&
+                    produto.preco !== ""
+                ) {
+
+                    preco =
+                        Number(
+                            produto.preco
+                        );
+
+                }
+
+                // Caso ainda não tenha preço,
+                // tenta o preço antigo.
+                else if (
+                    produto.preco_antigo !== undefined &&
+                    produto.preco_antigo !== null &&
+                    produto.preco_antigo !== ""
+                ) {
+
+                    preco =
+                        Number(
+                            produto.preco_antigo
+                        );
+
+                }
+
+
+                // ------------------------------------------
+                // QUANTIDADE
+                // ------------------------------------------
+
+                let quantidade =
+                    Number(
+                        produto.quantidade
+                    );
+
+                if (
+                    !Number.isFinite(quantidade) ||
+                    quantidade < 1
+                ) {
+
+                    quantidade = 1;
+
+                }
+
+
+                // ------------------------------------------
+                // RETORNO
+                // ------------------------------------------
+
+                return {
+
+                    ...produto,
+
+                    preco: preco,
+
+                    quantidade: quantidade
+
+                };
+
+            }
+        );
+
+
+        // Salva os dados corrigidos
+        localStorage.setItem(
+            "carrinho",
+            JSON.stringify(
+                carrinho
+            )
+        );
 
 
         // ==================================================
@@ -87,7 +186,6 @@ document.addEventListener(
 
             const numero =
                 Number(valor) || 0;
-
 
             return numero
                 .toFixed(2)
@@ -144,7 +242,7 @@ document.addEventListener(
                     const quantidade =
                         Number(
                             produto.quantidade
-                        ) || 0;
+                        ) || 1;
 
 
                     subtotal +=
@@ -281,7 +379,6 @@ document.addEventListener(
 
                 atualizarTotais();
 
-
                 return;
 
             }
@@ -330,7 +427,6 @@ document.addEventListener(
                             data-index="${index}"
                         >
 
-
                             <!-- IMAGEM -->
 
                             <img
@@ -345,7 +441,6 @@ document.addEventListener(
                             <!-- INFORMAÇÕES -->
 
                             <div class="informacoes-produto">
-
 
                                 <h3>
 
@@ -366,7 +461,6 @@ document.addEventListener(
                                 <!-- QUANTIDADE -->
 
                                 <div class="quantidade">
-
 
                                     <button
                                         type="button"
@@ -395,7 +489,6 @@ document.addEventListener(
                                         +
 
                                     </button>
-
 
                                 </div>
 
@@ -454,8 +547,19 @@ document.addEventListener(
                                 }
 
 
+                                let quantidade =
+                                    Number(
+                                        carrinho[index]
+                                            .quantidade
+                                    ) || 1;
+
+
+                                quantidade++;
+
+
                                 carrinho[index]
-                                    .quantidade++;
+                                    .quantidade =
+                                    quantidade;
 
 
                                 salvarCarrinho();
@@ -500,13 +604,22 @@ document.addEventListener(
                                 }
 
 
+                                let quantidade =
+                                    Number(
+                                        carrinho[index]
+                                            .quantidade
+                                    ) || 1;
+
+
                                 if (
-                                    carrinho[index]
-                                        .quantidade > 1
+                                    quantidade > 1
                                 ) {
 
+                                    quantidade--;
+
                                     carrinho[index]
-                                        .quantidade--;
+                                        .quantidade =
+                                        quantidade;
 
                                 }
 

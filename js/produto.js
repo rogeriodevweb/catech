@@ -15,7 +15,6 @@ const parametros =
         window.location.search
     );
 
-
 const idProduto =
     parametros.get("id");
 
@@ -56,6 +55,32 @@ function tratarImagem(imagem) {
         return "/assets/sem-imagem.png";
 
     }
+
+
+    // Se for objeto, tentar pegar a URL/arquivo
+    if (typeof imagem === "object") {
+
+        imagem =
+            imagem.url ||
+            imagem.caminho ||
+            imagem.arquivo ||
+            imagem.imagem ||
+            imagem.src ||
+            imagem.idMidia_produto ||
+            "";
+
+    }
+
+
+    if (!imagem) {
+
+        return "/assets/sem-imagem.png";
+
+    }
+
+
+    imagem =
+        String(imagem).trim();
 
 
     // URL completa
@@ -100,7 +125,6 @@ async function carregarProduto() {
             "================================"
         );
 
-
         console.log(
             "BUSCANDO PRODUTO:",
             idProduto
@@ -131,10 +155,6 @@ async function carregarProduto() {
         );
 
 
-        // ==================================================
-        // LER RESPOSTA COMO TEXTO
-        // ==================================================
-
         const textoResposta =
             await resposta.text();
 
@@ -144,10 +164,6 @@ async function carregarProduto() {
             textoResposta
         );
 
-
-        // ==================================================
-        // VERIFICAR RESPOSTA VAZIA
-        // ==================================================
 
         if (
             !textoResposta ||
@@ -160,10 +176,6 @@ async function carregarProduto() {
 
         }
 
-
-        // ==================================================
-        // CONVERTER JSON
-        // ==================================================
 
         let dados;
 
@@ -184,17 +196,12 @@ async function carregarProduto() {
                 textoResposta
             );
 
-
             throw new Error(
                 "O servidor não retornou JSON válido."
             );
 
         }
 
-
-        // ==================================================
-        // VERIFICAR HTTP
-        // ==================================================
 
         if (!resposta.ok) {
 
@@ -212,10 +219,6 @@ async function carregarProduto() {
             dados
         );
 
-
-        // ==================================================
-        // VERIFICAR PRODUTO
-        // ==================================================
 
         if (
             !dados.sucesso ||
@@ -240,27 +243,15 @@ async function carregarProduto() {
         );
 
 
-        // ==================================================
-        // PREENCHER PRODUTO
-        // ==================================================
-
         preencherProduto(
             produtoAtual
         );
 
 
-        // ==================================================
-        // CARREGAR IMAGENS
-        // ==================================================
-
         carregarImagens(
             produtoAtual
         );
 
-
-        // ==================================================
-        // CONFIGURAR QUANTIDADE
-        // ==================================================
 
         configurarQuantidade(
             Number(
@@ -269,17 +260,12 @@ async function carregarProduto() {
         );
 
 
-        // ==================================================
-        // CONFIGURAR BOTÕES
-        // ==================================================
-
         configurarBotoes();
 
 
         console.log(
             "PRODUTO CARREGADO COM SUCESSO!"
         );
-
 
         console.log(
             "================================"
@@ -326,10 +312,6 @@ function preencherProduto(
     produto
 ) {
 
-    // ==================================================
-    // NOME
-    // ==================================================
-
     const nome =
         document.querySelector(
             "#nome-produto"
@@ -344,10 +326,6 @@ function preencherProduto(
     }
 
 
-    // ==================================================
-    // DESCRIÇÃO
-    // ==================================================
-
     const descricao =
         document.querySelector(
             "#descricao-produto"
@@ -361,10 +339,6 @@ function preencherProduto(
 
     }
 
-
-    // ==================================================
-    // PREÇO ANTIGO
-    // ==================================================
 
     const precoAntigo =
         Number(
@@ -388,25 +362,14 @@ function preencherProduto(
     }
 
 
-    // ==================================================
-    // PREÇO FINAL
-    // ==================================================
-
     let precoFinal =
         precoAntigo;
 
 
     if (
-
-        produto.preco_promocional !==
-        null &&
-
-        produto.preco_promocional !==
-        undefined &&
-
-        produto.preco_promocional !==
-        ""
-
+        produto.preco_promocional !== null &&
+        produto.preco_promocional !== undefined &&
+        produto.preco_promocional !== ""
     ) {
 
         precoFinal =
@@ -433,19 +396,13 @@ function preencherProduto(
     }
 
 
-    // ==================================================
-    // DESCONTO
-    // ==================================================
-
     const elementoDesconto =
         document.querySelector(
             "#desconto"
         );
 
 
-    if (
-        elementoDesconto
-    ) {
+    if (elementoDesconto) {
 
         if (
             precoAntigo > 0 &&
@@ -457,8 +414,7 @@ function preencherProduto(
                     (
                         precoAntigo -
                         precoFinal
-                    )
-                    /
+                    ) /
                     precoAntigo
                 ) * 100;
 
@@ -478,10 +434,6 @@ function preencherProduto(
     }
 
 
-    // ==================================================
-    // SKU
-    // ==================================================
-
     const sku =
         document.querySelector(
             "#sku"
@@ -495,10 +447,6 @@ function preencherProduto(
 
     }
 
-
-    // ==================================================
-    // AVALIAÇÃO
-    // ==================================================
 
     const estrela =
         document.querySelector(
@@ -527,10 +475,6 @@ function preencherProduto(
 
     }
 
-
-    // ==================================================
-    // BOTÕES
-    // ==================================================
 
     const btnCarrinho =
         document.querySelector(
@@ -617,16 +561,86 @@ function normalizarImagens(
     ) {
 
         return imagens
+
+            .flatMap(
+                item => {
+
+                    // ----------------------------------
+                    // OBJETO
+                    // ----------------------------------
+
+                    if (
+                        typeof item === "object" &&
+                        item !== null
+                    ) {
+
+                        const imagem =
+                            tratarImagem(
+                                item
+                            );
+
+                        return imagem
+                            ? [imagem]
+                            : [];
+
+                    }
+
+
+                    // ----------------------------------
+                    // STRING
+                    // ----------------------------------
+
+                    if (
+                        typeof item === "string"
+                    ) {
+
+                        return item
+                            .split("|||")
+                            .flatMap(
+                                parte =>
+                                    parte.split(",")
+                            );
+
+                    }
+
+
+                    return [];
+
+                }
+            )
+
             .map(
                 imagem =>
                     tratarImagem(
                         imagem
                     )
             )
+
             .filter(
                 imagem =>
-                    imagem
+                    imagem &&
+                    imagem !== "/assets/sem-imagem.png"
             );
+
+    }
+
+
+    // ==================================================
+    // OBJETO ÚNICO
+    // ==================================================
+
+    if (
+        typeof imagens === "object"
+    ) {
+
+        const imagem =
+            tratarImagem(
+                imagens
+            );
+
+        return imagem
+            ? [imagem]
+            : [];
 
     }
 
@@ -636,8 +650,7 @@ function normalizarImagens(
     // ==================================================
 
     if (
-        typeof imagens ===
-        "string"
+        typeof imagens === "string"
     ) {
 
         return imagens
@@ -664,12 +677,132 @@ function normalizarImagens(
                     tratarImagem(
                         imagem
                     )
+            )
+
+            .filter(
+                imagem =>
+                    imagem &&
+                    imagem !== "/assets/sem-imagem.png"
             );
 
     }
 
 
     return [];
+
+}
+
+
+// ======================================================
+// PEGAR TODAS AS IMAGENS DO PRODUTO
+// ======================================================
+
+function obterTodasImagens(
+    produto
+) {
+
+    let imagens = [];
+
+
+    // ==================================================
+    // IMAGENS
+    // ==================================================
+
+    if (
+        produto.imagens
+    ) {
+
+        imagens.push(
+            ...normalizarImagens(
+                produto.imagens
+            )
+        );
+
+    }
+
+
+    // ==================================================
+    // IMAGENS ADICIONAIS
+    // ==================================================
+
+    if (
+        produto.imagensAdicionais
+    ) {
+
+        imagens.push(
+            ...normalizarImagens(
+                produto.imagensAdicionais
+            )
+        );
+
+    }
+
+
+    // ==================================================
+    // MIDIA PRODUTO
+    // ==================================================
+
+    if (
+        produto.midia_produto
+    ) {
+
+        imagens.push(
+            ...normalizarImagens(
+                produto.midia_produto
+            )
+        );
+
+    }
+
+
+    if (
+        produto.midias
+    ) {
+
+        imagens.push(
+            ...normalizarImagens(
+                produto.midias
+            )
+        );
+
+    }
+
+
+    // ==================================================
+    // IMAGEM PRINCIPAL
+    // ==================================================
+
+    if (
+        produto.imagem
+    ) {
+
+        imagens.push(
+            tratarImagem(
+                produto.imagem
+            )
+        );
+
+    }
+
+
+    // ==================================================
+    // REMOVER DUPLICADAS
+    // ==================================================
+
+    imagens =
+        imagens.filter(
+            imagem =>
+                imagem
+        );
+
+
+    imagens =
+        [...new Set(
+            imagens
+        )];
+
+
+    return imagens;
 
 }
 
@@ -699,6 +832,10 @@ function carregarImagens(
         !lateral
     ) {
 
+        console.error(
+            "Elementos de imagem não encontrados."
+        );
+
         return;
 
     }
@@ -708,33 +845,18 @@ function carregarImagens(
         "";
 
 
-    let imagens =
-        normalizarImagens(
-            produto.imagens
+    // ==================================================
+    // PEGAR TODAS AS IMAGENS
+    // ==================================================
+
+    const imagens =
+        obterTodasImagens(
+            produto
         );
 
 
-    // ==================================================
-    // CASO A API ENVIE UMA ÚNICA IMAGEM
-    // ==================================================
-
-    if (
-        imagens.length === 0 &&
-        produto.imagem
-    ) {
-
-        imagens =
-            [
-                tratarImagem(
-                    produto.imagem
-                )
-            ];
-
-    }
-
-
     console.log(
-        "IMAGENS NORMALIZADAS:",
+        "TODAS AS IMAGENS:",
         imagens
     );
 
@@ -749,7 +871,6 @@ function carregarImagens(
 
         imagemPrincipal.src =
             "/assets/sem-imagem.png";
-
 
         return;
 
@@ -805,7 +926,7 @@ function carregarImagens(
 
 
             img.alt =
-                `${produto.nome} - imagem ${indice + 1}`;
+                `${produto.nome || "Produto"} - imagem ${indice + 1}`;
 
 
             img.onerror =
@@ -1019,14 +1140,9 @@ function adicionarAoCarrinho() {
 
     const preco =
 
-        produtoAtual.preco_promocional !==
-        null &&
-
-        produtoAtual.preco_promocional !==
-        undefined &&
-
-        produtoAtual.preco_promocional !==
-        ""
+        produtoAtual.preco_promocional !== null &&
+        produtoAtual.preco_promocional !== undefined &&
+        produtoAtual.preco_promocional !== ""
 
             ?
 
@@ -1042,44 +1158,19 @@ function adicionarAoCarrinho() {
 
 
     // ==================================================
-    // IMAGEM
+    // IMAGEM PRINCIPAL
     // ==================================================
 
-    let imagem;
-
-
     const imagens =
-        normalizarImagens(
-            produtoAtual.imagens
+        obterTodasImagens(
+            produtoAtual
         );
 
 
-    if (
+    const imagem =
         imagens.length > 0
-    ) {
-
-        imagem =
-            imagens[0];
-
-    }
-
-    else if (
-        produtoAtual.imagem
-    ) {
-
-        imagem =
-            tratarImagem(
-                produtoAtual.imagem
-            );
-
-    }
-
-    else {
-
-        imagem =
-            "/assets/sem-imagem.png";
-
-    }
+            ? imagens[0]
+            : "/assets/sem-imagem.png";
 
 
     // ==================================================
@@ -1088,8 +1179,12 @@ function adicionarAoCarrinho() {
 
     if (existente) {
 
-        existente.quantidade +=
-            quantidade;
+        existente.quantidade =
+            (
+                Number(
+                    existente.quantidade
+                ) || 1
+            ) + quantidade;
 
     }
 
@@ -1186,7 +1281,6 @@ function configurarBotoes() {
         btnComprar.onclick =
             function () {
 
-
                 if (!produtoAtual) {
 
                     alert(
@@ -1198,28 +1292,15 @@ function configurarBotoes() {
                 }
 
 
-                // ==========================================
-                // NÚMERO DO WHATSAPP
-                // ==========================================
-
                 const numeroWhatsApp =
                     "5563992057108";
 
 
-                // ==========================================
-                // PREÇO
-                // ==========================================
-
                 const preco =
 
-                    produtoAtual.preco_promocional !==
-                    null &&
-
-                    produtoAtual.preco_promocional !==
-                    undefined &&
-
-                    produtoAtual.preco_promocional !==
-                    ""
+                    produtoAtual.preco_promocional !== null &&
+                    produtoAtual.preco_promocional !== undefined &&
+                    produtoAtual.preco_promocional !== ""
 
                         ?
 
@@ -1233,10 +1314,6 @@ function configurarBotoes() {
                         produtoAtual.preco_antigo
                     );
 
-
-                // ==========================================
-                // MENSAGEM
-                // ==========================================
 
                 const mensagem =
 
@@ -1258,30 +1335,12 @@ Quantidade: ${quantidade}
 Gostaria de realizar a compra.`;
 
 
-                // ==========================================
-                // LINK
-                // ==========================================
-
                 const linkWhatsApp =
 
                     `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(
                         mensagem
                     )}`;
 
-
-                console.log(
-                    "ABRINDO WHATSAPP:"
-                );
-
-
-                console.log(
-                    linkWhatsApp
-                );
-
-
-                // ==========================================
-                // ABRIR
-                // ==========================================
 
                 window.open(
                     linkWhatsApp,

@@ -1,179 +1,1661 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+// ======================================================
+// API
+// ======================================================
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CA Tech</title>
-    <!--conexão com o css-->
-    <link rel="stylesheet" href="/style/produto.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-    <!--imagem da logo pro navegador-->
-    <link rel="icon" type="image/png" href="../assets/logo-com-fundo.png">
+const API =
+    "https://catech.onrender.com";
 
 
-</head>
+// ======================================================
+// PEGAR ID DA URL
+// ======================================================
 
-<body>
-    <!--Cabeçalho/Menu-->
-    <header>
-        <div class="topo">
-            <!--logo-->
-            <div class="logo">
-                <img src="/assets/CATech.png" alt="CA Tech">
-            </div>
-            <!-- caixa de pesquisa -->
-            <div class="caixa-pesquisa">
-                <input type="text" placeholder="Buscar produtos...">
-            </div>
-            <div class="icones">
-                
-                </a>
-            </div>
-        </div>
-        <!-- menu de navegação -->
-        <nav class="menu">
-            <a href="/pages/categorias.html">Todas as categorias</a>
-            <a href="/pages/cadastro-endereco.html">Endereço</a>
-            <a href="/pages/favoritos.html">Favoritos</a>
-            <a href="/pages/pedidos.html">Pedidos</a>
-            <a href="/pages/carrinho.html">Carrinho</a>
-            <a href="/pages/configuracoesc.html">Configurações</a>
-             
-        </nav>
-    </header>
-    <a href="javascript:history.back()" class="btn-voltar">
-    ← Voltar
-</a>
-    <!--AREA DOS DADOS DO PRODUTO-->
-    <div class="area-detalhes">
-        <div class="area-imagens">
-            <div class="img-principal" id="img-principal">
-                <img id="imagem-maior">
-            </div>
-            <div class="img-lateral" id="img-lateral">
-                <!--não criamos tag img aqui porque não temos como
-                saber a quantidade de imagens que o lojista vai
-                cadastrar-->
+const parametros =
+    new URLSearchParams(
+        window.location.search
+    );
 
-            </div>
-
-        </div>
-        <div class="area-textos">
-            <h1 id="nome-produto"></h1>
-            <div class="avaliacoes-produto">
-                <img id="estrela-avaliacao">
-                <span id="valor-avaliacao"></span>
-            </div>
-            <!--preco antigo-->
-            <p id="preco-antigo"></p>
-            <!--area do preco promocional-->
-            <div class="preco-promocional">
-                    <p id="preco-promocional"></p>
-                    <span id="desconto"></span>
-                   
-                <div class="quantidade">
-                    <button id="diminuir">-</button>
-                    <span id="numero-quantidade">1</span>
-                    <button id="aumentar">+</button>
-                </div>
-                <span id="sku"></span>
-
-<div class="btn-add-carrinho">
-    <button id="btn-add-carrinho"></button>
-</div>
-
-<div class="btn-comprar">
-    <button id="btn-comprar">Comprar</button>
-</div>
-
-<div class="area-frete">
-    <p>Calcular o frete</p>
-    <input id="frete">
-    <button id="btn-calcular-frete">Calcular</button>
-</div>
-                </div>
-
-            </div>
-
-        </div>
-            <!-- DESCRIÇÃO -->
-<div class="descricao-produto">
-    
-    <p id="descricao-produto"></p>
-</div>
+const idProduto =
+    parametros.get("id");
 
 
+// ======================================================
+// VERIFICAR ID
+// ======================================================
+
+if (!idProduto) {
+
+    alert(
+        "Produto não informado."
+    );
+
+    window.location.href =
+        "../index.html";
+
+}
 
 
+// ======================================================
+// VARIÁVEIS
+// ======================================================
+
+let produtoAtual = null;
+
+let quantidade = 1;
 
 
-    </div>
-<footer>
-        <!--parte superiordo rodapé-->
-        <div class="superior">
+// ======================================================
+// TRATAR URL DA IMAGEM
+// ======================================================
+
+function tratarImagem(imagem) {
+
+    if (!imagem) {
+
+        return "/assets/sem-imagem.png";
+
+    }
 
 
-            <div class="coluna1">
-                <h2>Redes Sociais</h2>
-                <div class="redes-sociais">
-                    <a href="#"><img src="/assets/instagram.png" alt="Instagram"></a>
-                    <a href="#"><img src="/assets/facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="/assets/tik-tok.png" alt="Tik-Tok"></a>
-                    <a href="#"><img src="/assets/whatsapp.png" alt="WhatsApp"></a>
-                    <a href="#"><img src="/assets/linkedin.png" alt="LinkedIn"></a>
+    // Se a imagem vier como objeto
+    if (
+        typeof imagem === "object" &&
+        imagem !== null
+    ) {
 
-                </div>
-                
-                <p>Copyright © 2026 CA tech Inc.</p>
-                <a href="../pages/sobre.html">Sobre nós</a>
-            </div>
+        imagem =
+            imagem.url ||
+            imagem.caminho ||
+            imagem.arquivo ||
+            imagem.imagem ||
+            imagem.src ||
+            "";
 
-            <div class="coluna2">
-                <h2>Políticas e Informações</h2>
-                <ul>
-                    <li><img src="/assets/universal-access.png" alt="Acessibilidade"> Acessibilidade </li>
-                    <li><img src="/assets/contract.png" alt="Termos e Condições"> Termos e Condições </li>
-                    <li><img src="/assets/balance.png" alt="Informações legais e Regulatórias"> Informações legais e
-                        Regulatórias </li>
-
-                </ul>
+    }
 
 
-            </div>
+    if (!imagem) {
 
-            <div class="coluna3">
+        return "/assets/sem-imagem.png";
 
-                <img src="/assets/CATech.png" alt="CA Tech">
-                <h3>CA TECH SOLUTIONS</h3>
-                <P>Tecnologia que conecta. Soluções que transformam.</P>
+    }
 
 
-
-            </div>
-
-            <div class="coluna4">
-                <h2>Endereço</h2>
-                <a href="">
-                    <img src="/assets/endereco.png">
-                    📍 CA Tech Solutions — Distrito Empresarial, Araguaína - TO
-                </a>
+    imagem =
+        String(imagem).trim();
 
 
+    // URL completa
+    if (
+        imagem.startsWith("http://") ||
+        imagem.startsWith("https://")
+    ) {
 
-            </div>
+        return imagem;
+
+    }
 
 
+    // Rota da API
+    if (
+        imagem.startsWith("/")
+    ) {
 
-        </div>
+        return `${API}${imagem}`;
 
-    </footer>
+    }
 
-    <!--FAZENDO A CONEXÃO COM O JAVASCRIPT-->
-    <script src="../js/produto.js"></script>
 
-</body>
+    // Imagem local
+    return imagem;
 
-</html>
+}
+
+
+// ======================================================
+// CARREGAR PRODUTO
+// ======================================================
+
+async function carregarProduto() {
+
+    try {
+
+        console.log(
+            "================================"
+        );
+
+        console.log(
+            "BUSCANDO PRODUTO:",
+            idProduto
+        );
+
+
+        const resposta =
+            await fetch(
+                `${API}/produtos/detalhes/${idProduto}`,
+                {
+
+                    method: "GET",
+
+                    headers: {
+
+                        "Accept":
+                            "application/json"
+
+                    }
+
+                }
+            );
+
+
+        console.log(
+            "STATUS:",
+            resposta.status
+        );
+
+
+        // ==================================================
+        // LER RESPOSTA COMO TEXTO
+        // ==================================================
+
+        const textoResposta =
+            await resposta.text();
+
+
+        console.log(
+            "RESPOSTA PRODUTO:",
+            textoResposta
+        );
+
+
+        // ==================================================
+        // VERIFICAR RESPOSTA VAZIA
+        // ==================================================
+
+        if (
+            !textoResposta ||
+            textoResposta.trim() === ""
+        ) {
+
+            throw new Error(
+                "O servidor retornou uma resposta vazia."
+            );
+
+        }
+
+
+        // ==================================================
+        // CONVERTER JSON
+        // ==================================================
+
+        let dados;
+
+
+        try {
+
+            dados =
+                JSON.parse(
+                    textoResposta
+                );
+
+        }
+
+        catch (erroJSON) {
+
+            console.error(
+                "Resposta inválida:",
+                textoResposta
+            );
+
+
+            throw new Error(
+                "O servidor não retornou JSON válido."
+            );
+
+        }
+
+
+        // ==================================================
+        // VERIFICAR HTTP
+        // ==================================================
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                dados.mensagem ||
+                dados.erro ||
+                `Erro HTTP ${resposta.status}`
+            );
+
+        }
+
+
+        console.log(
+            "DADOS RECEBIDOS:",
+            dados
+        );
+
+
+        // ==================================================
+        // VERIFICAR PRODUTO
+        // ==================================================
+
+        if (
+            !dados.sucesso ||
+            !dados.produto
+        ) {
+
+            throw new Error(
+                dados.mensagem ||
+                "Produto não encontrado."
+            );
+
+        }
+
+
+        produtoAtual =
+            dados.produto;
+
+
+        console.log(
+            "PRODUTO:",
+            produtoAtual
+        );
+
+
+        // ==================================================
+        // MOSTRAR DADOS
+        // ==================================================
+
+        preencherProduto(
+            produtoAtual
+        );
+
+
+        // ==================================================
+        // CARREGAR IMAGENS
+        // ==================================================
+
+        carregarImagens(
+            produtoAtual
+        );
+
+
+        // ==================================================
+        // CONFIGURAR QUANTIDADE
+        // ==================================================
+
+        configurarQuantidade(
+            Number(
+                produtoAtual.quantidade_estoque
+            ) || 0
+        );
+
+
+        // ==================================================
+        // CONFIGURAR BOTÕES
+        // ==================================================
+
+        configurarBotoes();
+
+
+        console.log(
+            "PRODUTO CARREGADO COM SUCESSO!"
+        );
+
+
+        console.log(
+            "================================"
+        );
+
+    }
+
+    catch (erro) {
+
+        console.error(
+            "ERRO AO CARREGAR PRODUTO:",
+            erro
+        );
+
+
+        const nomeProduto =
+            document.querySelector(
+                "#nome-produto"
+            );
+
+
+        if (nomeProduto) {
+
+            nomeProduto.textContent =
+                "Produto não encontrado.";
+
+        }
+
+
+        alert(
+            "Não foi possível carregar os detalhes do produto."
+        );
+
+    }
+
+}
+
+
+// ======================================================
+// PREENCHER DADOS DO PRODUTO
+// ======================================================
+
+function preencherProduto(
+    produto
+) {
+
+    // ==================================================
+    // NOME
+    // ==================================================
+
+    const nome =
+        document.querySelector(
+            "#nome-produto"
+        );
+
+
+    if (nome) {
+
+        nome.textContent =
+            produto.nome || "";
+
+    }
+
+
+    // ==================================================
+    // DESCRIÇÃO
+    // ==================================================
+
+    const descricao =
+        document.querySelector(
+            "#descricao-produto"
+        );
+
+
+    if (descricao) {
+
+        descricao.textContent =
+            produto.descricao || "";
+
+    }
+
+
+    // ==================================================
+    // PREÇO ANTIGO
+    // ==================================================
+
+    const precoAntigo =
+        Number(
+            produto.preco_antigo
+        ) || 0;
+
+
+    const elementoPrecoAntigo =
+        document.querySelector(
+            "#preco-antigo"
+        );
+
+
+    if (elementoPrecoAntigo) {
+
+        elementoPrecoAntigo.textContent =
+            `R$ ${formatarPreco(
+                precoAntigo
+            )}`;
+
+    }
+
+
+    // ==================================================
+    // PREÇO FINAL
+    // ==================================================
+
+    let precoFinal =
+        precoAntigo;
+
+
+    if (
+
+        produto.preco_promocional !==
+        null &&
+
+        produto.preco_promocional !==
+        undefined &&
+
+        produto.preco_promocional !==
+        ""
+
+    ) {
+
+        precoFinal =
+            Number(
+                produto.preco_promocional
+            );
+
+    }
+
+
+    const elementoPreco =
+        document.querySelector(
+            "#preco-promocional"
+        );
+
+
+    if (elementoPreco) {
+
+        elementoPreco.textContent =
+            `R$ ${formatarPreco(
+                precoFinal
+            )}`;
+
+    }
+
+
+    // ==================================================
+    // DESCONTO
+    // ==================================================
+
+    const elementoDesconto =
+        document.querySelector(
+            "#desconto"
+        );
+
+
+    if (
+        elementoDesconto
+    ) {
+
+        if (
+            precoAntigo > 0 &&
+            precoFinal < precoAntigo
+        ) {
+
+            const desconto =
+                (
+                    (
+                        precoAntigo -
+                        precoFinal
+                    )
+                    /
+                    precoAntigo
+                ) * 100;
+
+
+            elementoDesconto.textContent =
+                `${desconto.toFixed(0)}% OFF`;
+
+        }
+
+        else {
+
+            elementoDesconto.textContent =
+                "";
+
+        }
+
+    }
+
+
+    // ==================================================
+    // SKU
+    // ==================================================
+
+    const sku =
+        document.querySelector(
+            "#sku"
+        );
+
+
+    if (sku) {
+
+        sku.textContent =
+            `SKU: ${produto.codigo || ""}`;
+
+    }
+
+
+    // ==================================================
+    // AVALIAÇÃO
+    // ==================================================
+
+    const estrela =
+        document.querySelector(
+            "#estrela-avaliacao"
+        );
+
+
+    if (estrela) {
+
+        estrela.src =
+            "/assets/avaliacoes.png";
+
+    }
+
+
+    const valorAvaliacao =
+        document.querySelector(
+            "#valor-avaliacao"
+        );
+
+
+    if (valorAvaliacao) {
+
+        valorAvaliacao.textContent =
+            "";
+
+    }
+
+
+    // ==================================================
+    // BOTÃO CARRINHO
+    // ==================================================
+
+    const btnCarrinho =
+        document.querySelector(
+            "#btn-add-carrinho"
+        );
+
+
+    if (btnCarrinho) {
+
+        btnCarrinho.textContent =
+            "Adicionar ao carrinho";
+
+    }
+
+
+    // ==================================================
+    // BOTÃO COMPRAR
+    // ==================================================
+
+    const btnComprar =
+        document.querySelector(
+            "#btn-comprar"
+        );
+
+
+    if (btnComprar) {
+
+        btnComprar.textContent =
+            "Comprar agora";
+
+    }
+
+}
+
+
+// ======================================================
+// FORMATAR PREÇO
+// ======================================================
+
+function formatarPreco(
+    valor
+) {
+
+    const numero =
+        Number(valor);
+
+
+    if (
+        Number.isNaN(numero)
+    ) {
+
+        return "0,00";
+
+    }
+
+
+    return numero
+        .toFixed(2)
+        .replace(
+            ".",
+            ","
+        );
+
+}
+
+
+// ======================================================
+// NORMALIZAR IMAGENS
+// ======================================================
+
+function normalizarImagens(
+    imagens
+) {
+
+    if (!imagens) {
+
+        return [];
+
+    }
+
+
+    // ==================================================
+    // ARRAY
+    // ==================================================
+
+    if (
+        Array.isArray(imagens)
+    ) {
+
+        return imagens
+
+            .flatMap(
+                item => {
+
+                    // ----------------------------------
+                    // OBJETO
+                    // ----------------------------------
+
+                    if (
+                        typeof item === "object" &&
+                        item !== null
+                    ) {
+
+                        const imagem =
+                            tratarImagem(
+                                item
+                            );
+
+                        return imagem
+                            ? [imagem]
+                            : [];
+
+                    }
+
+
+                    // ----------------------------------
+                    // STRING
+                    // ----------------------------------
+
+                    if (
+                        typeof item === "string"
+                    ) {
+
+                        return item
+                            .split("|||")
+                            .flatMap(
+                                parte =>
+                                    parte.split(",")
+                            );
+
+                    }
+
+
+                    return [];
+
+                }
+            )
+
+            .map(
+                imagem =>
+                    tratarImagem(
+                        imagem
+                    )
+            )
+
+            .filter(
+                imagem =>
+                    imagem &&
+                    imagem !== "/assets/sem-imagem.png"
+            );
+
+    }
+
+
+    // ==================================================
+    // OBJETO
+    // ==================================================
+
+    if (
+        typeof imagens === "object"
+    ) {
+
+        const imagem =
+            tratarImagem(
+                imagens
+            );
+
+        return imagem
+            ? [imagem]
+            : [];
+
+    }
+
+
+    // ==================================================
+    // STRING
+    // ==================================================
+
+    if (
+        typeof imagens === "string"
+    ) {
+
+        return imagens
+
+            .split("|||")
+
+            .flatMap(
+                item =>
+                    item.split(",")
+            )
+
+            .map(
+                imagem =>
+                    imagem.trim()
+            )
+
+            .filter(
+                imagem =>
+                    imagem !== ""
+            )
+
+            .map(
+                imagem =>
+                    tratarImagem(
+                        imagem
+                    )
+            )
+
+            .filter(
+                imagem =>
+                    imagem &&
+                    imagem !== "/assets/sem-imagem.png"
+            );
+
+    }
+
+
+    return [];
+
+}
+
+
+// ======================================================
+// OBTER TODAS AS IMAGENS
+// ======================================================
+
+function obterTodasImagens(
+    produto
+) {
+
+    let imagens = [];
+
+
+    // ==================================================
+    // PRODUTO.IMAGENS
+    // ==================================================
+
+    if (
+        produto.imagens
+    ) {
+
+        imagens.push(
+            ...normalizarImagens(
+                produto.imagens
+            )
+        );
+
+    }
+
+
+    // ==================================================
+    // IMAGENS ADICIONAIS
+    // ==================================================
+
+    if (
+        produto.imagensAdicionais
+    ) {
+
+        imagens.push(
+            ...normalizarImagens(
+                produto.imagensAdicionais
+            )
+        );
+
+    }
+
+
+    // ==================================================
+    // MIDIA_PRODUTO
+    // ==================================================
+
+    if (
+        produto.midia_produto
+    ) {
+
+        imagens.push(
+            ...normalizarImagens(
+                produto.midia_produto
+            )
+        );
+
+    }
+
+
+    // ==================================================
+    // MIDIAS
+    // ==================================================
+
+    if (
+        produto.midias
+    ) {
+
+        imagens.push(
+            ...normalizarImagens(
+                produto.midias
+            )
+        );
+
+    }
+
+
+    // ==================================================
+    // IMAGEM PRINCIPAL
+    // ==================================================
+
+    if (
+        produto.imagem
+    ) {
+
+        imagens.push(
+            tratarImagem(
+                produto.imagem
+            )
+        );
+
+    }
+
+
+    // ==================================================
+    // REMOVER VAZIAS
+    // ==================================================
+
+    imagens =
+        imagens.filter(
+            imagem =>
+                imagem
+        );
+
+
+    // ==================================================
+    // REMOVER DUPLICADAS
+    // ==================================================
+
+    imagens =
+        [
+            ...new Set(
+                imagens
+            )
+        ];
+
+
+    return imagens;
+
+}
+
+
+// ======================================================
+// CARREGAR IMAGENS
+// ======================================================
+
+function carregarImagens(
+    produto
+) {
+
+    const imagemPrincipal =
+        document.querySelector(
+            "#imagem-maior"
+        );
+
+
+    const lateral =
+        document.querySelector(
+            "#img-lateral"
+        );
+
+
+    // ==================================================
+    // VERIFICAR ELEMENTOS
+    // ==================================================
+
+    if (
+        !imagemPrincipal ||
+        !lateral
+    ) {
+
+        console.error(
+            "Elementos das imagens não encontrados no HTML."
+        );
+
+        return;
+
+    }
+
+
+    // ==================================================
+    // LIMPAR MINIATURAS
+    // ==================================================
+
+    lateral.innerHTML =
+        "";
+
+
+    // ==================================================
+    // PEGAR TODAS AS IMAGENS
+    // ==================================================
+
+    let imagens =
+        [];
+
+
+    // A API atual envia diretamente:
+    //
+    // produto.imagens = [
+    //     "https://catech.onrender.com/imagem-produto/arquivo/6",
+    //     "https://catech.onrender.com/imagem-produto/arquivo/7",
+    //     "https://catech.onrender.com/imagem-produto/arquivo/8",
+    //     "https://catech.onrender.com/imagem-produto/arquivo/9",
+    //     "https://catech.onrender.com/imagem-produto/arquivo/10"
+    // ]
+
+    if (
+        Array.isArray(
+            produto.imagens
+        )
+    ) {
+
+        imagens =
+            produto.imagens
+                .map(
+                    imagem =>
+                        tratarImagem(
+                            imagem
+                        )
+                )
+                .filter(
+                    imagem =>
+                        imagem &&
+                        imagem !==
+                        "/assets/sem-imagem.png"
+                );
+
+    }
+
+
+    // ==================================================
+    // FALLBACK
+    // ==================================================
+
+    if (
+        imagens.length === 0
+    ) {
+
+        imagens =
+            obterTodasImagens(
+                produto
+            );
+
+    }
+
+
+    // ==================================================
+    // REMOVER DUPLICADAS
+    // ==================================================
+
+    imagens =
+        [
+            ...new Set(
+                imagens
+            )
+        ];
+
+
+    console.log(
+        "================================"
+    );
+
+    console.log(
+        "TODAS AS IMAGENS DO PRODUTO:",
+        imagens
+    );
+
+    console.log(
+        "QUANTIDADE DE IMAGENS:",
+        imagens.length
+    );
+
+    console.log(
+        "================================"
+    );
+
+
+    // ==================================================
+    // SEM IMAGEM
+    // ==================================================
+
+    if (
+        imagens.length === 0
+    ) {
+
+        imagemPrincipal.src =
+            "/assets/sem-imagem.png";
+
+
+        return;
+
+    }
+
+
+    // ==================================================
+    // IMAGEM PRINCIPAL
+    // ==================================================
+
+    imagemPrincipal.src =
+        imagens[0];
+
+
+    imagemPrincipal.alt =
+        produto.nome ||
+        "Produto";
+
+
+    imagemPrincipal.onerror =
+        function () {
+
+            console.error(
+                "Erro ao carregar imagem principal:",
+                this.src
+            );
+
+
+            this.src =
+                "/assets/sem-imagem.png";
+
+        };
+
+
+    // ==================================================
+    // CRIAR MINIATURAS
+    // ==================================================
+
+    imagens.forEach(
+        function (
+            imagem,
+            indice
+        ) {
+
+            const caixa =
+                document.createElement(
+                    "div"
+                );
+
+
+            caixa.classList.add(
+                "miniatura-box"
+            );
+
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+
+            img.src =
+                imagem;
+
+
+            img.alt =
+                `${produto.nome || "Produto"} - imagem ${indice + 1}`;
+
+
+            img.loading =
+                "lazy";
+
+
+            img.onerror =
+                function () {
+
+                    console.error(
+                        "Erro ao carregar miniatura:",
+                        this.src
+                    );
+
+
+                    this.src =
+                        "/assets/sem-imagem.png";
+
+                };
+
+
+            // ==================================================
+            // CLICAR NA MINIATURA
+            // ==================================================
+
+            img.addEventListener(
+                "click",
+                function () {
+
+                    imagemPrincipal.src =
+                        imagem;
+
+                }
+            );
+
+
+            // ==================================================
+            // MARCAR MINIATURA PRINCIPAL
+            // ==================================================
+
+            if (
+                indice === 0
+            ) {
+
+                caixa.classList.add(
+                    "selecionada"
+                );
+
+            }
+
+
+            // ==================================================
+            // AO CLICAR, MARCAR MINIATURA
+            // ==================================================
+
+            img.addEventListener(
+                "click",
+                function () {
+
+                    const miniaturas =
+                        lateral.querySelectorAll(
+                            ".miniatura-box"
+                        );
+
+
+                    miniaturas.forEach(
+                        function (
+                            miniatura
+                        ) {
+
+                            miniatura.classList.remove(
+                                "selecionada"
+                            );
+
+                        }
+                    );
+
+
+                    caixa.classList.add(
+                        "selecionada"
+                    );
+
+                }
+            );
+
+
+            caixa.appendChild(
+                img
+            );
+
+
+            lateral.appendChild(
+                caixa
+            );
+
+        }
+    );
+
+
+    console.log(
+        `${imagens.length} imagens carregadas com sucesso.`
+    );
+
+}
+
+
+// ======================================================
+// QUANTIDADE
+// ======================================================
+
+function configurarQuantidade(
+    estoque
+) {
+
+    quantidade =
+        1;
+
+
+    estoque =
+        Number(
+            estoque
+        ) || 0;
+
+
+    const numero =
+        document.querySelector(
+            "#numero-quantidade"
+        );
+
+
+    const aumentar =
+        document.querySelector(
+            "#aumentar"
+        );
+
+
+    const diminuir =
+        document.querySelector(
+            "#diminuir"
+        );
+
+
+    if (
+        !numero ||
+        !aumentar ||
+        !diminuir
+    ) {
+
+        return;
+
+    }
+
+
+    numero.textContent =
+        quantidade;
+
+
+    aumentar.innerHTML =
+        `
+        <img
+            src="/assets/botao-adicionar.png"
+            alt="Adicionar"
+        >
+        `;
+
+
+    diminuir.innerHTML =
+        `
+        <img
+            src="/assets/remover.png"
+            alt="Remover"
+        >
+        `;
+
+
+    aumentar.onclick =
+        function () {
+
+            if (
+                quantidade < estoque
+            ) {
+
+                quantidade++;
+
+                numero.textContent =
+                    quantidade;
+
+            }
+
+            else {
+
+                alert(
+                    "Você atingiu o limite disponível em estoque."
+                );
+
+            }
+
+        };
+
+
+    diminuir.onclick =
+        function () {
+
+            if (
+                quantidade > 1
+            ) {
+
+                quantidade--;
+
+                numero.textContent =
+                    quantidade;
+
+            }
+
+        };
+
+}
+
+
+// ======================================================
+// ADICIONAR AO CARRINHO
+// ======================================================
+
+function adicionarAoCarrinho() {
+
+    if (!produtoAtual) {
+
+        alert(
+            "Aguarde o produto carregar."
+        );
+
+        return;
+
+    }
+
+
+    let carrinho;
+
+
+    try {
+
+        carrinho =
+            JSON.parse(
+                localStorage.getItem(
+                    "carrinho"
+                )
+            ) || [];
+
+    }
+
+    catch (erro) {
+
+        console.error(
+            "Erro no carrinho:",
+            erro
+        );
+
+        carrinho = [];
+
+    }
+
+
+    const id =
+        Number(
+            produtoAtual.idProduto
+        );
+
+
+    const existente =
+        carrinho.find(
+            item =>
+                Number(item.id) ===
+                id
+        );
+
+
+    // ==================================================
+    // PREÇO
+    // ==================================================
+
+    const preco =
+
+        produtoAtual.preco_promocional !==
+        null &&
+
+        produtoAtual.preco_promocional !==
+        undefined &&
+
+        produtoAtual.preco_promocional !==
+        ""
+
+            ?
+
+        Number(
+            produtoAtual.preco_promocional
+        )
+
+            :
+
+        Number(
+            produtoAtual.preco_antigo
+        );
+
+
+    // ==================================================
+    // IMAGEM
+    // ==================================================
+
+    const imagens =
+        obterTodasImagens(
+            produtoAtual
+        );
+
+
+    const imagem =
+        imagens.length > 0
+            ?
+        imagens[0]
+            :
+        "/assets/sem-imagem.png";
+
+
+    // ==================================================
+    // ADICIONAR
+    // ==================================================
+
+    if (existente) {
+
+        existente.quantidade +=
+            quantidade;
+
+    }
+
+    else {
+
+        carrinho.push({
+
+            id:
+                id,
+
+            nome:
+                produtoAtual.nome,
+
+            preco:
+                preco,
+
+            imagem:
+                imagem,
+
+            quantidade:
+                quantidade
+
+        });
+
+    }
+
+
+    // ==================================================
+    // SALVAR
+    // ==================================================
+
+    localStorage.setItem(
+
+        "carrinho",
+
+        JSON.stringify(
+            carrinho
+        )
+
+    );
+
+
+    alert(
+        "Produto adicionado ao carrinho!"
+    );
+
+}
+
+
+// ======================================================
+// CONFIGURAR BOTÕES
+// ======================================================
+
+function configurarBotoes() {
+
+    const btnCarrinho =
+        document.querySelector(
+            "#btn-add-carrinho"
+        );
+
+
+    const btnComprar =
+        document.querySelector(
+            "#btn-comprar"
+        );
+
+
+    // ==================================================
+    // ADICIONAR AO CARRINHO
+    // ==================================================
+
+    if (
+        btnCarrinho
+    ) {
+
+        btnCarrinho.onclick =
+            function () {
+
+                adicionarAoCarrinho();
+
+            };
+
+    }
+
+
+    // ==================================================
+    // COMPRAR - WHATSAPP
+    // ==================================================
+
+    if (
+        btnComprar
+    ) {
+
+        btnComprar.onclick =
+            function () {
+
+                if (!produtoAtual) {
+
+                    alert(
+                        "Aguarde o produto carregar."
+                    );
+
+                    return;
+
+                }
+
+
+                // ==========================================
+                // NÚMERO DO WHATSAPP
+                // ==========================================
+
+                const numeroWhatsApp =
+                    "5563992057108";
+
+
+                // ==========================================
+                // PREÇO
+                // ==========================================
+
+                const preco =
+
+                    produtoAtual.preco_promocional !==
+                    null &&
+
+                    produtoAtual.preco_promocional !==
+                    undefined &&
+
+                    produtoAtual.preco_promocional !==
+                    ""
+
+                        ?
+
+                    Number(
+                        produtoAtual.preco_promocional
+                    )
+
+                        :
+
+                    Number(
+                        produtoAtual.preco_antigo
+                    );
+
+
+                // ==========================================
+                // MENSAGEM
+                // ==========================================
+
+                const mensagem =
+
+                    `Olá! Tenho interesse neste produto.
+
+Produto: ${produtoAtual.nome}
+
+Código: ${produtoAtual.codigo}
+
+Preço: R$ ${preco
+                        .toFixed(2)
+                        .replace(
+                            ".",
+                            ","
+                        )}
+
+Quantidade: ${quantidade}
+
+Gostaria de realizar a compra.`;
+
+
+                // ==========================================
+                // LINK
+                // ==========================================
+
+                const linkWhatsApp =
+
+                    `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(
+                        mensagem
+                    )}`;
+
+
+                console.log(
+                    "ABRINDO WHATSAPP:"
+                );
+
+
+                console.log(
+                    linkWhatsApp
+                );
+
+
+                // ==========================================
+                // ABRIR
+                // ==========================================
+
+                window.open(
+                    linkWhatsApp,
+                    "_blank"
+                );
+
+            };
+
+    }
+
+}
+
+
+// ======================================================
+// INICIAR
+// ======================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        carregarProduto();
+
+    }
+);
