@@ -1,116 +1,286 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Pagamento</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<link rel="stylesheet" href="../style/pagamento.css">
-    <!--imagem da logo pro navegador-->
-<link rel="icon" type="image/png" href="../assets/logo-com-fundo.png">
+    <title>Pagamento - CA Tech</title>
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="../style/pagamento.css"
+    >
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/logo-com-fundo.png"
+    >
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <h1>Finalizar Compra</h1>
+
+    <h1>
+        Finalizar Compra
+    </h1>
+
+
 
     <div class="pagamento">
 
+
+        <!-- ==================================================
+             LADO ESQUERDO
+        =================================================== -->
+
         <div class="esquerda">
 
+
+            <!-- ENDEREÇO -->
+
             <div class="card">
 
-                <h2>Endereço de Entrega</h2>
+                <h2>
+                    Endereço de Entrega
+                </h2>
 
-                <p>João Silva</p>
-                <p>Rua Exemplo, 100</p>
-                <p>Araguaína - TO</p>
-                <p>CEP: 77800-000</p>
+                <p id="nome-endereco">
+                    João Silva
+                </p>
+
+                <p id="rua-endereco">
+                    Rua Exemplo, 100
+                </p>
+
+                <p id="cidade-endereco">
+                    Araguaína - TO
+                </p>
+
+                <p id="cep-endereco">
+                    CEP: 77800-000
+                </p>
 
             </div>
 
+
+
+            <!-- FORMA DE PAGAMENTO -->
+
             <div class="card">
 
-                <h2>Forma de Pagamento</h2>
+                <h2>
+                    Forma de Pagamento
+                </h2>
+
 
                 <label>
-                    <input type="radio" name="pagamento" checked>
+
+                    <input
+                        type="radio"
+                        name="pagamento"
+                        value="cartao"
+                        checked
+                    >
+
                     Cartão de Crédito
+
                 </label>
 
+
                 <label>
-                    <input type="radio" name="pagamento">
+
+                    <input
+                        type="radio"
+                        name="pagamento"
+                        value="pix"
+                    >
+
                     PIX
+
                 </label>
 
+
                 <label>
-                    <input type="radio" name="pagamento">
+
+                    <input
+                        type="radio"
+                        name="pagamento"
+                        value="boleto"
+                    >
+
                     Boleto Bancário
+
                 </label>
+
 
             </div>
 
+
+
+            <!-- CUPOM -->
+
             <div class="card">
 
-                <h2>Cupom de Desconto</h2>
+                <h2>
+                    Cupom de Desconto
+                </h2>
+
 
                 <div class="cupom">
 
-                    <input type="text" placeholder="Digite seu cupom">
 
-                    <button>Aplicar</button>
+                    <input
+                        type="text"
+                        id="cupom"
+                        placeholder="Digite seu cupom"
+                    >
+
+
+                    <button
+                        type="button"
+                        id="aplicar-cupom"
+                    >
+                        Aplicar
+                    </button>
+
 
                 </div>
 
+
             </div>
 
+
         </div>
+
+
+
+        <!-- ==================================================
+             LADO DIREITO
+        =================================================== -->
 
         <div class="direita">
 
+
             <div class="card">
 
-                <h2>Resumo do Pedido</h2>
+
+                <h2>
+                    Resumo do Pedido
+                </h2>
+
+
+
+                <!-- PRODUTO -->
 
                 <div class="linha">
-                    <span>Produto</span>
-                    <span>R$ 399,90</span>
+
+                    <span>
+                        Produto
+                    </span>
+
+                    <span id="valor-produto">
+                        R$ 0,00
+                    </span>
+
                 </div>
 
-                <div class="linha">
-                    <span>Frete</span>
-                    <span>R$ 25,00</span>
-                </div>
+
+
+                <!-- FRETE -->
 
                 <div class="linha">
-                    <span>Desconto</span>
-                    <span>- R$ 20,00</span>
+
+                    <span>
+                        Frete
+                    </span>
+
+                    <span id="valor-frete">
+                        R$ 0,00
+                    </span>
+
                 </div>
+
+
+
+                <!-- DESCONTO -->
+
+                <div class="linha">
+
+                    <span>
+                        Desconto
+                    </span>
+
+                    <span id="valor-desconto">
+                        R$ 0,00
+                    </span>
+
+                </div>
+
+
 
                 <hr>
 
+
+
+                <!-- TOTAL -->
+
                 <div class="linha total">
-                    <span>Total</span>
-                    <span>R$ 404,90</span>
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span id="valor-total">
+                        R$ 0,00
+                    </span>
+
                 </div>
 
-                <button id="finalizar">
+
+
+                <!-- FINALIZAR -->
+
+                <button
+                    id="finalizar"
+                    type="button"
+                >
                     Finalizar Compra
                 </button>
 
+
             </div>
+
 
         </div>
 
+
     </div>
+
 
 </div>
 
-<script src="../JS/pagamento.js"></script>
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script src="../js/pagamento.js"></script>
+
 
 </body>
+
 </html>

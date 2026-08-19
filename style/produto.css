@@ -191,7 +191,7 @@ nav a:hover {
 .area-imagens {
     display: flex;
     align-items: flex-start;
-    gap: 15px;
+    gap: 60px;
 
     flex-shrink: 0;
 }
@@ -260,23 +260,23 @@ nav a:hover {
 ========================================================= */
 
 .img-principal {
-    width: 500px;
-    max-width: 100%;
+    width: 600px;
+    max-width: 600px;
 }
 
 #imagem-maior {
     display: block;
 
-    width: 500px;
+    width: 600px;
     max-width: 100%;
 
     height: 500px;
 
     object-fit: contain;
 
-    background: #0b1220;
+    background: transparent;
 
-    border-radius: 10px;
+    border-radius: 20px;
 
     margin: 0;
 
